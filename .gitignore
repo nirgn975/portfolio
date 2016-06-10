@@ -10,6 +10,7 @@ _site/
 ### Sass ###
 .sass-cache/
 *.css.map
+/assets/scss/main.min.css
 
 
 ### Node ###
