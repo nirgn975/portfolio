@@ -1,0 +1,35 @@
+.post-content {
+  direction: rtl;
+
+  pre, code {
+    direction: ltr;
+  }
+
+  ol, ul {
+    margin-right: 40px;
+  }
+
+  blockquote {
+    border-left: initial;
+    border-right: 4px solid #e8e8e8;
+    padding-left: 0;
+    padding-right: 15px;
+  }
+
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #f8f8f8;
+    }
+
+    td, th {
+      border: 1px solid #ddd;
+    }
+  }
+}
