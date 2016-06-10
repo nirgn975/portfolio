@@ -1,0 +1,26 @@
+# Site settings
+title: Stories of a Lifelong Student
+email: nirgn975@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://lifelongstudent.net" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+
+# Pagination
+gems: [jekyll-paginate]
+paginate: 5
+paginate_path: "page:num"
+
+authors:
+  - nirgn:
+      name: Nir Galon
+      bio: something about me
+      email: nirgn975
+      twitter_username: nirgn975
+      github_username: nirgn975
+      avatar: nirgn.jpg
