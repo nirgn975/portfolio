@@ -19,10 +19,8 @@ var messages = {
  */
 gulp.task('javascript', function(){
   return gulp.src([
-    './assets/javascript/semantic.min.js',
     './assets/javascript/modernizr.custom.js',
     './assets/javascript/jquery.dlmenu.js',
-    './assets/javascript/nav.js'
   ])
     .pipe(concat('app.min.js'))
     .pipe(uglify())
@@ -67,7 +65,7 @@ gulp.task('browser-sync', ['javascript','sass', 'jekyll-build'], function() {
  * Convert SASS to CSS, minify all the files and add prefix.
  */
 gulp.task('sass', function () {
-    return gulp.src('assets/css/main.scss')
+    return gulp.src('assets/scss/main.scss')
         .pipe(sass({
             includePaths: ['css'],
             onError: browserSync.notify
@@ -75,9 +73,9 @@ gulp.task('sass', function () {
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
         .pipe(rename("main.min.css"))
         .pipe(cssmin())
-        .pipe(gulp.dest('_site/assets/css'))
+        .pipe(gulp.dest('_site/assets/scss'))
         .pipe(browserSync.reload({stream:true}))
-        .pipe(gulp.dest('assets/css'));
+        .pipe(gulp.dest('assets/scss'));
 });
 
 
@@ -86,8 +84,8 @@ gulp.task('sass', function () {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('assets/css/**', ['sass']);
-    gulp.watch('assets/js/**', ['javascript']);
+    gulp.watch('assets/scss/**', ['sass']);
+    gulp.watch('assets/javascript/**', ['javascript']);
     gulp.watch(['index.html', '_layouts/*.html', '_includes/*'], ['jekyll-rebuild']);
 });
 
