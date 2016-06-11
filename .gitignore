@@ -18,6 +18,7 @@ _site/
 logs
 *.log
 npm-debug.log*
+/assets/javascript/app.min.js
 
 # Runtime data
 pids
