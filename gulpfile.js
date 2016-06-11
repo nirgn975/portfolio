@@ -19,14 +19,13 @@ var messages = {
  */
 gulp.task('javascript', function(){
   return gulp.src([
-      './assets/javascript/tools/semantic.min.js',
-      './assets/javascript/custom/nav.js'
+      './assets/javascript/nav.js'
     ])
     .pipe(concat('app.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./_site/assets/javascript'))
+    .pipe(gulp.dest('./_site/assets'))
     .pipe(browserSync.reload({stream:true}))
-    .pipe(gulp.dest('assets/javascript'));
+    .pipe(gulp.dest('assets'));
 });
 
 /**
