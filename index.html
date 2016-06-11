@@ -6,49 +6,47 @@ layout: default
 
   <h1 class="page-heading">Posts</h1>
 
-    <!-- This loops through the paginated posts -->
-    {% for post in paginator.posts %}
-      <p class="author">
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-      </p>
+  <!-- This loops through the paginated posts -->
+  {% for post in paginator.posts %}
+    <p class="author">
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    </p>
 
-      <h2>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </h2>
+    <h2>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+  {% endfor %}
+
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <div class="ui pagination menu">
+    <!-- Previous page -->
+    {% if paginator.previous_page %}
+      <a class="item" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    {% else %}
+      <a class="item disabled">&laquo; Prev</a>
+    {% endif %}
+
+    <!-- All page numbers-->
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <a class="active item">{{ page }}</a>
+      {% elsif page == 1 %}
+        <a class="item" href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+      {% else %}
+        <a class="item" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
     {% endfor %}
 
-    <!-- Pagination -->
-    {% if paginator.total_pages > 1 %}
-    <div class="ui pagination menu">
-      <!-- Previous page -->
-      {% if paginator.previous_page %}
-        <a class="item" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-      {% else %}
-        <a class="item disabled">&laquo; Prev</a>
-      {% endif %}
-
-      <!-- All page numbers-->
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <a class="active item">{{ page }}</a>
-        {% elsif page == 1 %}
-          <a class="item" href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-        {% else %}
-          <a class="item" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
-
-      <!-- Next page -->
-      {% if paginator.next_page %}
-        <a class="item" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-      {% else %}
-        <a class="item disabled">Next &raquo;</a>
-      {% endif %}
-    </div>
+    <!-- Next page -->
+    {% if paginator.next_page %}
+      <a class="item" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    {% else %}
+      <a class="item disabled">Next &raquo;</a>
     {% endif %}
-    <!-- END pagination -->
+  </div>
+  {% endif %}
+  <!-- END pagination -->
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-</div>
-
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 </div>
