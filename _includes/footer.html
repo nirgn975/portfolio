@@ -1,38 +1,26 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
+<footer class="page-footer blue-grey darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">{{ site.title }}</h5>
+        <p class="grey-text text-lighten-4">{{ site.description }}</p>
       </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
           <li>
-            {% include icon-github.html username=site.github_username %}
+            <p class="grey-text text-lighten-3 rss-subscribe">subscribe
+              <a href="{{ "/feed.xml" | prepend: site.baseurl }}"> via RSS</a>
+            </p>
           </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
+          <li><a class="grey-text text-lighten-3" href="#!">Link</a></li>
         </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
       </div>
     </div>
-
   </div>
-
+  <div class="footer-copyright blue-grey darken-4">
+    <div class="container">
+    © 2016 The content of this blog is licensed under the Creative Commons Attribution 3.0 License, the code samples under the MIT License, and the pictures under Fair use.
+    </div>
+  </div>
 </footer>

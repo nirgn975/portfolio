@@ -1,0 +1,15 @@
+body {
+  background-color: #E0E0E0; 
+}
+
+#content-list {
+  direction: rtl;
+
+  .card-title {
+    right: 0;
+  }
+
+  .pagination {
+    text-align: center;
+  }
+}

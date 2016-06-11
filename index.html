@@ -1,52 +1,61 @@
 ---
 layout: default
 ---
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
+<div>
   <!-- This loops through the paginated posts -->
-  {% for post in paginator.posts %}
-    <p class="author">
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-    </p>
-
-    <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-  {% endfor %}
+  <div class="row">
+    {% for post in paginator.posts %}
+      <div class="col s12 l6">
+        <div class="card hoverable medium">
+          <div class="card-image">
+            <img src="http://science-all.com/images/wallpapers/picture/picture-16.jpg">
+            <span class="card-title">{{ post.title }}</span>
+          </div>
+          <div class="card-content">
+            <span class="left">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ post.url | prepend: site.baseurl }}">READ MORE ></a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 
   <!-- Pagination -->
   {% if paginator.total_pages > 1 %}
-  <div class="ui pagination menu">
+  <div class="pagination">
     <!-- Previous page -->
     {% if paginator.previous_page %}
-      <a class="item" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    <li class="waves-effect">
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_right</i></a>
+    </li>
     {% else %}
-      <a class="item disabled">&laquo; Prev</a>
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
     {% endif %}
 
     <!-- All page numbers-->
     {% for page in (1..paginator.total_pages) %}
       {% if page == paginator.page %}
-        <a class="active item">{{ page }}</a>
+        <li class="active blue-grey"><a href="#!">{{ page }}</a></li>
       {% elsif page == 1 %}
-        <a class="item" href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        <li class="waves-effect"><a href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
       {% else %}
-        <a class="item" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        <li class="waves-effect"><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
       {% endif %}
     {% endfor %}
 
     <!-- Next page -->
     {% if paginator.next_page %}
-      <a class="item" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+      <li class="waves-effect">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_left</i></a>
+      </li>
     {% else %}
-      <a class="item disabled">Next &raquo;</a>
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     {% endif %}
   </div>
   {% endif %}
   <!-- END pagination -->
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 </div>

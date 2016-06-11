@@ -1,8 +1,7 @@
 $(function (){
   "use strict";
 
-  $('.ui.sticky')
-  .sticky({
-    context: '#navbar'
-  });
+  // Activatethe mobile side nav.
+  $(".button-collapse").sideNav();
+
 });
