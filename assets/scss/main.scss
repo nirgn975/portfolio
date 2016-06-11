@@ -19,4 +19,6 @@ $grey-color-dark:  darken($grey-color, 25%);
 
 @import "tools/syntax-highlighting";
 
-@import "layouts/posts";
+@import "includes/header";
+
+@import "layouts/post";
