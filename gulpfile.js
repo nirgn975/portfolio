@@ -19,13 +19,14 @@ var messages = {
  */
 gulp.task('javascript', function(){
   return gulp.src([
-    './assets/javascript/modernizr.custom.js',
-    './assets/javascript/jquery.dlmenu.js',
-  ])
+      './assets/javascript/tools/semantic.min.js',
+      './assets/javascript/custom/nav.js'
+    ])
     .pipe(concat('app.min.js'))
     .pipe(uglify())
+    .pipe(gulp.dest('./_site/assets/javascript'))
     .pipe(browserSync.reload({stream:true}))
-    .pipe(gulp.dest('./_site/assets/javascript'));
+    .pipe(gulp.dest('assets/javascript'));
 });
 
 /**
@@ -84,8 +85,11 @@ gulp.task('sass', function () {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('assets/scss/**', ['sass']);
-    gulp.watch('assets/javascript/**', ['javascript']);
+    gulp.watch([
+      'assets/scss/*/*.scss',
+      'assets/scss/*.scss',
+    ], ['sass']);
+    gulp.watch('assets/javascript/*/*', ['javascript']);
     gulp.watch([
       'index.html',
       '_layouts/*.html',
