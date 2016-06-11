@@ -17,23 +17,38 @@ layout: default
       </h2>
     {% endfor %}
 
-    <!-- Pagination links -->
-    <div class="pagination">
+    <!-- Pagination -->
+    {% if paginator.total_pages > 1 %}
+    <div class="ui pagination menu">
+      <!-- Previous page -->
       {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+        <a class="item" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
       {% else %}
-      <span class="previous">Previous</span>
+        <a class="item disabled">&laquo; Prev</a>
       {% endif %}
-      <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+      <!-- All page numbers-->
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <a class="active item">{{ page }}</a>
+        {% elsif page == 1 %}
+          <a class="item" href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        {% else %}
+          <a class="item" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <!-- Next page -->
       {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+        <a class="item" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
       {% else %}
-      <span class="next ">Next</span>
+        <a class="item disabled">Next &raquo;</a>
       {% endif %}
     </div>
+    {% endif %}
+    <!-- END pagination -->
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
 </div>
 
 </div>

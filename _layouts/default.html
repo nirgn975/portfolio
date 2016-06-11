@@ -5,15 +5,16 @@
 
   <body>
 
-    {% include header.html %}
+    {% include nav.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
+    <div class="ui grid container">
+      <div class="sixteen wide column">
         {{ content }}
       </div>
     </div>
 
-    {% include footer.html %}
+
+    <!-- {% include footer.html %} -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script src="/assets/javascript/jquery.dlmenu.js"></script>

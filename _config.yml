@@ -13,8 +13,8 @@ markdown: kramdown
 
 # Pagination
 gems: [jekyll-paginate]
-paginate: 5
-paginate_path: "page:num"
+paginate: 7
+paginate_path: "/page:num/"
 
 authors:
   - nirgn:
