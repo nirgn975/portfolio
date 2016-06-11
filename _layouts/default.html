@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="he">
 
   {% include head.html %}
 
@@ -7,23 +7,22 @@
 
     {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
+    <div class="ui grid">
+      <div class="two wide column"></div>
+
+      {% include nav.html %}
+
+      <div class="ten wide column">
         {{ content }}
       </div>
+
+      <div class="two wide column"></div>
     </div>
 
-    {% include footer.html %}
+    <!-- {% include footer.html %} -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script src="/assets/javascript/jquery.dlmenu.js"></script>
-		<script>
-			$(function() {
-				$( '#dl-menu' ).dlmenu({
-					animationClasses : { classin : 'dl-animate-in-2', classout : 'dl-animate-out-2' }
-				});
-			});
-		</script>
+    <script src="/assets/javascript/app.min.js"></script>
   </body>
 
 </html>

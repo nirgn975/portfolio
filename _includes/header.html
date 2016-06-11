@@ -1,16 +1,5 @@
 <header class="site-header">
 
-  <nav id="dl-menu" class="dl-menuwrapper">
-    <button class="dl-trigger">Open Menu</button>
-    <ul class="dl-menu">
-      {% for my_page in site.pages %}
-        {% if my_page.title %}
-        <li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
-
   <a class="site-title" href="{{ site.baseurl }}/">
     <img src="/assets/img/logo.png" alt="{{ site.title }}" />
   </a>
