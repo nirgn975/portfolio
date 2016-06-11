@@ -20,8 +20,6 @@ var messages = {
 gulp.task('javascript', function(){
   return gulp.src([
     './assets/javascript/semantic.min.js',
-    './assets/javascript/modernizr.custom.js',
-    './assets/javascript/jquery.dlmenu.js',
   ])
     .pipe(concat('app.min.js'))
     .pipe(uglify())
