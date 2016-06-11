@@ -1,16 +1,32 @@
-<nav id="navbar" class="two wide column">
-  <div class="ui sticky secondary vertical pointing menu">
-    <a class="item" href="http://nirgn.com">About</a>
-
-    {% for my_page in site.pages %}
-      {% if my_page.title %}
-        {% if my_page.url == page.url %}
-          <a class="item active" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-        {% else  %}
-          <a class="item" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+<nav class="button-collapse blue-grey darken-3">
+  <div class="nav-wrapper">
+    <a class="brand-logo" href="{{ site.baseurl }}/">
+      <img src="" alt="{{ site.title }}" />
+    </a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="http://nirgn.com">About</a></li>
+      {% for my_page in site.pages %}
+        {% if my_page.title %}
+          {% if my_page.url == page.url %}
+            <li class="active"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+          {% else  %}
+            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+          {% endif %}
         {% endif %}
-      {% endif %}
-
-    {% endfor %}
+      {% endfor %}
+    </ul>
+    <ul id="mobile-demo" class="side-nav blue-grey darken-3">
+      <li><a href="http://nirgn.com">About</a></li>
+      {% for my_page in site.pages %}
+        {% if my_page.title %}
+          {% if my_page.url == page.url %}
+            <li class="active"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+          {% else  %}
+            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
   </div>
 </nav>
