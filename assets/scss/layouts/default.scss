@@ -1,5 +1,5 @@
 body {
-  background-color: #E0E0E0; 
+  background-color: #E0E0E0;
 }
 
 #content-list {
@@ -7,6 +7,10 @@ body {
 
   .card-title {
     right: 0;
+  }
+
+  span.date {
+    margin: 0 5px;
   }
 
   .pagination {
