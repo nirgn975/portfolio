@@ -7,14 +7,13 @@ layout: default
     {% for post in paginator.posts %}
       <div class="col s12 l6">
         <div class="card hoverable medium">
-          <div class="card-image">
-            <img src="http://science-all.com/images/wallpapers/picture/picture-16.jpg">
-            <span class="card-title">{{ post.title }}</span>
+          <div class="card-image blue-grey lighten-5">
+            <img src="/assets/img/posts/{{ post.base-images-url }}/{{ post.hero-image }}">
+            <span class="card-title black-text">{{ post.title }}</span>
           </div>
           <div class="card-content">
-            <span class="left">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
+            <span class="left date"><em>{{ post.date | date: "%b %-d, %Y" }}</em></span>
+            <p>{{ post.summary }}</p>
           </div>
           <div class="card-action">
             <a href="{{ post.url | prepend: site.baseurl }}">READ MORE ></a>
