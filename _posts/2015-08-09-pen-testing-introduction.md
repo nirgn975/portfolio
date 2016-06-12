@@ -2,6 +2,9 @@
 title: 'Pen Testing - הקדמה'
 author: nirgn
 layout: post
+summary: 'סדרת הפוסטים הקרובה תיהיה יומן מסע של תהליך הלמידה שלי את העולם הענק הנקרא בדיקות חדירה.'
+base-images-url: 'pen-testing-part-1'
+hero-image: 'hero_image.jpg'
 categories:
   - Pen_Testing
 tags:
@@ -60,7 +63,7 @@ tags:
   - שרת
   - תקיפה
 ---
-[<img class="alignleft wp-image-2236" src="http://www.lifelongstudent.net/wp-content/uploads/2015/08/Pentesting.jpg" alt="Pentesting" width="400" height="225" srcset="http://www.lifelongstudent.net/wp-content/uploads/2015/08/Pentesting.jpg 480w, http://www.lifelongstudent.net/wp-content/uploads/2015/08/Pentesting-150x84.jpg 150w, http://www.lifelongstudent.net/wp-content/uploads/2015/08/Pentesting-300x169.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />](http://www.lifelongstudent.net/wp-content/uploads/2015/08/Pentesting.jpg)לא ממזמן חזרתי לנושא שעניין אותי עוד מהתקופה שלי בתור נער מתבגר &#8211; בדיקות חדירה (Pen Testing ראשי תיבות של Penetration Testing). באיזשהו שלב (לא זכור לי אפילו למה) פניתי לתחומים אחרים הקשורים למחשבים (בעיקר פיתוח), אך העניין האינסופי בתחום נשאר, ולאחרונה חזרתי להתעניין בנושא. סדרת הפוסטים הקרובה תיהיה יומן מסע של תהליך הלמידה שלי את העולם הענק הנקרא האקינג. כמו תמיד אבצע disclaimer: אינני מתיימר לדעת הכל, וכל מה שאכתוב כאן הוא מלמידה אישית שלי דרך ספרים ואתרים שונים. אינני אחראי על השימוש שתבצעו בידע שיכתב בפוסטים אלו, ו**אני נגד שימוש לרעה בידע שתצברו כאן** (יש מספיק עבודות בהם תוכלו ליישם את הידע שלכם, כך שממש אין צורך לעבור על החוק).
+לא ממזמן חזרתי לנושא שעניין אותי עוד מהתקופה שלי בתור נער מתבגר &#8211; בדיקות חדירה (Pen Testing ראשי תיבות של Penetration Testing). באיזשהו שלב (לא זכור לי אפילו למה) פניתי לתחומים אחרים הקשורים למחשבים (בעיקר פיתוח), אך העניין האינסופי בתחום נשאר, ולאחרונה חזרתי להתעניין בנושא. סדרת הפוסטים הקרובה תיהיה יומן מסע של תהליך הלמידה שלי את העולם הענק הנקרא בדיקות חדירה. כמו תמיד אבצע disclaimer: אינני מתיימר לדעת הכל, וכל מה שאכתוב כאן הוא מלמידה אישית שלי דרך ספרים ואתרים שונים. אינני אחראי על השימוש שתבצעו בידע שיכתב בפוסטים אלו, ו**אני נגד שימוש לרעה בידע שתצברו כאן** (יש מספיק עבודות בהם תוכלו ליישם את הידע שלכם, כך שממש אין צורך לעבור על החוק).
 
 <span style="text-decoration: underline;">תוכן עניינים:</span>
 

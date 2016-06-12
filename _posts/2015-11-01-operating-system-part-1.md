@@ -2,6 +2,9 @@
 title: 'מערכות הפעלה - חלק 1 (הקדמה)'
 author: nirgn
 layout: post
+summary: פוסט זה הוא הראשון בסדרת פוסטים על מערכות הפעלה, ומהווה הקדמה ויישור קו תיאורטי של הנושא.
+base-images-url: 'operating-system-part-1'
+hero-image: 'hero_image.svg'
 categories:
   - Operating Systems
 tags:
@@ -55,7 +58,7 @@ tags:
   - תהליך
   - תכנית ריצה
 ---
-פוסט זה הוא הראשון בסדרת פוסטים על מערכות הפעלה, ומהווה הקדמה ויישור קו תיאורטי של נושא. אציין מראש כי הפוסטים בסדרה יהיו כבדים (בעלי מלל רב) וטכניים. הפוסטים נועדו למי שולמד מערכות הפעלה כחלק מתואר במדעי המחשב ו/או למי שמעוניין ללמוד לבד ו/או לאנשים שרק רוצים להיזכר (בראש כל פוסט יהיה תוכן עניינים). 
+פוסט זה הוא הראשון בסדרת פוסטים על מערכות הפעלה, ומהווה הקדמה ויישור קו תיאורטי של הנושא. אציין מראש כי הפוסטים בסדרה יהיו כבדים (בעלי מלל רב) וטכניים. הפוסטים נועדו למי שולמד מערכות הפעלה כחלק מתואר במדעי המחשב ו/או למי שמעוניין ללמוד לבד ו/או לאנשים שרק רוצים להיזכר (בראש כל פוסט יהיה תוכן עניינים). 
 
   1. מהי מערכת ההפעלה
   2. ההיסטוריה של מערכות ההפעלה
@@ -191,291 +194,291 @@ do_syscall:
     <td style="text-align: left;">
       <span style="text-decoration: underline;"><strong>Description</strong></span>
     </td>
-    
+
     <td style="text-align: left;">
       <span style="text-decoration: underline;"><strong>WIN32</strong></span>
     </td>
-    
+
     <td style="text-align: left;">
       <span style="text-decoration: underline;"><strong>UNIX</strong></span>
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Create a new process
     </td>
-    
+
     <td style="text-align: left;">
       CreateProcess
     </td>
-    
+
     <td style="text-align: left;">
       fork
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Can wait for a process to exit
     </td>
-    
+
     <td style="text-align: left;">
       WaitForSingleObject
     </td>
-    
+
     <td style="text-align: left;">
       waitpid
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       CreateProcess = fork + execve
     </td>
-    
+
     <td style="text-align: left;">
       (none)
     </td>
-    
+
     <td style="text-align: left;">
       execve
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Terminate execution
     </td>
-    
+
     <td style="text-align: left;">
       ExitProcess
     </td>
-    
+
     <td style="text-align: left;">
       exit
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Create a file or open an existing file
     </td>
-    
+
     <td style="text-align: left;">
       CreateFile
     </td>
-    
+
     <td style="text-align: left;">
       open
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Close a file
     </td>
-    
+
     <td style="text-align: left;">
       CloseHandle
     </td>
-    
+
     <td style="text-align: left;">
       close
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Read data from a file
     </td>
-    
+
     <td style="text-align: left;">
       ReadFile
     </td>
-    
+
     <td style="text-align: left;">
       read
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Write data to a file
     </td>
-    
+
     <td style="text-align: left;">
       WriteFile
     </td>
-    
+
     <td style="text-align: left;">
       write
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Move the file pointer
     </td>
-    
+
     <td style="text-align: left;">
       SetFilePointer
     </td>
-    
+
     <td style="text-align: left;">
       lseek
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Get various file attributes
     </td>
-    
+
     <td style="text-align: left;">
       GetFileAtterbutesEx
     </td>
-    
+
     <td style="text-align: left;">
       stat
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Create a new directory
     </td>
-    
+
     <td style="text-align: left;">
       CreateDirectory
     </td>
-    
+
     <td style="text-align: left;">
       mkdir
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Remove an empty directory
     </td>
-    
+
     <td style="text-align: left;">
       RemoveDirectory
     </td>
-    
+
     <td style="text-align: left;">
       rmdir
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Win32 does not support links
     </td>
-    
+
     <td style="text-align: left;">
       (none)
     </td>
-    
+
     <td style="text-align: left;">
       link
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Destroy an existing file
     </td>
-    
+
     <td style="text-align: left;">
       DeleteFile
     </td>
-    
+
     <td style="text-align: left;">
       unlink
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Win32 does not support mount
     </td>
-    
+
     <td style="text-align: left;">
       (none)
     </td>
-    
+
     <td style="text-align: left;">
       mount
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Win32 does not support mount
     </td>
-    
+
     <td style="text-align: left;">
       (none)
     </td>
-    
+
     <td style="text-align: left;">
       umount
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Change the current working directory
     </td>
-    
+
     <td style="text-align: left;">
       SetCurrentDirectory
     </td>
-    
+
     <td style="text-align: left;">
       chdir
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Win32 does not support securiry (although NT does)
     </td>
-    
+
     <td style="text-align: left;">
       (none)
     </td>
-    
+
     <td style="text-align: left;">
       chmod
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Win32 does not support signals
     </td>
-    
+
     <td style="text-align: left;">
       (none)
     </td>
-    
+
     <td style="text-align: left;">
       kill
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Get the current time
     </td>
-    
+
     <td style="text-align: left;">
       GetLocalTime
     </td>
-    
+
     <td style="text-align: left;">
       time
     </td>
@@ -496,67 +499,67 @@ do_syscall:
     <td style="text-align: left;">
       <strong><span style="text-decoration: underline;">Function</span></strong>
     </td>
-    
+
     <td style="text-align: left;">
       <strong><span style="text-decoration: underline;">Layer</span></strong>
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       The operator
     </td>
-    
+
     <td style="text-align: left;">
       5
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       User programs
     </td>
-    
+
     <td style="text-align: left;">
       4
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       input/output management
     </td>
-    
+
     <td style="text-align: left;">
       3
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Operator-process communication
     </td>
-    
+
     <td style="text-align: left;">
       2
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Memory and drum management
     </td>
-    
+
     <td style="text-align: left;">
       1
     </td>
   </tr>
-  
+
   <tr>
     <td style="text-align: left;">
       Processor allocation and multiprogramming
     </td>
-    
+
     <td style="text-align: left;">
     </td>
   </tr>
