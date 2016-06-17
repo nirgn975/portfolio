@@ -7,56 +7,6 @@ base-images-url: 'operating-system-part-1'
 hero-image: 'hero_image.svg'
 categories:
   - Operating Systems
-tags:
-  - Apps
-  - c programming language
-  - Code
-  - deadlock
-  - debugging
-  - embedded
-  - executable
-  - Files
-  - Hardware
-  - INPUT
-  - Kernel
-  - machine
-  - mainframe
-  - management
-  - memory
-  - operating system
-  - OS
-  - OUTPUT
-  - process
-  - Shell
-  - system call
-  - אפליקציה
-  - גרעין
-  - הפעלה
-  - זיכרון
-  - חומרה
-  - יישום
-  - מבוזר
-  - מכונה
-  - ממשק
-  - מעבד פקודות
-  - מערכות
-  - מערכות הפעלה
-  - מערכת
-  - מערכת הפעלה
-  - מצב מיוחס
-  - מצב קיפאון
-  - משאבים
-  - ניהול
-  - ניהול זיכרון
-  - סנכרון
-  - פלט
-  - קבצים
-  - קלט
-  - קריאות מערכת
-  - שפת C
-  - שרתים
-  - תהליך
-  - תכנית ריצה
 ---
 פוסט זה הוא הראשון בסדרת פוסטים על מערכות הפעלה, ומהווה הקדמה ויישור קו תיאורטי של הנושא. אציין מראש כי הפוסטים בסדרה יהיו כבדים (בעלי מלל רב) וטכניים. הפוסטים נועדו למי שולמד מערכות הפעלה כחלק מתואר במדעי המחשב ו/או למי שמעוניין ללמוד לבד ו/או לאנשים שרק רוצים להיזכר (בראש כל פוסט יהיה תוכן עניינים). 
 
@@ -71,9 +21,12 @@ tags:
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>1. מהי מערכת הפעלה</strong></span>
+#### 1. מהי מערכת הפעלה
 
-<img class="alignleft size-full wp-image-2276" src="http://www.lifelongstudent.net/wp-content/uploads/2015/10/OS_Stack.png" alt="OS_Stack" width="280" height="259" srcset="http://www.lifelongstudent.net/wp-content/uploads/2015/10/OS_Stack.png 280w, http://www.lifelongstudent.net/wp-content/uploads/2015/10/OS_Stack-150x139.png 150w" sizes="(max-width: 280px) 100vw, 280px" />מערכת הפעלה היא תוכנה שמנהלת את חומרת המחשב. מערכות הפעלה גם מספקות בסיס להרצת אפליקציות שונות ומשמשות תווך בין משתמשי המחשב לבין החומרה (תמונה משמאל). למרות שמערכת ההפעלה משמשת כתווך, אין זה אומר שכל פעולה שאפליקציה או שירות מסוים יבצעו עוברת דרך מערכת ההפעלה (לכן ישנו קו בצד שמאל שמקשר בין האפליקציה ישירות לחומרה). חשבו מה היה קורה אילו כל הוראה של תוכנית משתמש הייתה מצריכה פנייה לממשק המשתמש ומשם לגרעין מערכת ההפעלה (kernel), איזה דיילי ועל כמה משאבים מבוזבזים מדובר. ובמקרים מסויימים, אין צורך אפילו בפנייה לחומרה (לדוג' כאשר תוכנית מסויימת מבקשת לבצע הוראה הדורשת קיום הרשאה מיוחדת, ההרשאה תיתן ע"י מערכת ההפעלה, ללא קשר לחומרה).
+<div class="left">
+  <img src="/assets/img/posts/operating-system-part-1/os_stack.jpg" alt="OS Stack">
+</div>
+מערכת הפעלה היא תוכנה שמנהלת את חומרת המחשב. מערכות הפעלה גם מספקות בסיס להרצת אפליקציות שונות ומשמשות תווך בין משתמשי המחשב לבין החומרה (תמונה משמאל). למרות שמערכת ההפעלה משמשת כתווך, אין זה אומר שכל פעולה שאפליקציה או שירות מסוים יבצעו עוברת דרך מערכת ההפעלה (לכן ישנו קו בצד שמאל שמקשר בין האפליקציה ישירות לחומרה). חשבו מה היה קורה אילו כל הוראה של תוכנית משתמש הייתה מצריכה פנייה לממשק המשתמש ומשם לגרעין מערכת ההפעלה (kernel), איזה דיילי ועל כמה משאבים מבוזבזים מדובר. ובמקרים מסויימים, אין צורך אפילו בפנייה לחומרה (לדוג' כאשר תוכנית מסויימת מבקשת לבצע הוראה הדורשת קיום הרשאה מיוחדת, ההרשאה תיתן ע"י מערכת ההפעלה, ללא קשר לחומרה).
 
 החץ מהחומרה אל גרעין המערכת (Kernel) מתייחס למקרים בהן אין צורך בפנייה לחומרה, אך ישנו צורך בפנייה אל ה kernel (כמו שניתן לשים לב, אין חץ ישיר ממלבן האפליקציות אל גרעין המערכת). כאשר הוראות כאלו מגיעות (מכונות גם הוראות מיוחסות) המעבד עובר למצב המכונה מצב מיוחס (kernel mode או supervisor mode), בעוד הוראות שאינן מיוחסות מתבצעות במצב משתמש (user mode), ז"א שהמעבד מספק תמיכה כדי שמערכת ההפעלה תוכל להגן על משאביה. ההגנה מיועדת לחסום את אפשרות ההתערבות של המשתמשים בפעולתה של המערכת עצמה (בפועל, ההבחנה בין מצב מיוחס למצב משתמש נעשית ע"י מידור של קבוצת פקודות מכונה מיוחסות שאינן עומדות לעולם לרשות המשתמש הרגיל).
 
@@ -86,9 +39,13 @@ tags:
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">2. ההיסטוריה של מערכות ההפעלה</span>**
+#### 2. ההיסטוריה של מערכות ההפעלה
 
-[<img class="alignleft wp-image-2284" src="http://www.lifelongstudent.net/wp-content/uploads/2015/10/Punched_Cards_Programming.png" alt="Punched_Cards_Programming" width="350" height="331" srcset="http://www.lifelongstudent.net/wp-content/uploads/2015/10/Punched_Cards_Programming.png 400w, http://www.lifelongstudent.net/wp-content/uploads/2015/10/Punched_Cards_Programming-150x142.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2015/10/Punched_Cards_Programming-300x284.png 300w" sizes="(max-width: 350px) 100vw, 350px" />](http://www.lifelongstudent.net/wp-content/uploads/2015/10/Punched_Cards_Programming.png)במחשבים הראשונים, ללא מערכות ההפעלה, כל תוכנית הייתה צריכה מפרט מלא של החומרה כדי לפעול כראוי ולבצע משימות סטנדרטיות. והמורכבות ההולכת וגדלה של החומרה ושל התוכניות (האפליקציות) הפכו בסופו של דבר את מערכות ההפעלה להכרח. מערכת ההפעלה מספקת סט של פונקציות נחוצות המשמשת את רוב תוכניות המחשב (האפליקציות), ולינקים הדרושים כדי לשלוט ולסנכרן את חומרת המחשב.
+<div class="left">
+  <img src="/assets/img/posts/operating-system-part-1/punched_cards_programming.jpg" alt="Punched Cards Programming">
+</div>
+
+במחשבים הראשונים, ללא מערכות ההפעלה, כל תוכנית הייתה צריכה מפרט מלא של החומרה כדי לפעול כראוי ולבצע משימות סטנדרטיות. והמורכבות ההולכת וגדלה של החומרה ושל התוכניות (האפליקציות) הפכו בסופו של דבר את מערכות ההפעלה להכרח. מערכת ההפעלה מספקת סט של פונקציות נחוצות המשמשת את רוב תוכניות המחשב (האפליקציות), ולינקים הדרושים כדי לשלוט ולסנכרן את חומרת המחשב.
 
 המחשבים הראשונים היו מחשבי mainframe (מחשבים מרכזיים חסרי כל צורה של מערכת הפעלה). לכל משתמש היה שימוש בלעדי של המכונה לתקופה קצובה של זמן, והיה מגיע עם התוכנית והנתונים מראש (על <a href="https://en.wikipedia.org/wiki/Punched_card" target="_blank">כרטיסי נייר מנוקבים</a> וסרטים מגנטיים). התוכנית הייתה נטענת למכונה, והמכונה הייתה מוגדרת לעבוד עד שהתוכנית הושלמה או התרסקה (ניתן היה לדבג, Debugging, באמצעות לוח בקרה עם מתגים ונוריות). עם הזמן חל שינוי משמעותי של ממשק מערכות ההפעלה ובדיוק כמו מכוניות ישנות שהיו חסרות מהירות האצה, מכשיר רדיו, מזגן, וכד' שהפכו אח"כ לסטנדרטיים, כך יותר ויותר מהתוכנות האופציונליות (עורכי טקסט, מנהלי קבצים, דפדפן, וכד') הפכו לסטנדרט בכל חבילה של מערכת הפעלה. אך הצאצא האמיתי של מערכות ההפעלה המוקדמות הוא מה שנקרא היום ליבה / גרעין (kernel).
 
@@ -100,7 +57,7 @@ tags:
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">3. גן החיות של מערכות ההפעלה</span>**
+#### 3. גן החיות של מערכות ההפעלה
 
 במהלך השנים התפתחו סוגים רבים ושונים של מערכות הפעלה, שלכל אחת ייעוד מרכזי משלה. בשנים האחרונות הרבה מסוגים אלו מתמזגים ומתאחדים, בעיקר בגלל ההתקדמות במחשוב האישי. למרות זאת בפסקה זו אציג בקצרה את הסוגים העיקריים של מערכות ההפעלה, גם אם כבר אינן איתנו. להלן הסוגים העיקריים:
 
@@ -114,29 +71,31 @@ tags:
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>4. מושגים בסיסיים</strong></span>
+#### 4. מושגים בסיסיים
 
-[<img class="alignleft wp-image-2291" src="http://www.lifelongstudent.net/wp-content/uploads/2015/10/Ubuntu_Terminal.png" alt="Ubuntu_Terminal" width="280" height="228" srcset="http://www.lifelongstudent.net/wp-content/uploads/2015/10/Ubuntu_Terminal.png 724w, http://www.lifelongstudent.net/wp-content/uploads/2015/10/Ubuntu_Terminal-150x122.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2015/10/Ubuntu_Terminal-300x244.png 300w" sizes="(max-width: 280px) 100vw, 280px" />](http://www.lifelongstudent.net/wp-content/uploads/2015/10/Ubuntu_Terminal.png)במהלך הפוסטים הבאים נעמיק יותר בנושאים הבאים, אך כדי כבר להכירם היכרות ראשונית ולהבין באופן כללי את משמעותם נעבור עליהם באופן מהיר:
+<div class="left">
+  <img src="/assets/img/posts/operating-system-part-1/ubuntu_terminal.jpg" alt="Ubuntu Terminal">
+</div>
 
-  * **תהליך (process) &#8211;** תכנית ריצה (executable) בביצוע. באופן בסיסי, תהליך מכיל את התכנית עצמה (code), את התונים שהיא יוצרת ומשתמשת בהם (data), מצביע למחסנית, מונה פקודות, ואוגרים אחרים שמכילים מידע על הסטטוס הנוכחי של הביצוע (התהליך גם מכיל מידע על הקבצים שהוא משתמש בהם, ונתונים רבים נוספים, אך על זה נרחיב בהמשך).
-  * **מצב קיפאון (deadlock) &#8211;** קבוצה של תהליכים נמצאת במצב קיפאון אם כל אחד מהתהליכים אינו יכול להתקדם אלא לאחר שיקרה אירוע אשר יכול להיגרם אך ורק על ידי תהליך אחר בקבוצה. תופעת הקיפאון בצורתה הפשוטה ביותר מתרחשת כאשר קיימים מינימום של שני תהליכים, שכל אחד מחזיק ברשותו משאב בלעדי הנחוץ לתהליך השני. במצב זה אף אחד מהתהליכים אינו יכול להתקדם.
-  * **ניהול זיכרון (memory management) &#8211;** בהמשך נדבר על שיטות ניהול זיכרון המאפשרות לשכן בו זמנית מספר תהליכים בזיכרון, ואף בחלק מהמקרים להריץ תוכניות שמשתמשות בכמות של זיכרון גדולה יותר מהזיכרון הפיזי.
-  * **קלט / פלט (input / output) &#8211;** התקן קלט / פלט הוא רכיב חומרה אשר נועד לאחסן ו/או להעברת מידע. לדוג' דיסק קשיח, דיסק און קיי, כרטיס רשת וכ'ו. ישנם התקני קלט / פלט אשר משמשים כהתקני קלט בלבד (לדוג' עכבר ומקלדת), או כהתקני פלט בלבד (לדוג' מדפסת ומסך). אחד התפקידים החשובים ביותר של מערכת ההפעלה הוא הניהול של התקנים אלו.
-  * **קבצים (files) &#8211;** קובץ הוא יחידת מידע לוגית לאחסון במדיה חיצונית. כיוון שקבצים הם מבנים לוגיים, מימושים נעשה בתוכנה ולא בחומרה. מערכת ניהול הקבצים (שהיא חלק ממערכת ההפעלה) אחראית למימוש הקבצים.
-  * **מעבד פקודות סדרתי (shell) &#8211;** תכנית המהווה ממשק אינטראקטיבי למערכת ההפעלה. ה shell מקבל פקודות שמוקלדות ע"י המשתמש ומבצע אותן על ידי שימוש בשירותי מערכת ההפעלה.
+במהלך הפוסטים הבאים נעמיק יותר בנושאים הבאים, אך כדי כבר להכירם היכרות ראשונית ולהבין באופן כללי את משמעותם נעבור עליהם באופן מהיר:
+
+* **תהליך (process) &#8211;** תכנית ריצה (executable) בביצוע. באופן בסיסי, תהליך מכיל את התכנית עצמה (code), את התונים שהיא יוצרת ומשתמשת בהם (data), מצביע למחסנית, מונה פקודות, ואוגרים אחרים שמכילים מידע על הסטטוס הנוכחי של הביצוע (התהליך גם מכיל מידע על הקבצים שהוא משתמש בהם, ונתונים רבים נוספים, אך על זה נרחיב בהמשך).
+* **מצב קיפאון (deadlock) &#8211;** קבוצה של תהליכים נמצאת במצב קיפאון אם כל אחד מהתהליכים אינו יכול להתקדם אלא לאחר שיקרה אירוע אשר יכול להיגרם אך ורק על ידי תהליך אחר בקבוצה. תופעת הקיפאון בצורתה הפשוטה ביותר מתרחשת כאשר קיימים מינימום של שני תהליכים, שכל אחד מחזיק ברשותו משאב בלעדי הנחוץ לתהליך השני. במצב זה אף אחד מהתהליכים אינו יכול להתקדם.
+* **ניהול זיכרון (memory management) &#8211;** בהמשך נדבר על שיטות ניהול זיכרון המאפשרות לשכן בו זמנית מספר תהליכים בזיכרון, ואף בחלק מהמקרים להריץ תוכניות שמשתמשות בכמות של זיכרון גדולה יותר מהזיכרון הפיזי.
+* **קלט / פלט (input / output) &#8211;** התקן קלט / פלט הוא רכיב חומרה אשר נועד לאחסן ו/או להעברת מידע. לדוג' דיסק קשיח, דיסק און קיי, כרטיס רשת וכ'ו. ישנם התקני קלט / פלט אשר משמשים כהתקני קלט בלבד (לדוג' עכבר ומקלדת), או כהתקני פלט בלבד (לדוג' מדפסת ומסך). אחד התפקידים החשובים ביותר של מערכת ההפעלה הוא הניהול של התקנים אלו.
+* **קבצים (files) &#8211;** קובץ הוא יחידת מידע לוגית לאחסון במדיה חיצונית. כיוון שקבצים הם מבנים לוגיים, מימושים נעשה בתוכנה ולא בחומרה. מערכת ניהול הקבצים (שהיא חלק ממערכת ההפעלה) אחראית למימוש הקבצים.
+* **מעבד פקודות סדרתי (shell) &#8211;** תכנית המהווה ממשק אינטראקטיבי למערכת ההפעלה. ה shell מקבל פקודות שמוקלדות ע"י המשתמש ומבצע אותן על ידי שימוש בשירותי מערכת ההפעלה.
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>5. קריאות מערכת</strong></span>
-
-&nbsp;
+#### 5. קריאות מערכת
 
 מערכת ההפעלה לא רק מנהלת את החומרה, אלא גם צריכה להגן על משאבי המערכת (לדוג', מפני הרצה של קוד זדוני במעבד). הגנה כזאת איננה יכולה להיות תוכנתית, מכיוון שאם מערכת ההפעלה תקבל כל פקודה ופקודה ותצטרך לנתח אותה (ואולי גם בהתאם לפקודות הקודמות שקיבלה מאותה תוכנית) לפני העברתה למעבד הדבר ישפיע בצורה קריטית על משאבי המערכת (בהנחה וזה בכלל אפשרי, הרי שורת קוד אחת לבדה יכולה להיות תמימה, אך בצירוף כמה שורות נוספות יהיה מדובר כבר על קוד זדוני שיכול להסב למערכת נזק).
 
 לכן, המסקנה היא שההגנה צריכה להיות חומרתית, ז"א ביט דלוק (1) או מכובה (0) שמייצג מצב מיוחס (kernel mode) או מצב משתמש (user mode). כאשר תוכנה מסויימת מבקשת את השירותים של המעבד, כדי לבצע חישוב כלשהו, המערכת תעביר את הביט במעבד למצב user mode ותעביר את השליטה לאותה תוכנה כדי לבצע את חישוביה. מכאן ישנן 2 אפשרויות:
 
-  * הראשון הוא שהתוכנה תסיים את פעולותיה ותחזיר את המעבד למערכת ההפעלה, אך נזכור שכרגע המעבד במצב user mode ואי אפשר לבצע איתו פעולות מסויימות, כמו לדוג' להדליק את הביט ולהעביר את המעבד למצב kernel mode. אז נשארנו נעולים ב user mode, עד מתי? עד איזה time out? (אז מי מבטיח שהתוכנה תחזיר את משאבי המעבד למערכת ההפעלה לפני ה time out ולא תשאיר אותו אצלה גם אחרי שיקרה ה time out והמעבד יחזור למצב kernel mode?).
-  * האפשרות השניה היא שהתוכנה תשאיר אצלה את המעבד עד אין סוף, ולא תחזיר את המשאבים למערכת ההפעלה, ובקיצור תתקע את המחשב. 
+* הראשון הוא שהתוכנה תסיים את פעולותיה ותחזיר את המעבד למערכת ההפעלה, אך נזכור שכרגע המעבד במצב user mode ואי אפשר לבצע איתו פעולות מסויימות, כמו לדוג' להדליק את הביט ולהעביר את המעבד למצב kernel mode. אז נשארנו נעולים ב user mode, עד מתי? עד איזה time out? (אז מי מבטיח שהתוכנה תחזיר את משאבי המעבד למערכת ההפעלה לפני ה time out ולא תשאיר אותו אצלה גם אחרי שיקרה ה time out והמעבד יחזור למצב kernel mode?).
+* האפשרות השניה היא שהתוכנה תשאיר אצלה את המעבד עד אין סוף, ולא תחזיר את המשאבים למערכת ההפעלה, ובקיצור תתקע את המחשב. 
 
 מה שמכריח את התוכנה להחזיר את משאבי המעבד חזרה למערכת ההפעלה הוא system call. ישנן מספר פעולות שאינן יכולות להתבצע ב user mode, אלא אך ורק ב kernel mode. כשהתוכנה רוצה לבצע את אחת מהפעולות הללו (לדוג', להתחיל תהליך חדש, או לקרוא ולכתוב אל מערכת הקבצים) היא מבצעת system call כדי לבקש ממערכת ההפעלה לעשות זאת בשבילה. בעת ביצוע ה system call מורמת פסיקה (Interrupt) שנתפסת ע"י בקר הפסיקות (PIC &#8211; ראשי תיבות של Programmable Interrupt Controller. בקר הפסיקות הינו רכיב פיזי, לדוג' <a href="https://en.wikipedia.org/wiki/Intel_8259" target="_blank">Intel 8259</a>), והוא זה שמעביר את השליטה למערכת ההפעלה ומדליק את הביט במעבד כדי להעבירו למצב מיוחס (kernel mode).
 
@@ -146,7 +105,8 @@ tags:
 
 כדי להבין כיצד עוברת השליטה למערכת ההפעלה בעת הקריאה פונקציות אשר מכילות קריאת מערכת, להלן תוכנית בשפת C המדפיסה "hello world" על המסך, ומשתמשת בפונ' write אשר מכילה קריאה לשירות של מערכת ההפעלה.
 
-<pre class="lang:c decode:true">#include &lt;unistd.h&gt;
+```c
+#include &lt;unistd.h&gt;
 #include &lt;string.h&gt;
 #define STDOUT 1
 
@@ -155,11 +115,13 @@ int main(){
     if (write(STDOUT, msg, strlen(msg)) &lt; 0)
         exit(1);
     return(0);
-}</pre>
+}
+```
 
 להלן התוכנית בשפת assembly שמבצעת את המשימה:
 
-<pre class="lang:asm decode:true ">.data			# Data section
+```c
+.data			# Data section
 
 msg:	.asciz "Hello world\n"	# The string to print
 	len = . - msg - 1	# The length of the string
@@ -181,7 +143,8 @@ mov1	$1, %eax	# Exit
 
 do_syscall:
 	int	$0x80		# Call kernel
-	ret</pre>
+	ret
+```
 
 בשורות 10-12 מתבצעת העברת שלושה פרמטרים המכילים אינדיקציה של יעד הפלט (STDOUT), מצביע להודעה הנפלטת, ומספר התווים שבהודעת. בשורה 13 מועבר מספר השירות המסופק על ידי מערכת ההפעלה (במקרה שלנו write). ובשורה 22 מתבצעת הוראת TRAP שמעבירה את המעבד למצב מיוחס וגורמת למעבר השליטה למערכת ההפעלה.
 
@@ -189,388 +152,57 @@ do_syscall:
 
 להלן הרשימה של הקריאות מערכת (system calls) במערכות UNIX:
 
-<table style="border-color: #000000;" border="1">
-  <tr>
-    <td style="text-align: left;">
-      <span style="text-decoration: underline;"><strong>Description</strong></span>
-    </td>
+| UNIX | WIN32	| Description |
+| :---------:|:-----:|:----:|
+| fork | CreateProcess	| Create a new process	|
+| waitpid | WaitForSingleObject | Can wait for a process to exit |
+| execve | (none) | CreateProcess = fork + execve |
+| exit | ExitProcess | Terminate execution |
+| open | CreateFile | Create a file or open an existing file |
+| close | CloseHandle | Close a file |
+| read | ReadFile | Read data from a file	|
+| write | WriteFile | Write data to a file |
+| lseek | SetFilePointer | Move the file pointer |
+| stat | GetFileAtterbutesEx | Get various file attributes |
+| mkdir | CreateDirectory | Create a new directory |
+| rmdir | RemoveDirectory | Remove an empty directory |
+| link | (none) | Win32 does not support links |
+| unlink | DeleteFile | Destroy an existing file |
+| mount | (none) | Win32 does not support mount |
+| umount | (none) | Win32 does not support mount |
+| chdir | SetCurrentDirectory | Change the current working directory |
+| chmod | (none) | Win32 does not support securiry (although NT does)	|
+| kill | (none) | Win32 does not support signals |
+| time | GetLocalTime | Get the current time |
 
-    <td style="text-align: left;">
-      <span style="text-decoration: underline;"><strong>WIN32</strong></span>
-    </td>
-
-    <td style="text-align: left;">
-      <span style="text-decoration: underline;"><strong>UNIX</strong></span>
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Create a new process
-    </td>
-
-    <td style="text-align: left;">
-      CreateProcess
-    </td>
-
-    <td style="text-align: left;">
-      fork
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Can wait for a process to exit
-    </td>
-
-    <td style="text-align: left;">
-      WaitForSingleObject
-    </td>
-
-    <td style="text-align: left;">
-      waitpid
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      CreateProcess = fork + execve
-    </td>
-
-    <td style="text-align: left;">
-      (none)
-    </td>
-
-    <td style="text-align: left;">
-      execve
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Terminate execution
-    </td>
-
-    <td style="text-align: left;">
-      ExitProcess
-    </td>
-
-    <td style="text-align: left;">
-      exit
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Create a file or open an existing file
-    </td>
-
-    <td style="text-align: left;">
-      CreateFile
-    </td>
-
-    <td style="text-align: left;">
-      open
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Close a file
-    </td>
-
-    <td style="text-align: left;">
-      CloseHandle
-    </td>
-
-    <td style="text-align: left;">
-      close
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Read data from a file
-    </td>
-
-    <td style="text-align: left;">
-      ReadFile
-    </td>
-
-    <td style="text-align: left;">
-      read
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Write data to a file
-    </td>
-
-    <td style="text-align: left;">
-      WriteFile
-    </td>
-
-    <td style="text-align: left;">
-      write
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Move the file pointer
-    </td>
-
-    <td style="text-align: left;">
-      SetFilePointer
-    </td>
-
-    <td style="text-align: left;">
-      lseek
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Get various file attributes
-    </td>
-
-    <td style="text-align: left;">
-      GetFileAtterbutesEx
-    </td>
-
-    <td style="text-align: left;">
-      stat
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Create a new directory
-    </td>
-
-    <td style="text-align: left;">
-      CreateDirectory
-    </td>
-
-    <td style="text-align: left;">
-      mkdir
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Remove an empty directory
-    </td>
-
-    <td style="text-align: left;">
-      RemoveDirectory
-    </td>
-
-    <td style="text-align: left;">
-      rmdir
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Win32 does not support links
-    </td>
-
-    <td style="text-align: left;">
-      (none)
-    </td>
-
-    <td style="text-align: left;">
-      link
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Destroy an existing file
-    </td>
-
-    <td style="text-align: left;">
-      DeleteFile
-    </td>
-
-    <td style="text-align: left;">
-      unlink
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Win32 does not support mount
-    </td>
-
-    <td style="text-align: left;">
-      (none)
-    </td>
-
-    <td style="text-align: left;">
-      mount
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Win32 does not support mount
-    </td>
-
-    <td style="text-align: left;">
-      (none)
-    </td>
-
-    <td style="text-align: left;">
-      umount
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Change the current working directory
-    </td>
-
-    <td style="text-align: left;">
-      SetCurrentDirectory
-    </td>
-
-    <td style="text-align: left;">
-      chdir
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Win32 does not support securiry (although NT does)
-    </td>
-
-    <td style="text-align: left;">
-      (none)
-    </td>
-
-    <td style="text-align: left;">
-      chmod
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Win32 does not support signals
-    </td>
-
-    <td style="text-align: left;">
-      (none)
-    </td>
-
-    <td style="text-align: left;">
-      kill
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Get the current time
-    </td>
-
-    <td style="text-align: left;">
-      GetLocalTime
-    </td>
-
-    <td style="text-align: left;">
-      time
-    </td>
-  </tr>
-</table>
+<div class="left" style="width: 35%">
+  <img src="/assets/img/posts/operating-system-part-1/monolithic_systems.jpg" alt="Monolithic Systems">
+</div>
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong><a href="http://www.lifelongstudent.net/wp-content/uploads/2015/10/monolithic_systems.jpeg"><img class="alignleft wp-image-2311" src="http://www.lifelongstudent.net/wp-content/uploads/2015/10/monolithic_systems.jpeg" alt="monolithic_systems" width="300" height="139" srcset="http://www.lifelongstudent.net/wp-content/uploads/2015/10/monolithic_systems.jpeg 1088w, http://www.lifelongstudent.net/wp-content/uploads/2015/10/monolithic_systems-150x69.jpeg 150w, http://www.lifelongstudent.net/wp-content/uploads/2015/10/monolithic_systems-300x139.jpeg 300w, http://www.lifelongstudent.net/wp-content/uploads/2015/10/monolithic_systems-1024x473.jpeg 1024w" sizes="(max-width: 300px) 100vw, 300px" /></a>6. המבנה של מערכות הפעלה</strong></span>
+#### 6. המבנה של מערכות הפעלה
 
 מערכות הפעלה הן מערכות גדולות, המכילות, לרוב, עשרות ולפעמים מאות אלפי שורות קוד. אך כדי שכל האופרציה הזאת תפעל כשורה דרוש עיצוב כללי כלשהו, ולכל מערכת יש רעיון עיצובי משלה:
 
-  * מערכות מונוליתיות (monolithic systems) &#8211; מערכת מונוליתית היא למעשה אוסף גדול של פונקציות שונות.
-  * מערכות מרובדות (layered systems) &#8211; אלו הן מערכות שמרכיביהן מאורגנים ברבדים הנמצאים ביחס היררכי. לכל רובד מוגדר ממשק שדרכו הרבדים הסמוכים בהיררכיה יכולים לתקשר בינהם.
+* מערכות מונוליתיות (monolithic systems) - מערכת מונוליתית היא למעשה אוסף גדול של פונקציות שונות.
+* מערכות מרובדות (layered systems) - אלו הן מערכות שמרכיביהן מאורגנים ברבדים הנמצאים ביחס היררכי. לכל רובד מוגדר ממשק שדרכו הרבדים הסמוכים בהיררכיה יכולים לתקשר בינהם.
 
-<table>
-  <tr>
-    <td style="text-align: left;">
-      <strong><span style="text-decoration: underline;">Function</span></strong>
-    </td>
+| Function | Layer|
+|:----:|:--------:|
+| The operator | 5 |
+| User programs | 4 |
+| input/output management | 3 |
+| Operator-process communication | 2 |
+| Memory and drum management | 1 |
+| Processor allocation and multiprogramming | 0 |
 
-    <td style="text-align: left;">
-      <strong><span style="text-decoration: underline;">Layer</span></strong>
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      The operator
-    </td>
-
-    <td style="text-align: left;">
-      5
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      User programs
-    </td>
-
-    <td style="text-align: left;">
-      4
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      input/output management
-    </td>
-
-    <td style="text-align: left;">
-      3
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Operator-process communication
-    </td>
-
-    <td style="text-align: left;">
-      2
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Memory and drum management
-    </td>
-
-    <td style="text-align: left;">
-      1
-    </td>
-  </tr>
-
-  <tr>
-    <td style="text-align: left;">
-      Processor allocation and multiprogramming
-    </td>
-
-    <td style="text-align: left;">
-    </td>
-  </tr>
-</table>
-
-  * מכונה מדומה (virtual machine) &#8211; בחלק הראשון ראינו שאחד התפקידים של מערכת ההפעלה הוא אספקה של שירותים של המכונה המורחבת ושל המכונה המדומה. ניתן לראות את מערכת ההפעלה כשכבת תוכנה המספקת לשכבות שמעליה מס' העתקים של החומרה עם כמות משאבים פחותה מזו שבחומרה הפיזית בפועל (במובן מסוים זו אינה מערכת הפעלה רגילה, שכן על כל מכונה מדומה יכולה לרוץ מערכת הפעלה חדשה). התוכונות הפופלריות בשוק כדי ליצור ולהפעיל מכונות מדומות הן <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">virtualbox</a> של חברת oracle ו <a href="http://www.vmware.com/il" target="_blank">vmware</a>.
-  * מערכות Exokernel &#8211; במערכות אלה השירותים המסורתיים כגון מערכת קבצים, ניהול זיכרון, תזמון תהליכים ותקשורת הוצאו אל מחוץ לגרעין של מערכת ההפעלה. ההחלטה הזאת נובעת מכך שמערכת ההפעלה איננה כופה על המשתמש את צורת השימוש במשאבים (אלא רק דואגת להגנה על המשאבים וניהולם).
-  * מערכות שרת לקוח (client &#8211; server systems) &#8211; מערכות שרת לקוח מבוססות על הרעיון של גרעין מנינימליסטי (micro kernel), ז"א גרעיון מערכת ההפעלה מתפקד כדוור המריץ בקשות של לקוחות (תהליכים) אל שרתים עצמאיים (גם תהליכים), המפוזרים במערכת, כגון שרתי מערכת הקבצים, מנהל הזיכרון, תכנית התקשורת, תכנית המסך (מנהל חלונות), וכ'ו. כאשר מתקבלות תשובות מהשרתים, הגרעין מחזיר את התשובה להתליך המבקש. בשיטה זו התוכנה מורכבת מיחידות עצמאיות, שכל אחת מהן ממלאת תפקיד מוגדר. שיטה זו מצמצת מאוד את התלות בחומרה.
+* מכונה מדומה (virtual machine) &#8211; בחלק הראשון ראינו שאחד התפקידים של מערכת ההפעלה הוא אספקה של שירותים של המכונה המורחבת ושל המכונה המדומה. ניתן לראות את מערכת ההפעלה כשכבת תוכנה המספקת לשכבות שמעליה מס' העתקים של החומרה עם כמות משאבים פחותה מזו שבחומרה הפיזית בפועל (במובן מסוים זו אינה מערכת הפעלה רגילה, שכן על כל מכונה מדומה יכולה לרוץ מערכת הפעלה חדשה). התוכונות הפופלריות בשוק כדי ליצור ולהפעיל מכונות מדומות הן <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">virtualbox</a> של חברת oracle ו <a href="http://www.vmware.com/il" target="_blank">vmware</a>.
+* מערכות Exokernel &#8211; במערכות אלה השירותים המסורתיים כגון מערכת קבצים, ניהול זיכרון, תזמון תהליכים ותקשורת הוצאו אל מחוץ לגרעין של מערכת ההפעלה. ההחלטה הזאת נובעת מכך שמערכת ההפעלה איננה כופה על המשתמש את צורת השימוש במשאבים (אלא רק דואגת להגנה על המשאבים וניהולם).
+* מערכות שרת לקוח (client &#8211; server systems) &#8211; מערכות שרת לקוח מבוססות על הרעיון של גרעין מנינימליסטי (micro kernel), ז"א גרעיון מערכת ההפעלה מתפקד כדוור המריץ בקשות של לקוחות (תהליכים) אל שרתים עצמאיים (גם תהליכים), המפוזרים במערכת, כגון שרתי מערכת הקבצים, מנהל הזיכרון, תכנית התקשורת, תכנית המסך (מנהל חלונות), וכ'ו. כאשר מתקבלות תשובות מהשרתים, הגרעין מחזיר את התשובה להתליך המבקש. בשיטה זו התוכנה מורכבת מיחידות עצמאיות, שכל אחת מהן ממלאת תפקיד מוגדר. שיטה זו מצמצת מאוד את התלות בחומרה.
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>סיכום</strong></span>
+#### סיכום
 
 בחלק זה למדנו את שני התפקידים של מערכת ההפעלה, ראינו מהן קריאות מערכת, ביצענו יישור קו לגבי הסוגים השונים של המבנה של מערכות הפעלה, ועברנו גם על מושגים יסודיים בתחום (קבצים, תהליכים, ניהול זיכרון, וכד'). חלק זה הינו תיאורטי (ברובו) ואנו עדין לא צוללים אל עומק הדברים, למרות זאת הבסיס הוא חשוב להבנה לפני שממשיכים לפן הטכני של הנושא (כדי שלא נאבד את הידיים והרגליים).

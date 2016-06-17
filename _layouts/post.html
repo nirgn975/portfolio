@@ -5,6 +5,12 @@ layout: default
   <div class="parallax"><img src="/assets/img/posts/{{ page.base-images-url }}/{{ page.hero-image }}"></div>
 </div>
 <article class="row" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- Include LaTeX support if the post needs it -->
+  {% if page.latex == true %}
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  {% endif %}
+
   <div class="col s12 card-panel">
     <!-- Title and Date -->
     <header class="post-header">
