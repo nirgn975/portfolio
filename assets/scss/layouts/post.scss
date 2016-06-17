@@ -9,6 +9,14 @@
     margin-right: 40px;
   }
 
+  ul {
+    list-style-type: disc;
+
+    li {
+      list-style-type: disc;
+    }
+  }
+
   blockquote {
     border-left: initial;
     border-right: 4px solid #e8e8e8;
@@ -21,6 +29,8 @@
   }
 
   table {
+    width: 50%;
+    margin: 1% auto;
     border-spacing: 0;
     border-collapse: collapse;
 

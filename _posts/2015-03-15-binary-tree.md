@@ -4,41 +4,6 @@ author: nirgn
 layout: post
 categories:
   - Data_Structures
-tags:
-  - Binary Tree
-  - Data structure
-  - NIL
-  - Tree
-  - Tree Delete
-  - Tree Insert
-  - Tree Maximum
-  - Tree Minimum
-  - Tree Search
-  - Tree Successor
-  - אדום שחור
-  - בינרי
-  - בנים
-  - גרפים
-  - הכנסה
-  - מאוזן
-  - מבנה נתונים
-  - מחזיר
-  - מחיקה
-  - מינימום
-  - מלא
-  - מנוון
-  - מפתח
-  - מצביע
-  - מקסימום
-  - סריקה
-  - עוקב
-  - עץ
-  - עץ בינארי
-  - פעולות בסיסיות
-  - צומת
-  - קודם
-  - שאילתות
-  - שורש
 ---
 [<img class="alignleft wp-image-1045" src="http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png" alt="Dataֹׁ Structures" width="350" height="227" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png 400w, http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures-300x194.png 300w" sizes="(max-width: 350px) 100vw, 350px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png)עץ בינארי הוא מבנה נתונים מופשט, הבנוי / מאורגן בצורת עץ, כשלכל קודקוד יש לכל היותר שני בנים (המתייחסים אליהם כ'בן ימיני' ו'בן שמאלי') ולכל קודקוד (פרט לראשון, הנקרא שורש) יש אב יחיד. העץ הינו מכוון ז"א שישנו כיוון אחד (במקרה שלנו נראה כמו מלמעלה למטה, כאילו אנו יורדים במורד העץ), וזה מתבטא בכך שכל צומת שומר אך ורק את הבנים שלו ולא את האב.
 
