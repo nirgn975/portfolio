@@ -2,9 +2,8 @@
 title: 'מערכות הפעלה - חלק 2'
 author: nirgn
 layout: post
-summary: הפוסט השני בנושא מערכות הפעלה יתמקד בעיקר בתהליכים ותהליכונים, והבעיות השונות שמגיעות איתן.
-base-images-url: 'operating-system-part-2'
-hero-image: 'hero_image.svg'
+summary: "הפוסט השני בנושא מערכות הפעלה יתמקד בעיקר בתהליכים ותהליכונים, והבעיות השונות שמגיעות איתן."
+hero-image: "/categories/operating-systems.svg"
 categories:
   - Operating Systems
 ---

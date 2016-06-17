@@ -2,6 +2,8 @@
 title: עץ בינארי (Binary Tree)
 author: nirgn
 layout: post
+summary: "עץ בינארי הוא מבנה נתונים מופשט, הבנוי / מאורגן בצורת עץ, כשלכל קודקוד יש לכל היותר שני בנים (המתייחסים אליהם כ’בן ימיני’ ו’בן שמאלי’) ולכל קודקוד (פרט לראשון, הנקרא שורש) יש אב יחיד."
+hero-image: "categories/data_structures.jpg"
 categories:
   - Data_Structures
 ---
@@ -19,19 +21,6 @@ categories:
 
 &nbsp;
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 בנוסף, גם לעץ בינארי יש כמה סוגים (מבני נתונים ספציפיים יותר) להלן כמה מהם:
 
@@ -45,7 +34,7 @@ categories:
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>Binary Search Tree &#8211; עץ חיפוש בינארי</strong></span>
+#### Binary Search Tree - עץ חיפוש בינארי
 
 עץ חיפוש בינארי הוא עץ הנתונים הפופלרי ביותר. כל צומת בעץ חיפוש בינארי מכיל את השדות left (הבן השמאלי), right (הבן הימני), p (האב של צומת זו), ואם אחד הבנים או האב חסר, השדה המתאים מכיל את הערך NIL (צומת השורש, הוא הצומת היחיד בעץ ששדה האב שלו מכיל NIL).
 
@@ -58,11 +47,13 @@ categories:
 להלן Inorder Tree Walk המדפיסה את כל המפתחות בסדר ממוין, בעץ חיפוש בינארי.  
 קוד:
 
-<pre class="lang:default decode:true ">INORDER-TREE-WALK (x)
+```
+INORDER-TREE-WALK (x)
 if (x != NIL)
     INORDER-TREE-WALK (left[x])
     print key[x]
-    INORDER-TREE-WALK (right[x])</pre>
+    INORDER-TREE-WALK (right[x])
+```
 
  לדוגמה, סריקה תוכית של העץ בתמונה למעלה (השמאלית) תדפיס: 6,3,8,5,7,1,4,2. הסריקה עצמה מתבצעת בזמן (O(n (לעץ בעל n צמתים), שכן לאחר הקריאה ההתחלתית, האלגוריתם נקרא באופן רקורסיבי בדיוק פעמיים עבור כל צומת בעת (פעם בנו השמאלי, ופעם בנו הימיני).
 
@@ -72,55 +63,63 @@ if (x != NIL)
 
 אחת הפעולות השכיחות על עץ חיפוש בינארי היא חיפוש מפתח המאוחסן בעץ. מלבד הפעולה Search, עץ חיפוש בינארי יכול לתמוך בשאילתות נוספות (כמו Minimum, Maximum, Successor ו Predecessor). לכן נממשן על עץ חיפוש בינארי בגובה h [בזמן (O(h]. כמו בכל פוסט, הקוד יכתב ב<a href="http://en.wikipedia.org/wiki/Pseudocode" target="_blank">פסאודו קוד</a>.
 
-**Tree-Search &#8211;** מחזיר מצביע לצומת בעל מפתח k, אם קיים כזה. אחרת מחזירה NIL.  
+**Tree-Search -** מחזיר מצביע לצומת בעל מפתח k, אם קיים כזה. אחרת מחזירה NIL.  
 קוד:
 
-<pre class="lang:default decode:true ">TREE-SEARCH (x, k)
+```
+TREE-SEARCH (x, k)
 if (x = NIL or k = key[x])
     return x
-if (k &lt; key[x])
+if (k < key[x])
     return TREE-SEARCH (left[x], k)
-else return TREE-SEARCH (right[x], k)</pre>
+else return TREE-SEARCH (right[x], k)
+```
 
 האלגוריתם מתחיל את החיפוש בשורש העץ וסורק מסלול במוקד העץ. בכל צומת x כשהוא נתקל בו, הוא משווה את המפתח k עם [key[x. אם שני המפתחות שווים, החיפוש מסתיים. אם k קטן מ [key[x, החיפוש נמשך בתת עץ השמאלי של x (שכן מתכונת עץ החיפוש בינארי אנו יודעים ש k אינו יכול להימצא בתת עץ הימיני). בדומה, אם k גדול מ [key[x החיפוש נמשך בתת עץ הימיני. הצמתים הנבחנים (כל ה [key[x-ים הנבחנים במהלך הריצה של האלגו') יוצרים מעין מסלול במורד העץ, החל מהשורש שנבחן ראשון. ומכאן שזמן הריצה של האלגו' הוא (O(h, כאשר h הוא גובה העץ.
 
 &nbsp;
 
-**Tree-Minimum &#8211;** מחזיר מצביע לאיבר המינימלי.  
+**Tree-Minimum -** מחזיר מצביע לאיבר המינימלי.  
 קוד:
 
-<pre class="lang:default decode:true">TREE-MINIMUM (x)
+```
+TREE-MINIMUM (x)
 while (left[x] != NIL) do
-    x &lt;- left[x]
-return x</pre>
+    x <- left[x]
+return x
+```
 
  אפשר תמיד למצוא את האיבר בעל המפתח המינימלי בעץ חיפוש בינארי על ידי מעקב אחר המצביעים left, החל משורש העץ ועד שנתקלים ב NIL. הרי תוכנת העץ הבינארי מבטיחה לנו כי הבן השמאלי תמיד יהיה קטן מהעלה הנוכחי ומהבן הימיני שלו (במידה וקיים). לכן נלך שמאלה עד שלא יהיו עוד עלים. אם לצומת אין תת עץ שמאלי, אז המפתח המינימלי בתת עץ המורש ב x הוא השורש עצמו, ז"א [key[x (לכן נחזיר x לא קשר לנעשה בלולאה). אך אם לצומת x יש תת עץ שמאלי, אז כמו שאמרנו לא יכול להיות מפתח בתת עץ הימיני שהוא קטן מ [key[x, וכל המפתחות בתת עץ השמאלי אינם גודלים מ [key[x, לכן המפתח המינימלי יימצא בתת עץ המורש ב [left[x.
 
 &nbsp;
 
-**Tree-Maximum &#8211;** מחזיר מצביע לאיבר המקסימלי.  
+**Tree-Maximum -** מחזיר מצביע לאיבר המקסימלי.  
 קוד:
 
-<pre class="lang:default decode:true ">TREE-MAXIMUM (x)
+```
+TREE-MAXIMUM (x)
 while (right[x] != NIL) do
-    x &lt;- right[x]
-return x</pre>
+    x <- right[x]
+return x
+```
 
  הקוד למציאת האיבר המקסימלי סימטרי לקוד המחזיר מצביע לאיבר המינימלי. הרי מאותה התכונה של עץ בינארי מובטח לנו כי האיבר בעל הערך הגדול תמיד ימצא בתת עץ הימיני (בתת עץ הנגזר מהבן הימיני), לכן נלך ימינה עד אשר נמצא את העלה האחרון (נקבל NIL ואז נדע שהעלה שלפניו הוא העלה האחרון). זמן הריצה של האלגוריתמים למציאת האיבר המינמלי או המקסימלי הוא (O(h, כאשר h הוא גובה העץ (שכן שתי האלגו' סורקים מסלולים במורד העץ).
 
 &nbsp;
 
-**Tree-Successor &#8211;** מחזיר את העוקב (הצומת בעל המפתח הקטן ביותר הגדול מ [key[x) לצומת x, אם קיים כזה, ו NIL אם x הוא בעל המפתח הגדול ביותר בעץ.  
+**Tree-Successor -** מחזיר את העוקב (הצומת בעל המפתח הקטן ביותר הגדול מ [key[x) לצומת x, אם קיים כזה, ו NIL אם x הוא בעל המפתח הגדול ביותר בעץ.  
 קוד:
 
-<pre class="lang:default decode:true">TREE-SUCCESSOR (x)
+```
+TREE-SUCCESSOR (x)
 if (right[x] != NIL)
     return TREE-MINMUM (right[x])
-y &lt;- p[x]
+y <- p[x]
 while (y != NIL and x = right[y]) do
-    x &lt;- y
-    y &lt;- p[y]
-return y</pre>
+    x <- y
+    y <- p[y]
+return y
+```
 
 כמו שניתן לראות, הקוד מחולק ל-2 מקרים. אם התת עץ הימיני של צומת x אינו ריק, אז העוקב לx הוא פשוט הצומת השמאלי ביותר (עם הערך הקטן ביותר) בתת עץ הימיני, לכן קוראים ל Tree-Minimum על [right[x. אך במקרה השני בו תת העץ הימיני של צומת x ריק ול x יש עוקב (נקרא לו y). אז y הוא האב הקדמון הנמוך ביותר של x (ז"א הגבוה ביותר בעץ) אשר הבן השמאלי שלו גם הוא אב קדמון של x (שניתן להגיע ממנו ל x אך ורק ע"י ירידה במורד העץ). כדי למצוא את y נעלה בעץ החל מ x עד שנתקל בצומת שהוא הבן השמאלי של אביו (שמתבצע בשורות 4-8 באלגו').
 
@@ -128,23 +127,25 @@ return y</pre>
 
 &nbsp;
 
-**Tree-Insert &#8211;** כדי להכניס ערך חדש v, לעץ חיפוש בינארי T.  
+**Tree-Insert -** כדי להכניס ערך חדש v, לעץ חיפוש בינארי T.  
 קוד:
 
-<pre class="lang:default decode:true">TREE-INSERT (T, z)
-y &lt;- NIL
-x &lt;- root[T]
+```
+TREE-INSERT (T, z)
+y <- NIL
+x <- root[T]
 while (x != NIL) do
-    y &lt;- x
-    if (key[z] &lt; key[x])
-        x &lt;- left[x]
-    else x &lt;- right[x]
-p[z] &lt;- y
+    y <- x
+    if (key[z] <- key[x])
+        x <- left[x]
+    else x <- right[x]
+p[z] <- y
 if (y = NIL)
-    root[T] &lt;- z
-else if (key[z] &lt; key[y])
-    left[y] &lt;- z
-else right[y] &lt;-z</pre>
+    root[T] <- z
+else if (key[z] <- key[y])
+    left[y] <- z
+else right[y] <- z
+```
 
  האלגוריתם מקבל כפרמטר צומת z, שעבורו key[z] = v, והבן השמאלי והימיני שלו ריקים (right[z] = NIL ו left[z] = NIL). האלגו' משנה את T וחלק מהשדות של z באופן כזה ש z מוכנס למקומו המתאים בעץ.
 
@@ -154,27 +155,29 @@ else right[y] &lt;-z</pre>
 
 &nbsp;
 
-**Tree-Delete** &#8211; כדי למחוק צומת נתון z מעץ חיפוש בינארי (המתודה מקבלת מצביע ל z).  
+**Tree-Delete -** כדי למחוק צומת נתון z מעץ חיפוש בינארי (המתודה מקבלת מצביע ל z).  
 קוד:
 
-<pre class="lang:default decode:true">TREE-DELETE (T. z)
+```
+TREE-DELETE (T. z)
 if (left[z] = NIL or right[z] = NIL)
-    y &lt;- z
-else y &lt;- TREE-SUCCESSOR(z)
+    y <- z
+else y <- TREE-SUCCESSOR(z)
 if (left[y] != NIL)
-    x &lt;- left[y]
-else x &lt;- right[y]
+    x <- left[y]
+else x <- right[y]
 if (x != NIL)
-    p[x] &lt;- [y]
+    p[x] <- [y]
 if (p[y] = NIL)
-    root[t] &lt;- x
+    root[t] <- x
 else if (y = left[p[y]])
-    left[p[y]] &lt;- x
-    else right[p[y]] &lt;- x
+    left[p[y]] <- x
+    else right[p[y]] <- x
 if (y != z)
-    key[z] &lt;- key[y]
+    key[z] <- key[y]
     copy y's satellite data into z
-return y</pre>
+return y
+```
 
  פעולת המחיקה קצת יותר מסובכת מכיוון שהיא גורמת לשינוי בקבוצה הדינמית המיוצגת על ידי עץ החיפוש הבינארי. יש לשנות את מבנה הנתונים כך שישקף את השינוי הזה, ויש לעשות זאת בלי להפר את תכונות עץ החיפוש הבינארי.
 
@@ -186,7 +189,7 @@ return y</pre>
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">לסיכום</span>**
+#### לסיכום
 
 אז הצגנו את תכונותיהם הבסיסיות של עצי חיפוש בינאריים, ולאחר מכן ראינו כיצד סורקים עץ חיפוש בינארי כדי להדפיס את ערכיו בסדר ממוין, כיצד מחפשים ערך בעץ חיפוש בינארי, כיצד מוצאים את איבר המינימום או המקסימום, כיצד מוצאים את האיבר העוקב לאיבר נתון (ובאופן סימטרי את האיבר הקודם לאיבר נתון), וכיצד מכניסים איבר לעץ חיפוש בינארי או מוחקים ממנו איבר.
 
