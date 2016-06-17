@@ -5,12 +5,29 @@ body {
 #content-list {
   direction: rtl;
 
-  .card-title {
-    right: 0;
-  }
+  .card {
+    .card-content {
+      padding: 20px 10px 10px 10px;
 
-  span.date {
-    margin: 0 5px;
+      .card-header {
+        line-height: 18px;
+        margin-top: -15px;
+        padding: 5px;
+      }
+
+      .card-title {
+        right: 0;
+        line-height: 18px;
+      }
+
+      span.date {
+        margin: 0 5px;
+      }
+    }
+
+    .card-action {
+      padding: 10px;
+    }
   }
 
   .pagination {
