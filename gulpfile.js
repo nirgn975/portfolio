@@ -19,7 +19,6 @@ var messages = {
  */
 gulp.task('javascript', function(){
   return gulp.src([
-      './assets/javascript/nav.js',
       './assets/javascript/post.js'
     ])
     .pipe(concat('app.min.js'))

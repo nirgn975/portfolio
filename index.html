@@ -5,21 +5,14 @@ layout: default
   <!-- This loops through the paginated posts -->
   <div class="row">
     {% for post in paginator.posts %}
-      <div class="col s12 l6">
-        <div class="card medium">
-          <div class="card-image blue-grey lighten-5">
-            <img src="/assets/img/posts/{{ post.base-images-url }}/{{ post.hero-image }}">
-          </div>
-          <div class="card-content">
-            <div class="card-header">
-              <span class="card-title black-text">{{ post.title }}</span>
-              <em class="left date">{{ post.date | date: "%b %-d, %Y" }}</em>
-            </div>
-            <p>{{ post.summary }}</p>
-          </div>
-          <div class="card-action">
-            <a href="{{ post.url | prepend: site.baseurl }}" class="waves-effect waves-light btn">READ MORE ></a>
-          </div>
+      <div class="post-content">
+        <div class="post-header">
+          <h3>{{ post.title }}</h3>
+          <em>{{ post.date | date: "%b %-d, %Y" }}</em>
+        </div>
+        <p>{{ post.summary }}</p>
+        <div class="post-action">
+          <a href="{{ post.url | prepend: site.baseurl }}">המשך לפוסט ></a>
         </div>
       </div>
     {% endfor %}

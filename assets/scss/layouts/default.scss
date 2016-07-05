@@ -1,36 +1,30 @@
 body {
-  background-color: #E0E0E0;
+  background-color: #F0F0F0;
+  color: #424242;
+  font-family: 'Arimo', sans-serif;
 }
 
 #content-list {
   direction: rtl;
 
-  .card {
-    .card-content {
-      padding: 20px 10px 10px 10px;
-
-      .card-header {
-        line-height: 18px;
-        margin-top: -15px;
-        padding: 5px;
-      }
-
-      .card-title {
-        right: 0;
-        line-height: 18px;
-      }
-
-      span.date {
-        margin: 0 5px;
-      }
-    }
-
-    .card-action {
-      padding: 10px;
-    }
+  a {
+    color: #2196F3;
+    text-decoration: none;
   }
 
-  .pagination {
-    text-align: center;
+  .post-content {
+    max-width: 800px;
+    padding: 1rem;
+    margin: 0 auto;
+
+    .post-header {
+      h3 {
+        display: inline-block;
+      }
+      em {
+        float: left;
+        margin: 1.17rem;
+      }
+    }
   }
 }

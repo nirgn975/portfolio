@@ -4,7 +4,6 @@ author: nirgn
 layout: post
 summary: 'פוסט זה הינו פוסט דעה אישי המתאר את המחשבות שלי על המפתח המתחיל וכמה קשה להיות אחד כזה, במיוחד כשהפרקטיקה והתאוריה אינם מתחברים.'
 base-images-url: 'new-developers'
-hero-image: 'hero_image.jpg'
 categories:
   - Stuff
 ---
