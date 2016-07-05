@@ -1,5 +1,40 @@
+@mixin selected {
+  background-color: #2196F3;
+  border-radius: 0.25rem;
+
+  a {
+    color: #F0F0F0;
+  }
+}
+
 nav {
-  .side-nav a {
-    color: inherit;
-  }  
+  text-align: right;
+
+  a {
+    float: left;
+  }
+
+  ul {
+    display: inline-block;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+      padding: 0.5rem;
+      margin: 0.5rem;
+
+      a {
+        color: #2196F3;
+        text-decoration: none;
+      }
+
+      &:hover {
+        @include selected;
+      }
+    }
+
+    li.active {
+      @include selected;
+    }
+  }
 }

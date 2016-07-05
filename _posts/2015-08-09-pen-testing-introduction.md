@@ -4,7 +4,6 @@ author: nirgn
 layout: post
 summary: 'סדרת הפוסטים הקרובה תיהיה יומן מסע של תהליך הלמידה שלי את העולם הענק הנקרא בדיקות חדירה.'
 base-images-url: 'pen-testing-part-1'
-hero-image: 'hero_image.jpg'
 categories:
   - Pen_Testing
 ---

@@ -4,7 +4,6 @@ author: nirgn
 layout: post
 summary: הפוסט השני בנושא מערכות הפעלה יתמקד בעיקר בתהליכים ותהליכונים, והבעיות השונות שמגיעות איתן.
 base-images-url: 'operating-system-part-2'
-hero-image: 'hero_image.svg'
 categories:
   - Operating Systems
 ---

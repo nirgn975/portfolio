@@ -4,7 +4,6 @@ author: nirgn
 layout: post
 summary: פוסט זה הוא הראשון בסדרת פוסטים על מערכות הפעלה, ומהווה הקדמה ויישור קו תיאורטי של הנושא.
 base-images-url: 'operating-system-part-1'
-hero-image: 'hero_image.svg'
 categories:
   - Operating Systems
 ---

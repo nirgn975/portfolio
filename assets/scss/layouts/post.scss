@@ -29,7 +29,6 @@
   }
 
   table {
-    width: 50%;
     margin: 1% auto;
     border-spacing: 0;
     border-collapse: collapse;
@@ -45,5 +44,10 @@
     td, th {
       border: 1px solid #ddd;
     }
+  }
+
+  .highlight {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
   }
 }
