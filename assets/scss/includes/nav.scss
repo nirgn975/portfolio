@@ -1,14 +1,8 @@
-@mixin selected {
-  background-color: #2196F3;
-  border-radius: 0.25rem;
-
-  a {
-    color: #F0F0F0;
-  }
-}
-
 nav {
+  border-bottom: 1px solid #E0E0E0;
   text-align: right;
+  max-width: 1200px;
+  margin: 0 auto;
 
   a {
     float: left;
@@ -28,13 +22,9 @@ nav {
         text-decoration: none;
       }
 
-      &:hover {
+      &.active, &:hover {
         @include selected;
       }
-    }
-
-    li.active {
-      @include selected;
     }
   }
 }

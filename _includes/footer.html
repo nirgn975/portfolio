@@ -1,22 +1,20 @@
-<footer class="page-footer blue-grey darken-3">
+<footer>
   <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">{{ site.title }}</h5>
-        <p class="grey-text text-lighten-4">{{ site.description }}</p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3 rss-subscribe" href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank">Subscribe via RSS</a></li>
-          <li><a class="grey-text text-lighten-3" href="https://github.com/nirgn975/Stories-of-a-Lifelong-Student" target="_blank">Check the source code on GitHub</a></li>
-        </ul>
-      </div>
+    <div class="description">
+      <h5>{{ site.title }}</h5>
+      <p>{{ site.description }}</p>
     </div>
-  </div>
-  <div class="footer-copyright blue-grey darken-4">
-    <div class="container">
-    © 2016 The content is licensed under the Creative Commons Attribution 3.0 License, code samples under the MIT License, and pictures under Fair use.
+    <div class="links">
+      <h5>Links</h5>
+      <ul>
+        <li><a class="rss-subscribe" href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank">Subscribe via RSS</a></li>
+        <li><a href="https://github.com/nirgn975/Stories-of-a-Lifelong-Student" target="_blank">Check the source code on GitHub</a></li>
+      </ul>
+    </div>
+    <div class="footer-copyright">
+      <p>
+        © The content is licensed under the Creative Commons Attribution 3.0 License, code samples under the MIT License, and pictures under Fair use.
+      </p>
     </div>
   </div>
 </footer>

@@ -4,7 +4,7 @@ body {
   font-family: 'Arimo', sans-serif;
 }
 
-#content-list {
+.container {
   direction: rtl;
 
   a {
@@ -13,9 +13,7 @@ body {
   }
 
   .post-content {
-    max-width: 800px;
-    padding: 1rem;
-    margin: 0 auto;
+    @include center-base-elments;
 
     .post-header {
       h3 {
@@ -25,6 +23,27 @@ body {
         float: left;
         margin: 1.17rem;
       }
+    }
+  }
+}
+
+.pagination {
+  @include center-base-elments;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    padding: 0.5rem;
+
+    &.disabled {
+      a {
+        color: #9E9E9E;
+        cursor: not-allowed;
+      }
+    }
+
+    &.active, &:hover {
+      @include selected;
     }
   }
 }

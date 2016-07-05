@@ -1,6 +1,10 @@
 .post-content {
   direction: rtl;
 
+  .page-header {
+    text-align: center;
+  }
+
   pre, code {
     direction: ltr;
   }
