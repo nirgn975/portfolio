@@ -18,7 +18,7 @@ layout: default
 
   <!-- Pagination -->
   {% if paginator.total_pages > 1 %}
-  <div class="pagination">
+  <ul class="pagination">
     <!-- Previous page -->
     {% if paginator.previous_page %}
     <li>
@@ -47,7 +47,7 @@ layout: default
     {% else %}
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     {% endif %}
-  </div>
+  </ul>
   {% endif %}
   <!-- END pagination -->
 </div>

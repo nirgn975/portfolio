@@ -1,8 +1,14 @@
 .post-content {
   direction: rtl;
 
-  .page-header {
-    text-align: center;
+  .post-header {
+    .post-meta {
+      display: inline-block;
+      float: left;
+    }
+    .post-title {
+      margin-top: 0;
+    }
   }
 
   pre, code {
@@ -47,6 +53,7 @@
 
     td, th {
       border: 1px solid #ddd;
+      padding: 5px;
     }
   }
 

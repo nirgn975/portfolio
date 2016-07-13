@@ -1,6 +1,6 @@
 # Site settings
 title: Stories of a Lifelong Student
-description: A blog writin by Nir Galon. The posts are about computer science, open source, software development, security information, etc.
+description: A blog writin by Nir Galon. The posts are about computer science (data structures, algorithms, networks, databases, operating systems, programming languages, data mining, machine learning, etc), open source related stuff, software development, security information, etc.
 url: "http://lifelongstudent.net" # the base hostname & protocol for your site
 permalink: pretty
 

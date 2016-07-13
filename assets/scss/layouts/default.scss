@@ -34,6 +34,8 @@ body {
   li {
     display: inline-block;
     padding: 0.5rem;
+    height: 1.2rem;
+    vertical-align: middle;
 
     &.disabled {
       a {
@@ -44,6 +46,11 @@ body {
 
     &.active, &:hover {
       @include selected;
+    }
+
+    i {
+      font-size: 1.5rem;
+      line-height: 1rem;
     }
   }
 }
