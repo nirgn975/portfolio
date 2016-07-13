@@ -2,53 +2,7 @@
 title: The Fun Part of Android
 author: nirgn
 layout: post
-categories:
-  - Information
-tags:
-  - Activities
-  - Activity
-  - Android
-  - apk
-  - ApkTool
-  - Broadcast receiver
-  - bytecode
-  - class
-  - Code
-  - Content provider
-  - ContentResolver
-  - Dalvik
-  - Digital
-  - Digital Whisper
-  - Google
-  - Intent
-  - Intent Filter
-  - Java
-  - layout
-  - Package
-  - Packages
-  - Service
-  - smali
-  - string
-  - Toast
-  - Whisper
-  - XML
-  - אוביקט
-  - אינטנט
-  - אנדרואיד
-  - אפליקציות
-  - גוגל
-  - דיגיטל
-  - דיגיטל וויספר
-  - הנדסה לאחור
-  - הסבר
-  - וויספר
-  - חבילות
-  - מאמר
-  - מדריך
-  - מחלקה
-  - מפתח
-  - ספריה
-  - קוד
+category: Android
 ---
 [<img class="alignleft wp-image-1143" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/Red_Android.png" alt="Red Android" width="220" height="223" />](http://www.lifelongstudent.net/wp-content/uploads/2013/10/Red_Android.png)המאמר הבא נכתב לגיליון 45 של DW וניתן להורידו <a href="http://www.digitalwhisper.co.il/files/Zines/0x2D/DigitalWhisper45.pdf" target="_blank">מכאן</a>.
 
@@ -306,14 +260,14 @@ tags:
 
 נכניס הודעה קופצת (<a href="http://developer.android.com/guide/topics/ui/notifiers/toasts.html" target="_blank">Toast</a>) עם הטקסט Hack, נצטרך להכניס אותה ב smali, והאמת שאין לי מושג איך לכתוב ב smali, אז להלן השורה ב Java:
 
-<pre class="lang:default decode:true">Toast.makeText(getApplicationContext(), “Hack”, 
+<pre class="lang:default decode:true">Toast.makeText(getApplicationContext(), “Hack”,
 Toast.LENGTH_SHORT).show();</pre>
 
 נכניס אותה לאפליקיה, נקמפל, נייצא, נפתח בעזרת apktool, ונראה את הקוד smali שקיבלנו, הוא אמור להיות כזה:
 
 <pre class="lang:default decode:true">invoke-virtual {p0}, Lcom/example/dw/Main;-&gt;getApplicationContext()Landroid/content/Context;
 move-result-object v1
-const-string v2, "Hacked!" 
+const-string v2, "Hacked!"
 const/4 v3, 0x0
 invoke-static {v1, v2, v3}, Landroid/widget/Toast;-&gt;makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 move-result-object v1

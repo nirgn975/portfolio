@@ -2,29 +2,7 @@
 title: 'Chromebook Pixel &#038; Chrome OS'
 author: nirgn
 layout: post
-categories:
-  - Chrome_OS
-tags:
-  - App Engine
-  - Apps
-  - Chrome
-  - Chrome OS
-  - Google
-  - OS
-  - Pixel
-  - Play
-  - Web Apps
-  - Web Services
-  - אינטרנט
-  - אפליקציות
-  - גוגל
-  - הסבר
-  - כרום
-  - מאמר
-  - מדריך
-  - מערכת הפעלה
-  - ענן
-  - פיקסל
+category: Chrome OS
 ---
 [<img class="alignleft wp-image-1019" src="http://www.lifelongstudent.net/wp-content/uploads/2013/02/gallery-trackpad.jpg" alt="gallery trackpad" width="300" height="209" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/02/gallery-trackpad.jpg 696w, http://www.lifelongstudent.net/wp-content/uploads/2013/02/gallery-trackpad-300x209.jpg 300w" sizes="(max-width: 300px) 100vw, 300px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/02/gallery-trackpad.jpg)לאחרונה יצא ה Chromebook Pixel והביקורות שיבחו את גוגל על המחשב ואיכות הבניה, אך קטלו את מערכת ההפעלה. בתור אחד שחשב (ועדיין חושב) לקנות את המחשב, קראתי (ואני עדיין קורא) כל אחת מהביקורות בקפידה, ראיתי את כל הסרטונים שסיקרו את המוצר, ורובם (אם לא כולם) טענו כי המחשב &#8211; החומרה הפיזית, מצויינת אך לא ניתן לעשות איתו כלום בגלל מערכת ההפעלה שלא מאפשרת זאת, וזה גרם לי לתהות, האם באמת הכתבים יודעים על מה הם מדברים? האם הם ניסו לחיות רק ב"ענן" יום / שבוע / חודש?
 

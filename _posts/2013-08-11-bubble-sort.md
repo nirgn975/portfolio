@@ -2,30 +2,7 @@
 title: מיון בועות (Bubble Sort)
 author: nirgn
 layout: post
-categories:
-  - Algorithms
-tags:
-  - Algorithm
-  - Algorithms
-  - Bubble
-  - Code
-  - for
-  - Pseudo
-  - Sort
-  - while
-  - אלגוריתם
-  - אלגוריתמים
-  - בועות
-  - הסבר
-  - זמן
-  - מאמר
-  - מדריך
-  - מיון
-  - מקום
-  - סיבוכיות
-  - פסאודו
-  - קוד
-  - ריצה
+category: Algorithms
 ---
 [<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Bubble Sort &#8211; מיון בועות, ידוע גם בתור מיון החלפה, בסיסו, הוא מיון השוואתי בין 2 מספרים.
 
@@ -76,7 +53,7 @@ for (i &lt;- 1 to length[A]) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         כרגע המערך יראה כך: { 7, 5, 1, 3 }.
       </li>
@@ -91,7 +68,7 @@ for (i &lt;- 1 to length[A]) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         המערך עדיין יראה כך: { 7, 5, 1, 3 }.
       </li>
@@ -106,7 +83,7 @@ for (i &lt;- 1 to length[A]) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         המערך יראה כך: { 7, 5, 3, 1 }.
       </li>
@@ -124,7 +101,7 @@ for (i &lt;- 1 to length[A]) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         המערך עדיין יראה כך: { 7, 5, 3, 1 }.
       </li>
@@ -139,7 +116,7 @@ for (i &lt;- 1 to length[A]) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         המערך עדיין יראה כך: { 7, 5, 3, 1 }.
       </li>
@@ -157,7 +134,7 @@ for (i &lt;- 1 to length[A]) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         המערך עדיין יראה כך: { 7, 5, 3, 1 }.
       </li>

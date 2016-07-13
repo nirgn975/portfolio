@@ -2,33 +2,7 @@
 title: להתקין Chrome OS
 author: nirgn
 layout: post
-categories:
-  - Chrome_OS
-tags:
-  - Chrome
-  - Chrome OS
-  - Chromebook
-  - Chromebox
-  - Chromium
-  - Create
-  - Download
-  - Google
-  - Image
-  - Install
-  - OS
-  - VirtualBox
-  - גוגל
-  - הסבר
-  - התקנה
-  - ווירטואלית
-  - כרום
-  - כרומבוק
-  - כרומבוקס
-  - מאמר
-  - מדריך
-  - מכונה
-  - מערכת הפעלה
-  - תמונה
+category: Chrome OS
 ---
 [<img class="alignleft wp-image-918" src="http://www.lifelongstudent.net/wp-content/uploads/2012/09/Chrome_OS_UI.png" alt="Chrome OS UI" width="400" height="225" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/09/Chrome_OS_UI.png 800w, http://www.lifelongstudent.net/wp-content/uploads/2012/09/Chrome_OS_UI-300x168.png 300w" sizes="(max-width: 400px) 100vw, 400px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/09/Chrome_OS_UI.png)אני מניח שכולם שמעו על מערכת ההפעלה החדשה מבית גוגל שעתידה לשנות את פני התחום, הלא היא Chrome OS. המערכת מתנהלת כמעט כולה על גבי הענן ומהווה מוצר משלים (ומרכזי) לשאר השירותים שגוגל מספקת.
 

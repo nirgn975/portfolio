@@ -2,27 +2,7 @@
 title: 'לחפש ב Play - טיפים וטריקים'
 author: nirgn
 layout: post
-categories:
-  - Information
-tags:
-  - Android
-  - Apps
-  - filters
-  - Google
-  - intitle
-  - Play
-  - pub
-  - Search
-  - אנדרואיד
-  - אפליקציות
-  - גוגל
-  - הסבר
-  - חיפוש
-  - חנות
-  - מאמר
-  - מדריך
-  - פילטרים
-  - פליי
+category: Android
 ---
 [<img class="alignleft wp-image-937" src="http://www.lifelongstudent.net/wp-content/uploads/2012/10/android_market.png" alt="Android Market" width="320" height="221" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/10/android_market.png 798w, http://www.lifelongstudent.net/wp-content/uploads/2012/10/android_market-300x206.png 300w" sizes="(max-width: 320px) 100vw, 320px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/10/android_market.png)כולנו מכירים את חנות האנדרואיד, Play, ויום יום אנחנו נכנסים לחנות כדי לעדכן את האפליקציות שהתקנו, ואולי גם להוריד אחת חדשה. או אפילו סתם כדיל להסתובב בחנות בתקווה למצוא משהו חדש וטוב, או אם זה בהמלצה של חבר / אתר וכד'.
 

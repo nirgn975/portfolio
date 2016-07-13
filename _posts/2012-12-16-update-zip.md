@@ -2,29 +2,7 @@
 title: ליצור קובץ update.zip ב-5 שלבים
 author: nirgn
 layout: post
-categories:
-  - How-To
-tags:
-  - Android
-  - Change
-  - Code
-  - Google
-  - rom
-  - Testsign.jar
-  - Update
-  - Zip
-  - אנדרואיד
-  - גוגל
-  - הסבר
-  - זיפ
-  - מאמר
-  - מדריך
-  - עדכון
-  - צריבה
-  - קובץ
-  - קוד
-  - רום
-  - ריקברי
+category: Android
 ---
 [<img class="alignleft wp-image-954" src="http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found.png" alt="Android" width="290" height="288" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found.png 473w, http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found-300x298.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found-144x144.png 144w" sizes="(max-width: 290px) 100vw, 290px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found.png)אז מה זה בכלל קובץ update.zip? זהו קובץ שנועד לצריבה דרך הריקברי (Recovery), אם זה רום (Rom), או כמה אפליקציות שהורדנו מהאינטרנט, או סתם שינויים קטנים שברצוננו להתקין.
 

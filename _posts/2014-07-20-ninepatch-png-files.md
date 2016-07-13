@@ -2,35 +2,7 @@
 title: NinePatch PNG Files
 author: nirgn
 layout: post
-categories:
-  - How-To
-tags:
-  - 9
-  - 9patch
-  - Android
-  - ApkTool
-  - bat
-  - bitmap
-  - Create
-  - Development
-  - draw
-  - Editor
-  - file
-  - Files
-  - Nine
-  - NinePatch
-  - Patch
-  - Png
-  - SDK
-  - tools
-  - אנדרואיד
-  - גרפיקה
-  - מפת
-  - סיביות
-  - עורך
-  - פיתוח
-  - קובץ
-  - תמונות
+category: Android
 ---
 [<img class="alignleft wp-image-1774" src="http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png" alt="NinePatch PNG" width="200" height="200" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-1024x1024.png 1024w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-144x144.png 144w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png)draw9patch הוא עורך קבצי NinePatch המגיע באופן מובנה בערכת הSDK של אנדרואיד, ונימצא בנתיב sdk/tools/draw9patch. ה class הנקרא <a href="http://developer.android.com/reference/android/graphics/NinePatch.html" target="_blank">NinePatch</a> מאפשר לנו לצייר bitmap (מפת סיביות) בתשעה או יותר חלקים. ובקיצור הוא מאפשר לנו ליצור גרפיקה שתשנה את מידותיה באופן מוגדר.
 
@@ -61,12 +33,12 @@ tags:
 [<img class="alignleft wp-image-1779" src="http://www.lifelongstudent.net/wp-content/uploads/2014/07/9patch-.png" alt="9patch" width="400" height="293" />](http://www.lifelongstudent.net/wp-content/uploads/2014/07/9patch-.png)* אדגים ואסביר על התכנה הנפרדת, אך העיקרון יהיה בדיוק אותו הדבר ב Eclipse וב Android Studio.
 
   1. קודם כל יש לגרור את התמונה שיצרתם (או שאתם רוצים לערוך) לתוכנה.
-  2. עכשיו כדי שנבין איך אנחנו מעצבים, הוספתי תמונה: 
+  2. עכשיו כדי שנבין איך אנחנו מעצבים, הוספתי תמונה:
       * אנו צובעים עם העכבר את הפיקסל הצדדי (הוא הופך לשחור) ע"י לחיצה עליו (לחיצה על המקש הימני כדי למחוק).
       * החלק העליון והשמאלי קשורים למבנה של התמונה, הרי באנדרואיד יש המון מכשירים בעלי רזולוציות שונות, והמערכת מבצעת את ההתאמות לבד אך אנו צריכים להגדיר איזה איזור ניתן למתוח בתמונה ואיזה איזור לא.
       * הצד הימני והתחתון שולטים במיקום הטקסט על התמונה, מגדירים את הגבולות שלו מבחינת גבוה ורוחב.
       * בצד הימני של התוכנה אנו רואים את ה'תצוגה המקדימה', אנו רואים כיצד הלחצן שלנו יראה ואיפה הטקסט ימוקם ברזולציות שונות.
-      * למטה יש לנו בר שחור עם הגדרות: 
+      * למטה יש לנו בר שחור עם הגדרות:
           * **zoom &#8211;** מאפשר לנו לבצע זום פנימה / החוצה מהאובייקט שלנו.
           * **patch scale &#8211;** משנה את היחס בין החלק הימני (התצוגה מקדימה) לחלק השמאלי (האובייקט שבעריכה).
           * **show patches &#8211;** מראה תצוגה מקדימה של מבנה הלחצן (היחס של המבנה) בחלק השמאלי על האובייקט עצמו.
