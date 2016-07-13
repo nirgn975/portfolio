@@ -1,6 +1,16 @@
 .post-content {
   direction: rtl;
 
+  .post-header {
+    .post-meta {
+      display: inline-block;
+      float: left;
+    }
+    .post-title {
+      margin-top: 0;
+    }
+  }
+
   pre, code {
     direction: ltr;
   }
@@ -43,6 +53,7 @@
 
     td, th {
       border: 1px solid #ddd;
+      padding: 5px;
     }
   }
 
