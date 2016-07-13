@@ -1,29 +1,27 @@
 ---
 layout: default
 ---
-<div>
-  <!-- This loops through the paginated posts -->
-  <div class="row">
-    {% for post in paginator.posts %}
-      <div class="post-content">
-        <div class="post-header">
-          <h3>{{ post.title }}</h3>
-          <em>{{ post.date | date: "%b %-d, %Y" }}</em>
-        </div>
-        <p>{{ post.summary }}</p>
-        <div class="post-action">
-          <a href="{{ post.url | prepend: site.baseurl }}">המשך לפוסט ></a>
-        </div>
+<!-- This loops through the paginated posts -->
+<div class="row">
+  {% for post in paginator.posts %}
+    <div class="post-content">
+      <div class="post-header">
+        <h3>{{ post.title }}</h3>
+        <em>{{ post.date | date: "%b %-d, %Y" }}</em>
       </div>
-    {% endfor %}
-  </div>
+      <p>{{ post.summary }}</p>
+      <div class="post-action">
+        <a href="{{ post.url | prepend: site.baseurl }}">המשך לפוסט ></a>
+      </div>
+    </div>
+  {% endfor %}
 
   <!-- Pagination -->
   {% if paginator.total_pages > 1 %}
-  <div class="pagination">
+  <ul class="pagination">
     <!-- Previous page -->
     {% if paginator.previous_page %}
-    <li class="waves-effect">
+    <li>
       <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_right</i></a>
     </li>
     {% else %}
@@ -33,23 +31,23 @@ layout: default
     <!-- All page numbers-->
     {% for page in (1..paginator.total_pages) %}
       {% if page == paginator.page %}
-        <li class="active blue-grey"><a href="#!">{{ page }}</a></li>
+        <li class="active"><a href="#!">{{ page }}</a></li>
       {% elsif page == 1 %}
-        <li class="waves-effect"><a href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+        <li><a href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
       {% else %}
-        <li class="waves-effect"><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+        <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
       {% endif %}
     {% endfor %}
 
     <!-- Next page -->
     {% if paginator.next_page %}
-      <li class="waves-effect">
+      <li>
         <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_left</i></a>
       </li>
     {% else %}
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     {% endif %}
-  </div>
+  </ul>
   {% endif %}
   <!-- END pagination -->
 </div>

@@ -1,0 +1,14 @@
+@mixin selected {
+  background-color: #2196F3;
+  border-radius: 0.25rem;
+
+  a {
+    color: #F0F0F0;
+  }
+}
+
+@mixin center-base-elments {
+  max-width: 1000px;
+  padding: 1rem;
+  margin: 0 auto;
+}
