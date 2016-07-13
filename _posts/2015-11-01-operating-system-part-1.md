@@ -2,8 +2,8 @@
 title: 'מערכות הפעלה - חלק 1 (הקדמה)'
 author: nirgn
 layout: post
-summary: "פוסט זה הוא הראשון בסדרת פוסטים על מערכות הפעלה, ומהווה הקדמה ויישור קו תיאורטי של הנושא."
-hero-image: "categories/operating-systems.svg"
+summary: פוסט זה הוא הראשון בסדרת פוסטים על מערכות הפעלה, ומהווה הקדמה ויישור קו תיאורטי של הנושא.
+base-images-url: 'operating-system-part-1'
 categories:
   - Operating Systems
 ---

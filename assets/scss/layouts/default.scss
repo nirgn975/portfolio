@@ -1,36 +1,56 @@
 body {
-  background-color: #E0E0E0;
+  background-color: #F0F0F0;
+  color: #424242;
+  font-family: 'Arimo', sans-serif;
 }
 
-#content-list {
+.container {
   direction: rtl;
 
-  .card {
-    .card-content {
-      padding: 20px 10px 10px 10px;
-
-      .card-header {
-        line-height: 18px;
-        margin-top: -15px;
-        padding: 5px;
-      }
-
-      .card-title {
-        right: 0;
-        line-height: 18px;
-      }
-
-      span.date {
-        margin: 0 5px;
-      }
-    }
-
-    .card-action {
-      padding: 10px;
-    }
+  a {
+    color: #2196F3;
+    text-decoration: none;
   }
 
-  .pagination {
-    text-align: center;
+  .post-content {
+    @include center-base-elments;
+
+    .post-header {
+      h3 {
+        display: inline-block;
+      }
+      em {
+        float: left;
+        margin: 1.17rem;
+      }
+    }
+  }
+}
+
+.pagination {
+  @include center-base-elments;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    padding: 0.5rem;
+    height: 1.2rem;
+    vertical-align: middle;
+
+    &.disabled {
+      a {
+        color: #9E9E9E;
+        cursor: not-allowed;
+      }
+    }
+
+    &.active, &:hover {
+      @include selected;
+    }
+
+    i {
+      font-size: 1.5rem;
+      line-height: 1rem;
+    }
   }
 }

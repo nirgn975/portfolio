@@ -1,6 +1,16 @@
 .post-content {
   direction: rtl;
 
+  .post-header {
+    .post-meta {
+      display: inline-block;
+      float: left;
+    }
+    .post-title {
+      margin-top: 0;
+    }
+  }
+
   pre, code {
     direction: ltr;
   }
@@ -29,7 +39,6 @@
   }
 
   table {
-    width: 50%;
     margin: 1% auto;
     border-spacing: 0;
     border-collapse: collapse;
@@ -44,6 +53,12 @@
 
     td, th {
       border: 1px solid #ddd;
+      padding: 5px;
     }
+  }
+
+  .highlight {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
   }
 }

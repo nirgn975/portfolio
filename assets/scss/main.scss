@@ -1,8 +1,9 @@
-
+@import "tools/mixins";
 @import "tools/syntax-highlighting";
 @import "tools/normalize";
 
-@import "includes/nav";
-
 @import "layouts/post";
 @import "layouts/default";
+
+@import "includes/nav";
+@import "includes/footer"

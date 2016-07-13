@@ -4,6 +4,6 @@ Thanks for looked at my humans.txt!
 This site is made by Nir Galon.
 
 # The website made using:
-    HTML5, CSS3, SASS, Semantic UI,
+    HTML5, CSS3, SASS.
     JavaScript, jQuery, Jekll,
-    and it's hosting on GitHub pages.
+    and he's hosting on GitHub pages.

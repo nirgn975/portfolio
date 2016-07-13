@@ -1,32 +1,17 @@
 <nav>
-  <div class="nav-wrapper blue-grey darken-3">
-    <a href="{{ site.baseurl }}/" class="brand-logo">
-      <img src="/assets/img/logo.png" alt="{{ site.title }}" />
-    </a>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="http://nirgn.com" target="_blank">About</a></li>
-      {% for my_page in site.pages %}
-        {% if my_page.title %}
-          {% if my_page.url == page.url %}
-            <li class="active"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-          {% else  %}
-            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-          {% endif %}
+  <a href="{{ site.baseurl }}/" class="brand-logo">
+    <img src="" alt="{{ site.title }}" />
+  </a>
+  <ul>
+    <li><a href="http://nirgn.com" target="_blank">About</a></li>
+    {% for my_page in site.pages %}
+      {% if my_page.title %}
+        {% if my_page.url == page.url %}
+          <li class="active"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+        {% else  %}
+          <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
         {% endif %}
-      {% endfor %}
-    </ul>
-    <ul class="side-nav blue-grey darken-3" id="mobile-demo">
-      <li><a href="http://nirgn.com" target="_blank">About</a></li>
-      {% for my_page in site.pages %}
-        {% if my_page.title %}
-          {% if my_page.url == page.url %}
-            <li class="active"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-          {% else  %}
-            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+      {% endif %}
+    {% endfor %}
+  </ul>
 </nav>
