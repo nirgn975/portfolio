@@ -2,32 +2,7 @@
 title: מיון בחירה (Selection Sort)
 author: nirgn
 layout: post
-categories:
-  - Algorithms
-tags:
-  - Algorithm
-  - Algorithms
-  - Code
-  - Pseudo
-  - Selection
-  - Sort
-  - אלגוריתמים
-  - אלגוריתמם
-  - בחירה
-  - הדגמה
-  - הסבר
-  - הרצה
-  - זמן
-  - לולאה
-  - מאמר
-  - מדריך
-  - מיון
-  - מערך
-  - מקום
-  - סיבוכיות
-  - פסאודו
-  - קוד
-  - ריצה
+category: Algorithms
 ---
 [<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Selection Sort &#8211; מיון בחירה, הינו האלגוריתם האינטואיטיבי ביותר (לפחות לפי דעתי). אלגוריתמם זה משתמש במבנה הנתונים הבסיסי והידוע &#8211; <a title="מערך (Array)" href="http://www.lifelongstudent.net/2013/04/%d7%9e%d7%a2%d7%a8%d7%9a-array/" target="_blank">מערך</a>.
 
@@ -81,7 +56,7 @@ for (i &lt;- 1 to n-1) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         במעבר הראשון, נראה כי 1 קטן מ 3, ולכן min יהיה שווה 2 (כי הערך 1 נמצא בתא מס' 2), במעבר הבא, 7 גדול מ 1 ולכן לא נבצע דבר, גם 5 גדול מ 1 ולכן לא נבצע דבר.
       </li>
@@ -105,7 +80,7 @@ for (i &lt;- 1 to n-1) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         מעבר ראשון: 7 לא קטן מ 3 ולכן לא נבצע דבר. מעבר שני: 5 לא קטן מ 3 ולכן לא נבצע דבר.
       </li>
@@ -129,7 +104,7 @@ for (i &lt;- 1 to n-1) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         מעבר ראשון 5 קטן מ 7 ולכן min יהיה שווה 4 (כי הערך 5 נמצא בתא מס' 4).
       </li>

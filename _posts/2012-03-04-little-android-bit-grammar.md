@@ -2,39 +2,7 @@
 title: A little bit of Android Grammar
 author: nirgn
 layout: post
-categories:
-  - Information
-tags:
-  - adb
-  - Android
-  - apk
-  - bootloader
-  - bytecode
-  - cache
-  - Dalvik
-  - deodexed
-  - Java VM
-  - Kernel
-  - Linux
-  - odexed
-  - recovery
-  - rom
-  - root
-  - Runtime
-  - VM
-  - אמולטור
-  - אנדרואיד
-  - הפצות
-  - זיכרון
-  - לינוקס
-  - מכשיר
-  - מערכת הפעלה
-  - סביבת ריצה
-  - עדכונים
-  - קומפיילר
-  - קרנל
-  - רוט
-  - ריקוברי
+category: Android
 ---
 <!--wp_fromhtmlpreview_devfmt-->
 
@@ -231,7 +199,7 @@ Emulator 2, adb: 5557 </pre>
 
   1. להעתיקו למכשיר (זיכרון פנימי / SD card) ולהיכנס לתיקייה (עם מנהל קבצים דוגמת <a href="https://play.google.com/store/apps/details?id=com.metago.astro&hl=en" target="_blank">Astro</a> או <a href="https://play.google.com/store/apps/details?id=com.estrongs.android.pop&hl=en" target="_blank">ES File Explorer</a>) ולהתקינו (יש לוודא כי "יישומים לא מוכרים" מסומן ב V תחת הגדרות -> יישומים).
   2. להתקינו דרך ה ADB (יש לוודא כי המכשיר מחובר למחשב באמצעות כבל usb ולוודא כי תחת הגדרות -> יישומים -> פיתוח -> usb debugging מסומן ב V).
-  3. 
+  3.
 
 ## <span style="text-decoration: underline;"><strong>Root</strong></span>
 

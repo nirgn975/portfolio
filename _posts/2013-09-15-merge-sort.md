@@ -2,33 +2,7 @@
 title: מיון מיזוג (Merge Sort)
 author: nirgn
 layout: post
-categories:
-  - Algorithms
-tags:
-  - Algorithm
-  - Algorithms
-  - Code
-  - Merge
-  - Pseudo
-  - Sort
-  - אלגוריתם
-  - אלגוריתמים
-  - הסבר
-  - הפרד
-  - ומשול
-  - זמן
-  - מאמר
-  - מדריך
-  - מיון
-  - מיזוג
-  - מקום
-  - משול
-  - מתודה
-  - סיבוכיות
-  - פונקציה
-  - פסאודו
-  - קוד
-  - ריצה
+category: Algorithms
 ---
 [<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Merge Sort &#8211; מיון מיזוג. אלגוריתם זה פועל בשיטת הפרד ומשול, האלגו' הומצא על ידי המתמטיקאי <a href="https://en.wikipedia.org/wiki/John_von_Neumann" target="_blank">ג'ון פון ניומן</a> בשנת 1945. להבדיל מהאלגוריתמים שראינו עד כה, לאלגוריתם זה יש 2 שגרות (Merge, ו Merge Sort).
 

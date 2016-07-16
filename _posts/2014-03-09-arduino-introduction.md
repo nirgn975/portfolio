@@ -2,56 +2,7 @@
 title: 'ארדואינו (Arduino) - הקדמה'
 author: nirgn
 layout: post
-categories:
-  - Arduino
-tags:
-  - Arduino
-  - Battery Snap
-  - Blink
-  - Breadboard
-  - Buttons
-  - Code
-  - COM
-  - H Bridge
-  - IDE
-  - Jumper Wires
-  - LCD
-  - LEDs
-  - Makers
-  - Male Header Pines
-  - Optocoupler
-  - Photoresistor
-  - Piezo
-  - Potentiometer
-  - Resistors
-  - Servo
-  - Uno
-  - USB
-  - xln
-  - אונו
-  - אלקטרוניקה
-  - ארדואינו
-  - "ג'לי"
-  - "גשר אייצ'"
-  - דיודת פולטות אור
-  - חוטי גישור
-  - חיישן הטיה
-  - חיישן טמפרטורה
-  - חיישן פיזואלקטריים
-  - טרנזיסטור
-  - כבל
-  - לוח מטריצה
-  - לחצן סוללה
-  - לחצנים
-  - מנוע DC
-  - מנוע סרוו
-  - מצמד אופטי
-  - נגד תמונה
-  - נגדים
-  - סיכות כותרת זכר
-  - פוטנציומטר
-  - קוד
-  - תצוגת גביש נוזלי
+category: Arduino
 ---
 <span style="text-decoration: underline;"><a href="http://www.lifelongstudent.net/wp-content/uploads/2014/03/ArduinoCommunityLogo.png"><img class="alignleft wp-image-1231" src="http://www.lifelongstudent.net/wp-content/uploads/2014/03/ArduinoCommunityLogo.png" alt="Arduino Community Logo" width="400" height="169" /></a>אז לפני שנתחיל, קצת הקדמה אישית:</span> לפני כמה חודשים התחלתי להתעניין במיקרו בקר קטן בשם ארדואינו (<a href="http://arduino.cc/" target="_blank">Arduino</a>), לאחר חקירה מעמיקה באינטרנט הגעתי לכמה מסקנות: 1.אין עליו הרבה חומר באינטרנט בעברית (לא שזה מפריע, אך מכאן נולד הרעיון לכתוב עליו בבלוג). 2.הגיע הזמן לשחק עם אחד כדי לראות אם זה באמת מה שאני רוצה.
 

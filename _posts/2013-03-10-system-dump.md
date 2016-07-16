@@ -2,32 +2,7 @@
 title: ליצור קובץ System Dump
 author: nirgn
 layout: post
-categories:
-  - How-To
-tags:
-  - Android
-  - Backup
-  - Create
-  - Google
-  - JDK
-  - Oracle
-  - Packages
-  - rom
-  - SDK
-  - Settings
-  - System Dump
-  - אנדרואיד
-  - גוגל
-  - גיבוי
-  - הסבר
-  - יצירת
-  - מאמר
-  - מדריך
-  - מערכת הפעלה
-  - סיסטם דאמפ
-  - עדכונים
-  - קובץ
-  - תמונת מערכת
+category: How-To
 ---
 [<img class="alignleft wp-image-1026" src="http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png" alt="AndroidSU" width="160" height="167" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png 240w, http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU-300x312.png 300w" sizes="(max-width: 160px) 100vw, 160px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png)שמתי לב שבשום מקום אין מדריך בעברית לכיצד ליצור קובץ System Dump. מדובר על כמה פעולות פשוטות, וזה עוזר המון! בעיקר כדי לחלוק מידע בקהילה.
 
