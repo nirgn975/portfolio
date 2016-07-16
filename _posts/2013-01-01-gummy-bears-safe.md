@@ -2,33 +2,7 @@
 title: כספת של סוכריות גומי
 author: nirgn
 layout: post
-categories:
-  - Information
-tags:
-  - adb
-  - Android
-  - ASLR
-  - Bouncer
-  - Digital
-  - Digital Whisper
-  - gesture
-  - Google
-  - Hack
-  - Jelly Bean
-  - key
-  - OTA
-  - Password
-  - Whisper
-  - אנדרואיד
-  - גוגל
-  - דיגיטל
-  - דיגיטל וויספר
-  - הסבר
-  - וויספר
-  - מאמר
-  - מדריך
-  - סריקה
-  - פירצה
+category: Android
 ---
 [<img class="alignleft wp-image-957" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Jelly_Bean_Logo.png" alt="Jelly Bean Logo" width="200" height="289" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Jelly_Bean_Logo.png 222w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/Jelly_Bean_Logo-300x433.png 300w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/Jelly_Bean_Logo.png)אתמול פורסם מאמר נוסף שכתבתי בשביל מגזין <a href="http://www.digitalwhisper.co.il/" target="_blank">Digital Whisper</a>, להלן המאמר:
 
@@ -102,7 +76,7 @@ adb shell rm /data/system/password.key</pre>
   1. כל אפליקציה שמותקנת אצלנו במכשיר יוצרת תיקייה בנתיב <span style="color: #ff0000;">Android/data/</span>, וכך ניתן לקבל רשימה של כל האפליקציות המותקנות אצלנו במכשיר.
   2. ניתן לראות / להעביר את כל הסרטונים, התמונות והשירים שיש אצלנו ב-SD.
   3. במידה וביצענו גיבוי של אנשי הקשר ב-SD, קובץ ה-VCF חשוף לגמרי וכולם יכולים לראות את אנשי הקשר שלנו (עם כל המידע שרשום אצלנו כמו קישור לפייסבוק, כתובות מייל וכד').
-  4. גישה למידע של אפליקציות. דוגמאות: 
+  4. גישה למידע של אפליקציות. דוגמאות:
       * <a href="https://play.google.com/store/apps/details?id=com.dropbox.android&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5kcm9wYm94LmFuZHJvaWQiXQ.." target="_blank">Dropbox</a> שם כל אחד יכול לראות את התמונות / קבצים / מסמכים שהורדתי / העליתי ל / מהמכשיר.
       * <a href="https://play.google.com/store/apps/details?id=com.riteshsahu.SMSBackupRestore&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5yaXRlc2hzYWh1LlNNU0JhY2t1cFJlc3RvcmUiXQ.." target="_blank">SMS Backup & Restore</a> שמגבה את כל ה-SMS-ים שלי, וכל אחד יכול לפתוח את הקובץ ב-Notepad ולקרוא את כל ה-SMS-ים שכתבתי אי פעם.
       * <a href="https://play.google.com/store/apps/details?id=com.waze&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS53YXplIl0." target="_blank">Waze</a> שומרת קובץ בשם waze_log בו קיים המידע של האפליקציה בעת ההתקנה כמו על איזה מכשיר היא הותקנה (דגם מדויק), איזה גרסת אנדרואיד (לפי API), מתי היא הותקנה, גרסת רום, איזה גרסה של האפליקציה, על איזה רשת התחברתי וכד'.
@@ -186,7 +160,7 @@ ASLR (קיצור של Address Space Layout Randomization) היא שיטת אבט
 Hiroshi Lockheimer &#8211; סמנכ"ל ההנדסה בצוות אנדרואיד מסביר על סריקת האפליקציות במכשיר:
 
 > "יש לנו קטלוג של 700,000 יישומים ב-Play, ומעבר לכך, אנחנו תמיד סורקים חומר באינטרנט במונחים של רכיבי APK שמופעים. כעת, יש לנו הבנה די טובה של המערכת של האפליקציה, לא משנה אם ה-APK ב-Play או לא."
-> 
+>
 > הוא ממשיך ומציין כי: "רוב הזמן &#8211; אם האפליקציות שנתקין יזוהו כבטוחות &#8211; אף אחד לא ירגיש שהשירות קיים. השרת עושה את כל העבודה הקשה. המכשיר שולח רק חתימה של ה-APK כך שהשרת יוכל לזהות אותו במהירות. רק אם אתם נתקלים באפליקציה לא בטוחה, תהליך ההתקנה יופרע".
 
 &nbsp;

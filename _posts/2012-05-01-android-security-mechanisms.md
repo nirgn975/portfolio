@@ -2,38 +2,7 @@
 title: 'Android - מנגנוני אבטחה'
 author: nirgn
 layout: post
-categories:
-  - Information
-tags:
-  - AES
-  - Android
-  - Bouncer
-  - Digital Whisper
-  - DRM
-  - Google
-  - Malware
-  - Permission
-  - SHA
-  - VPN
-  - WPA2
-  - אבטחה
-  - אנדרואיד
-  - ארכז חול
-  - גוגל
-  - הסבר
-  - התקפות
-  - זכויות ניהול
-  - יסודות
-  - מאמר
-  - מדריך
-  - מידע
-  - מפתח
-  - סינון
-  - פיתוח
-  - פריצות
-  - קידוד
-  - רוגלות
-  - שTTACKS
+category: Android
 ---
 [<img class="alignleft wp-image-842" src="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Security.png" alt="Android Security" width="200" height="155" />](http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Security.png)הפוסט הנל הינו מאמר שכתבתי למגזין Digital Whisper (כן, אלה שנמצאים בצד ימין בבלוג (: ).
 
@@ -60,13 +29,13 @@ tags:
 
 ## <span style="text-decoration: underline;"><strong>יסודות האבטחה של אנדרואיד (או על מה נעבור?):</strong></span>
 
-  1. בידוד אפליקציות ומערכת אישורים (בעת התקנת אפליקציות): 
+  1. בידוד אפליקציות ומערכת אישורים (בעת התקנת אפליקציות):
       * האם אנחנו יכולים לשלוט על מה האפליקציות שאנו מתקינים יוכלו לעשות?
       * האם אפליקציות שהתגלו כרוגלות יכולות להשפיע על שאר המערכת?
-  2. "מחבר" האפליקציה: 
+  2. "מחבר" האפליקציה:
       * האם אנחנו יכולים לסמוך על כותב האפליקציה?
       * האם אנחנו יכולים לסמוך על האפליקציות שכבר התקנו?
-  3. קידוד והצפנת המידע: 
+  3. קידוד והצפנת המידע:
       * האם המידע שלנו מוגן אם המכשיר שלנו נפרץ / נגנב / נאבד?
   4. מרכז הגישה למכשיר.
 

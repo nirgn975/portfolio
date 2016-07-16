@@ -2,42 +2,7 @@
 title: מיון מהיר (Quick Sort)
 author: nirgn
 layout: post
-categories:
-  - Algorithms
-tags:
-  - Algorithm
-  - Algorithms
-  - Code
-  - pivot
-  - Pseudo
-  - Quick
-  - Random
-  - Sort
-  - איבר
-  - אלגוריתם
-  - אלגוריתמים
-  - הסבר
-  - הפרד
-  - הרצה
-  - ומשול
-  - זמן
-  - מאמר
-  - מדריך
-  - מהיר
-  - מיון
-  - ממוצע
-  - מערך
-  - מקום
-  - מתודה
-  - סיבוכיות
-  - פסאודו
-  - ציר
-  - קוד
-  - קלט
-  - ריצה
-  - רנדומלי
-  - רקורסיבי
-  - שגרה
+category: Algorithms
 ---
 [<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Quick Sort &#8211; מיון מהיר. גם אלגוריתם זה הינו רקורסיבי ופועל בשיטת הפרד ומשול. האלגוריתם בוחר איבר אקראי מהמערך (נקרא pivot), ומסדר את כל האיברים (ע"י השוואה) כך שהאיברים הגדולים מאיבר הציר (איבר ה piviot) יופיעו אחריו (בצד הימיני של המערך) והאיברים הקטנים, לפניו (בצד השמאלי של המערך).
 
@@ -112,7 +77,7 @@ if (p &lt; r)
               </li>
             </ul>
           </li>
-          
+
           <li>
             שורה 5: נקרא לעצמנו מ q+1 (שהוא 3) עד r (שהוא 4): <ul style="list-style-type: square;">
               <li>
@@ -128,7 +93,7 @@ if (p &lt; r)
                   </li>
                 </ul>
               </li>
-              
+
               <li>
                 שורה 5: נקרא לעצמנו מ q+1 (שהוא 4) עד r (שהוא 4): <ul>
                   <li>
@@ -140,7 +105,7 @@ if (p &lt; r)
           </li>
         </ul>
       </li>
-      
+
       <li>
         שורה 5: נקרא לעצמנו מ q+1 (שהוא 4) עד r (שהוא 4): <ul>
           <li>

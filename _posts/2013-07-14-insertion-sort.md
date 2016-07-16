@@ -2,32 +2,7 @@
 title: מיון הכנסה (Insertion Sort)
 author: nirgn
 layout: post
-categories:
-  - Algorithms
-tags:
-  - Algorithm
-  - Algorithms
-  - Code
-  - for
-  - Insertion
-  - Pseudo
-  - Sort
-  - while
-  - אלגוריתם
-  - אלגוריתמים
-  - הכנסה
-  - הסבר
-  - זמן
-  - מאמר
-  - מדריך
-  - מיון
-  - מערך
-  - מקום
-  - סיבוכיות
-  - עקרון
-  - פסאודו
-  - קוד
-  - ריצה
+category: Algorithms
 ---
 [<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Insertion Sort &#8211; מיון הכנסה, גם הוא אינטואיטיבי למדי, ודרך הפעולה שלו דומה לדרך שבה ממיינים אנשים יד של קלפי משחק. גם באלגוריתמם זה נשתמש במבנה הנתונים &#8211; [מערך](http://www.lifelongstudent.net/2013/04/%d7%9e%d7%a2%d7%a8%d7%9a-array/ "מערך (Array)").
 
@@ -83,7 +58,7 @@ for (j &lt;- 2 to length[A]) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         במעבר הראשון, נראה כי 3 גדול מ 1, ולכן המערך יראה כך: { 5, 7, 3, 3 }.
       </li>
@@ -126,7 +101,7 @@ for (j &lt;- 2 to length[A]) do
           </li>
         </ul>
       </li>
-      
+
       <li>
         שורה 8: נשים את המשתנה key במקום הערך שבתא i+1 (במקום עצמו).
       </li>

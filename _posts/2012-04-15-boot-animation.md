@@ -2,31 +2,7 @@
 title: ליצור Boot animation ב-5 שלבים
 author: nirgn
 layout: post
-categories:
-  - How-To
-tags:
-  - adb
-  - Android
-  - Animation
-  - Boot
-  - Boot Animation
-  - Customize
-  - Winrar
-  - Zip
-  - איך
-  - אנדרואיד
-  - אנימציה
-  - אפליקציה
-  - הפעלה
-  - כיצד
-  - ליצור
-  - מאמר
-  - מדריך הסבר
-  - מכשיר
-  - רוט
-  - רזולוציה
-  - שינוי
-  - תמונות
+category: Android
 ---
 [<img class="alignleft size-full wp-image-833" src="http://www.lifelongstudent.net/wp-content/uploads/2012/04/Android_Rain.png" alt="Android Rain" width="250" height="183" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/04/Android_Rain.png 250w, http://www.lifelongstudent.net/wp-content/uploads/2012/04/Android_Rain-300x219.png 300w" sizes="(max-width: 250px) 100vw, 250px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/04/Android_Rain.png)לאחר שיצרתי לפני כמה ימים אנימציית הפעלה (Boot animation) לרום (ROM) בו אני משתמש כרגע (בדרך כלל אני לא מחליף כי אני בקושי מכבה &#8211; מדליק את המכשיר אבל האנימציה שלהם ממש לא נראתה לי) נשאלתי איך עשיתי, והאמת שזה ממש קל, אז החלטתי לכתוב מדריך קטן שיתאר את סדרת הפעולות.
 
