@@ -40,7 +40,7 @@ category: Operating Systems
 פסיקות חומרה נועדו, בעיקר, להגדיל את ניצולת ה CPU. למשל, בעת ביצוע I/O. תוכנית שמבקשת לבצע I/O, קריאה או כתיבה, מושהית ע"י מערכת ההפעלה עד לסיום פעולת ה I/O. בזמן ההשהיה תתבצע תכנית אחרת ב CPU. כאשר ההתקן שעליו התבצעה פעולת ה I/O יסיים את המשימה, יישלח סיגנל (signal) בקשה לפסיקה ל CPU. עם קבלת הסיגנל, המעבד משהה מיד את הביצוע של ההוראות שהוא מבצע כעת, ומפעיל שגרה מיוחדת הנקראת 'שגרה לטיפול בפסיקות' (או interrupt handler routine). השגרה לטיפול בפסיקות היא בדרך כלל חלק ממערכת ההפעלה. לאחר סיום השגרה לטיפול בפסיקות, ה CPU יכול לחזור לביצוע של התכנית המקורית שביצע לפי שקיבל את הסיגנל (למרות שייתכן והעניינים יתנהלו לפי תסריט אחר. השגרה לטיפול בפסיקות יכולה להורות להפעיל מתזמן תהליכים שיכול "לתת" את ה CPU לתכנית אחרת).
 
 <div class="left" style="width: 35%">
-  <img src="/assets/img/posts/operating-system-part-2/interrupt_processor.jpg" alt="Interrupt Processor">
+  <img src="/assets/img/posts/operating-system-part-2/interrupt_processor.png" alt="Interrupt Processor">
 </div>
 
 המעבר הזה, לביצוע של השגרה לטיפול בפסיקות, יוצר תקורה, מכיוון שצריך לבצע שמירת תוכן של התהליך על מנת לאפשר שחזור של ביצוע התוכנית מהנקודה שבה הופסקה. שמירת התוכן מתבצעת ע"י החומרה ותלויה במעבד (שלב 6 באיור משמאל). שמירת ה PSW וה PC מתבצעת גם ע"י המעבד עצמו (שלב 4) אשר קורא לשגרה לטיפול בפסיקות (בשלב 5). תהליך השמירה עצמו מתואר בצורה סכמתית באיור משמאל (בעקבות ריבוי הארכיטקטורות השונות של המעבד, ייתכנו גם אפשרויות נוספות).
@@ -78,7 +78,7 @@ category: Operating Systems
   4. <span style="text-decoration: underline;">סיום בעקבות הריגת תהליך &#8211;</span> תהליך שמתסיים בעקבות הבקשה המפורשת ממערכת ההפעלה לסיים את ריצתו. מערכת ההפעלה שמקבלת בקשה כזאת בוחנת את הרשאות המבקש (המבקש יכול להיות תהליך אחר, ובפרט תהליך של מערכת ההפעלה עצמה), ואם קיימות הרשאות מתאימות, היא מסיימת את ריצתו של התהליך המבוקש.
 
 <div class="left" style="width: 30%">
-  <img src="/assets/img/posts/operating-system-part-2/finite_state_machine.jpg" alt="Finite-state Machine">
+  <img src="/assets/img/posts/operating-system-part-2/finite_state_machine.png" alt="Finite-state Machine">
 </div>
 מודל התהליכים מתאפיין בהגדרה של מבנה היררכי בין תהליכי מערכת ההפעלה. אחד המרכיבים החשובים ביותר של מודל התהליכים הוא **מכונת מצבים**, המתארת את תקופת חייו של התהליך.
 
@@ -713,7 +713,7 @@ E(4) = 0.5T(3) + 0.25T(2) + 0.125T(1) + 0.125E(1)
 <span style="text-decoration: underline;"><strong>בעיית הפילוסופים הסועדים</strong></span>
 
 <div class="left">
-  <img src="/assets/img/posts/operating-system-part-2/dining_philosophers_problem.jpg" alt="Dining Philosophers">
+  <img src="/assets/img/posts/operating-system-part-2/dining_philosophers_problem.png" alt="Dining Philosophers">
 </div>
 <a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem" target="_blank">הבעיה המפורסמת ביותר</a> בהקשר זה, והפתרון שלה משמש כמודל שבאמצעותו בוחנים יעילות של מנגנונים חדשים לתקשורת בין תהליכים בסביבה בעלת מספר מוגבל של משאבים (כמו התקני קלט / פלט).
 
