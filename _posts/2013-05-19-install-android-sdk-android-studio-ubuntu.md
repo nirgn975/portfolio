@@ -2,35 +2,7 @@
 title: 'Install Android SDK - Android-Studio on Ubuntu'
 author: nirgn
 layout: post
-categories:
-  - How-To
-tags:
-  - 64bit
-  - adb
-  - ADT
-  - Android
-  - Android Studio
-  - Eclipse
-  - Google
-  - IDE
-  - Java
-  - JDK
-  - SDK
-  - Studio
-  - Ubuntu
-  - אנדרואיד
-  - אפליקציה
-  - אפליקציות
-  - אקפליפס
-  - "ג'אווה"
-  - גוגל
-  - הסבר
-  - התקנה
-  - מאמר
-  - מדריך
-  - סטודיו
-  - פיתוח
-  - תכנות
+category: Android
 ---
 [<img class="alignleft wp-image-1050" src="http://www.lifelongstudent.net/wp-content/uploads/2013/05/Ubuntu__Android.png" alt="Ubuntu & Android" width="350" height="233" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/05/Ubuntu__Android.png 394w, http://www.lifelongstudent.net/wp-content/uploads/2013/05/Ubuntu__Android-300x199.png 300w" sizes="(max-width: 350px) 100vw, 350px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/05/Ubuntu__Android.png)פוסט זה יהיה מדריך להתקנת Android SDK (כולל עדכון ה SDK, הגדרה של אמולטור, התקנת Eclipse והתקנה של הפלאגין ADT באקפליס, שבעצם יאפשר לנו לפתח ל Android ב Eclipse). בחלק השני של הפוסט אסביר כיצד להתקין את ה IDE החדש &#8211; Android Studio (כולל הגדרת האמולטור), ובשביל להתחיל להתניע ניצור אפליקציית Hello world קטנטנה בסביבה החדשה.
 
@@ -51,7 +23,7 @@ tags:
   7. **במידה ו Eclipse לא מותקן**, יש 2 שיטות: א. להתקין באופן ידני &#8211; חפשו באינטרנט מדריך, הפעולה לא קשה וקצרה יחסית. ב. כנסו ל <span style="color: #339966;">Ubuntu Software Center</span> (מרכז התוכנות של אובונטו) כתבו בחיפוש <span style="color: #339966;">Eclipse</span> והתקינו.
   8. **כעת נגדיר את ה Adb**, חברו את המכשיר אנדרואיד שלכם למחשב וכתבו (בטרמינל) <span style="color: #00ff00;">lsusb</span> זה יתן לכם רשימה של המכשירים המחוברים למחשב באמצעות ה usb, חפשו את המכשיר שלכם ולידו צריך להיות ID בפורמט xxxx:xxxx, העתיקו / רשמו אותו בקובץ נפרד.
   9. כתבו בטרמינל <span style="color: #00ff00;">cd </span>ולאחר מכן <span style="color: #00ff00;">sudo gedit /etc/udev/rules.d/99-android.rules</span> יפתח לכם קובץ ואליו תעתיקו (בסוף הקובץ) את השורה הבאה:  <pre class="lang:default decode:true ">SUBSYSTEM=="usb", ATTRS{idVendor}=="####:####", SYMLINK+="android_adb", MODE="0666" GROUP="plugdev"TEST=="/var/run/ConsoleKit/database", \RUN+="udev-acl --action=$env{action} --device=$env{DEVNAME}"</pre>
-    
+
     במקום ####:#### כתבו כמובן את ה ID של המכשיר שלכם, שמרו את הקובץ וצאו ממנו. 
 
  10. כדי לאתחל את ה Device Manager של אובונטו כתבו (בטרמינל) <span style="color: #00ff00;">sudo service udev restart</span>.

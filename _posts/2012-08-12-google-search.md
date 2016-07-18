@@ -2,47 +2,7 @@
 title: כיצד לחפש בגוגל, מההתחלה ועד הסוף
 author: nirgn
 layout: post
-categories:
-  - Stuff
-tags:
-  - ~
-  - Android
-  - Define
-  - Filetype
-  - Google
-  - Images
-  - intext
-  - intitle
-  - inurl
-  - Knowledge Graph
-  - Maps
-  - Play
-  - Search
-  - Street View
-  - Youtube
-  - אינדוקס
-  - אינדקס
-  - אנדרואיד
-  - אפליקציות
-  - גוגל
-  - גרף הידע
-  - הסבר
-  - חיפוש
-  - טריקים
-  - יוטיוב
-  - כיצד
-  - מאמר
-  - מדריך
-  - מנוע
-  - מפות
-  - ספיידרים
-  - עכבישים
-  - פרסומות
-  - רשת
-  - שאילתות
-  - שירותים
-  - שפות
-  - תמונות
+category: Stuff
 ---
 <img class="alignleft wp-image-889" src="http://www.lifelongstudent.net/wp-content/uploads/2012/08/Google_With_Magnifying_Glass.jpg" alt="Google With Magnifying Glass" width="200" height="172" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/08/Google_With_Magnifying_Glass.jpg 290w, http://www.lifelongstudent.net/wp-content/uploads/2012/08/Google_With_Magnifying_Glass-300x258.jpg 300w" sizes="(max-width: 200px) 100vw, 200px" /> גוגל הכניסה בזמן האחרון המון פיצ'רים למנוע החיפוש, חלקם יותר חדשים וחלקם פחות. אבל כולם אמורים לעזור לנו להגיע לתוצאות בצורה יותר מדויקת ומהירה. הפוסט בא הנל לסקור את צורות החיפוש החדשות שמציע לנו מנוע החיפוש של Google.
 
@@ -328,7 +288,7 @@ operator (או מפעיל) הינו ערך אותו אנו מדביקים / מו
   * "<a href="https://www.google.co.il/search?q=american+airlines+18&btnG=Search&gws_rd=cr&ei=heuPVPGiKMn5Uq-QgogK" target="_blank"><em>american airlines 18</em></a>" &#8211; כדי לראות מה הסטטוס של טיסה ספציפית.
   * "<a href="https://www.google.co.il/search?q=flights+from+denver+to+chicago&btnG=Search&gws_rd=cr&ei=huuPVL7ICNSR7Aa_xYCIAw" target="_blank"><em>&#8230; flights from &#8230; to</em></a>" &#8211; כדי לראות איזה טיסות קיימות, זמנים ועוד.
   * "<a href="https://www.google.co.il/search?q=Seattle+map&btnG=Search&gws_rd=cr&ei=huuPVJSMNYPlUqfcg5AN#q=map+israel&safe=off" target="_blank"><em>&#8230; map</em></a>" &#8211; כדי לראות את המפה של מדינה ספציפית.
-  * 
+  *
 
 ## **<span style="text-decoration: underline;">חיפוש בשפות אחרות</span>**
 

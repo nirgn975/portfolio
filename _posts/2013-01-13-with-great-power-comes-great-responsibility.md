@@ -2,32 +2,7 @@
 title: '[דעה] עם כוח גדול באה אחריות גדולה'
 author: nirgn
 layout: post
-categories:
-  - Information
-tags:
-  - adFree
-  - Android
-  - Apps
-  - Google
-  - metamorph
-  - Play
-  - root
-  - SuperUser
-  - Titanium Backup
-  - wifiKill
-  - zanti
-  - אבטחה
-  - אנדרואיד
-  - אפליקציות
-  - גוגל
-  - הסבר
-  - הרשאות
-  - זדוניות
-  - חנות
-  - מאמר
-  - מדריך
-  - פריצה
-  - רוט
+category: Android
 ---
 [<img class="alignleft wp-image-1014" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Android_ill.png" alt="Android ill" width="220" height="249" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Android_ill.png 282w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/Android_ill-300x339.png 300w" sizes="(max-width: 220px) 100vw, 220px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/Android_ill.png)יש 2 נושאים ספציפיים באנדרואיד שתמיד עולים בכל שיחה בנושא אבטחת המידע של המערכת &#8211; טעינת אפליקציות מבחוץ, והרשאות Root. לרוב, אני מוצא את עצמי מתווכח בלהט מול הצד השני, שטוען כי זה מחליש / מוריד את רמת האבטחה של המערכת, טוענים כי אלו פגמים מהותיים במערכת, והמגזימים מתארים אותם ככשלי אבטחה. הייתי רוצה לתת עליהם את הדעת (שלי לפחות), האם באמת מדובר בפגמים / כשלי אבטחה? האם אנדרואיד באמת "חולה"?
 

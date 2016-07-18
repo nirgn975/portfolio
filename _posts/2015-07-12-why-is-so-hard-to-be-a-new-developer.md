@@ -4,8 +4,7 @@ author: nirgn
 layout: post
 summary: 'פוסט זה הינו פוסט דעה אישי המתאר את המחשבות שלי על המפתח המתחיל וכמה קשה להיות אחד כזה, במיוחד כשהפרקטיקה והתאוריה אינם מתחברים.'
 base-images-url: 'new-developers'
-categories:
-  - Stuff
+category: Stuff
 ---
 אתחיל בלהסביר שהפוסט הנל בא כתוצאה מקריאת הכתבה "[Computer science students are in demand and they know it](http://www.itworld.com/article/2945674/careers/computer-science-students-are-in-demand-and-they-know-it.html)" של ITWORLD. הפוסט מציין כי ישנו ביקוש הולך וגובר לבוגרי מדעי המחשב ותחומים דומים, והבוגרים מודעים לכך. ושללכת ללמוד מדעי המחשב זהו צעד חכם, במיוחד בהתחשב במחקרים המראים ביקוש הולך וגובר.
 

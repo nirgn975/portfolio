@@ -3,9 +3,7 @@ title: עץ בינארי (Binary Tree)
 author: nirgn
 layout: post
 summary: "עץ בינארי הוא מבנה נתונים מופשט, הבנוי / מאורגן בצורת עץ, כשלכל קודקוד יש לכל היותר שני בנים (המתייחסים אליהם כ’בן ימיני’ ו’בן שמאלי’) ולכל קודקוד (פרט לראשון, הנקרא שורש) יש אב יחיד."
-hero-image: "categories/data_structures.jpg"
-categories:
-  - Data_Structures
+category: Data_Structures
 ---
 [<img class="alignleft wp-image-1045" src="http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png" alt="Dataֹׁ Structures" width="350" height="227" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png 400w, http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures-300x194.png 300w" sizes="(max-width: 350px) 100vw, 350px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png)עץ בינארי הוא מבנה נתונים מופשט, הבנוי / מאורגן בצורת עץ, כשלכל קודקוד יש לכל היותר שני בנים (המתייחסים אליהם כ'בן ימיני' ו'בן שמאלי') ולכל קודקוד (פרט לראשון, הנקרא שורש) יש אב יחיד. העץ הינו מכוון ז"א שישנו כיוון אחד (במקרה שלנו נראה כמו מלמעלה למטה, כאילו אנו יורדים במורד העץ), וזה מתבטא בכך שכל צומת שומר אך ורק את הבנים שלו ולא את האב.
 

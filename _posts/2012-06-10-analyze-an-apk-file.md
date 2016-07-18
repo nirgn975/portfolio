@@ -2,44 +2,7 @@
 title: Analyze an Apk file
 author: nirgn
 layout: post
-categories:
-  - How-To
-tags:
-  - Analyze
-  - Android
-  - apk
-  - ApkTool
-  - build
-  - debug
-  - decompile
-  - file
-  - jarsinger
-  - key
-  - keytool
-  - recompile
-  - SDK
-  - sign
-  - אנדרואיד
-  - אפליקציה
-  - אפליקציות
-  - בנייה
-  - "ג'אווה"
-  - הסבר
-  - הרשאות
-  - חבילה
-  - חתימה
-  - לבנות
-  - לעורך
-  - מאמר
-  - מדריך
-  - ספרייה
-  - עריכה
-  - פיתוח
-  - פתיחה
-  - קובץ
-  - רוט
-  - שינוי
-  - שלד
+category: Android
 ---
 [<img class="alignleft wp-image-849" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools.png" alt="Android Tools" width="200" height="199" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools.png 282w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools-300x297.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools-1024x1024.png 1024w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools-144x144.png 144w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools.png)אחד הדברים השימושיים (והמגניבים) באנדרואיד הוא לדעת לפתוח ולחתום קבצי Apk וכמובן כתוצאה מכך היכולת לערוך אותם.
 
@@ -65,7 +28,7 @@ tags:
 
   1. העבירו את האפליקציה (קובץ ה Apk), לתיקייה apktool.
   2. פתחו את ה ה Terminal (או את ה Cmd), נווטו למיקום בו מיקמתם את התיקייה, apktool.
-  3. כדי לפתוח / לשבור את הקובץ נכתוב <span style="color: #00ff00;">apktool d namOfTheApp.apk nameOfTheFolder</span>. 
+  3. כדי לפתוח / לשבור את הקובץ נכתוב <span style="color: #00ff00;">apktool d namOfTheApp.apk nameOfTheFolder</span>.
       * את ה namOfTheApp החליפו בשם הקובץ, ואת ה nameOfTheFolder החליפו בשם שבו אתם רוצים לקבל את התיקייה (היא תיווצר בתוך התיקייה apktool).
       * ב Linux הוסיפו /. לפני הפקודה.
       * האות d שנמצאת לאחר ה apktool בפקודה, הינה קיצור של decompile.
@@ -92,12 +55,12 @@ tags:
 
 **<span style="text-decoration: underline;">נתחיל בבניה:</span>**
 
-  1. בשביל לבנות את האפליקציה, נכתוב את הפקודה הבאה <span style="color: #00ff00;">apktool b nameOfTheFolder nameOfTheApp.apk</span>. 
+  1. בשביל לבנות את האפליקציה, נכתוב את הפקודה הבאה <span style="color: #00ff00;">apktool b nameOfTheFolder nameOfTheApp.apk</span>.
       * את הפקודה יש לכתוב, כמובן, בטרמינל (או ב Cmd) ולהיות בנתיב של התיקייה apktool.
       * את nameOfTheFolder החליפו כמובן בשם התיקייה בה נמצאים הקבצים, ואת nameOfTheApp החליפו בשם שתרצו לקרוא לאפליקציה.
       * ב Linux הוסיפו /. לפני הפקודה.
       * האות b שנמצאת לאחר ה apktool בפקודה, הינה קיצור של build (או recompile).
-  2. בשביל לייצר מפתח איתו נוכל לחתום את הקובץ apk, יש להתקין את ה Android SDK, נפתח את הטרמינל (או Cmd) ונכתוב <span style="color: #00ff00;">keytool -v -genkey -v -keystore nameOfKey.keystore -alias aliasName -keyalg RSA -validity 10000</span>. 
+  2. בשביל לייצר מפתח איתו נוכל לחתום את הקובץ apk, יש להתקין את ה Android SDK, נפתח את הטרמינל (או Cmd) ונכתוב <span style="color: #00ff00;">keytool -v -genkey -v -keystore nameOfKey.keystore -alias aliasName -keyalg RSA -validity 10000</span>.
       * genkey הינו קיצור של generate key.
       * v הינו קיצור של verbose mode (מצב מפורט).
       * nameOfKey, יהיה שם המפתח (ניתן להחליף לכל מה שבא לכם).
@@ -105,7 +68,7 @@ tags:
       * keyalg מפרט את האלגוריתם הצפנה המשמש לחולל את המפתח (קרי <a href="http://en.wikipedia.org/wiki/RSA_(cryptosystem)" target="_blank">RSA</a>, <a href="http://en.wikipedia.org/wiki/Digital_Signature_Algorithm" target="_blank">DSA</a> וכד').
       * validity מתאר בימים לכמה זמן המפתח תקף (במקרה זה כתבתי 10,000 ימים).
       * כחלק מהיצירה של המפתח תצטרכו למלא פרטים אישיים, ולבחור סיסמה למפתח.
-  3. כעת נחתום את האפליקציה, ובשביל קיצור הפקודה, העבירו את הקובץ apk ואת המפתח לאותה תיקייה, וכתבו בטרמינל (או ב Cmd) את הפקודה <span style="color: #00ff00;">jarsigner -verbose -keystore myKeyName.keystore appName.apk aliasName</span>. 
+  3. כעת נחתום את האפליקציה, ובשביל קיצור הפקודה, העבירו את הקובץ apk ואת המפתח לאותה תיקייה, וכתבו בטרמינל (או ב Cmd) את הפקודה <span style="color: #00ff00;">jarsigner -verbose -keystore myKeyName.keystore appName.apk aliasName</span>.
       * myKeyname זהו שם המפתח שיצרנו בסעיף לעיל.
       * appName זהו שם הקובץ apk.
       * aliasName זה הכינוי של המפתח שכתבו בסעיף לעיל.

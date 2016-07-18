@@ -2,34 +2,7 @@
 title: לשנות את כפתורי המגע במכשיר ב-5 שלבים
 author: nirgn
 layout: post
-categories:
-  - How-To
-tags:
-  - 5 שלבים
-  - Android
-  - apk
-  - Buttons
-  - Draw9Patch
-  - drawable
-  - Google
-  - Rar
-  - rom
-  - SystemUI
-  - Ui
-  - Virtual
-  - אנדרואיד
-  - אפליקציה
-  - גוגל
-  - הסבר
-  - כפתורי מגע
-  - כפתורים
-  - לשנות
-  - מאמר
-  - מדריך
-  - מכשיר
-  - מסך
-  - קובץ
-  - ריקברי
+category: Android
 ---
 [<img class="alignleft wp-image-947" src="http://www.lifelongstudent.net/wp-content/uploads/2012/11/beOriginal.jpg" alt="be original" width="250" height="200" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/11/beOriginal.jpg 640w, http://www.lifelongstudent.net/wp-content/uploads/2012/11/beOriginal-300x240.jpg 300w" sizes="(max-width: 250px) 100vw, 250px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/11/beOriginal.jpg)בפוסט הזה אסביר כיצד לשנות את התמונה של כפתורי המגע במכשיר ה Android שלכם (הכפתורים שעל המכשיר). כמו בפוסט בו הסברתי כיצד <a title="ליצור Boot animation ב-5 שלבים" href="http://www.lifelongstudent.net/2012/04/%d7%9c%d7%99%d7%a6%d7%95%d7%a8-boot-animation-%d7%91-5-%d7%a9%d7%9c%d7%91%d7%99%d7%9d/" target="_blank">להחליף את ה Boot Animation</a> גם כאן נעשה את זה ב-5 שלבים.
 
@@ -43,7 +16,7 @@ tags:
   2. כעת יש לבחור מקשים, בפוסט <a href="http://forum.xda-developers.com/galaxy-nexus/themes-apps/softkeys-softkey-collection-t1413582" target="_blank">הזה</a> ב XDA יש המון אפשרויות הניתנות להורדה (בחינם), במידה ואתם רוצים ליצור לעצמכם משהו יחודי, בפוסט <a title="Analyze an Apk file" href="http://www.lifelongstudent.net/2012/06/848/" target="_blank">Analyze an APK file</a> הסברתי כיצד לפתוח קןבץ Apk ובעתיד אכתוב כיצד להתאים את התמונות הנמצאות באפליקציה (Apk) (מיקום התמונות בתוך סביבת האפליקציה) בעזרת התוכנה draw9patch.
   3. כאן מגיע טריק קטן, במקום לשבור ולבנות את קובץ ה Apk מחדש, פתחו את הקובץ שחילצנו (SystemUI.apk) בעזרת התוכנה <a href="http://www.rarlab.com/download.htm" target="_blank">Winrar</a> (**אל תחלצו את הקבצים שבתוכו, רק פתחו את ה Apk**), ונווטו לנתיב <span style="color: #ff0000;">res/drawable-xhdpi</span> (שוב, אל תחלצו את הקבצים אלא רק תנווטו בתוך תוכנת ה Winrar אל הנתיב).
   4. כעת תגררו את הקבצים שאותם הורדנו / יצרנו בסעיף 2 לתוך התיקייה הפתוחה ב Winrar (בנתיב <span style="color: #ff0000;">res/drawable-xhdpi</span>), תתבקשו לאשר את השינוי, וכמובן תאשרו אותו
-  5. כעת, החזירו את הקובץ (SystemUI.apk) למיקום בו היה ב ROM (בנתיב <span style="color: #ff0000;">system/app</span>). 
+  5. כעת, החזירו את הקובץ (SystemUI.apk) למיקום בו היה ב ROM (בנתיב <span style="color: #ff0000;">system/app</span>).
       * במידה וה ROM כבר מותקן, יש להחזיר את הקובץ בעזרת מנהל קבצים כלשהו.
       * במידה ואינו מותקן, יש לפתוח את ה ROM בעזרת התוכנה Winrar ושוב, לא לחלץ את הקבצים בתוך ה ROM אלא רק לפתוח אותו ולגרור את SystemUI.apk החדש במקום הישן (וכמובן לאשר את השינוי).
       * במידה וה ROM כבר מותקן ואין לכם אפליקציית מנהל קבצים, או שאתם רוצים להעלות לפורומים השונים את הקובץ כדי לחלוק אותו עם אחרים (דבר מבורך!), אתם צריכים להכין קובץ לצריבה דרך הריקברי (recovery). במקרה כזה, תצטרכו לחכות לפוסט הבא, בו אכתוב כיצד להכין קובץ לצריבה דרך הריקברי (קובץ כללי, תוכלו לשים בו כל אפליקציה / מוד שתבחרו).

@@ -2,34 +2,7 @@
 title: חיפוש בינארי (Binary Search)
 author: nirgn
 layout: post
-categories:
-  - Algorithms
-tags:
-  - Algorithm
-  - Algorithms
-  - Array
-  - Binary
-  - Code
-  - if
-  - Pseudo
-  - return
-  - Search
-  - אלגוריתם
-  - אלגוריתמים
-  - בינארי
-  - בינרי
-  - הסבר
-  - זמן
-  - חיפוש
-  - מאמר
-  - מדריך
-  - ממוין
-  - מערך
-  - מקום
-  - סיבוכיות
-  - פסאודו
-  - קוד
-  - ריצה
+category: Algorithms
 ---
 [<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Binary Search &#8211; חיפוש בינארי, הוא אלגוריתם רקורסיבי לחיפוש איבר ב**מערך ממוין**. מכיוון שהמערך שאנו מקבלים ממוין, אנו ננצל את התוכנה הזו ונבדוק את האיבר האמצעי בלבד, במידה והערך שאנו מחפשים קטן ממנו נבצע זאת שוב על החצי השמאלי, במידה וגדול ממנו נבצע זאת על החצי הימני. נמשיך כך עד שהמצביע הימני יהיה קטן מהשמאלי (אז עברנו על כל המערך).
 
