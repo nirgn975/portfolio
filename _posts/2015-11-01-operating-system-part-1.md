@@ -21,9 +21,8 @@ category: Operating Systems
 
 ### 1. מהי מערכת הפעלה
 
-<div class="left">
-  <img src="/assets/img/posts/operating-system-part-1/os_stack.png" alt="OS Stack">
-</div>
+<img src="/assets/img/posts/operating-system-part-1/os_stack.png" alt="OS Stack">
+
 מערכת הפעלה היא תוכנה שמנהלת את חומרת המחשב. מערכות הפעלה גם מספקות בסיס להרצת אפליקציות שונות ומשמשות תווך בין משתמשי המחשב לבין החומרה (תמונה משמאל). למרות שמערכת ההפעלה משמשת כתווך, אין זה אומר שכל פעולה שאפליקציה או שירות מסוים יבצעו עוברת דרך מערכת ההפעלה (לכן ישנו קו בצד שמאל שמקשר בין האפליקציה ישירות לחומרה). חשבו מה היה קורה אילו כל הוראה של תוכנית משתמש הייתה מצריכה פנייה לממשק המשתמש ומשם לגרעין מערכת ההפעלה (kernel), איזה דיילי ועל כמה משאבים מבוזבזים מדובר. ובמקרים מסויימים, אין צורך אפילו בפנייה לחומרה (לדוג' כאשר תוכנית מסויימת מבקשת לבצע הוראה הדורשת קיום הרשאה מיוחדת, ההרשאה תיתן ע"י מערכת ההפעלה, ללא קשר לחומרה).
 
 החץ מהחומרה אל גרעין המערכת (Kernel) מתייחס למקרים בהן אין צורך בפנייה לחומרה, אך ישנו צורך בפנייה אל ה kernel (כמו שניתן לשים לב, אין חץ ישיר ממלבן האפליקציות אל גרעין המערכת). כאשר הוראות כאלו מגיעות (מכונות גם הוראות מיוחסות) המעבד עובר למצב המכונה מצב מיוחס (kernel mode או supervisor mode), בעוד הוראות שאינן מיוחסות מתבצעות במצב משתמש (user mode), ז"א שהמעבד מספק תמיכה כדי שמערכת ההפעלה תוכל להגן על משאביה. ההגנה מיועדת לחסום את אפשרות ההתערבות של המשתמשים בפעולתה של המערכת עצמה (בפועל, ההבחנה בין מצב מיוחס למצב משתמש נעשית ע"י מידור של קבוצת פקודות מכונה מיוחסות שאינן עומדות לעולם לרשות המשתמש הרגיל).
@@ -39,9 +38,7 @@ category: Operating Systems
 
 ### 2. ההיסטוריה של מערכות ההפעלה
 
-<div class="left">
-  <img src="/assets/img/posts/operating-system-part-1/punched_cards_programming.jpg" alt="Punched Cards Programming">
-</div>
+<img src="/assets/img/posts/operating-system-part-1/punched_cards_programming.jpg" alt="Punched Cards Programming">
 
 במחשבים הראשונים, ללא מערכות ההפעלה, כל תוכנית הייתה צריכה מפרט מלא של החומרה כדי לפעול כראוי ולבצע משימות סטנדרטיות. והמורכבות ההולכת וגדלה של החומרה ושל התוכניות (האפליקציות) הפכו בסופו של דבר את מערכות ההפעלה להכרח. מערכת ההפעלה מספקת סט של פונקציות נחוצות המשמשת את רוב תוכניות המחשב (האפליקציות), ולינקים הדרושים כדי לשלוט ולסנכרן את חומרת המחשב.
 
@@ -71,9 +68,7 @@ category: Operating Systems
 
 ### 4. מושגים בסיסיים
 
-<div class="left">
-  <img src="/assets/img/posts/operating-system-part-1/ubuntu_terminal.jpg" alt="Ubuntu Terminal">
-</div>
+<img src="/assets/img/posts/operating-system-part-1/ubuntu_terminal.jpg" alt="Ubuntu Terminal">
 
 במהלך הפוסטים הבאים נעמיק יותר בנושאים הבאים, אך כדי כבר להכירם היכרות ראשונית ולהבין באופן כללי את משמעותם נעבור עליהם באופן מהיר:
 
@@ -173,9 +168,7 @@ do_syscall:
 | kill | (none) | Win32 does not support signals |
 | time | GetLocalTime | Get the current time |
 
-<div class="left" style="width: 35%">
-  <img src="/assets/img/posts/operating-system-part-1/monolithic_systems.png" alt="Monolithic Systems">
-</div>
+<img src="/assets/img/posts/operating-system-part-1/monolithic_systems.png" alt="Monolithic Systems" style="width: 50%;">
 
 &nbsp;
 
