@@ -22,7 +22,7 @@ category: Operating Systems
 ### 1. מהי מערכת הפעלה
 
 <div class="left">
-  <img src="/assets/img/posts/operating-system-part-1/os_stack.jpg" alt="OS Stack">
+  <img src="/assets/img/posts/operating-system-part-1/os_stack.png" alt="OS Stack">
 </div>
 מערכת הפעלה היא תוכנה שמנהלת את חומרת המחשב. מערכות הפעלה גם מספקות בסיס להרצת אפליקציות שונות ומשמשות תווך בין משתמשי המחשב לבין החומרה (תמונה משמאל). למרות שמערכת ההפעלה משמשת כתווך, אין זה אומר שכל פעולה שאפליקציה או שירות מסוים יבצעו עוברת דרך מערכת ההפעלה (לכן ישנו קו בצד שמאל שמקשר בין האפליקציה ישירות לחומרה). חשבו מה היה קורה אילו כל הוראה של תוכנית משתמש הייתה מצריכה פנייה לממשק המשתמש ומשם לגרעין מערכת ההפעלה (kernel), איזה דיילי ועל כמה משאבים מבוזבזים מדובר. ובמקרים מסויימים, אין צורך אפילו בפנייה לחומרה (לדוג' כאשר תוכנית מסויימת מבקשת לבצע הוראה הדורשת קיום הרשאה מיוחדת, ההרשאה תיתן ע"י מערכת ההפעלה, ללא קשר לחומרה).
 
@@ -174,7 +174,7 @@ do_syscall:
 | time | GetLocalTime | Get the current time |
 
 <div class="left" style="width: 35%">
-  <img src="/assets/img/posts/operating-system-part-1/monolithic_systems.jpg" alt="Monolithic Systems">
+  <img src="/assets/img/posts/operating-system-part-1/monolithic_systems.png" alt="Monolithic Systems">
 </div>
 
 &nbsp;
