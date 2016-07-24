@@ -5,7 +5,7 @@ layout: post
 summary: "עץ בינארי הוא מבנה נתונים מופשט, הבנוי / מאורגן בצורת עץ, כשלכל קודקוד יש לכל היותר שני בנים (המתייחסים אליהם כ’בן ימיני’ ו’בן שמאלי’) ולכל קודקוד (פרט לראשון, הנקרא שורש) יש אב יחיד."
 category: Data_Structures
 ---
-[<img class="alignleft wp-image-1045" src="http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png" alt="Dataֹׁ Structures" width="350" height="227" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png 400w, http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures-300x194.png 300w" sizes="(max-width: 350px) 100vw, 350px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/04/DataStructures.png)עץ בינארי הוא מבנה נתונים מופשט, הבנוי / מאורגן בצורת עץ, כשלכל קודקוד יש לכל היותר שני בנים (המתייחסים אליהם כ'בן ימיני' ו'בן שמאלי') ולכל קודקוד (פרט לראשון, הנקרא שורש) יש אב יחיד. העץ הינו מכוון ז"א שישנו כיוון אחד (במקרה שלנו נראה כמו מלמעלה למטה, כאילו אנו יורדים במורד העץ), וזה מתבטא בכך שכל צומת שומר אך ורק את הבנים שלו ולא את האב.
+עץ בינארי הוא מבנה נתונים מופשט, הבנוי / מאורגן בצורת עץ, כשלכל קודקוד יש לכל היותר שני בנים (המתייחסים אליהם כ'בן ימיני' ו'בן שמאלי') ולכל קודקוד (פרט לראשון, הנקרא שורש) יש אב יחיד. העץ הינו מכוון ז"א שישנו כיוון אחד (במקרה שלנו נראה כמו מלמעלה למטה, כאילו אנו יורדים במורד העץ), וזה מתבטא בכך שכל צומת שומר אך ורק את הבנים שלו ולא את האב.
 
 <!--more-->
 
@@ -15,10 +15,14 @@ category: Data_Structures
 
 אבות ובנים בעץ בינארי מוגדרים כאשר יש קשת מ A ל B. זה אומר ש A הוא אב של B ו B הוא בן של A. ניתן לראות בשתי התמונות למטה דוגמאות של עצים בינארים: הימינית עם אותיות, בה ניתן לראות ש A הוא השורש ו B ו C הם הבנים שלו (וכך הלאה), והשמאלית עם מספרים, בה ניתן לראות ש 1 הוא השורש ו 2 ו 3 הם הבנים שלו (וכך הלאה).
 
- [<img class=" size-full wp-image-1606 alignright" src="http://www.lifelongstudent.net/wp-content/uploads/2015/03/Example_2.png" alt="Example 2" width="255" height="263" />](http://www.lifelongstudent.net/wp-content/uploads/2015/03/Example_2.png) [<img class=" size-full wp-image-1607 alignleft" src="http://www.lifelongstudent.net/wp-content/uploads/2015/03/Example_1.png" alt="Example 1" width="239" height="255" />](http://www.lifelongstudent.net/wp-content/uploads/2015/03/Example_1.png)
+<div class="left">
+  <img src="/assets/img/posts/binary-tree/Example_1.png" alt="First example of binary tree">
+</div>
+<div class="left">
+  <img src="/assets/img/posts/binary-tree/Example_2.png" alt="Second example of binary tree">
+</div>
 
 &nbsp;
-
 
 בנוסף, גם לעץ בינארי יש כמה סוגים (מבני נתונים ספציפיים יותר) להלן כמה מהם:
 
@@ -45,7 +49,7 @@ category: Data_Structures
 להלן Inorder Tree Walk המדפיסה את כל המפתחות בסדר ממוין, בעץ חיפוש בינארי.  
 קוד:
 
-```
+```c
 INORDER-TREE-WALK (x)
 if (x != NIL)
     INORDER-TREE-WALK (left[x])
@@ -57,14 +61,14 @@ if (x != NIL)
 
 &nbsp;
 
-**<span style="text-decoration: underline;">שאילתות</span>**
+### שאילתות
 
-אחת הפעולות השכיחות על עץ חיפוש בינארי היא חיפוש מפתח המאוחסן בעץ. מלבד הפעולה Search, עץ חיפוש בינארי יכול לתמוך בשאילתות נוספות (כמו Minimum, Maximum, Successor ו Predecessor). לכן נממשן על עץ חיפוש בינארי בגובה h [בזמן (O(h]. כמו בכל פוסט, הקוד יכתב ב<a href="http://en.wikipedia.org/wiki/Pseudocode" target="_blank">פסאודו קוד</a>.
+אחת הפעולות השכיחות על עץ חיפוש בינארי היא חיפוש מפתח המאוחסן בעץ. מלבד הפעולה Search, עץ חיפוש בינארי יכול לתמוך בשאילתות נוספות (כמו Minimum, Maximum, Successor ו Predecessor). לכן נממשן על עץ חיפוש בינארי בגובה h [בזמן (O(h]. כמו בכל פוסט, הקוד יכתב ב [פסאודו קוד](http://en.wikipedia.org/wiki/Pseudocode).
 
 **Tree-Search -** מחזיר מצביע לצומת בעל מפתח k, אם קיים כזה. אחרת מחזירה NIL.  
 קוד:
 
-```
+```c
 TREE-SEARCH (x, k)
 if (x = NIL or k = key[x])
     return x
@@ -77,10 +81,10 @@ else return TREE-SEARCH (right[x], k)
 
 &nbsp;
 
-**Tree-Minimum -** מחזיר מצביע לאיבר המינימלי.  
+**Tree-Minimum -** מחזיר מצביע לאיבר המינימלי.
 קוד:
 
-```
+```c
 TREE-MINIMUM (x)
 while (left[x] != NIL) do
     x <- left[x]
@@ -91,10 +95,10 @@ return x
 
 &nbsp;
 
-**Tree-Maximum -** מחזיר מצביע לאיבר המקסימלי.  
+**Tree-Maximum -** מחזיר מצביע לאיבר המקסימלי.
 קוד:
 
-```
+```c
 TREE-MAXIMUM (x)
 while (right[x] != NIL) do
     x <- right[x]
@@ -105,10 +109,10 @@ return x
 
 &nbsp;
 
-**Tree-Successor -** מחזיר את העוקב (הצומת בעל המפתח הקטן ביותר הגדול מ [key[x) לצומת x, אם קיים כזה, ו NIL אם x הוא בעל המפתח הגדול ביותר בעץ.  
+**Tree-Successor -** מחזיר את העוקב (הצומת בעל המפתח הקטן ביותר הגדול מ [key[x) לצומת x, אם קיים כזה, ו NIL אם x הוא בעל המפתח הגדול ביותר בעץ.
 קוד:
 
-```
+```c
 TREE-SUCCESSOR (x)
 if (right[x] != NIL)
     return TREE-MINMUM (right[x])
@@ -125,10 +129,10 @@ return y
 
 &nbsp;
 
-**Tree-Insert -** כדי להכניס ערך חדש v, לעץ חיפוש בינארי T.  
+**Tree-Insert -** כדי להכניס ערך חדש v, לעץ חיפוש בינארי T.
 קוד:
 
-```
+```c
 TREE-INSERT (T, z)
 y <- NIL
 x <- root[T]
@@ -153,10 +157,10 @@ else right[y] <- z
 
 &nbsp;
 
-**Tree-Delete -** כדי למחוק צומת נתון z מעץ חיפוש בינארי (המתודה מקבלת מצביע ל z).  
+**Tree-Delete -** כדי למחוק צומת נתון z מעץ חיפוש בינארי (המתודה מקבלת מצביע ל z).
 קוד:
 
-```
+```c
 TREE-DELETE (T. z)
 if (left[z] = NIL or right[z] = NIL)
     y <- z
@@ -173,7 +177,7 @@ else if (y = left[p[y]])
     else right[p[y]] <- x
 if (y != z)
     key[z] <- key[y]
-    copy y's satellite data into z
+    copy y-s satellite data into z
 return y
 ```
 
@@ -181,7 +185,9 @@ return y
 
 השגרה מטפלת ב-3 מקרים: אם ל z אין בנים, משנים את אביו [p[z כך שבנו יהיה NIL במקום z. אם לצומת יש רק בן אחד, מסירים את z ע"י יצרת קשר חדש בין אביו לבנו. ואם לצומת יש שני בנים, מסירים את y, העוקב של z אשר לו אין בן שמאלי והמפתח והנתונים הנלווים של z מוחלפים באלה של y. למטה  מצד שמאל, ניתן לראות דוגמה לשלושת המקרים (על פי הסדר שתיארנו כאן).
 
-[<img class="alignleft wp-image-1582" src="http://www.lifelongstudent.net/wp-content/uploads/2015/03/Tree-Delete.png" alt="Tree Delete" width="450" height="415" />](http://www.lifelongstudent.net/wp-content/uploads/2015/03/Tree-Delete.png) בשורות 2-4 האלגוריתם קובע איזה צומת y תוסר. הצומת y היא צומת הקלט z (אם ל z לכל היותר בן אחד) או העוקב של z (אם ל z שני בנים). לאחר מכן, בשורות 5-7, מציבים ב x מצביע לבנו של y שאינו NIL, אם יש כזה, ואם ל y אין בנים מציבים ב x את NIL. בשורות 8-14 מסירים את הצומת y באמצעות שינוי ערכי מצביעים ב [p[y וב x. הסרתו של y מסתבכת קצת עקב הצורך לטפל במקרי קצה בהם x=NIL או y הוא שורש העץ. ולבסוף, אם הצומת שהוסרה הייתה העוקב של z, מעבירים בשורות 15-17 את המפתח ואת הנתונים הנלווים של y אל z במקום המפתח והנתונים הנלווים הקודמים. בשורה 18 מחזירים את הצומת y למתודה הקוראת, כדי שזו תוכל למחזר אותו באמצעות רשימת הפנויים.
+<img src="/assets/img/posts/binary-tree/Tree-Delete.png" alt="Delete from Tree">
+
+בשורות 2-4 האלגוריתם קובע איזה צומת y תוסר. הצומת y היא צומת הקלט z (אם ל z לכל היותר בן אחד) או העוקב של z (אם ל z שני בנים). לאחר מכן, בשורות 5-7, מציבים ב x מצביע לבנו של y שאינו NIL, אם יש כזה, ואם ל y אין בנים מציבים ב x את NIL. בשורות 8-14 מסירים את הצומת y באמצעות שינוי ערכי מצביעים ב [p[y וב x. הסרתו של y מסתבכת קצת עקב הצורך לטפל במקרי קצה בהם x=NIL או y הוא שורש העץ. ולבסוף, אם הצומת שהוסרה הייתה העוקב של z, מעבירים בשורות 15-17 את המפתח ואת הנתונים הנלווים של y אל z במקום המפתח והנתונים הנלווים הקודמים. בשורה 18 מחזירים את הצומת y למתודה הקוראת, כדי שזו תוכל למחזר אותו באמצעות רשימת הפנויים.
 
 זמן הריצה הוא (O(h עבור עץ בגובה h. 
 
