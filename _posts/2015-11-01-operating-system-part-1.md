@@ -38,8 +38,8 @@ category: Operating Systems
 
 ### 2. ההיסטוריה של מערכות ההפעלה
 
-<div class="left" style="width: 35%">
-  <img src="/assets/img/posts/operating-system-part-1/punched_cards_programming.jpg" alt="Punched Cards Programming">
+<div class="left">
+  <img src="/assets/img/posts/operating-system-part-1/punched_cards_programming.jpg" alt="Punched Cards Programming" style="width: 35%">
 </div>
 
 במחשבים הראשונים, ללא מערכות ההפעלה, כל תוכנית הייתה צריכה מפרט מלא של החומרה כדי לפעול כראוי ולבצע משימות סטנדרטיות. והמורכבות ההולכת וגדלה של החומרה ושל התוכניות (האפליקציות) הפכו בסופו של דבר את מערכות ההפעלה להכרח. מערכת ההפעלה מספקת סט של פונקציות נחוצות המשמשת את רוב תוכניות המחשב (האפליקציות), ולינקים הדרושים כדי לשלוט ולסנכרן את חומרת המחשב.
