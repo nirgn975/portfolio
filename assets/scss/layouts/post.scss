@@ -34,8 +34,17 @@
     padding-right: 15px;
   }
 
+  div {
+    &.left {
+      img {
+        float: left;
+      }
+    }
+  }
+  
   img {
     max-width: 100%;
+    margin: 5px;
   }
 
   table {
