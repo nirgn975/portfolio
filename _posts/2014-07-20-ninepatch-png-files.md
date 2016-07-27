@@ -4,7 +4,7 @@ author: nirgn
 layout: post
 category: Android
 ---
-[<img class="alignleft wp-image-1774" src="http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png" alt="NinePatch PNG" width="200" height="200" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-1024x1024.png 1024w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-144x144.png 144w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png)draw9patch הוא עורך קבצי NinePatch המגיע באופן מובנה בערכת הSDK של אנדרואיד, ונימצא בנתיב sdk/tools/draw9patch. ה class הנקרא <a href="http://developer.android.com/reference/android/graphics/NinePatch.html" target="_blank">NinePatch</a> מאפשר לנו לצייר bitmap (מפת סיביות) בתשעה או יותר חלקים. ובקיצור הוא מאפשר לנו ליצור גרפיקה שתשנה את מידותיה באופן מוגדר.
+[<img class="alignleft wp-image-1774" src="http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png" alt="NinePatch PNG" width="200" height="200" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-1024x1024.png 1024w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-144x144.png 144w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png)draw9patch הוא עורך קבצי NinePatch המגיע באופן מובנה בערכת הSDK של אנדרואיד, ונימצא בנתיב sdk/tools/draw9patch. ה class הנקרא [NinePatch](http://developer.android.com/reference/android/graphics/NinePatch.html) מאפשר לנו לצייר bitmap (מפת סיביות) בתשעה או יותר חלקים. ובקיצור הוא מאפשר לנו ליצור גרפיקה שתשנה את מידותיה באופן מוגדר.
 
 <!--more-->
 
@@ -18,7 +18,7 @@ category: Android
 
 <img class="alignleft wp-image-1776" src="http://www.lifelongstudent.net/wp-content/uploads/2014/07/draw9patch.png" alt="draw9patch" width="400" height="234" />ב Windows הקובץ הוא קובץ bat, ברגע שתלחצו על הקובץ יפתח לכם חלון דוס קטן ולאחר כמה שניות התכנה עצמה (ניתן לראות בתמונה בצד שמאל כיצד היא נראית בעת הפתיחה).
 
-ב Ubuntu פשוט נווט לנתיב בעזרת הטרמינל והפעילו את הקובץ (ע"י כתיבת <span style="color: #ff0000;">draw9patch/.</span>).
+ב Ubuntu פשוט נווט לנתיב בעזרת הטרמינל והפעילו את הקובץ (ע"י כתיבת `draw9patch/.`).
 
 אם אתם רוצים לבצע את זה על תמונה הנמצאת כבר בתוך האפליקציה שאתם בונים, באקליפס פשוט הקליקו עליה מקש ימיני -> open with -> סמנו את Android Draw 9-patch Editor -> ולחצו על ok.
 
@@ -28,7 +28,7 @@ category: Android
 
 ### איך עורכים?
 
-אוקי, אז יש לנו תמונה, ויש לנו טקסט הנמצא באפליקציה שפתחנו בעזרת apktool (<a title="Analyze an Apk file" href="http://www.lifelongstudent.net/2012/06/848/" target="_blank">ישנו פוסט נפרד המסביר כיצד לפתוח, לערוך ולחתום בחזרה אפליקציות</a>), כעת אנחנו רוצים להגדיר כיצד התמונה תימתח על מנת לשמור על היחס, ואיפה הטקסט יהיה ממוקם.
+אוקי, אז יש לנו תמונה, ויש לנו טקסט הנמצא באפליקציה שפתחנו בעזרת apktool ([ישנו פוסט נפרד המסביר כיצד לפתוח, לערוך, ולחתם בחזרה אפליקציות]("http://www.lifelongstudent.net/2012/06/848/)), כעת אנחנו רוצים להגדיר כיצד התמונה תימתח על מנת לשמור על היחס, ואיפה הטקסט יהיה ממוקם.
 
 [<img class="alignleft wp-image-1779" src="http://www.lifelongstudent.net/wp-content/uploads/2014/07/9patch-.png" alt="9patch" width="400" height="293" />](http://www.lifelongstudent.net/wp-content/uploads/2014/07/9patch-.png)* אדגים ואסביר על התכנה הנפרדת, אך העיקרון יהיה בדיוק אותו הדבר ב Eclipse וב Android Studio.
 
@@ -51,9 +51,9 @@ category: Android
 
 לפני שנמשיך יש לציין כי את התהליך הזה תבצעו במידה ופתחתם קובץ apk ושיחקתם עם התמונה, במידה והתמונה הולכת ישר לאפליקציה אותה אתם מפתחים, שלב זה אינו נחוץ מכיוון שה Eclipse וה Android Studio מבצעים את הקימפול באופן אוטומטי.
 
-הדרך בה ניתן לעשות זאת בצורה ידנית היא ע"י הורדת התוכנה xUltimate-d9pc <a href="http://forum.xda-developers.com/attachment.php?attachmentid=453855&d=1291226013" target="_blank">מכאן</a>. התוכנה תבצע קימפול לתמונה, ז"א תעלים את הפיקסלים השחורים מהצדדים, וכך יש לבצע זאת:
+הדרך בה ניתן לעשות זאת בצורה ידנית היא ע"י הורדת התוכנה xUltimate-d9pc [מכאן](http://forum.xda-developers.com/attachment.php?attachmentid=453855&d=1291226013). התוכנה תבצע קימפול לתמונה, ז"א תעלים את הפיקסלים השחורים מהצדדים, וכך יש לבצע זאת:
 
-  * העתיקו את התמונה השמורה לתיקייה <span style="color: #ff0000;">Originals\res\drawable-hdpi\</span>.
+  * העתיקו את התמונה השמורה לתיקייה `Originals\res\drawable-hdpi\`.
   * כעת יש ללחוץ על היישום: xUltimate-d9pc.exe, יפתח חלון דוס קטן וכשהוא יסיים לרוץ (כמה שניות) תיווצר תיקייה בשם done ובתוכה התמונה המוכנה תמצא.
 
-* בנוסף, לאלו מכם שמייבאים את התמונה לפרויקט שלהם ב Eclipse או ב Android Studio, יש לייבא את התמונה לתיקייה drawable הנמצאת ב res. ניתן לקרוא ולראות דוגמה לקוד ב <a href="http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch" target="_blank">API באתר המפתחים של אנדרואיד</a>.
+* בנוסף, לאלו מכם שמייבאים את התמונה לפרויקט שלהם ב Eclipse או ב Android Studio, יש לייבא את התמונה לתיקייה drawable הנמצאת ב res. ניתן לקרוא ולראות דוגמה לקוד ב [API באתר המפתחים של אנדרואיד](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch).
