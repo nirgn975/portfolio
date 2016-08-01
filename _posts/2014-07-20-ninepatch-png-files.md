@@ -4,6 +4,9 @@ author: nirgn
 layout: post
 category: Android
 ---
+
+# To Remove it!!!!!!!
+
 [<img class="alignleft wp-image-1774" src="http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png" alt="NinePatch PNG" width="200" height="200" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-1024x1024.png 1024w, http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG-144x144.png 144w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/07/NinePatch_PNG.png)draw9patch הוא עורך קבצי NinePatch המגיע באופן מובנה בערכת הSDK של אנדרואיד, ונימצא בנתיב sdk/tools/draw9patch. ה class הנקרא [NinePatch](http://developer.android.com/reference/android/graphics/NinePatch.html) מאפשר לנו לצייר bitmap (מפת סיביות) בתשעה או יותר חלקים. ובקיצור הוא מאפשר לנו ליצור גרפיקה שתשנה את מידותיה באופן מוגדר.
 
 <!--more-->
