@@ -4,9 +4,9 @@ author: nirgn
 layout: post
 category: Algorithms
 ---
-[<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Bubble Sort &#8211; מיון בועות, ידוע גם בתור מיון החלפה, בסיסו, הוא מיון השוואתי בין 2 מספרים.
+Bubble Sort - מיון בועות, ידוע גם בתור מיון החלפה, בסיסו, הוא מיון השוואתי בין 2 מספרים.
 
-**עקרון האלגוריתם:**
+### עקרון האלגוריתם:
 
   * נשווה את האיבר האחרון עם האיבר שלפניו.
   * במידה והוא קטן ממנו נחליף בינהם, אחרת נמשיך הלאה.
@@ -17,15 +17,17 @@ category: Algorithms
 
 &nbsp;
 
-שימו לב: האלגוריתם בדרך כלל בנוי קצת אחרת ומבצע "בעבוע" למעלה של האיבר בעל הערך הגדול ביותר (בדיוק כמו באנימציה בצד שמאל), אך הקוד שאני כתבתי כאן מבצע את זה בצורה הפוכה &#8211; הוא "מבעבע" למטה את האיבר בעל הערך הקטן ביותר.
+שימו לב: האלגוריתם בדרך כלל בנוי קצת אחרת ומבצע "בעבוע" למעלה של האיבר בעל הערך הגדול ביותר (בדיוק כמו באנימציה בצד שמאל), אך הקוד שאני כתבתי כאן מבצע את זה בצורה הפוכה - הוא "מבעבע" למטה את האיבר בעל הערך הקטן ביותר.
 
-**הקוד של האלגוריתם (ב<a href="http://en.wikipedia.org/wiki/Pseudocode" target="_blank">פסאודו קוד</a>):**
+### הקוד של האלגוריתם ב [פסאודו קוד](http://en.wikipedia.org/wiki/Pseudocode)
 
-<pre class="lang:default decode:true ">BUBBLE-SORT(A)
+```c
+BUBBLE-SORT(A)
 for (i &lt;- 1 to length[A]) do
     for (j &lt;- length[A] downto i + 1) do
         if (A[j] &lt; A[j - 1]
-            exchange A[j] &lt;-&gt; A[j - 1]</pre>
+            exchange A[j] &lt;-&gt; A[j - 1]
+```
 
 [<img class="alignleft size-full wp-image-1083" src="http://www.lifelongstudent.net/wp-content/uploads/2013/08/Bubble-sort.gif" alt="Bubble Sort" width="300" height="180" />](http://www.lifelongstudent.net/wp-content/uploads/2013/08/Bubble-sort.gif) להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.
 
@@ -38,7 +40,7 @@ for (i &lt;- 1 to length[A]) do
 
 &nbsp;
 
-**הרצה של הקוד לשם המחשה של השלבים המתבצעים:**
+### הרצה של הקוד לשם המחשה של השלבים המתבצעים
 
   1. נקבל מערך: { 5, 7, 1, 3 }.
   2. שורה 2: נתחיל לולאת for, מהתא הראשון עד לתא האחרון ונבצע: <ul style="list-style-type: circle;">

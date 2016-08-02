@@ -4,6 +4,11 @@ author: nirgn
 layout: post
 category: Android
 ---
+
+# להסיר!!!!!!
+
+
+
 [<img class="alignleft wp-image-1050" src="http://www.lifelongstudent.net/wp-content/uploads/2013/05/Ubuntu__Android.png" alt="Ubuntu & Android" width="350" height="233" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/05/Ubuntu__Android.png 394w, http://www.lifelongstudent.net/wp-content/uploads/2013/05/Ubuntu__Android-300x199.png 300w" sizes="(max-width: 350px) 100vw, 350px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/05/Ubuntu__Android.png)פוסט זה יהיה מדריך להתקנת Android SDK (כולל עדכון ה SDK, הגדרה של אמולטור, התקנת Eclipse והתקנה של הפלאגין ADT באקפליס, שבעצם יאפשר לנו לפתח ל Android ב Eclipse). בחלק השני של הפוסט אסביר כיצד להתקין את ה IDE החדש &#8211; Android Studio (כולל הגדרת האמולטור), ובשביל להתחיל להתניע ניצור אפליקציית Hello world קטנטנה בסביבה החדשה.
 
 ראיתי עם הזמן המון מדריכים שמסבירים כיצד לבצע את ההתקנות הללו, אך כולם בסביבת Windows בלבד. ולכן אחרי Google I/O 13 שבו הכריזו על Android Studio חשבתי לכתוב מדריך קטן על התקנה והתחלת הפעולה ב IDE החדש (באובונטו), ועל הדרך גם ב IDE הישן &#8211; הלא הוא Eclipse.

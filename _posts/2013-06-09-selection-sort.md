@@ -4,9 +4,9 @@ author: nirgn
 layout: post
 category: Algorithms
 ---
-[<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Selection Sort &#8211; מיון בחירה, הינו האלגוריתם האינטואיטיבי ביותר (לפחות לפי דעתי). אלגוריתמם זה משתמש במבנה הנתונים הבסיסי והידוע &#8211; <a title="מערך (Array)" href="http://www.lifelongstudent.net/2013/04/%d7%9e%d7%a2%d7%a8%d7%9a-array/" target="_blank">מערך</a>.
+Selection Sort - מיון בחירה, הינו האלגוריתם האינטואיטיבי ביותר (לפחות לפי דעתי). אלגוריתמם זה משתמש במבנה הנתונים הבסיסי והידוע - [מערך](http://www.lifelongstudent.net/2013/04/%d7%9e%d7%a2%d7%a8%d7%9a-array/).
 
-**העקרון של האלגוריתם הולך כך:**
+### עקרון האלגוריתם
 
   * נמצא את האיבר בעל הערך הנמוך ביותר במערך.
   * נחליף אותו עם האיבר הראשון במערך.
@@ -16,15 +16,17 @@ category: Algorithms
 
 &nbsp;
 
-**הקוד של האלגוריתם (ב<a href="http://en.wikipedia.org/wiki/Pseudocode" target="_blank">פסאודו קוד</a>):**
+### הקוד של האלגוריתם ב [פסאודו קוד](http://en.wikipedia.org/wiki/Pseudocode)
 
-<pre class="lang:default decode:true ">SELECTION-SORT(A)
+```c
+SELECTION-SORT(A)
 for (i &lt;- 1 to n-1) do
     min &lt;- i
     for (j &lt;- i+1 to n) do
         if (A[min] &gt; A[j])
             min &lt;- j
-    exchange A[i] &lt;-&gt; A[min]</pre>
+    exchange A[i] &lt;-&gt; A[min]
+```
 
  <img class="alignleft wp-image-1072" src="http://www.lifelongstudent.net/wp-content/uploads/2013/06/Selection-Sort-Animation.gif" alt="Selection Sort Animation" width="90" height="334" />להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {7 ,8 ,4 ,1, 3, 9, 6, 2, 5, 8}, והמערך המתקבל בסוף הוא {9, 8 ,7, 6, 5, 4, 3, 2, 1, 0}.
 
@@ -39,7 +41,7 @@ for (i &lt;- 1 to n-1) do
 
 &nbsp;
 
-**הרצה של הקוד לשם המחשה של השלבים המתבצעים:**
+### הרצה של הקוד לשם המחשה של השלבים המתבצעים
 
   1. נקבל מערך: { 5, 7, 1, 3 }.
   2. שורה 2: נתחיל לולאה מהתא הראשון עד לתא הלפני אחרון ונבצע: <ul style="list-style-type: circle;">

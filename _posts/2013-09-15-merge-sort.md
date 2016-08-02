@@ -4,9 +4,10 @@ author: nirgn
 layout: post
 category: Algorithms
 ---
-[<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Merge Sort &#8211; מיון מיזוג. אלגוריתם זה פועל בשיטת הפרד ומשול, האלגו' הומצא על ידי המתמטיקאי <a href="https://en.wikipedia.org/wiki/John_von_Neumann" target="_blank">ג'ון פון ניומן</a> בשנת 1945. להבדיל מהאלגוריתמים שראינו עד כה, לאלגוריתם זה יש 2 שגרות (Merge, ו Merge Sort).
+Merge Sort - מיון מיזוג. אלגוריתם זה פועל בשיטת הפרד ומשול, האלגו' הומצא על ידי המתמטיקאי [ג׳ון פון ניומן](https://en.wikipedia.org/wiki/John_von_Neumann) בשנת 1945. להבדיל מהאלגוריתמים שראינו עד כה, לאלגוריתם זה יש 2 שגרות (Merge, ו Merge Sort).
 
-<span style="text-decoration: underline;">מהי שיטת הפרד ומשול?</span>  
+### מהי שיטת הפרד ומשול?
+
 **הפרד:** חלק את הבעיה לכמה תת בעיות.  
 **משול:** פתור את התת בעיות באופן רקורסיבי. אם גודלה של תת בעיה קטן דיו, פשוט פתור אותה ישירות.  
 **צרף:** צרף את הפתרונות של התת בעיות לכדי פתרון מלא לבעיה המקורית.
@@ -15,7 +16,9 @@ category: Algorithms
 
 &nbsp;
 
-**[<img class="alignleft size-full wp-image-1123" src="http://www.lifelongstudent.net/wp-content/uploads/2013/09/Merge-sort.gif" alt="Merge Sort" width="300" height="180" />](http://www.lifelongstudent.net/wp-content/uploads/2013/09/Merge-sort.gif)עקרון האלגוריתם:**
+[<img class="alignleft size-full wp-image-1123" src="http://www.lifelongstudent.net/wp-content/uploads/2013/09/Merge-sort.gif" alt="Merge Sort" width="300" height="180" />](http://www.lifelongstudent.net/wp-content/uploads/2013/09/Merge-sort.gif)
+
+### עקרון האלגוריתם
 
   * אם n=1 (המערך של איבר אחד ממילא ממוין) חזור.
   * מיין-מזג את n/2 האיברים הראשונים.
@@ -26,10 +29,12 @@ category: Algorithms
 
 &nbsp;
 
-**הקוד של האלגוריתם (ב<a href="http://en.wikipedia.org/wiki/Pseudocode" target="_blank">פסאודו קוד</a>):**  
+### הקוד של האלגוריתם ב [פסאודו קוד](http://en.wikipedia.org/wiki/Pseudocode)
+
 (ה ~ נועד לסמן עיגול כלפי מטה)
 
-<pre class="lang:default decode:true">MERGE (A, p, q, r)
+```c
+MERGE (A, p, q, r)
 n1 &lt;- q - p + 1
 n2 &lt;- r - q
 create arrays L[1..n1 + 1] and R[1..n2+1]
@@ -46,21 +51,22 @@ for (k &lt;- p to r) do
         A[k] &lt;- L[i]
     else
         A[k] &lt;- R[j]
-    j &lt;- j + 1</pre>
+    j &lt;- j + 1
 
-<pre class="lang:default decode:true ">MERGE-SORT (A, p, r)
+MERGE-SORT (A, p, r)
 if ( p &lt; r )
     q &lt;- ~(p + r )/ 2~
     MERGE-SORT (A, p, q)
     MERGE-SORT (A, q + 1, r)
-    MERGE (A, p, q, r)</pre>
+    MERGE (A, p, q, r)
+```
 
 &nbsp;
 
 **הסבר מופשט:**  
 האלגוריתם מורכב מ-2 שגרות (במילים אחרות: מתודות או פרוצדורות). השגרה הראשית, שאליה קוראים בזמן הפעלת האלגוריתם, הלא היא MERGE-SORT, ושגרת העזר (שנקראת מתוך השגרה הראשית MERGE-SORT) ושמה MERGE.
 
-MERGE-SORT מקבל את A &#8211; המערך שיש למיין, p &#8211; משתנה המכיל מצביע לתחילת המערך, ואת r &#8211; משתנה המכיל מצביע לסוף המערך. השגרה MERGE-SORT מחלקת את המערך ל-2 (על ידי מצביע לאיבר האמצעי במשתנה q) וקריאה רקורסיבית (קריאה לעצמה) פעמיים, פעם אחת מ p (שמצביע לתחילת המערך המקורי) ועד ל q (שמצביע לאמצע המערך המקורי), ופעם נוספת מ q+1 (האיבר אחרי האמצע במערך המקורי) ועד ל r (שמצביע לסוף המערך המקורי). כך האלגו' מחלק את עצמו כל פעם ל-2 עד שלא מתקיים התנאי p<r (שההתחלה לא קטנה מ r, הסוף. ז"א שיש לפחות איבר אחד בתת מערך).
+MERGE-SORT מקבל את A - המערך שיש למיין, p - משתנה המכיל מצביע לתחילת המערך, ואת r - משתנה המכיל מצביע לסוף המערך. השגרה MERGE-SORT מחלקת את המערך ל-2 (על ידי מצביע לאיבר האמצעי במשתנה q) וקריאה רקורסיבית (קריאה לעצמה) פעמיים, פעם אחת מ p (שמצביע לתחילת המערך המקורי) ועד ל q (שמצביע לאמצע המערך המקורי), ופעם נוספת מ q+1 (האיבר אחרי האמצע במערך המקורי) ועד ל r (שמצביע לסוף המערך המקורי). כך האלגו' מחלק את עצמו כל פעם ל-2 עד שלא מתקיים התנאי p<r (שההתחלה לא קטנה מ r, הסוף. ז"א שיש לפחות איבר אחד בתת מערך).
 
 ברגע שיש תת מערך של איבר אחד, הוא בטוח ממוין (שכן איבר אחד כשלעצמו בטוח נמצע במקום הנכון). לכן אנו עוברים לשגרה MERGE שמחברת וממיינת את 2 התת מערכים, ועולה למעלה ל-2 התת מערכים הבאים (כך עד שאנו מסיימים לעלות למעלה ומתקבל מערך אחד, המקורי, ממוין).
 
@@ -68,7 +74,7 @@ MERGE-SORT מקבל את A &#8211; המערך שיש למיין, p &#8211; מש�
 
 &nbsp;
 
-**הרצה של הקוד לשם המחשה של השלבים המתבצעים:**
+### הרצה של הקוד לשם המחשה של השלבים המתבצעים
 
   1. נקבל מערך: { 5, 7, 1, 3 }.
   2. שורה 2: מתחילים מ MERGE-SORT, מכיוון ש p<r נבצע: <ul style="list-style-type: circle;">
@@ -136,5 +142,5 @@ MERGE-SORT מקבל את A &#8211; המערך שיש למיין, p &#8211; מש�
 
 &nbsp;
 
-**סיבוכיות זמן ריצה: ((O(n*lg(n (למען הסר ספק: lg &#8211; זהו log בבסיס 2)**.  
+**סיבוכיות זמן ריצה: ((O(n*lg(n (למען הסר ספק: lg - זהו log בבסיס 2)**.  
 **סיבוכיות מקום: (O(n**.

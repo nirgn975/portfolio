@@ -4,22 +4,24 @@ author: nirgn
 layout: post
 category: Algorithms
 ---
-[<img class="alignleft wp-image-1172" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png" alt="The Friendship Algorithm" width="300" height="209" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/The_Friendship_Algorithm.png)Binary Search &#8211; חיפוש בינארי, הוא אלגוריתם רקורסיבי לחיפוש איבר ב**מערך ממוין**. מכיוון שהמערך שאנו מקבלים ממוין, אנו ננצל את התוכנה הזו ונבדוק את האיבר האמצעי בלבד, במידה והערך שאנו מחפשים קטן ממנו נבצע זאת שוב על החצי השמאלי, במידה וגדול ממנו נבצע זאת על החצי הימני. נמשיך כך עד שהמצביע הימני יהיה קטן מהשמאלי (אז עברנו על כל המערך).
+Binary Search - חיפוש בינארי, הוא אלגוריתם רקורסיבי לחיפוש איבר ב**מערך ממוין**. מכיוון שהמערך שאנו מקבלים ממוין, אנו ננצל את התוכנה הזו ונבדוק את האיבר האמצעי בלבד, במידה והערך שאנו מחפשים קטן ממנו נבצע זאת שוב על החצי השמאלי, במידה וגדול ממנו נבצע זאת על החצי הימני. נמשיך כך עד שהמצביע הימני יהיה קטן מהשמאלי (אז עברנו על כל המערך).
 
-**עקרון האלגוריתם:**
+### עקרון האלגוריתם
 
   * אם m>x (הערך שאנו מחפשים נמצא במשתנה x) נקרא לעצמנו (רקורסיה) מ l עד m-1 (החצי השמאלי של המערך).
-  * אחרת נבדוק אם m<x, אם כן &#8211; נקרא לעצמנו מ m+1 עד r (החצי הימיני של המערך).
+  * אחרת נבדוק אם m<x, אם כן - נקרא לעצמנו מ m+1 עד r (החצי הימיני של המערך).
   * אחרת (m=x) נחזיר את m.
 
 <!--more-->
 
 &nbsp;
 
-**הקוד של האלגוריתם (ב<a href="http://en.wikipedia.org/wiki/Pseudocode" target="_blank">פסאודו קוד</a>):**  
+### הקוד של האלגוריתם ב [פסאודו קוד](http://en.wikipedia.org/wiki/Pseudocode)
+
 (ה ~ נועד לסמן עיגול כלפי מטה)
 
-<pre class="lang:default decode:true">BINARY-SEARCH (A, l, r, x)
+```c
+BINARY-SEARCH (A, l, r, x)
 if (r &lt; l)
     return "not found"
 m &lt;- ~(l+r)/2~
@@ -27,7 +29,8 @@ if (A[m] &gt; x)
     return BINARY-SEARCH (A, l, m - 1, x)
 else if (A[m] &lt; x)
     return BINARY-SEARCH (A, m + 1, r, x)
-else return m</pre>
+else return m
+```
 
  [<img class="alignleft wp-image-1170" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/binary_search.png" alt="binary search" width="350" height="300" />](http://www.lifelongstudent.net/wp-content/uploads/2013/10/binary_search.png)התמונה בצד שמאל ממחישה כיצד יראה המערך עליו אנו מחפשים, ואת הערכים שנעביר כשנקרא לעצמנו רקורסיבית.
 
@@ -42,7 +45,7 @@ else return m</pre>
 
 &nbsp;
 
-**הרצה של הקוד לשם המחשה של השלבים המתבצעים:**
+### הרצה של הקוד לשם המחשה של השלבים המתבצעים:
 
 * כמו שציינתי בעבר, במדעי המחשב מתחילים לספור מ-0 ולא מ-1, אך באלגוריתמים אותם אני מציג, אנו סופרים מ-1 (מטעמי נוחות), כדי להראות שהנל לא מהווה שינוי מהוותי, נדגים על אלגו' זה את הספירה מ-0 ובנוסף נשים לב כי באלגוריתם הנל (במקרה) אין כל צורך לשנות את הקוד (להבדיל לדוגמה, מהאלגוריתמים הקודמים בהם היו לולאות ואנו נאלץ להתחיל את הספירה מ-0 ולא מ-1).
 
