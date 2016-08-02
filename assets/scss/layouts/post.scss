@@ -11,12 +11,20 @@
     }
   }
 
+  p {
+    line-height: 1.4em;
+  }
+
   pre, code {
     direction: ltr;
   }
 
   ol, ul {
     margin-right: 40px;
+
+    li {
+      line-height: 1.4em;
+    }
   }
 
   ul {
@@ -41,7 +49,7 @@
       }
     }
   }
-  
+
   img {
     max-width: 100%;
     margin: 5px;
