@@ -41,7 +41,11 @@ if (p &lt; r)
     QUICKSORT(A, q + 1, r)
 ```
 
- [<img class="alignleft size-full wp-image-1183" src="http://www.lifelongstudent.net/wp-content/uploads/2013/11/Quicksort.gif" alt="Quick Sort" width="300" height="180" />](http://www.lifelongstudent.net/wp-content/uploads/2013/11/Quicksort.gif)להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.
+<div class="left">
+  <img src="/assets/img/posts/quick-sort/Quicksort.gif" alt="Quick Sort Algorithm">
+</div>
+
+להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.
 
 &nbsp;
 
