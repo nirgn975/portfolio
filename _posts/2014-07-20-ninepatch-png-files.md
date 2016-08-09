@@ -2,6 +2,7 @@
 title: NinePatch PNG Files
 author: nirgn
 layout: post
+summary: ""
 category: Android
 ---
 

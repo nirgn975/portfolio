@@ -2,6 +2,7 @@
 title: 'The Physical Layer - השכבה הפיזית'
 author: nirgn
 layout: post
+summary: ""
 category: Computer Networks
 ---
 פוסט זה מתמקד באחת השכבות מהמודל שהצגנו בפוסט הקודם, אנו מתחילים מהשכבה הראשונה (מלמטה), הלא היא השכבה הפיזית.  
