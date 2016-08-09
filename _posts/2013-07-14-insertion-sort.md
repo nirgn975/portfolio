@@ -29,7 +29,11 @@ for (j &lt;- 2 to length[A]) do
     A[i + 1] &lt;- key
 ```
 
-[<img class="alignleft size-full wp-image-1078" src="http://www.lifelongstudent.net/wp-content/uploads/2013/07/Insertion_Sort.gif" alt="Insertion Sort" width="250" height="150" />](http://www.lifelongstudent.net/wp-content/uploads/2013/07/Insertion_Sort.gif)להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.
+<div class="left">
+  <img src="/assets/img/posts/insertion-sort/insertion-sort-animation.gif" alt="Insertion Sort Animation">
+</div>
+
+להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.
 
 &nbsp;
 

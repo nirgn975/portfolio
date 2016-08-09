@@ -29,7 +29,11 @@ for (i &lt;- 1 to length[A]) do
             exchange A[j] &lt;-&gt; A[j - 1]
 ```
 
-[<img class="alignleft size-full wp-image-1083" src="http://www.lifelongstudent.net/wp-content/uploads/2013/08/Bubble-sort.gif" alt="Bubble Sort" width="300" height="180" />](http://www.lifelongstudent.net/wp-content/uploads/2013/08/Bubble-sort.gif) להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.
+<div class="left">
+  <img src="/assets/img/posts/bubble-sort/bubble-sort-animation.gif" alt="Bubble Sort Animation">
+</div>
+
+להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.
 
 &nbsp;
 

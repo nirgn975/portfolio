@@ -4,7 +4,7 @@ author: nirgn
 layout: post
 category: Android
 ---
-[<img class="alignleft wp-image-1143" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/Red_Android.png" alt="Red Android" width="220" height="223" />](http://www.lifelongstudent.net/wp-content/uploads/2013/10/Red_Android.png)המאמר הבא נכתב לגיליון 45 של DW וניתן להורידו <a href="http://www.digitalwhisper.co.il/files/Zines/0x2D/DigitalWhisper45.pdf" target="_blank">מכאן</a>.
+המאמר הבא נכתב לגיליון 45 של DW וניתן להורידו [מכאן](http://www.digitalwhisper.co.il/files/Zines/0x2D/DigitalWhisper45.pdf).
 
 &nbsp;
 
@@ -75,7 +75,9 @@ category: Android
 
 > השימוש הנפוץ ביותר של Intent הינו מעבר בין Activitys (מסכי UI בתוך החבילה).
 
- <img class="alignleft size-full wp-image-1153" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/Intent_Filter_Browser.png" alt="Intent Filter Browser" width="215" height="382" />
+<div class="left">
+  <img src="/assets/img/posts/fun-part-of-android/Intent_Filter_Browser.png" alt="Intent Filter Browser">
+</div>
 
 **להלן סיטואציה:** במכשיר שלנו יש 2 חייגנים (החייגן המובנה, ו Skype), אנו נמצאים ב Activity של אנשי הקשר, ורוצים להתקשר לחבר. בלחיצה על איש הקשר ולאחר מכן על המספר שלו, עלה לנו חלון קטן שמבקש מאיתנו לבחור דרך איזה אפליקציה אנו רוצים לחייג לאיש הקשר (דרך החייגן המובנה או דרך ה Skype), למה זה קורה?
 
@@ -94,6 +96,10 @@ category: Android
 
 [<img class="aligncenter wp-image-1159" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/DW.png" alt="DW" width="800" height="630" />](http://www.lifelongstudent.net/wp-content/uploads/2013/10/DW.png)
 
+<div>
+  <img src="/assets/img/posts/fun-part-of-android/layout_main.png" alt="Main Layout in Eclipse">
+</div>
+
   * **התיקייה src:** התיקייה מכילה את כל הקוד וקבצי המקור שפותח בחבילה, בשפת JAVA.
   * **התיקייה gen:** המחלקה R היא מחלקה שנוצרת באופן אוטמטי ע"י הפלאגין ADT הכתובה בשפת JAVA (מג'ונרטת באופן עצמאי, אוטומטי). אם נפתח אותה, נראה המון תת מחלקות לפי הקבצים שייצרנו בפרויקט / חבילה שלנו.
   * **התיקייה android 4.2:** התיקייה הזאת מכילה את כל החבילות (האפליקציות) המובנות שיש באנדרואיד ואיתן כל המחלקות והשיטות שלהן. כך המפתח לא צריך ליצור כל דבר, אלא מבצע שימוש במחלקות והשיטות הקיימות.
@@ -101,9 +107,13 @@ category: Android
 
 &nbsp;
 
+<div class="left">
+  <img src="/assets/img/posts/fun-part-of-android/Resolutions.png" alt="Resolutions">
+</div>
+
 **Resources:**
 
-  * **[<img class="alignleft wp-image-1161" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/Resolutions.png" alt="Resolutions" width="260" height="121" />](http://www.lifelongstudent.net/wp-content/uploads/2013/10/Resolutions.png)התיקיות "drawable-hdpi / ldpi / mdpi / xhdpi"** הינן תיקיות שיכילו את כל התמונות שהאפליקציה צריכה. מדובר על אותן תמונות אך ברזולוציות שונות. ולמרות שקיימים עוד המון סוגי רזולוציות באנדרואיד, אלה הבסיסיות ובמידה ולא יצרנו תיקייה לרזולוציה ספציפת, כשהמשתמש יפעיל את האפליקציה המערכת תידע לבחור את התמונה בה הרזולוציה המתאימה ביותר ותתאים את התמונה למסך של המשתמש.
+  * **התיקיות "drawable-hdpi / ldpi / mdpi / xhdpi"** הינן תיקיות שיכילו את כל התמונות שהאפליקציה צריכה. מדובר על אותן תמונות אך ברזולוציות שונות. ולמרות שקיימים עוד המון סוגי רזולוציות באנדרואיד, אלה הבסיסיות ובמידה ולא יצרנו תיקייה לרזולוציה ספציפת, כשהמשתמש יפעיל את האפליקציה המערכת תידע לבחור את התמונה בה הרזולוציה המתאימה ביותר ותתאים את התמונה למסך של המשתמש.
   * **בתיקיית "layout"** נמצא קובץ ה Activity (המסך) שיצרתי, ומתוארים על ידי קבצי XML. קבצי ה XML שנמצאים ב layout בעצם מגדירים את סידור המסך.
   * **תיקיית ה "Menu"** מכילה קבצי XML של התפריטים. מי שמשתמש באנדרואיד מכיר את כפתור השלוש נקודות המסמל את מקש האופציה / אפשרויות. אז בדיוק על זה מדובר, פה המפתח יגדיר את המקש הזה והאופציות שלו.
   * **תיקיית ה "values"** מכילה קבצי XML עם ערכי מחרוזות. בעצם כל מחרוזות הטקסט שבאפליקציה, ובכך עבודת התרגום לשפות השונות הופכת לקלה יותר מכיוון שהשפות לא צמודות ל UI (במילים אחרות: לא Hard coded).
@@ -127,14 +137,21 @@ category: Android
 ```java
 &lt;ImageButton android:id="@id/seven" android:src="@drawable/dial_num_7_wht" android:contentDescription="@string/description_image_button_seven" style="@style/DialpadButtonStyle" /&gt;
 ```
+<div class="left">
+  <img src="/assets/img/posts/fun-part-of-android/dial_num_7_wht.png" alt="Android Dial Number 7 png">
+</div>
 
-[<img class="alignleft size-full wp-image-1162" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/dial_num_7_wht.png" alt="dial_num_7_wht" width="135" height="94" />](http://www.lifelongstudent.net/wp-content/uploads/2013/10/dial_num_7_wht.png)ואת התמונה של הכפתור לקחתי מהתיקייה `drawable-hdpi` וניתן לראות (לפי ההפניה ב XML שלעיל) שהשם שלה הוא dial\_num\_7_wht (להלן התמונה של הקובץ).
+ואת התמונה של הכפתור לקחתי מהתיקייה `drawable-hdpi` וניתן לראות (לפי ההפניה ב XML שלעיל) שהשם שלה הוא dial\_num\_7_wht (להלן התמונה של הקובץ).
 
 &nbsp;
 
 כמו שאמרנו, מחרוזות הטקסט באפליקציה נכתבות במסמך שונה, בקובץ XML בשם strings, וקובץ זה יהיה בתיקייה `values` (לכל שפה ישנה תיקיית values משלה, בצירוף קוד המדינה ב-2 תווים). ה strings.xml בשפה העברית יהיה בתיקייה `values-iw`.
 
-[<img class="alignleft size-full wp-image-1163" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/Strings.png" alt="Strings" width="507" height="164" />](http://www.lifelongstudent.net/wp-content/uploads/2013/10/Strings.png)להלן חלק מתוכן הקובץ (בירוק מסומן התיאור של הלחצן 7):
+<div class="left">
+  <img src="/assets/img/posts/fun-part-of-android/Strings.png" alt="Strings">
+</div>
+
+הלן חלק מתוכן הקובץ (בירוק מסומן התיאור של הלחצן 7):
 
 ובדרך זו אנו יכולים לבצע עוד מגוון שינויים, כגון: לשנות את הרקע של האפליקציה, לשנות את האייקונים והתמונות השונות, אם האפליקציה אינה בעברית - לתרגם או לשנות את התרגום הקיים וכד'.
 

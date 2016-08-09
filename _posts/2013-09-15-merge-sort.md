@@ -16,7 +16,9 @@ Merge Sort - מיון מיזוג. אלגוריתם זה פועל בשיטת הפ
 
 &nbsp;
 
-[<img class="alignleft size-full wp-image-1123" src="http://www.lifelongstudent.net/wp-content/uploads/2013/09/Merge-sort.gif" alt="Merge Sort" width="300" height="180" />](http://www.lifelongstudent.net/wp-content/uploads/2013/09/Merge-sort.gif)
+<div class="left">
+  <img src="/assets/img/posts/merge-sort/merge-sort-animation.gif" alt="Merge Sort Animation">
+</div>
 
 ### עקרון האלגוריתם
 
