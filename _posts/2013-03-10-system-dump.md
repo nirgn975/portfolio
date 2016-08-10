@@ -4,7 +4,7 @@ author: nirgn
 layout: post
 category: How-To
 ---
-[<img class="alignleft wp-image-1026" src="http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png" alt="AndroidSU" width="160" height="167" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png 240w, http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU-300x312.png 300w" sizes="(max-width: 160px) 100vw, 160px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png)שמתי לב שבשום מקום אין מדריך בעברית לכיצד ליצור קובץ System Dump. מדובר על כמה פעולות פשוטות, וזה עוזר המון! בעיקר כדי לחלוק מידע בקהילה.
+שמתי לב שבשום מקום אין מדריך בעברית לכיצד ליצור קובץ System Dump. מדובר על כמה פעולות פשוטות, וזה עוזר המון! בעיקר כדי לחלוק מידע בקהילה.
 
 לכן, בפוסט הזה אכתוב קצת על מה זה System dump, למה הוא משמש, למה הוא טוב, וכיצד ליצור אחד כזה.
 
