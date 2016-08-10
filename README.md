@@ -1,5 +1,8 @@
 Stories of a Lifelong Student
 ===
+
+[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/nirgn975/Stories-of-a-Lifelong-Student/blob/master/LICENSE)
+
 My private blog.
 
 ## Prerequisites
