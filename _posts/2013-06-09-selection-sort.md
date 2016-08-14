@@ -33,7 +33,7 @@ for (i &lt;- 1 to n-1) do
   <img src="/assets/img/posts/selection-sort/selection-sort-animation.gif" alt="Selection Sort Animation">
 </div>
 
- <img class="alignleft wp-image-1072" src="http://www.lifelongstudent.net/wp-content/uploads/2013/06/Selection-Sort-Animation.gif" alt="" width="90" height="334" />להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {7 ,8 ,4 ,1, 3, 9, 6, 2, 5, 8}, והמערך המתקבל בסוף הוא {9, 8 ,7, 6, 5, 4, 3, 2, 1, 0}.
+להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {7 ,8 ,4 ,1, 3, 9, 6, 2, 5, 8}, והמערך המתקבל בסוף הוא {9, 8 ,7, 6, 5, 4, 3, 2, 1, 0}.
 
 &nbsp;
 
