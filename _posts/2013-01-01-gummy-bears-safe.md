@@ -2,9 +2,10 @@
 title: כספת של סוכריות גומי
 author: nirgn
 layout: post
+summary: "אתמול פורסם מאמר נוסף שכתבתי בשביל מגזין Digital Whisper, להלן המאמר."
 category: Android
 ---
-[<img class="alignleft wp-image-957" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Jelly_Bean_Logo.png" alt="Jelly Bean Logo" width="200" height="289" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Jelly_Bean_Logo.png 222w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/Jelly_Bean_Logo-300x433.png 300w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/Jelly_Bean_Logo.png)אתמול פורסם מאמר נוסף שכתבתי בשביל מגזין [Digital Whisper](http://www.digitalwhisper.co.il/), להלן המאמר:
+אתמול פורסם מאמר נוסף שכתבתי בשביל מגזין [Digital Whisper](http://www.digitalwhisper.co.il/), להלן המאמר:
 
 &nbsp;
 
@@ -24,7 +25,9 @@ category: Android
 
 כדי להמחיש את הבעיה מצורפת בעמוד הבא טבלת החלוקה על פי גרסאות (נכון לדצמבר 2012).
 
-[<img class="aligncenter wp-image-958" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Android_Version_Dec_Chart.png" alt="Android Version Dec Chart" width="800" height="424" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Android_Version_Dec_Chart.png 846w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/Android_Version_Dec_Chart-300x158.png 300w" sizes="(max-width: 800px) 100vw, 800px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/Android_Version_Dec_Chart.png)
+<div style="text-align: center;">
+  <img src="/assets/img/posts/gummy-bears-safe/Android_Version_Dec_Chart.png" alt="Android Version Chart">
+</div>
 
 גוגל הכריזה בכנס ההכרזה של מוטורולה (הכנס האחרון בו קיבלנו מידע רשמי, והתקיים לפני כ-4 חודשים, בספטמבר האחרון) על 480 מיליון מכשירים שאוקטבו עד היום, בכל העולם (נכון לספטמבר כמובן), בקצב (שהולך וגדל) של 1.3 מיליון מכשירים שמאוקטבים כל יום (תארו לעצמכם כמה מכשירי אנדרואיד יהיו שנה הבאה בקצב גידול שכזה).
 
@@ -90,11 +93,15 @@ $ adb shell rm /data/system/password.key
 
 להלן תמונה של הקובץ מהמכשיר שלי, סימנתי את חלק מהדברים:
 
-[<img class="aligncenter wp-image-962" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Waze_log.png" alt="Waze log" width="800" height="221" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Waze_log.png 1280w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/Waze_log-300x82.png 300w" sizes="(max-width: 800px) 100vw, 800px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/Waze_log.png)
+<div class="left">
+  <img src="/assets/img/posts/gummy-bears-safe/Waze_log.png" alt="Waze log">
+</div>
 
   * [Readitlater](https://play.google.com/store/apps/details?id=com.ideashower.readitlater.pro&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5pZGVhc2hvd2VyLnJlYWRpdGxhdGVyLnBybyJd) שומרת אתרים וכתבות כדי שנוכל לקרוא אותם אחר כך (ועל הדרך בצורה נוחה), איפה היא שומרת את הכתבות?, בנתיב `\Android\data\com.ideashower.readitlater.pro\files\RIL_offline\RIL_pages`. שם כל הכתבות, התמונות מהכתבות והאתרים עצמם חשופים לכל, דוגמה:
 
-[<img class="aligncenter wp-image-963" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/ReadItLater.png" alt="ReadItLater" width="800" height="53" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/ReadItLater.png 1266w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/ReadItLater-300x19.png 300w" sizes="(max-width: 800px) 100vw, 800px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/ReadItLater.png)
+<div class="left">
+  <img src="/assets/img/posts/gummy-bears-safe/ReadItLater.png" alt="ReadItLater">
+</div>
 
   * [WhatsApp](https://play.google.com/store/apps/details?id=com.whatsapp&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS53aGF0c2FwcCJd) כל המידע שהעברנו באפליקציה (תמונות, סרטונים, קבצי קול) פתוח לכל. ובנוסף הגיבויים יושבים על המכשיר עצמו, בנתיב: `WhatsApp\Databases\`, זאת אומרת שבקלות אפשר לקחת את קבצי הגיבוי.   
     כמובן, שגם ניתן לפתוח את קבצי הגיבוי, הנה הדרך הקלה ביותר (שאני מכיר): [כאן](http://forum.xda-developers.com/showthread.php?t=1583021).
@@ -116,7 +123,8 @@ $ adb shell rm /data/system/password.key
 
 הפתרון של ה"תקלה" הזאת יכול להיות מבוצע בדרך קלה ביותר, 2 סיסמאות! הסיסמה הראשונה הינה המורכבת ואחראית על פענוח המידע המוצפן. את הסיסמה הזאת נצטרך להכניס בעת הדלקת המכשיר לשם פענוח ראשוני של המידע. הסיסמה השנייה קלה יותר לכתיבה וזיכרון ותשמש לפתיחת מסך הנעילה. הרי בסופו של דבר אנחנו מאתחלים את המכשיר פעם ב- לא בדיוק באותו יחס שבו אנו פותחים את מסך הנעילה.
 
-[<img class="aligncenter wp-image-964" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Brute-force_Attack.png" alt="Brute-force Attack" width="600" height="76" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Brute-force_Attack.png 626w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/Brute-force_Attack-300x37.png 300w" sizes="(max-width: 600px) 100vw, 600px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/Brute-force_Attack.png)
+
+> יש לציין שההצעה לפתרון ה״תקלה״ הוא רעיוני בלבד ולא קיים באנדרואיד (לפחות עד שאחד מעובדי אנדרואיד יעלה רעיון כזה או אחר).
 
 &nbsp;
 
@@ -142,7 +150,9 @@ ASLR (קיצור של Address Space Layout Randomization) היא שיטת אבט
 
 כמו שניתן לראות בתמונה:
 
-[<img class="aligncenter size-full wp-image-965" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/ASLR.png" alt="ASLR" width="451" height="144" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/ASLR.png 451w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/ASLR-300x95.png 300w" sizes="(max-width: 451px) 100vw, 451px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/ASLR.png)
+<div class="left">
+  <img src="/assets/img/posts/gummy-bears-safe/ASLR.png" alt="ASLR">
+</div>
 
 בשתי הריצות של המערכת (בוצעה העלה של המערכת מחדש על ידי כיבוי והדלקה) ניתן לראות כי הקבצים לא עלו באותו מקום בזיכרון.
 
@@ -156,7 +166,9 @@ ASLR (קיצור של Address Space Layout Randomization) היא שיטת אבט
 
 ההבדל בין סורק הרוגלות הנ"ל ל-Bouncer עליו כתבתי במאמר הקודם (מעבר לכך ש-Bouncer כבר קיים ופועל זמן מה), הוא שה-Bouncer הינו סורק רוגלות בצד השרת של Play, ז"א כל אפליקציה שעולה ל-Play נסרקת על ידו (הוא ממש מדמה פעולה מלאה של האפליקציה על מכשיר אנדרואיד בשרת נפרד), והסורק רוגלות הנוכחי עליו מדובר, סורק את האפליקציות שיותקנו במכשיר. ה-Bouncer מבצע עוד פעולות, הנ"ל הוא הסבר במשפט, רק כדי להזכיר. למידע מלא יש לקרוא את המאמר הקודם.
 
-[<img class="alignleft wp-image-966" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Verify_Apps.png" alt="Verify Apps" width="400" height="292" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Verify_Apps.png 609w, http://www.lifelongstudent.net/wp-content/uploads/2013/01/Verify_Apps-300x219.png 300w" sizes="(max-width: 400px) 100vw, 400px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/Verify_Apps.png)
+<div class="left">
+  <img src="/assets/img/posts/gummy-bears-safe/Verify_Apps.png" alt="Verify Apps">
+</div>
 
 _שורש הבעיה_
 
@@ -174,7 +186,9 @@ Hiroshi Lockheimer - סמנכ"ל ההנדסה בצוות אנדרואיד מסב
 
 בנוסף, בגרסה 4.2 אנו מקבלים כמה שינויים וויזואליים קטנים אך חשובים מאין כמותם. מסך ההרשאות בעת התקנת אפליקציה עבר שינויים וויזואליים ולא יסתיר יותר מידע, בנוסף לכך יהיה ליד כל הרשאה אייקון קטן המתקשר לסוג ההרשאה, ובכך הופך את המעבר עליו לקליל יותר. תמונת מצב (מימין, המצב החדש (גרסה 4.2). משמאל, המצב הישן (גרסה 4.1 ומטה)):
 
-[<img class=" size-full wp-image-1507 aligncenter" src="http://www.lifelongstudent.net/wp-content/uploads/2013/01/Apps_Installation.png" alt="Apps Installation" width="507" height="421" />](http://www.lifelongstudent.net/wp-content/uploads/2013/01/Apps_Installation.png)
+<div class="left">
+  <img src="/assets/img/posts/gummy-bears-safe/Apps_Installation.png" alt="Apps Installation">
+</div>
 
 &nbsp;
 

@@ -2,6 +2,7 @@
 title: The Fun Part of Android
 author: nirgn
 layout: post
+summary: "מאמר זה יסביר בצורה עמוקה יחסית על המערכת אנדרואיד, כיצד היא עובדת, איך קבצי Apk בנויים, (תמונות, מחרוזות, וחלקי smali), איך ניתן לשנות קבצי Apk ולבסוף, איך הם נראים מנקודת המבט של המפתח. המאמר הבא נכתב לגיליון 45 של Digital Whisper."
 category: Android
 ---
 המאמר הבא נכתב לגיליון 45 של DW וניתן להורידו [מכאן](http://www.digitalwhisper.co.il/files/Zines/0x2D/DigitalWhisper45.pdf).
@@ -93,8 +94,6 @@ category: Android
 ### מנקודת המבט של המפתח
 
 בשביל להבין איך החבילות האלו בנויות מנקודת המבט של המפתחים, בניתי אפליקציה פשוטה שמורכבת מ Activity (מסך אחד). בצד שמאל יש לנו את האקספלורר ובו כל התיקיות והקבצים.
-
-[<img class="aligncenter wp-image-1159" src="http://www.lifelongstudent.net/wp-content/uploads/2013/10/DW.png" alt="DW" width="800" height="630" />](http://www.lifelongstudent.net/wp-content/uploads/2013/10/DW.png)
 
 <div>
   <img src="/assets/img/posts/fun-part-of-android/layout_main.png" alt="Main Layout in Eclipse">

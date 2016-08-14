@@ -2,6 +2,7 @@
 title: מיון הכנסה (Insertion Sort)
 author: nirgn
 layout: post
+summary: "Insertion Sort - מיון הכנסה. האלגוריתם אינטואיטיבי למדי, ודרך הפעולה שלו דומה לדרך שבה ממיינים אנשים יד של קלפי משחק. גם באלגוריתמם זה נשתמש במבנה הנתונים מערך (Array)."
 category: Algorithms
 ---
 Insertion Sort - מיון הכנסה, גם הוא אינטואיטיבי למדי, ודרך הפעולה שלו דומה לדרך שבה ממיינים אנשים יד של קלפי משחק. גם באלגוריתמם זה נשתמש במבנה הנתונים - [מערך](http://www.lifelongstudent.net/2013/04/%d7%9e%d7%a2%d7%a8%d7%9a-array/ "מערך (Array)").
