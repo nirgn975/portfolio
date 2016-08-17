@@ -39,5 +39,5 @@ $ npm run gulp deploy
 
 If you want to run the tests on your local machine please install `gem install html-proofer`. And then run the tests using
 ```shell
-$ foo bar
+$ htmlproofer ./_site --disable-external
 ```
