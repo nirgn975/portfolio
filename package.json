@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha tests/index.test.js -w",
     "gulp": "gulp",
+    "gulp build": "gulp build",
     "gulp deploy": "gulp deploy"
   },
   "author": "Nir Galon",
