@@ -2,9 +2,10 @@
 title: ליצור קובץ System Dump
 author: nirgn
 layout: post
+summary: "שמתי לב שבשום מקום אין מדריך בעברית לכיצד ליצור קובץ System Dump. מדובר על כמה פעולות פשוטות, וזה עוזר המון! בעיקר כדי לחלוק מידע בקהילה. לכן, בפוסט הזה אכתוב קצת על מה זה System dump, למה הוא משמש, למה הוא טוב, וכיצד ליצור אחד כזה."
 category: How-To
 ---
-[<img class="alignleft wp-image-1026" src="http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png" alt="AndroidSU" width="160" height="167" srcset="http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png 240w, http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU-300x312.png 300w" sizes="(max-width: 160px) 100vw, 160px" />](http://www.lifelongstudent.net/wp-content/uploads/2013/03/AndroidSU.png)שמתי לב שבשום מקום אין מדריך בעברית לכיצד ליצור קובץ System Dump. מדובר על כמה פעולות פשוטות, וזה עוזר המון! בעיקר כדי לחלוק מידע בקהילה.
+שמתי לב שבשום מקום אין מדריך בעברית לכיצד ליצור קובץ System Dump. מדובר על כמה פעולות פשוטות, וזה עוזר המון! בעיקר כדי לחלוק מידע בקהילה.
 
 לכן, בפוסט הזה אכתוב קצת על מה זה System dump, למה הוא משמש, למה הוא טוב, וכיצד ליצור אחד כזה.
 
@@ -12,13 +13,13 @@ category: How-To
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>מה זה?</strong></span>
+### מה זה?
 
-System Dump זהו קובץ שמכיל תמונה של מערכת ההפעלה המותקנת אצלכם כעת. במילים אחרות, ניתן להגיד שזהו גיבוי ל <a href="http://www.pcmag.com/encyclopedia/term/63820/android-rom" target="_blank">Rom</a> הנוכחי שעובד אצלכם במכשיר. הגיבוי הינו גיבוי מלא, הוא מגבה את הכל, מאפליקציות, למידע של האפליקציות, סמסים, יומן שיחות ואפילו ההגדרות הספציפיות שהיו אצלכם במכשיר באותו רגע של הגיבוי (ווליום, בהירות מסך וכד').
+System Dump זהו קובץ שמכיל תמונה של מערכת ההפעלה המותקנת אצלכם כעת. במילים אחרות, ניתן להגיד שזהו גיבוי ל [Rom](http://www.pcmag.com/encyclopedia/term/63820/android-rom) הנוכחי שעובד אצלכם במכשיר. הגיבוי הינו גיבוי מלא, הוא מגבה את הכל, מאפליקציות, למידע של האפליקציות, סמסים, יומן שיחות ואפילו ההגדרות הספציפיות שהיו אצלכם במכשיר באותו רגע של הגיבוי (ווליום, בהירות מסך וכד').
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">למה זה טוב?</span>**
+### למה זה טוב?
 
 הרבה אנשים ממליצים לבצע גיבוי כזה לפני שמתחילים להתעסק עם החלפת רומים ושינויים כאלו ואחרים. למה? בדיוק מאותן הסיבות שאתם מבצעים תמונת גיבוי למערכת ההפעלה במחשב.
 
@@ -28,30 +29,30 @@ System Dump זהו קובץ שמכיל תמונה של מערכת ההפעלה �
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">איך מבצעים את זה בפועל</span>**
+### איך מבצעים את זה בפועל
 
-<span style="text-decoration: underline;">קודם כל נכין את המחשב</span>
+**קודם כל נכין את המחשב**
 
-  1. הורידו והתקינו את ה JDK מהאתר של <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Oracle</a>.
-  2. הורידו והתקינו את ה SDK מאתר המפתחים של <a href="http://developer.android.com/sdk/index.html" target="_blank">Android</a>.
-  3. פתחו את ה SDK Manager (ב WIndows, באופן דיפולטיבי הוא נמצא בנתיב: <span style="color: #ff0000;">C:\Program Files\Android\android-sdk</span> (בלינוקס הוא יימצא היכן שחילצתם אותו).
-  4. בצד השמאלי של החלון ישנו עץ, אחת החבילות הינה: <span style="color: #00ff00;">Android SDK Platform-tools</span>, סמנו אותה ב V ולחצו על <span style="color: #00ff00;">Install Packages</span> (הלחצן ממוקמם בחלק התחתון בצד ימין), יופיע חלון אישור תנאים, סמנו <span style="color: #00ff00;">Accept All</span> ולחצו על <span style="color: #00ff00;">Install</span>.
+  1. הורידו והתקינו את ה JDK מהאתר של [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+  2. הורידו והתקינו את ה SDK מאתר המפתחים של [Android](http://developer.android.com/sdk/index.html).
+  3. פתחו את ה SDK Manager (ב WIndows, באופן דיפולטיבי הוא נמצא בנתיב: `C:\Program Files\Android\android-sdk` (בלינוקס הוא יימצא היכן שחילצתם אותו).
+  4. בצד השמאלי של החלון ישנו עץ, אחת החבילות הינה: `Android SDK Platform-tools`, סמנו אותה ב V ולחצו על `Install Packages` (הלחצן ממוקמם בחלק התחתון בצד ימין), יופיע חלון אישור תנאים, סמנו `Accept All` ולחצו על `Install`.
 
-<span style="text-decoration: underline;">הכינו את המכשיר</span>
+**הכינו את המכשיר**
 
-  1. הפעילו את USB Debugging (בנתיב:<span style="color: #ff0000;">Developer options <- Settings</span>).
+  1. הפעילו את USB Debugging (בנתיב:`Developer options <- Settings`).
 
-<span style="text-decoration: underline;">ביצוע הגיבוי</span>
+**ביצוע הגיבוי**
 
   1. הפעילו את ה cmd (בלינוקס את הטרמינל), ונווטו לתיקייה שבה מותקן ה SDK.
-  2. כתבו את הפקודה: <span style="color: #00ff00;">adb.exe shell</span> כדי להפעיל את ה adb (בלינוקס <span style="color: #00ff00;">adb.sh/.</span>).
-  3. וכעת את הפקודה: <span style="color: #00ff00;">su dd if=/dev/block/stl6 of=/sdcard/factory.rfs</span>.
+  2. כתבו את הפקודה: `adb.exe shell` כדי להפעיל את ה adb (בלינוקס `adb.sh/.`).
+  3. וכעת את הפקודה: `su dd if=/dev/block/stl6 of=/sdcard/factory.rfs`.
 
-* ניתן להחליף את הנתיב (במקרה הזה: <span style="color: #ff0000;">/sdcard/factory.rfs</span>) לכל נתיב שתרצו (בכרטיס SD).
+* ניתן להחליף את הנתיב (במקרה הזה: `/sdcard/factory.rfs`) לכל נתיב שתרצו (בכרטיס SD).
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">לסיכום</span>**
+### לסיכום
 
 שימו לב, כשאתם מקבלים קובץ System Dump עדיף לחלץ ממנו את העדכון לאפליקציה שאתם צריכים ולהתקינה, ולא לנסות להתקינו באופן מלא על המכשיר שלכם.
 
