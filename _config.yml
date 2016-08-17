@@ -11,12 +11,3 @@ markdown: kramdown
 gems: [jekyll-paginate]
 paginate: 8
 paginate_path: "/page:num/"
-
-authors:
-  - nirgn:
-      name: Nir Galon
-      bio: something about me
-      email: nirgn975
-      twitter_username: nirgn975
-      github_username: nirgn975
-      avatar: nirgn.jpg
