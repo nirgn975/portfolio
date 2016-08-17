@@ -34,3 +34,10 @@ You can easily deploy your site build to gh-pages branch with the command
 ```shell
 $ npm run gulp deploy
 ```
+
+## Tests
+
+If you want to run the tests on your local machine please install `gem install html-proofer`. And then run the tests using
+```shell
+$ foo bar
+```
