@@ -148,11 +148,11 @@ $ adb shell rm /data/system/password.key
 
 ASLR (קיצור של Address Space Layout Randomization) היא שיטת אבטחה שבסיסה הוא סידור אקראי (ועצמאי) של אזור נתונים בזיכרון בכל טעינה שלו מחדש. השיטה הזאת הוטמעה בגרסה JB 4.1 באופן מלא, כך שהמיקום של הספריות, המחסנית, הערמה וגם הלינקר, כולם מסודרים בזיכרון באופן אקראי.
 
-כמו שניתן לראות בתמונה:
-
 <div class="left">
   <img src="/assets/img/posts/gummy-bears-safe/ASLR.png" alt="ASLR">
 </div>
+
+כמו שניתן לראות בתמונה:
 
 בשתי הריצות של המערכת (בוצעה העלה של המערכת מחדש על ידי כיבוי והדלקה) ניתן לראות כי הקבצים לא עלו באותו מקום בזיכרון.
 
@@ -167,7 +167,7 @@ ASLR (קיצור של Address Space Layout Randomization) היא שיטת אבט
 ההבדל בין סורק הרוגלות הנ"ל ל-Bouncer עליו כתבתי במאמר הקודם (מעבר לכך ש-Bouncer כבר קיים ופועל זמן מה), הוא שה-Bouncer הינו סורק רוגלות בצד השרת של Play, ז"א כל אפליקציה שעולה ל-Play נסרקת על ידו (הוא ממש מדמה פעולה מלאה של האפליקציה על מכשיר אנדרואיד בשרת נפרד), והסורק רוגלות הנוכחי עליו מדובר, סורק את האפליקציות שיותקנו במכשיר. ה-Bouncer מבצע עוד פעולות, הנ"ל הוא הסבר במשפט, רק כדי להזכיר. למידע מלא יש לקרוא את המאמר הקודם.
 
 <div class="left">
-  <img src="/assets/img/posts/gummy-bears-safe/Verify_Apps.png" alt="Verify Apps">
+  <img src="/assets/img/posts/gummy-bears-safe/Verify_Apps.png" alt="Verify Apps" style="width: 30%">
 </div>
 
 _שורש הבעיה_

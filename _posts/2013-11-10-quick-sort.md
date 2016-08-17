@@ -22,7 +22,7 @@ Quick Sort - מיון מהיר. גם אלגוריתם זה הינו רקורסי
 
 &nbsp;
 
-### הקוד של האלגוריתם ב [פסאודו קוד](http://en.wikipedia.org/wiki/Pseudocode)
+### הקוד של האלגוריתם ב[פסאודו קוד](http://en.wikipedia.org/wiki/Pseudocode)
 
 ```c
 PARTITION (A, p, r)
