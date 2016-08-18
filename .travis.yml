@@ -11,10 +11,11 @@ env:
 
 install:
   - npm install
+  - npm install -g gulp
   - gem install jekyll jekyll-paginate html-proofer
 
 script:
-  - npm run gulp build
+  - gulp build
   - ls
   - ls ./_site
   - rm -R ./_site/node_modules
