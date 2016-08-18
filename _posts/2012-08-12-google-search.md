@@ -2,6 +2,7 @@
 title: כיצד לחפש בגוגל, מההתחלה ועד הסוף
 author: nirgn
 layout: post
+summary: ""
 category: Stuff
 ---
 <img class="alignleft wp-image-889" src="http://www.lifelongstudent.net/wp-content/uploads/2012/08/Google_With_Magnifying_Glass.jpg" alt="Google With Magnifying Glass" width="200" height="172" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/08/Google_With_Magnifying_Glass.jpg 290w, http://www.lifelongstudent.net/wp-content/uploads/2012/08/Google_With_Magnifying_Glass-300x258.jpg 300w" sizes="(max-width: 200px) 100vw, 200px" /> גוגל הכניסה בזמן האחרון המון פיצ'רים למנוע החיפוש, חלקם יותר חדשים וחלקם פחות. אבל כולם אמורים לעזור לנו להגיע לתוצאות בצורה יותר מדויקת ומהירה. הפוסט בא הנל לסקור את צורות החיפוש החדשות שמציע לנו מנוע החיפוש של Google.

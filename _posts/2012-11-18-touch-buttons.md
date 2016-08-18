@@ -2,6 +2,7 @@
 title: לשנות את כפתורי המגע במכשיר ב-5 שלבים
 author: nirgn
 layout: post
+summary: ""
 category: Android
 ---
 [<img class="alignleft wp-image-947" src="http://www.lifelongstudent.net/wp-content/uploads/2012/11/beOriginal.jpg" alt="be original" width="250" height="200" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/11/beOriginal.jpg 640w, http://www.lifelongstudent.net/wp-content/uploads/2012/11/beOriginal-300x240.jpg 300w" sizes="(max-width: 250px) 100vw, 250px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/11/beOriginal.jpg)בפוסט הזה אסביר כיצד לשנות את התמונה של כפתורי המגע במכשיר ה Android שלכם (הכפתורים שעל המכשיר). כמו בפוסט בו הסברתי כיצד <a title="ליצור Boot animation ב-5 שלבים" href="http://www.lifelongstudent.net/2012/04/%d7%9c%d7%99%d7%a6%d7%95%d7%a8-boot-animation-%d7%91-5-%d7%a9%d7%9c%d7%91%d7%99%d7%9d/" target="_blank">להחליף את ה Boot Animation</a> גם כאן נעשה את זה ב-5 שלבים.

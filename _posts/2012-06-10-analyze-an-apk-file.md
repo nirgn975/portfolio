@@ -2,6 +2,7 @@
 title: Analyze an Apk file
 author: nirgn
 layout: post
+summary: ""
 category: Android
 ---
 [<img class="alignleft wp-image-849" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools.png" alt="Android Tools" width="200" height="199" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools.png 282w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools-300x297.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools-1024x1024.png 1024w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools-144x144.png 144w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Tools.png)אחד הדברים השימושיים (והמגניבים) באנדרואיד הוא לדעת לפתוח ולחתום קבצי Apk וכמובן כתוצאה מכך היכולת לערוך אותם.

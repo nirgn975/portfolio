@@ -2,25 +2,20 @@
 title: A little bit of Android Grammar
 author: nirgn
 layout: post
+summary: ""
 category: Android
 ---
-<!--wp_fromhtmlpreview_devfmt-->
+בפוסט הזה אסקר ואסביר כמה מהמושגים (או Grammar)  היותר מתקדמים של מערכת ההפעלה Android.
 
-<!--wp_fromhtmlpreview_devfmt-->
-
-[<img class="alignleft wp-image-774" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Eating_An_Apple-300x300.jpg" alt="Android Eating An Apple" width="200" height="150" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Eating_An_Apple-300x225.jpg 300w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Eating_An_Apple.jpg 270w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Eating_An_Apple.jpg)בפוסט הזה אסקר ואסביר כמה מהמושגים (או Grammar)  היותר מתקדמים של מערכת ההפעלה Android.
-
-* יש לציין כי רוב התמונות והמידע המתוארך נלקח מ Wikipedia.
+> יש לציין כי רוב התמונות והמידע המתוארך נלקח מ Wikipedia.
 
 <!--more-->
 
 &nbsp;
 
-&nbsp;
+### Android כמערכת הפעלה
 
-## <span style="text-decoration: underline;"><strong>Android כמערכת הפעלה</strong></span>
-
-## <span style="text-decoration: underline;"><strong>השכבה האדומה: Linux Kernel – (אנדרואיד היא לא לינוקס)</strong></span>
+**השכבה האדומה: Linux Kernel – (אנדרואיד היא לא לינוקס)**
 
 ליבת לינוקס (<a href="http://en.wikipedia.org/wiki/Linux_kernel" target="_blank">Linux kernel</a>) היא הליבה המשמשת במערכות הפעלה ממשפחת לינוקס. השם "לינוקס" מתייחס אל ליבת המערכת, הקרנל (ליבה = בסיס המערכת), ז"א אלפי שורות קוד המהוות את הבסיס של מערכת ההפעלה.  
 <img class="alignleft wp-image-775" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Red_Layer.png" alt="Red_Layer" width="500" height="85" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Red_Layer.png 1042w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Red_Layer-300x51.png 300w" sizes="(max-width: 500px) 100vw, 500px" />כיום מקובל להשתמש בשם לינוקס למשפחה שלמה של מערכת הפעלה תואמות יוניקס, המשלבות את ליבת לינוקס עם ספריות וכלים מפרויקט גנו (<a href="http://en.wikipedia.org/wiki/GNU" target="_blank">GNU</a>). לפעמים גם מדובר על הפצות לינוקס שלמות (מערכות הפעלה שלמה הכוללות שרתי אינטרנט דוגמת <a href="http://en.wikipedia.org/wiki/Apache_HTTP_Server" target="_blank">Apache</a>, סביבות עבודה גרפיות דוגמת <a href="http://en.wikipedia.org/wiki/GNOME" target="_blank">Gnome</a> וחבילות ישומיים משרדיים דוגמת <a href="http://en.wikipedia.org/wiki/LibreOffice" target="_blank">Libre Office</a>).

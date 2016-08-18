@@ -2,6 +2,7 @@
 title: 'Android - מנגנוני אבטחה'
 author: nirgn
 layout: post
+summary: ""
 category: Android
 ---
 [<img class="alignleft wp-image-842" src="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Security.png" alt="Android Security" width="200" height="155" />](http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Security.png)הפוסט הנל הינו מאמר שכתבתי למגזין Digital Whisper (כן, אלה שנמצאים בצד ימין בבלוג (: ).

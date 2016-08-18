@@ -2,6 +2,7 @@
 title: 'Multitasking & Task killer'
 author: nirgn
 layout: post
+summary: ""
 category: Android
 ---
  <img class="alignleft wp-image-809" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/android_service.png" alt="Android Service" width="197" height="260" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/android_service.png 585w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/android_service-300x395.png 300w" sizes="(max-width: 197px) 100vw, 197px" />אני חושב שאחד הדברים שהכי מטעים באנדרואיד זה עניין הריבוי משימות (או Multitasking) והאפליקציות הפתוחות ברקע. הרוב המוחלט של הציבור נוטה לטעות בעניין ואני אוסיף להגיד שלא באשמתו, הייתה זו <a href="http://en.wikipedia.org/wiki/Microsoft" target="_blank">Microsoft</a> שהרגילה אותנו לסגור כל דבר שזז כדי לפנות מקום בזיכרון.
