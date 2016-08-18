@@ -107,6 +107,12 @@ gulp.task('deploy', ['sass', 'javascript', 'jekyll-build'], function() {
     .pipe(ghPages());
 });
 
+/**
+ * Build the jekyll site, created for testing.
+ */
+gulp.task('build', ['sass', 'javascript', 'jekyll-build'], function() {
+  return gulp.src('./_site/**/*');
+});
 
 /**
  * Default task, running just `gulp` will compile the sass,
