@@ -16,7 +16,5 @@ install:
 
 script:
   - gulp build
-  - ls
-  - ls ./_site
   - rm -R ./_site/node_modules
   - htmlproofer ./_site --disable-external
