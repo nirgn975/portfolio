@@ -211,7 +211,7 @@ ARPA הוציאה מכרז לבניה של הרשת (הכולל תיאור מד�
 
   * ITU (ראשי תיבות: [International Telecommunication Union](http://en.wikipedia.org/wiki/International_Telecommunication_Union)). ל ITU יש 3 מחלקות, הראשונה ITU-T האחראית על תחום הטלפונים ורשתות התקשורת הסלולריות (נקראה CCITT עד 1993). ITU-R האחראי על טווחים של תדרי רדיו. ו ITU-D המקדם את הפיתוח הטכנולוגי של המידע והתקשורת על מנת לצמצם את הפער הדיגיטלי בין ארצות.
   * ISO (ראשי תיבות: [International Standards Organization](http://en.wikipedia.org/wiki/International_Organization_for_Standardization)). זהו מכון התקנים הבינלאומי, והוא עוסק במגוון עצום של נושאים (החל מברגים ואומים עד לציפוי של עמודי טלפון, רשתות דיג ובקיצור כל מה שעולה על דעתכם. ל ISO יש מעל ל-200 וועדות טכניות ומעל ל-17,000 סטנדרטים שהוצאו עד כה.
-  * שחקן גדול נוסף הינו IEEE (ראשי תיבות: [http://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers](Institute of Electrical and Electronics Engineers)). בנוסף לכך שהארגון עורך מאות כנסים בכל שנה, יש לו גם קבוצת תקינה המפתחת תקנים בתחום החשמל של ההנדסה והמחשוב (לארגון היו כמה סיפורי הצלחה גדולים מאוד כמו התקנים 802.3 ו-802.11 עליהם נדבר בעתיד).
+  * שחקן גדול נוסף הינו IEEE (ראשי תיבות: [Institute of Electrical and Electronics Engineers](http://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers)). בנוסף לכך שהארגון עורך מאות כנסים בכל שנה, יש לו גם קבוצת תקינה המפתחת תקנים בתחום החשמל של ההנדסה והמחשוב (לארגון היו כמה סיפורי הצלחה גדולים מאוד כמו התקנים 802.3 ו-802.11 עליהם נדבר בעתיד).
 
 &nbsp;
 

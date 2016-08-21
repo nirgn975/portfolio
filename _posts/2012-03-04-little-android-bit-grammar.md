@@ -142,7 +142,7 @@ Emulator 2, adb: 5557
 
 ### Recovery
 
-[<img class="alignleft wp-image-785" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg" alt="Clockworkmod Recovery" width="200" height="333" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg 480w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery-300x500.jpg 300w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg)המילה Recovery מתייחסת למחיצה נפרדת בה מותקנת קונסלת הריקברי (שאליה ניתן להגיע ע"י קומבינציה של מספר לחצנים, הקומבינציה תלוית מכשיר). הריקברי הקיים במערכת ה Android, לצערנו, פשוט מאוד באפשרויות שלו, אך בקלות יחסית ניתן להשיג את קוד המקור שלו ולהוסיף (לפתח) אפשרויות נוספות. תודות למפתחים המוכשרים שמציפים את קהילת האנדרואיד ישנם כמה וכמה ריקברי המבצעים זאת. הנפוצים שבינהם הינם: <a href="https://www.clockworkmod.com/" target="_blank">Clockwork Recovery</a>, <a href="http://www.teamw.in/" target="_blank">OpenRecovery</a>.
+[<img class="alignleft wp-image-785" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg" alt="Clockworkmod Recovery" width="200" height="333" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg 480w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery-300x500.jpg 300w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg)המילה Recovery מתייחסת למחיצה נפרדת בה מותקנת קונסלת הריקברי (שאליה ניתן להגיע ע"י קומבינציה של מספר לחצנים, הקומבינציה תלוית מכשיר). הריקברי הקיים במערכת ה Android, לצערנו, פשוט מאוד באפשרויות שלו, אך בקלות יחסית ניתן להשיג את קוד המקור שלו ולהוסיף (לפתח) אפשרויות נוספות. תודות למפתחים המוכשרים שמציפים את קהילת האנדרואיד ישנם כמה וכמה ריקברי המבצעים זאת. הנפוצים שבינהם הינם: [Clockwork Recovery](https://www.clockworkmod.com/), [OpenRecovery](http://www.teamw.in/).
 
 הריקברי המבונה במערכת האנדרואיד מוגבל בכוונה תחילה. הוא נועד לבצע פעולות ספציפיות ולכן מציע אך ורק את 2 האפשרויות הבאות: למחוק את כל קבצי המערכת והמשתמש, ולהתקין עדכוני מערכת. בעוד הריקברי שפותח ע"י המפתחים השונים לרוב מציע עוד מגוון אפשרויות כגון:
 
@@ -166,7 +166,7 @@ Emulator 2, adb: 5557
 
 **אפשר להתקין את קובץ הapk בשתי דרכים:**
 
-  1. להעתיקו למכשיר (זיכרון פנימי / SD card) ולהיכנס לתיקייה (עם מנהל קבצים דוגמת <a href="https://play.google.com/store/apps/details?id=com.metago.astro&hl=en" target="_blank">Astro</a> או <a href="https://play.google.com/store/apps/details?id=com.estrongs.android.pop&hl=en" target="_blank">ES File Explorer</a>) ולהתקינו (יש לוודא כי "יישומים לא מוכרים" מסומן ב V תחת הגדרות -> יישומים).
+  1. להעתיקו למכשיר (זיכרון פנימי / SD card) ולהיכנס לתיקייה (עם מנהל קבצים דוגמת [Astro](https://play.google.com/store/apps/details?id=com.metago.astro&hl=en) או [ES File Explorer](https://play.google.com/store/apps/details?id=com.estrongs.android.pop&hl=en)) ולהתקינו (יש לוודא כי "יישומים לא מוכרים" מסומן ב V תחת הגדרות -> יישומים).
   2. להתקינו דרך ה ADB (יש לוודא כי המכשיר מחובר למחשב באמצעות כבל usb ולוודא כי תחת הגדרות -> יישומים -> פיתוח -> usb debugging מסומן ב V).
 
 &nbsp;
