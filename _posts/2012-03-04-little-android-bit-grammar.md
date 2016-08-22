@@ -17,6 +17,10 @@ category: Android
 
 **השכבה האדומה: Linux Kernel – (אנדרואיד היא לא לינוקס)**
 
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Red_Layer.png" alt="Red Layer">
+</div>
+
 ליבת לינוקס ([Linux kernel](http://en.wikipedia.org/wiki/Linux_kernel)) היא הליבה המשמשת במערכות הפעלה ממשפחת לינוקס. השם "לינוקס" מתייחס אל ליבת המערכת, הקרנל (ליבה = בסיס המערכת), ז"א אלפי שורות קוד המהוות את הבסיס של מערכת ההפעלה.  
 כיום מקובל להשתמש בשם לינוקס למשפחה שלמה של מערכת הפעלה תואמות יוניקס, המשלבות את ליבת לינוקס עם ספריות וכלים מפרויקט גנו ([GNU](http://en.wikipedia.org/wiki/GNU)). לפעמים גם מדובר על הפצות לינוקס שלמות (מערכות הפעלה שלמה הכוללות שרתי אינטרנט דוגמת [Apache](http://en.wikipedia.org/wiki/Apache_HTTP_Server), סביבות עבודה גרפיות דוגמת [Gnome](http://en.wikipedia.org/wiki/GNOME) וחבילות ישומיים משרדיים דוגמת [Libre Office](http://en.wikipedia.org/wiki/LibreOffice)).
 
@@ -48,7 +52,11 @@ category: Android
 
 ## השכבה הירוקה, הרמה השנייה: (Libraries ( + Android Runtime
 
-[<img class="alignleft wp-image-776" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Green_Layer.png" alt="Green Layer" width="441" height="104" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Green_Layer.png 1042w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Green_Layer-300x70.png 300w" sizes="(max-width: 441px) 100vw, 441px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Green_Layer.png)הרמה השנייה (הירוקה), מורכבת כולה מספריות קוד פתוח. הספריות האלו משמשות שירותים שונים של מערכת ההפעלה, ובנוסף גם את המפתחים.
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Green_Layer.png" alt="Green Layer">
+</div>
+
+הרמה השנייה (הירוקה), מורכבת כולה מספריות קוד פתוח. הספריות האלו משמשות שירותים שונים של מערכת ההפעלה, ובנוסף גם את המפתחים.
 
   * **Media Framework –** זוהי ספריה המספקת פיצ'רים חיוניים בתקשורת כגון Codecs, פורמטי וידאו ותמונות שונים (AAC, MP3, H.264, MPEG4, JPG, PNG) וכד'.
   * **SGL –** מנוע גרפי 2D בסיסי.
@@ -72,7 +80,9 @@ category: Android
   2. Java VM עם השנים התפתחה סביב מעבדי אינטל, מכיוון שזה בעיקר מה שהיה במחשבים ובשרתים העסקיים, ולכן לא מתאימה לרוץ על מעבדי ARM (לפחות בתצורה הנוכחית).
   3. Java VM טוענת את התוכנה לזיכרון (מהדיסק הקשיח) ורק אז יוצרת את האובייקט, שזה הגיוני, מכיוון שהדיסק הקשיח הרבה יותר איטי מה [RAM](http://en.wikipedia.org/wiki/Random-access_memory). דלביק לא עושה זאת, מכיוון שבמכשירים ניידים אין דיסק קשיח, ישנו זיכרון RAM ואחסון פלאש (מהיר מאוד להבדיל מהדיסק הקשיח המכני, ולכן אין סיבה לעשות זאת).
 
-<img class="alignleft wp-image-777" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Java_Bytecode__Dalvik_Bytecode.png" alt="Java Bytecode Dalvik Bytecode" width="300" height="393" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Java_Bytecode__Dalvik_Bytecode.png 346w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Java_Bytecode__Dalvik_Bytecode-300x392.png 300w" sizes="(max-width: 300px) 100vw, 300px" />
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Java_Bytecode__Dalvik_Bytecode.png" alt="Java Bytecode to Dalvik Bytecode">
+</div>
 
 &nbsp;
 
@@ -86,11 +96,17 @@ category: Android
 
 למי שמעוניין להרחיב, להלן סירטון בן שעה מ Google I/O 2008 המסביר בהרחבה כיצד Dalvik עובד:
 
+<iframe width="420" height="315" src="https://www.youtube.com/embed/ptjedOZEXPM" frameborder="0" allowfullscreen></iframe>
+
 &nbsp;
 
 ### השכבה הכחולה: Applications Framework
 
-[<img class="alignleft wp-image-778" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Framework_Layer.png" alt="Framework Layer" width="500" height="86" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Framework_Layer.png 1042w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Framework_Layer-300x51.png 300w" sizes="(max-width: 500px) 100vw, 500px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Framework_Layer.png)הרמה השלישית נקראת Application Framework ובמילים אחרות ניתן גם לקרוא לה API Level.
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Framework_Layer.png" alt="Framework Layer">
+</div>
+
+הרמה השלישית נקראת Application Framework ובמילים אחרות ניתן גם לקרוא לה API Level.
 
 זהו בעצם שלד המערכת, ה Framework חושף לאפליקציות את יכולות המערכת. כשהמפתח קובע את ה API Level של האפליקציה הוא בעצם קובע מה יהיה אפשרי (או נגיש) בשכבה הזו, וכתוצאה מכך על איזה גרסאות Android האפליקציה תוכל להיות מותקנת. לדוגמה, ב API Level 10 (גרסת אנדרואיד 2.3.3) התאפשר לראשונה לעשות שימוש ברכיב ה [NFC](http://en.wikipedia.org/wiki/Near_field_communication), ורק אפליקציות עם תמיכה מינמלית ב-API Level 10 ומעלה יוכלו לבצע שימוש ברכיב זה.
 
@@ -98,13 +114,19 @@ category: Android
 
 ### השכבה הכחולה: Applications
 
-[<img class="alignleft wp-image-779" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Apploctions_Layer.png" alt="Apploctions Layer" width="500" height="59" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Apploctions_Layer.png 1042w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Apploctions_Layer-300x35.png 300w" sizes="(max-width: 500px) 100vw, 500px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Apploctions_Layer.png)בשכבה הרבעית והאחרונה נמצא את כל האפליקציות המובנות, הבסיסיות, של המערכת (לדוגמה: החייגן, אנשי הקשר, הודעות, דפדפן, הלאנצ'ר וכ'ו).
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Apploctions_Layer.png" alt="Apploctions Layer">
+</div>
+
+בשכבה הרבעית והאחרונה נמצא את כל האפליקציות המובנות, הבסיסיות, של המערכת (לדוגמה: החייגן, אנשי הקשר, הודעות, דפדפן, הלאנצ'ר וכ'ו).
 
 קובץ APK (או אפליקציה) זהו בעצם אוסף של קבצי dex (קוד המתאים לרוץ על Dalvik VM), משאבים (קבצי תמונות, קבצי ווידיאו, קבצי אודיו, קבצי XML וכד'), ואולי גם כמה Native libs.
 
-<img class="alignleft wp-image-780" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Architecture.png" alt="Android Architecture" width="600" height="424" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Architecture.png 1044w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Architecture-300x212.png 300w" sizes="(max-width: 600px) 100vw, 600px" />
-
 כל השכבות יחדיו כפי שאנדרואיד מורכבת:
+
+<div style="text-align: center;">
+  <img src="/assets/img/posts/android-grammar/Android_Architecture.png" alt="Android Architecture">
+</div>
 
 &nbsp;
 
@@ -112,7 +134,11 @@ category: Android
 
 ADB(ראשי תיבות שלAndroid Debug Bridge) זוהי תוכנית הרצה משורת הפקודה (cmd / terminal) על המחשב ומתקשרת עם המכשיר או האמלוטר (ובמילים אחרות, תכניות adb פותחת שורת פקודה למכשיר).
 
-<img class="alignleft size-full wp-image-781" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_ADB.png" alt="Android ADB" width="498" height="227" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_ADB.png 498w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_ADB-300x136.png 300w" sizes="(max-width: 498px) 100vw, 498px" />ה adb משמש מפתחים לניהול מערכת ה Android הישר מהמחשב. הוא מהווה דרייבר בין המכשיר למחשב ומוסיף פקודות לטרמינל ( / cmd) שנותנות למפתחים את היכולת לבצע פעולות שונות, כמו לתת הוראה למכשיר להיכנס למצבים מסויימים, לתת הוראה להתקין אפליקציה מסוימת (שנמצאת על המחשב ולא על המכשיר) וכד'.
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Android_ADB.png" alt="Android ADB">
+</div>
+
+ה adb משמש מפתחים לניהול מערכת ה Android הישר מהמחשב. הוא מהווה דרייבר בין המכשיר למחשב ומוסיף פקודות לטרמינל ( / cmd) שנותנות למפתחים את היכולת לבצע פעולות שונות, כמו לתת הוראה למכשיר להיכנס למצבים מסויימים, לתת הוראה להתקין אפליקציה מסוימת (שנמצאת על המחשב ולא על המכשיר) וכד'.
 
 כשאנו פותחים את ה ADB (ניתן לפתוח אותו מתיקיית sdk/platform-tools) הוא קודם כל בודק האם יש תהליך ADB פתוח כבר, במידה ואין הוא מתחיל את התהליך. כאשר ה ADB עולה הוא מתחבר לפורט TCP 5037 ומקשיב לפקודות מה ADB (שורת הפקודה). השרת מחפש ומקים חיבורים לכל אמולטור / מכשיר בטווחי הפורטים 5555 עד 5585. כל אמולטור / מכשיר "רוכש" זוג יציאות, לדוגמה: 
 
@@ -128,21 +154,25 @@ Emulator 2, adb: 5557
 
 &nbsp;
 
-[<img class="alignleft wp-image-782" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Unlock_Bootloader.png" alt="Unlock Bootloader" width="200" height="342" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Unlock_Bootloader.png 208w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Unlock_Bootloader-300x513.png 300w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Unlock_Bootloader.png)
-
 ### Bootloader
+
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Bootloader.png" alt="Bootloader">
+</div>
 
 ה [Bootloader](http://en.wikipedia.org/wiki/Booting) לא ממש קשור ישירות למערכת ההפעלה של Android , אלא זהו רכיב תוכנה מיוחד שרץ בזמן עליית המערכת (אחרי הדלקת המכשיר ולפני שמערכת האנדרואיד עולה). תפקידו הוא לבצע בדיקות לזיכרון ולהעלות את מערכת ההפעלה (OS) לזיכרון ה RAM ו"להעביר את המושכות" על המכשיר למערכת ההפעלה.
 
 * נוהגים להשוות את ה Bootloader לתוכנת ה Bios שאנחנו מכירים מעולם ה PC שם ה Bios הוא בעצם יחידה נפרדת לגמרי ממערכת ההפעלה שעולה בזמן ה boot לפני עליית המערכת הפעלה (OS).
 
-[<img class="alignright wp-image-783 size-full" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Bootloader.png" alt="Bootloader" width="274" height="85" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Bootloader.png 274w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Bootloader-300x93.png 300w" sizes="(max-width: 274px) 100vw, 274px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Bootloader.png) 
-
 &nbsp;
 
 ### Recovery
 
-[<img class="alignleft wp-image-785" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg" alt="Clockworkmod Recovery" width="200" height="333" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg 480w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery-300x500.jpg 300w" sizes="(max-width: 200px) 100vw, 200px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Clockworkmod_Recovery.jpg)המילה Recovery מתייחסת למחיצה נפרדת בה מותקנת קונסלת הריקברי (שאליה ניתן להגיע ע"י קומבינציה של מספר לחצנים, הקומבינציה תלוית מכשיר). הריקברי הקיים במערכת ה Android, לצערנו, פשוט מאוד באפשרויות שלו, אך בקלות יחסית ניתן להשיג את קוד המקור שלו ולהוסיף (לפתח) אפשרויות נוספות. תודות למפתחים המוכשרים שמציפים את קהילת האנדרואיד ישנם כמה וכמה ריקברי המבצעים זאת. הנפוצים שבינהם הינם: [Clockwork Recovery](https://www.clockworkmod.com/), [OpenRecovery](http://www.teamw.in/).
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Clockworkmod_Recovery.jpg" alt="Clockworkmod Recovery">
+</div>
+
+המילה Recovery מתייחסת למחיצה נפרדת בה מותקנת קונסלת הריקברי (שאליה ניתן להגיע ע"י קומבינציה של מספר לחצנים, הקומבינציה תלוית מכשיר). הריקברי הקיים במערכת ה Android, לצערנו, פשוט מאוד באפשרויות שלו, אך בקלות יחסית ניתן להשיג את קוד המקור שלו ולהוסיף (לפתח) אפשרויות נוספות. תודות למפתחים המוכשרים שמציפים את קהילת האנדרואיד ישנם כמה וכמה ריקברי המבצעים זאת. הנפוצים שבינהם הינם: [Clockwork Recovery](https://www.clockworkmod.com/), [OpenRecovery](http://www.teamw.in/).
 
 הריקברי המבונה במערכת האנדרואיד מוגבל בכוונה תחילה. הוא נועד לבצע פעולות ספציפיות ולכן מציע אך ורק את 2 האפשרויות הבאות: למחוק את כל קבצי המערכת והמשתמש, ולהתקין עדכוני מערכת. בעוד הריקברי שפותח ע"י המפתחים השונים לרוב מציע עוד מגוון אפשרויות כגון:
 
@@ -155,7 +185,11 @@ Emulator 2, adb: 5557
 
 ### APK
 
-[<img class="alignleft wp-image-788" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Apk.png" alt="Apk" width="386" height="275" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Apk.png 410w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Apk-300x213.png 300w" sizes="(max-width: 386px) 100vw, 386px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Apk.png)<a href="http://en.wikipedia.org/wiki/Android_application_package" target="_blank">apk</a> זהוי סיומת הקובץ בו נשמרות אפליקציות של מערכת האנדרואיד. ניתן להשוות את הסיומת לסיומת bat, jar, exe וכד'. הקובץ עצמו הינו קובץ zip רגיל לחלוטין (ניתן לשנות לו את הסיומת מ app.apk ל app.zip ולפתוח אותו באופן רגיל).  
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Apk.png" alt="Apk">
+</div>
+
+[Apk](http://en.wikipedia.org/wiki/Android_application_package) זהוי סיומת הקובץ בו נשמרות אפליקציות של מערכת האנדרואיד. ניתן להשוות את הסיומת לסיומת bat, jar, exe וכד'. הקובץ עצמו הינו קובץ zip רגיל לחלוטין (ניתן לשנות לו את הסיומת מ app.apk ל app.zip ולפתוח אותו באופן רגיל).  
 במידה ונפתח אותו, נראה מספר תיקיות וקצבים, בואו ננסה להבין מה הולך כאן:
 
   * **META-INF:** הספרייה מכילה בתוכה את החתימה של קובץ ה zip. ללא חתימת הקובץ לא ניתן להתקין את ה apk (האפליקציה), משום שהחתימה מכילה את 'תעודת הזהות' של הקובץ. בזמן ההתקנה המערכת בודקת אם החתימה מתאימה ונותנת הודעת שגיאה במידה ואחד הקבצים שונה. יש לציין כי ניתן לחתום את הקובץ מחדש.
@@ -173,7 +207,7 @@ Emulator 2, adb: 5557
 
 ### Root
 
-[<img class="alignleft wp-image-789" src="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Root.png" alt="Android Root" width="230" height="230" srcset="http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Root.png 250w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Root-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Root-300x300.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Root-1024x1024.png 1024w, http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Root-144x144.png 144w" sizes="(max-width: 230px) 100vw, 230px" />](http://www.lifelongstudent.net/wp-content/uploads/2014/12/Android_Root.png)מושג: מתן הרשאות של מנהל מערכת במכשיר (SuperUser). כמו Administrator ב windows, על מנת שנוכל לגשת ולשחק עם דברים שאינם בהרשאה של משתמש רגיל (כמו תיקיית ה System במקרה שלנו), (המושג מגיע מעולם הלינוקס בו תקיית המערכת נקראת root &#8211; שורש, ומסומנת ב / ). תיקיית ה System מוגנת וכדי לשנות שם דברים אנו צריכים את אותה הרשאה. בדרך כלל למשתמשים מן השורה אין צורך ב root אך למפתחים, האקרים ושאר סקרנים המעוניינים לשנות דברים, חייבים את ההרשאה הזו.
+מושג: מתן הרשאות של מנהל מערכת במכשיר (SuperUser). כמו Administrator ב windows, על מנת שנוכל לגשת ולשחק עם דברים שאינם בהרשאה של משתמש רגיל (כמו תיקיית ה System במקרה שלנו), (המושג מגיע מעולם הלינוקס בו תקיית המערכת נקראת root &#8211; שורש, ומסומנת ב / ). תיקיית ה System מוגנת וכדי לשנות שם דברים אנו צריכים את אותה הרשאה. בדרך כלל למשתמשים מן השורה אין צורך ב root אך למפתחים, האקרים ושאר סקרנים המעוניינים לשנות דברים, חייבים את ההרשאה הזו.
 
 **דוגמאות ללמה צריך את אותה הרשאה (Root):**
 
