@@ -5,30 +5,32 @@ layout: post
 summary: ""
 category: Android
 ---
-[<img class="alignleft wp-image-842" src="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Security.png" alt="Android Security" width="200" height="155" />](http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Security.png)הפוסט הנל הינו מאמר שכתבתי למגזין Digital Whisper (כן, אלה שנמצאים בצד ימין בבלוג (: ).
+הפוסט הנל הינו מאמר שכתבתי למגזין Digital Whisper (כן, אלה שנמצאים בצד ימין בבלוג (: ).
 
 המאמר נמצא במגזין מספר 31 (השייך לחודש הזה, מאי).  
-על מנת להוריד את המאמר <a href="http://www.digitalwhisper.co.il/0x53/" target="_blank">לחצו כאן</a>. להלן המאמר המלא (נגזר מהמגזין).<!--more-->
+על מנת להוריד את המאמר [לחצו כאן](http://www.digitalwhisper.co.il/0x53/). להלן המאמר המלא (נגזר מהמגזין).
+
+<!--more-->
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>הקדמה</strong></span>
+### הקדמה
 
 "יש המון וירוסים באנדרואיד" אמר לי חבר לפני כמה ימים, וזה גרם לי לחשוב כי רוב הציבור (הלא מבין) נוהג לחשוב על מערכות פתוחות כמערכות קלות לחדירה וכיוצא בזה כך גם חושבים על אנדרואיד. המאמר הבא יעסוק בשאלה "האם אנדרואיד היא פלטפורמה מאובטחת או פרוצה", וכדי לענות על השאלה נתקוף את הנושא מכמה זוויות (מודל האבטחה של המערכת, מפתחים והרשאות, ממה המשתמשים צריכים לדאוג וכד').
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>למה שיהיה לנו אכפת מאבטחה?</strong></span>
+### למה שיהיה לנו אכפת מאבטחה?
 
 זו שאלת השאלות. לרוב המשתמשים לא אכפת מאבטחת המידע של המכשיר שלהם לפחות עד שהוא נפרץ/נגנב/נאבד, ואז אנו כבר רוצים לדעת שהמכשיר מוגן ולא שכל מי שימצא אותו יוכל לגשת למידע הנמצא עליו.
 
   * אנדרואיד הינה הפלטפורמה הנפוצה ביותר כרגע, היא גדלה מיום ליום וכמו מערכות אחרות בעלות משתמשים רבים, קהילת ההאקרים (הלא טובים) יתמקדו באנדרואיד. הרי כלכלי יותר למצוא פרצה / לכתוב סוס טרויאני למערכת בעלת הרבה משתמשים כדי שנוכל למקסם את הניצול של מה שכתבנו.
   * תאגידים גדולים משתמשים היום באנדרואיד. העובדים מחזיקים מכשיר אנדרואידי ומסנכרנים את המייל, מעבירים מצגות וכדו' (בקיצור פותחים חור בהגנה של הארגון) .
-  * כולנו שומעים מידי יום על הרוגלות החדשות שמוצאים <del>במרקט</del> ב PlayStore ואני בטוח שאם נכתוב בגוגל Android security נמצא המון כתבות .
+  * כולנו שומעים מידי יום על הרוגלות החדשות שמוצאים ~~במרקט~~ ב PlayStore ואני בטוח שאם נכתוב בגוגל Android security נמצא המון כתבות .
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>יסודות האבטחה של אנדרואיד (או על מה נעבור?):</strong></span>
+### יסודות האבטחה של אנדרואיד (או על מה נעבור?):
 
   1. בידוד אפליקציות ומערכת אישורים (בעת התקנת אפליקציות):
       * האם אנחנו יכולים לשלוט על מה האפליקציות שאנו מתקינים יוכלו לעשות?
@@ -40,11 +42,11 @@ category: Android
       * האם המידע שלנו מוגן אם המכשיר שלנו נפרץ / נגנב / נאבד?
   4. מרכז הגישה למכשיר.
 
-לפני שנתחיל לעבור על הדברים אני ממליץ להכיר באופן בסיסי את הקרנל של המערכת, ניתן לקרוא בקישור הבא: <a title="A little bit of Android Grammar" href="http://www.lifelongstudent.net/2012/03/little-android-bit-grammar/" target="_blank">A little bit of Android Grammar</a>.
+לפני שנתחיל לעבור על הדברים אני ממליץ להכיר באופן בסיסי את הקרנל של המערכת, ניתן לקרוא בקישור הבא: [A little bit of Android Grammar](http://www.lifelongstudent.net/2012/03/little-android-bit-grammar/).
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>בידוד אפליקציות</strong></span>
+### בידוד אפליקציות
 
 כדי להדגים את הנושא נחבר את המכשיר למחשב (בעזרת ה USB), ניכנס ל ADB . נרשום PS ונראה את התהליכים הרצים. קיימים הרבה תהליכים רצים (כ ROOT , דרך אגב), לדוגמה:
 
@@ -63,17 +65,21 @@ category: Android
 
 &nbsp;
 
-**<span style="text-decoration: underline;">מה אנו לומדים מכאן?</span>**
+**מה אנו לומדים מכאן?**
 
   * באופן מובנה כל אפליקציה רצה על תהליך נפרד ועם הרשאות מערכת נפרדות. הרעיון הזה אינו חדש ומבוסס על רעיון ישן ומובן שמתבצע במערכות UNIX ככה שאנדרואיד למעשה רוכבת על רעיון שנמצא כבר שנים (ועובד), עליו אנחנו יכולים לסמוך.
   * שירותי מערכת (Framework) גם רצים כתהליכים נפרדים(system_server).
   * הקרנל של מערכת ההפעלה הוא למעשה הבסיס של בידוד האפליקציות, או בניסוח קצת יותר מקצועי: App Sandbox .
-  * Dalvik לא מהווה תפקיד (בשונה מ- <a href="http://en.wikipedia.org/wiki/Java_Platform,_Micro_Edition" target="_blank">javaME</a> בו האפליקציות רצות על אותה "מכונה וירטואלית", פה כל אפליקציה רצה על מכונה וירטואלית נפרדת וכולן צריכות לעמוד באותן הרשאות לא משנה אם הקוד נכתב ב C++ או בג'אווה).
+  * Dalvik לא מהווה תפקיד (בשונה מ - [javaME](http://en.wikipedia.org/wiki/Java_Platform,_Micro_Edition) בו האפליקציות רצות על אותה "מכונה וירטואלית", פה כל אפליקציה רצה על מכונה וירטואלית נפרדת וכולן צריכות לעמוד באותן הרשאות לא משנה אם הקוד נכתב ב C++ או בג'אווה).
   * כל הדברים האלו כוללים גם את אפליקציות המערכת המובנות.
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong><a href="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Play_Premission.png"><img class="alignleft size-full wp-image-844" src="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Play_Premission.png" alt="Play Premission" width="193" height="320" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Play_Premission.png 193w, http://www.lifelongstudent.net/wp-content/uploads/2012/05/Play_Premission-300x497.png 300w" sizes="(max-width: 193px) 100vw, 193px" /></a>אז איך מפתחים בורחים מ'ארגז החול'?</strong></span>
+### אז איך מפתחים בורחים מ'ארגז החול'?
+
+<div class="left">
+  <img src="/assets/img/posts/android-security-mechanisms/Play_Premission.png" alt="Play Premission">
+</div>
 
 הרי בפועל אנחנו לא מרגישים שיש "ארגז חול", לדוגמה באפליקציית פייסבוק אנו מושכים תמונה מהגלריה, או כשאנו עושים צק'-אין אנו משתמשים באפליקציית ה GPS . אז רגע, יש ארגז חול או אין ארגז חול?
 
@@ -81,11 +87,19 @@ category: Android
 
 ההרשאות שאנו רואים שם אלה קבוצות הרשאות. לדוגמה, רוב האפליקציות מבקשות את ההרשאה "תקשורת רשת" ההרשאה הנ"ל היא קבוצת הרשאות שמכילה בתוכן את כל ההרשאות לאפליקציות שקשורות לאינטרנט (או יותר נכון לפתיחת שקעי אינטרנט) לדוגמה האפשרות ליצור שקעי אינטרנט דרך WIFI וגם האפשרות ליצור שקעי אינטרנט דרך האינטרנט הסלולרי.
 
-דוגמה נוספת היא ההרשאה למצלמה (כקוד, זה נראה כך: android.permission.CAMERA), הרשאה נותנת לנו את הגישה למצלמת הסטילס, הוידאו, לאפקטים של המצלמה ולמצב פנורמה. (בקשות שנחשבות "נורמליות" נמצאות למטה תחת "הצג הכל'), דוגמאות נוספות להרשאות שאפליקציות יכולות לקבל:
+דוגמה נוספת היא ההרשאה למצלמה (כקוד, זה נראה כך: `android.permission.CAMERA`), הרשאה נותנת לנו את הגישה למצלמת הסטילס, הוידאו, לאפקטים של המצלמה ולמצב פנורמה. (בקשות שנחשבות "נורמליות" נמצאות למטה תחת "הצג הכל'), דוגמאות נוספות להרשאות שאפליקציות יכולות לקבל:
 
-[<img class="aligncenter wp-image-843" src="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Premissions.png" alt="Android Premissions" width="600" height="314" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Premissions.png 807w, http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Premissions-300x156.png 300w" sizes="(max-width: 600px) 100vw, 600px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/05/Android_Premissions.png)
+|Description|Permission|
+|:---:|:---:|
+|לאפליקציה תנתן הגישה לנתוני המיקום של אנדרואיד|ACCESS_FINE_LOCATION|
+|לאפליקציה תנתן הגישה לנתוני קישוריות הרשת|ACCESS_NETWORK_STATE|
+|לאפליקציה תנתן הגישה לנתוני קישוריות רשתות ה Wifi הנמצאות בקרבת האנדרואיד|ACCESS_WIFI_STATE|
+|לאפליקציה תנתן הגישה לשנות את הקישוריות לרשתות ה Wifi של האנדרואיד|CHANGE_WIFI_STATE|
+|לאפליקציה תנתן הגישה לנתוני מצב הסוללה של האנדרואיד|BATTERY_STATE|
+|לאפליקציה תנתן הגישה לנטרל את האנדרואיד לגמרי|BRICK|
+|לאפליקציה תנתן הגישה לקרוא הודעות SMS שנשלחו / התקבלו באנדרואיד|READ_SMS|
 
-לרשימה נרחבת של כל ההרשאות הקיימות ומה כל אחת מאפשרת: <a href="http://developer.android.com/reference/android/Manifest.permission.html" target="_blank">Manifest permission</a>.
+לרשימה נרחבת של כל ההרשאות הקיימות ומה כל אחת מאפשרת: [Manifest permission](http://developer.android.com/reference/android/Manifest.permission.html).
 
 **השאלה המתבקשת היא "האם משתמש רגיל יכול להבחין האם אוסף הבקשות האלו בטוח או לא?"**
 
@@ -93,7 +107,7 @@ category: Android
 
 &nbsp;
 
-**<span style="text-decoration: underline;">אז מה החלופות?</span>**
+**אז מה החלופות?**
 
 החלופה נקראת "הרשאה דינמית", (שזה דרך אגב המצב ב iOS), אבל לא הכל מושלם:
 
@@ -104,7 +118,8 @@ category: Android
 
 &nbsp;
 
-**<span style="text-decoration: underline;">אז מה עושים?</span>**  
+**אז מה עושים?**
+
 צוות האנדרואיד יצר במרקט מערכת תגובות ודירוג. על מנת שנוכל לראות את תגובות המשתמשים ודירוג האפליקציה, דבר שיעזור למשתמשים רגילים לגבש דעה על האפליקציה טרום ההתקנה. אבל שוב, לא הכל מושלם והגענו למצב שבו המשתמשים פשוט מסתכלים על כמות ההורדות של האפליקציה ומניחים שאם הורידו אותה הרבה פעמים אז היא בטח בטוחה.
 
 אז בסוף נגיע לקרן אור (אפשר גם להסתכל עליה אחרת) והיא שגוגל שמרה לעצמה את הזכות "להרוג" מרחוק אפליקציות שהיא מחליטה שהן מזיקות, ז"א שבמידה וכבר הורדנו אפליקציה שהתגלתה כמזיקה וירדה מ Google Play , גוגל יכולים להרוג אותה מרחוק במכשיר שלנו וככה אנו לא צריכים להיות כל הזמן מעודכנים באפליקציות שהתגלו כמזיקות (אם אפליקציה תוסר מהמכשיר בצורה כזאת המשתמש יקבל מייל מגוגל).
@@ -113,7 +128,7 @@ category: Android
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">מפתח האפליקציה</span>**
+### מפתח האפליקציה
 
 וזה מוביל אותנו לכמה שאלות בהקשר למקור של היישום:
 
@@ -129,58 +144,62 @@ category: Android
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>קידוד המידע</strong></span>
+### קידוד המידע
 
 באופן דיפולטיבי כל הקבצים של האפליקציות מוגדרים כ-"פרטיים" (זאת אומרת שאפליקציות אחרות לא יכולות לתמרן או לערוך את הקבצים ישירות), למעט:
 
-  * היוצר של האפליקציה יכול ליצור קבצים שיהיו מוגדרים כ-" MODE\_WORLD\_READABLE " ו/או" MODE\_WORLD\_WRITABLE ."
-  * אפליקציות שלהן אותה תעודה + חתימה &#8211; ז"א שנוצרו ע"י אותו היוצר (בגלל שהן רצות על אותו UID הן יכולות לחלוק קבצים משותפים).
+  * היוצר של האפליקציה יכול ליצור קבצים שיהיו מוגדרים כ-`MODE\_WORLD\_READABLE` ו/או `MODE\_WORLD\_WRITABLE`.
+  * אפליקציות שלהן אותה תעודה + חתימה - ז"א שנוצרו ע"י אותו היוצר (בגלל שהן רצות על אותו UID הן יכולות לחלוק קבצים משותפים).
   * קבצים שאנו שמים ב- SD , שלשם כל אפליקציה יכולה לגשת (כמובן בעזרת הרשאה ספציפית).
 
 אלו הצפנות קיימות לנו במערכת האנדרואיד (את חלקם אני מכיר יותר וחלקם פחות אך לא אסביר על כל אחת מחוסר זמן, מקום וכי לא זה הנושא שלנו. אם מישהו מתעניין בפרוטוקול / תקן ספציפי הוא יותר ממוזמן לגשת לגוגל / ויקיפדיה):
 
-  * <a href="http://he.wikipedia.org/wiki/Virtual_Private_Network" target="_blank">VPN</a> טלפוני ואינטרנטי (לאירגונים) (עם <a href="http://en.wikipedia.org/wiki/IPsec" target="_blank">IPsec</a> והצפנת <a href="http://he.wikipedia.org/wiki/3DES" target="_blank">3DES</a> ו &#8211;<a href="http://he.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">AES</a> ומערכת אישורים- CA).
-  * Wifi עם <a href="http://he.wikipedia.org/wiki/IEEE_802.11" target="_blank">תקן 802.11</a> ופרוטוקלי אבטחה <a href="http://he.wikipedia.org/wiki/WPA" target="_blank">WPA/2</a>.
-  * פרוטוקול <a href="http://en.wikipedia.org/wiki/OpenSSL" target="_blank">OpenSSL</a>.
-  * <a href="http://en.wikipedia.org/wiki/Bouncy_Castle_(cryptography)" target="_blank">JCE</a> (מבוסס על &#8211; Bouncy Castle) מספק לנו תמיכה בכל האלגוריתמים הנפוצים (הצפנות ציבוריות וסימטריות).
-  * <a href="http://he.wikipedia.org/wiki/Apache_HTTP_Server" target="_blank">Apache HTTP</a> (תומך ב- SSL).
-  * <a href="http://developer.android.com/reference/android/security/KeyChain.html" target="_blank">Keychain API</a> &#8211; אפליקציות יכולות להתקין ולאחסן תעודות אבטחה של המשתמש .
+  * [VPN](http://he.wikipedia.org/wiki/Virtual_Private_Network) טלפוני ואינטרנטי (לאירגונים) (עם [IPsec](http://en.wikipedia.org/wiki/IPsec) והצפנת [3DES](http://he.wikipedia.org/wiki/3DES) ו[AES](http://he.wikipedia.org/wiki/Advanced_Encryption_Standard) ומערכת אישורים- CA).
+  * Wifi עם [תקן 802.11](http://he.wikipedia.org/wiki/IEEE_802.11) ופרוטוקלי אבטחה [WPA/2](http://he.wikipedia.org/wiki/WPA).
+  * פרוטוקול [OpenSSL](http://en.wikipedia.org/wiki/OpenSSL).
+  * [JCE](http://en.wikipedia.org/wiki/Bouncy_Castle_(cryptography)) (מבוסס על Bouncy Castle) מספק לנו תמיכה בכל האלגוריתמים הנפוצים (הצפנות ציבוריות וסימטריות).
+  * [Apache HTTP](http://he.wikipedia.org/wiki/Apache_HTTP_Server) (תומך ב- SSL).
+  * [Keychain API](http://developer.android.com/reference/android/security/KeyChain.html) - אפליקציות יכולות להתקין ולאחסן תעודות אבטחה של המשתמש .
   * הצפנת כל הזיכרון (זמין מגרסה 3.0 ומעלה).
 
 &nbsp;
 
-**<span style="text-decoration: underline;">הצפנת כל הזיכרון:</span>**
+**הצפנת כל הזיכרון:**
 
-בכדי לבצע פעולה זו ניכנס ל-"הגדרות" > "אבטחה" ב- ICS (או "מיקום ואבטחה" בגרסאות נמוכות יותר) > "הצפנה".
+בכדי לבצע פעולה זו ניכנס ל`הגדרות` > `אבטחה` ב- ICS (או `מיקום ואבטחה` בגרסאות נמוכות יותר) > `הצפנה`.
 
 כמה חידודים:
 
   * הפעולה הנ"ל דורשת סיסמת מסך (לא סיסמת "צורה").
-  * הפעולה מצפינה את כל המידע שנמצא בזיכרון עם <a href="http://he.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">AES</a> 128bit ו- <a href="http://en.wikipedia.org/wiki/Disk_encryption_theory#Cipher-block_chaining_.28CBC.29" target="_blank">CBC</a> ועם <a href="http://en.wikipedia.org/wiki/Disk_encryption_theory#Encrypted_salt-sector_initialization_vector_.28ESSIV.29" target="_blank">ESSIV</a> :<a href="http://he.wikipedia.org/wiki/Secure_Hash_Algorithm" target="_blank">SHA</a> 256bit (הסיסמה משולבת בהצפנת <a href="http://he.wikipedia.org/wiki/Secure_Hash_Algorithm" target="_blank">SHA</a>).
+  * הפעולה מצפינה את כל המידע שנמצא בזיכרון עם [AES](http://he.wikipedia.org/wiki/Advanced_Encryption_Standard) 128bit ו[CBC](http://en.wikipedia.org/wiki/Disk_encryption_theory#Cipher-block_chaining_.28CBC.29) ועם [ESSIV](http://en.wikipedia.org/wiki/Disk_encryption_theory#Encrypted_salt-sector_initialization_vector_.28ESSIV.29) :[SHA](http://he.wikipedia.org/wiki/Secure_Hash_Algorithm) 256bit (הסיסמה משולבת בהצפנת [SHA](http://he.wikipedia.org/wiki/Secure_Hash_Algorithm)).
   * ביטול ההצפנה דורשת איפוס מלא של המכשיר!
   * ההצפנה מבטלת את אופציית ה-"האצת-חומרה" בקריאה וכתיבה של נתונים (ההערכות הן שפעולה זו מפחיתה בכ- 54% את הביצועים של המכשיר בקריאה וכתיבה של קבצים גדולים).
 
 **החסרונות הם:**
 
   * פעולה זו אינה מונעת התקפות פיזיות, ז"א שאם גנבו לכם את המכשיר פיזית, התוקף יכול להתקין key logger על מנת לשחזר / לפענח את הסיסמה שלכם.
-  * פעולה זו אינה מונעת התקפות שנקראות <a href="http://en.wikipedia.org/wiki/Cold_boot_attack" target="_blank">Cold-boot attack</a>, אם מישהו יצליח להחזיק את המכשיר שלכם כשהוא דולק וכשהסיסמה כבר פועלת (אפילו אם יש נעילת מסך) הם יוכלו (בעיקרון) להוציא את הזיכרון RAM (לא אומר שזה קל אבל בהחלט אפשרי) לשים אותו במכשיר אחר, להדליק ולחלץ את המידע מה- RAM למחשב וכד'. בעיקרון כל עוד הכנסתם את הסיסמה והיא בזיכרון, ניתן לשחזר אותה.
+  * פעולה זו אינה מונעת התקפות שנקראות [Cold-boot attack](http://en.wikipedia.org/wiki/Cold_boot_attack), אם מישהו יצליח להחזיק את המכשיר שלכם כשהוא דולק וכשהסיסמה כבר פועלת (אפילו אם יש נעילת מסך) הם יוכלו (בעיקרון) להוציא את הזיכרון RAM (לא אומר שזה קל אבל בהחלט אפשרי) לשים אותו במכשיר אחר, להדליק ולחלץ את המידע מה- RAM למחשב וכד'. בעיקרון כל עוד הכנסתם את הסיסמה והיא בזיכרון, ניתן לשחזר אותה.
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">DRM &#8211; זכויות ניהול דיגיטליות.</span>**
+### DRM - זכויות ניהול דיגיטליות.
 
-[<img class="alignleft size-full wp-image-845" src="http://www.lifelongstudent.net/wp-content/uploads/2012/05/DRM.png" alt="DRM" width="361" height="247" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/05/DRM.png 361w, http://www.lifelongstudent.net/wp-content/uploads/2012/05/DRM-300x205.png 300w" sizes="(max-width: 361px) 100vw, 361px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/05/DRM.png)ראשי תיבות: Digital Right Management. ב- API 11 אנדרואיד הוסיפה את האפשרות ל'זכויות ניהול דיגיטליות' &#8211; זהו ממשק המספק למכשירי OEM אישור לתוכן מסוים. הרעיון הוא להגן על התוכן של המשתמש באמצעות שימוש ברישיונות דיגיטליים לשימוש בתכנים. מה שמספק את ההגנה/החוצץ הזה הוא ה Binder.
+<div class="left">
+  <img src="/assets/img/posts/android-security-mechanisms/DRM.png" alt="DRM">
+</div>
 
-ה Binder מספק תקשורת בין תהליכים, באמצעות מודל מוקטן של הקרנל. ה- Binder (כמו הפעילות הסטנדרטית של ה IPC בלינוקס קרנל) הוא כמו שליח בין תהליכים, הוא יודע לזהות האם מדובר באיום ו'רץ' בין התהליכים כדי להעביר מידע (על מנת שלא תיהיה תקשורת ישירה). לקריאה מעמיקה יותר על ה Binder ניתן לקרוא <a href="http://www.nds.rub.de/media/attachments/files/2012/03/binder.pdf" target="_blank">כאן</a>.
+ראשי תיבות: Digital Right Management. ב- API 11 אנדרואיד הוסיפה את האפשרות ל'זכויות ניהול דיגיטליות' - זהו ממשק המספק למכשירי OEM אישור לתוכן מסוים. הרעיון הוא להגן על התוכן של המשתמש באמצעות שימוש ברישיונות דיגיטליים לשימוש בתכנים. מה שמספק את ההגנה/החוצץ הזה הוא ה Binder.
+
+ה Binder מספק תקשורת בין תהליכים, באמצעות מודל מוקטן של הקרנל. ה- Binder (כמו הפעילות הסטנדרטית של ה IPC בלינוקס קרנל) הוא כמו שליח בין תהליכים, הוא יודע לזהות האם מדובר באיום ו'רץ' בין התהליכים כדי להעביר מידע (על מנת שלא תיהיה תקשורת ישירה). לקריאה מעמיקה יותר על ה Binder ניתן לקרוא [כאן](http://www.nds.rub.de/media/attachments/files/2012/03/binder.pdf).
 
 **DRM framework API:** ה- API חשוף לאפליקציות (באמצעות ה- Framework של אנדרואיד) ורץ באמצעות ה- Dalvik בשביל אפליקציות סטנדרטיות.  
 **DRM manager:** חושף את ממשק הניהול בשביל פלאגינים (נקראים גם: "סוכנים") ומבצע ניהול רישיונות ופענוח עבור התוכניות.
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">מרכז הגישה של המכשיר</span>**
+## מרכז הגישה של המכשיר
 
-[<img class="alignleft size-full wp-image-846" src="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Device_Administrator.png" alt="Device Administrator" width="260" height="320" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/05/Device_Administrator.png 260w, http://www.lifelongstudent.net/wp-content/uploads/2012/05/Device_Administrator-300x369.png 300w" sizes="(max-width: 260px) 100vw, 260px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/05/Device_Administrator.png)מרכז הגישה של המכשיר כולל נעילת המסך על ידי סיסמה / קוד Pin / צורה תבניתית. בנוסף בגרסה 2.2 (פרויו) התווספה לה אפשרות ה"אדמין".
+מרכז הגישה של המכשיר כולל נעילת המסך על ידי סיסמה / קוד Pin / צורה תבניתית. בנוסף בגרסה 2.2 (פרויו) התווספה לה אפשרות ה"אדמין".
 
 למה זה טוב? למשתמש הפשוט זה לא עוזר, לאירגונים זה הכרחי. האירגונים יכולים לשלוח לעובדים אפליקציה שמבקשת להיות מנהל המכשיר (Device Administrator) ונותנים לה שליטה לבצע הכל, החל מלהכריח את המשתמש להשתמש בסיסמה למסך הנעילה ועד נעילת המצלמה כדי שלא יוכלו להשתמש בה (עד כדי נעילה של אפליקציית המצלמה בשעות מסויימת, לדוגמה בשעות העבודה, 8-17).
 
@@ -188,9 +207,9 @@ category: Android
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>סינון רוגלות</strong></span>
+### סינון רוגלות
 
-צוות אנדרואיד חשף בתחילת פברואר שירות חדש בשם <a href="http://googlemobile.blogspot.co.il/2012/02/android-and-security.html" target="_blank">Bouncer</a>, שסורק בצורה אוטומטית את המרקט בחיפוש אחר רוגלות ותוכנות זדוניות. השירות מבצע את התהליך ברקע בלי שהמשתמשים או המפתחים מרגישים.
+צוות אנדרואיד חשף בתחילת פברואר שירות חדש בשם [Bouncer](http://googlemobile.blogspot.co.il/2012/02/android-and-security.html), שסורק בצורה אוטומטית את המרקט בחיפוש אחר רוגלות ותוכנות זדוניות. השירות מבצע את התהליך ברקע בלי שהמשתמשים או המפתחים מרגישים.
 
 **איך השירות עובד:**
 
@@ -203,6 +222,6 @@ category: Android
 
 &nbsp;
 
-## <span style="text-decoration: underline;"><strong>סיכום</strong></span>
+## סיכום
 
-צוות אנדרואיד מבצע עידכונים למנגנונים הנוכחיים כל הזמן ומכניס חדשים (דוגמת המסנן רוגלות שנכנס לאחרונה). אפשר לשים לב שנושא האבטחה נמצא על סדר היום אצל גוגל אך בסופו של יום אין מערכת החסינה לחלוטין בנושא אבטחה. כמובן שעם היתרונות של המערכת מגיעים גם החסרונות, אנדרואיד היא מערכת הפעלה פתוחה (סוג של&#8230;) ובשל היותה כזאת, בסופו של דבר המשתמש אחראי על מכשירו ולא חשוב כמה מנגנונים יהיו, הוא עצמו החוליה החלשה במערכת.
+צוות אנדרואיד מבצע עידכונים למנגנונים הנוכחיים כל הזמן ומכניס חדשים (דוגמת המסנן רוגלות שנכנס לאחרונה). אפשר לשים לב שנושא האבטחה נמצא על סדר היום אצל גוגל אך בסופו של יום אין מערכת החסינה לחלוטין בנושא אבטחה. כמובן שעם היתרונות של המערכת מגיעים גם החסרונות, אנדרואיד היא מערכת הפעלה פתוחה (פלוס רציני בתחום הפיתוח, אך סוג של מינוס באיך שהמערכת נתפסת ע״י הציבור הרחב וההדיוט) ובשל היותה כזאת, בסופו של דבר המשתמש אחראי על מכשירו ולא חשוב כמה מנגנונים יהיו, הוא עצמו החוליה החלשה במערכת.
