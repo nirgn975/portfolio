@@ -5,7 +5,7 @@ layout: post
 summary: ""
 category: Android
 ---
-[<img class="alignleft wp-image-954" src="http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found.png" alt="Android" width="290" height="288" srcset="http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found.png 473w, http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found-150x150.png 150w, http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found-300x298.png 300w, http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found-144x144.png 144w" sizes="(max-width: 290px) 100vw, 290px" />](http://www.lifelongstudent.net/wp-content/uploads/2012/12/android_found.png)אז מה זה בכלל קובץ update.zip? זהו קובץ שנועד לצריבה דרך הריקברי (Recovery), אם זה רום (Rom), או כמה אפליקציות שהורדנו מהאינטרנט, או סתם שינויים קטנים שברצוננו להתקין.
+אז מה זה בכלל קובץ update.zip? זהו קובץ שנועד לצריבה דרך הריקברי (Recovery), אם זה רום (Rom), או כמה אפליקציות שהורדנו מהאינטרנט, או סתם שינויים קטנים שברצוננו להתקין.
 
 אני מניח שהדוגמה הנפוצה והקלילה ביותר היא מוד הסוללה. באנדרואיד משום מה (תהרגו אותי, אני לא יודע למה) הסוללה הינה ללא אחוזים, אלא רק ציור שנותן לנו הערכה (דיי גסה) באיזה מצב הסוללה שלנו (למרות שהמערכת יודעת בידיוק כמה אחוזים, הם פשוט לא מוצגים בבר העליון). לכן הקובץ הפופולרי ביותר שאנשים צורבים הינו מוד "סוללה בעלת אחוזים" (ולפעמים גם ציור סוללה שונה).
 
@@ -57,7 +57,7 @@ ui_print("New Bootanimation Installed");  </pre>
 
 &nbsp;
 
-## **<span style="text-decoration: underline;">לסיכום</span>**
+### לסיכום
 
 ב-5 שלבים הכנתם קובץ שניתן לצריבה דרך ה Recovery ובו אתם יכולים לשים כל דבר שתרצו (קבצי Apk חדשים לצריבה, החלפה של קבצי Apk קיימים, מודים שונים, תוספות, רום חדש וכד').
 
