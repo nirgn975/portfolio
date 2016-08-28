@@ -2,7 +2,7 @@
 title: Analyze an Apk file
 author: nirgn
 layout: post
-summary: ""
+summary: "כמו שזכור לנו, אנדרואיד בנויה כולה מקבצי Apk ולכן בפוסט הזה נלמד כיצד לפתוח אותם, לבצע בהם שינויים, ולבסוף לבנות ולחתום אותם מחדש. בפוסט אדגים על קובץ Apk של אפליקציה מה Play, אך כמובן שאתם יכולים לעשות את זה עם כל אפליקציה."
 category: Android
 ---
 אחד הדברים השימושיים (והמגניבים) באנדרואיד הוא לדעת לפתוח ולחתום קבצי Apk וכמובן כתוצאה מכך היכולת לערוך אותם.
@@ -61,7 +61,7 @@ category: Android
     * את nameOfTheFolder החליפו כמובן בשם התיקייה בה נמצאים הקבצים, ואת nameOfTheApp החליפו בשם שתרצו לקרוא לאפליקציה.
     * ב Linux הוסיפו /. לפני הפקודה.
     * האות b שנמצאת לאחר ה apktool בפקודה, הינה קיצור של build (או recompile).
-2. בשביל לייצר מפתח איתו נוכל לחתום את הקובץ apk, יש להתקין את ה Android SDK, נפתח את הטרמינל (או Cmd) ונכתוב `keytool -v -genkey -v -keystore nameOfKey.keystore -alias aliasName -keyalg RSA -validity 10000`.
+2. בשביל לייצר מפתח איתו נוכל לחתום את הקובץ apk, יש להתקין את ה Android SDK. לאחר מכן נפתח את הטרמינל (או Cmd) ונכתוב `keytool -v -genkey -v -keystore nameOfKey.keystore -alias aliasName -keyalg RSA -validity 10000`.
     * genkey הינו קיצור של generate key.
     * v הינו קיצור של verbose mode (מצב מפורט).
     * nameOfKey, יהיה שם המפתח (ניתן להחליף לכל מה שבא לכם).
@@ -95,23 +95,23 @@ category: Android
 
 במידה וה Framework הותקן בהצלחה, נקבל את התוצאה: `I: Framework installed to yourPath 1.apk`.
 
+<div class="left">
+  <img src="/assets/img/posts/analyze-an-apk-file/Notepad.png" alt="Notepad" style="width: 35rem;">
+</div>
+
 &nbsp;
 
 ### Look Inside
 
-<div class="left">
-  <img src="/assets/img/posts/analyze-an-apk-file/Notepad.png" alt="Notepad">
-</div>
-
 כעת, כשפתחנו את קובץ ה Apk אנו יכולים לבצע מגוון שינויים. לדוגמה, בתיקיית ה res נמצאים המשאבים של האפליקציה, כמו תמונות, קבצי xml וכד'.
 
-בדוגמה מצד שמאל, פתחתי את האפליקציה של Youtube ונכנסתי לתיקייה res ומשם לתקייה values ופתחתי את הקובץ settings עם תוכנת ה[Notepad++](http://notepad-plus-plus.org/)(מי שמשתמש בהפצת לינוקס כלשהי, אני ממליץ על העורך [Sublime Text 2](http://www.sublimetext.com/2)), ותרגמתי כמה מהלחצנים (שימו לב שאתם מתרגמים את מה שבשחור, בין ה >< , ניתן לראות את הסימן בתמונה.
-
-  <div class="left">
-    <img src="/assets/img/posts/analyze-an-apk-file/Red_Background_Shazam.png" alt="GSM Architecture">
-  </div>
+בדוגמה מצד שמאל, פתחתי את האפליקציה של Youtube ונכנסתי לתיקייה res ומשם לתקייה values ופתחתי את הקובץ settings עם תוכנת ה[Notepad++](http://notepad-plus-plus.org/)(מי שמשתמש בהפצת לינוקס כלשהי, אני ממליץ על העורך [Sublime Text 2](http://www.sublimetext.com/2)), ותרגמתי כמה מהלחצנים (שימו לב שאתם מתרגמים את מה שבשחור, בין ה <> , ניתן לראות את הסימן בתמונה.
 
 בנוסף, אפליקציות מורכבות מתמונות, אם זה רקע, לחצנים וכד'. ניתן לערוך אותם בעזרת ה Photoshop (או Gimp), בדוגמה מצד ימין פתחתי את האפליקציה של Shazam וצבעתי את הרקע המוכר של האפליקציה (שהינה תמונה) באדום (למה? כי אני יכול (; ).
+
+<div class="left">
+  <img src="/assets/img/posts/analyze-an-apk-file/Red_Background_Shazam.png" alt="GSM Architecture" style="width: 15rem;">
+</div>
 
 והרי כמו שאמרנו, המערכת מורכבת מקבצי Apk, לכן, ניתן לתרגם כך את כל המערכת (אפליקציית החייגן, הודעות, אנשי קשר, הגדרות וכד'), אם תפתחו (בעזרת Winrar או 7Zip) את ה Rom שהורדתם (שבעצם הינו קובץ zip) תשימו לב שישנה תיקייה בשם system, ובתוכה תיקייה בשם app ובה נמצאים כל קבצי ה Apk שדיברנו עליהם.
 
