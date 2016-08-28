@@ -2,7 +2,7 @@
 title: 'Multitasking & Task killer'
 author: nirgn
 layout: post
-summary: ""
+summary: "בפוסט זה נדבר על אחד הדברים המבלבלים ביותר ב Android וזה ה Multitask."
 category: Android
 ---
 אני חושב שאחד הדברים שהכי מטעים באנדרואיד זה עניין הריבוי משימות (או Multitasking) והאפליקציות הפתוחות ברקע. הרוב המוחלט של הציבור נוטה לטעות בעניין ואני אוסיף להגיד שלא באשמתו, הייתה זו [Microsoft](http://en.wikipedia.org/wiki/Microsoft) שהרגילה אותנו לסגור כל דבר שזז כדי לפנות מקום בזיכרון.

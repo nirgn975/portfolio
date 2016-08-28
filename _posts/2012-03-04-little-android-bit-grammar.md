@@ -2,7 +2,7 @@
 title: A little bit of Android Grammar
 author: nirgn
 layout: post
-summary: ""
+summary: "בפוסט הזה נדבר על כמה מושגים מתקדמים יותר של מערכת ההפעלה Android, כמו על ה stack הטכנולוגי שלה, איך משתמשים ב adb, מהו rom, איך משיגים הרשאות root ולמה אנחנו צריכים בכלל הרשאות כאלה, מהו bootloader, וכ׳ו."
 category: Android
 ---
 בפוסט הזה אסקר ואסביר כמה מהמושגים (או Grammar)  היותר מתקדמים של מערכת ההפעלה Android.
@@ -11,14 +11,12 @@ category: Android
 
 <!--more-->
 
-&nbsp;
-
 ### Android כמערכת הפעלה
 
 **השכבה האדומה: Linux Kernel – (אנדרואיד היא לא לינוקס)**
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Red_Layer.png" alt="Red Layer">
+  <img src="/assets/img/posts/android-grammar/Red_Layer.png" alt="Red Layer" style="width: 38rem;">
 </div>
 
 ליבת לינוקס ([Linux kernel](http://en.wikipedia.org/wiki/Linux_kernel)) היא הליבה המשמשת במערכות הפעלה ממשפחת לינוקס. השם "לינוקס" מתייחס אל ליבת המערכת, הקרנל (ליבה = בסיס המערכת), ז"א אלפי שורות קוד המהוות את הבסיס של מערכת ההפעלה.  
@@ -34,8 +32,6 @@ category: Android
   * המטרה הייתה ליצור פלטפורמת מובייל שתרוץ על כמה שיותר מכשירים, וההתאמה של לינוקס קרנל לרוץ על מעבדי [ARM](http://en.wikipedia.org/wiki/ARM_architecture) של Nvidia,TI, Qualcomm וכ'ו, הינה קלה יחסית (מכיוון שמודל הדרייברים בלינוקס מובן מאוד).
   * הקרנל מספק ניהול תהליכים, ניהול זיכרון, קישוריות ועוד מוכנים מראש.
   * לינוקס קרנל מאובטחת ברמה גבוהה יחסית ומספקת בסיס טוב.
-
-&nbsp;
 
 **גרסאות ה Android השונות מבוססות על גרסאות Kernel שונות:**  
 אנדרואיד 1.5 - מבוססת על ליבת לינוקס 2.6.27.  
@@ -53,14 +49,14 @@ category: Android
 ## השכבה הירוקה, הרמה השנייה: (Libraries ( + Android Runtime
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Green_Layer.png" alt="Green Layer">
+  <img src="/assets/img/posts/android-grammar/Green_Layer.png" alt="Green Layer" style="width: 38rem;">
 </div>
 
 הרמה השנייה (הירוקה), מורכבת כולה מספריות קוד פתוח. הספריות האלו משמשות שירותים שונים של מערכת ההפעלה, ובנוסף גם את המפתחים.
 
   * **Media Framework –** זוהי ספריה המספקת פיצ'רים חיוניים בתקשורת כגון Codecs, פורמטי וידאו ותמונות שונים (AAC, MP3, H.264, MPEG4, JPG, PNG) וכד'.
   * **SGL –** מנוע גרפי 2D בסיסי.
-  * **OpenGL | ES –** קבוצה של תוכנות ויישומים ([API](http://en.wikipedia.org/wiki/Application_programming_interface)) של ממשק 3D ומסוגלים לבצע האצת חומרה 3D.
+  * **OpenGL / ES –** קבוצה של תוכנות ויישומים ([API](http://en.wikipedia.org/wiki/Application_programming_interface)) של ממשק 3D ומסוגלים לבצע האצת חומרה 3D.
   * **WebKit –** ספריות הדפדפן webkit, דפדפן קוד פתוח התומך בין היתר בג'אווה סקריפט וב CSS.
   * **SSL –** פרוטוקולי תקשורת המאפשרים תקשורת מאובטחת ומוצפנת בין שני יישומים.
   * **Surface Manager -** ספריה המאפשרת גישה לספריית "הלפני מנהלי ההתקן" של התצוגה במכשיר.
@@ -103,7 +99,7 @@ category: Android
 ### השכבה הכחולה: Applications Framework
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Framework_Layer.png" alt="Framework Layer">
+  <img src="/assets/img/posts/android-grammar/Framework_Layer.png" alt="Framework Layer" style="width: 38rem;">
 </div>
 
 הרמה השלישית נקראת Application Framework ובמילים אחרות ניתן גם לקרוא לה API Level.
@@ -115,7 +111,7 @@ category: Android
 ### השכבה הכחולה: Applications
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Apploctions_Layer.png" alt="Apploctions Layer">
+  <img src="/assets/img/posts/android-grammar/Apploctions_Layer.png" alt="Apploctions Layer" style="width: 38rem;">
 </div>
 
 בשכבה הרבעית והאחרונה נמצא את כל האפליקציות המובנות, הבסיסיות, של המערכת (לדוגמה: החייגן, אנשי הקשר, הודעות, דפדפן, הלאנצ'ר וכ'ו).
@@ -164,13 +160,14 @@ Emulator 2, adb: 5557
 
 * נוהגים להשוות את ה Bootloader לתוכנת ה Bios שאנחנו מכירים מעולם ה PC שם ה Bios הוא בעצם יחידה נפרדת לגמרי ממערכת ההפעלה שעולה בזמן ה boot לפני עליית המערכת הפעלה (OS).
 
+
+<div class="left">
+  <img src="/assets/img/posts/android-grammar/Clockworkmod_Recovery.jpg" alt="Clockworkmod Recovery" style="width: 15rem;">
+</div>
+
 &nbsp;
 
 ### Recovery
-
-<div class="left">
-  <img src="/assets/img/posts/android-grammar/Clockworkmod_Recovery.jpg" alt="Clockworkmod Recovery">
-</div>
 
 המילה Recovery מתייחסת למחיצה נפרדת בה מותקנת קונסלת הריקברי (שאליה ניתן להגיע ע"י קומבינציה של מספר לחצנים, הקומבינציה תלוית מכשיר). הריקברי הקיים במערכת ה Android, לצערנו, פשוט מאוד באפשרויות שלו, אך בקלות יחסית ניתן להשיג את קוד המקור שלו ולהוסיף (לפתח) אפשרויות נוספות. תודות למפתחים המוכשרים שמציפים את קהילת האנדרואיד ישנם כמה וכמה ריקברי המבצעים זאת. הנפוצים שבינהם הינם: [Clockwork Recovery](https://www.clockworkmod.com/), [OpenRecovery](http://www.teamw.in/).
 

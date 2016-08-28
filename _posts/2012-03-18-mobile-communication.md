@@ -1,8 +1,8 @@
 ---
-title: 'תקשורת סלולרית, גלישה סלולרית &#8211; ובעיקר, מה שבינהם'
+title: 'תקשורת סלולרית, גלישה סלולרית - ובעיקר, מה שבינהם'
 author: nirgn
 layout: post
-summary: ""
+summary: "הפוסט הנל בא להסביר את כל מה שקשור לתקשורת וגלישה סלולרית."
 category: Stuff
 ---
 כולם משתמשים היום בטלפונים סלולרים, הם נמצאים בכל כיס ובכל מקום ואפשר להגיד שאנחנו לא יכולים לחיות בלעדיהם, בשביל חלקנו הם גאדג'טים נחמדים ובשביל אחרים הם כלי עבודה הכרחי. כמובן שאי אפשר בלי מבול הסמארטפונים שתקף אותנו בשנה האחרונה (אנדרואיד ואייפון) ועם כולם מגיעה חבילת הגלישה, חבילת הגלישה נהייתה לדבר הכי חשוב היום, חלקנו אפילו מבררים על חבילת / מהירות הגלישה לפני שאנו מדברים על דקות / סמסים, אבל אף אחד לא באמת מבין איך הכל עובד.
@@ -22,7 +22,7 @@ category: Stuff
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/computer-networks-communication/GSM-Architecture.png" alt="GSM Architecture" style="width: 30rem;">
+  <img src="/assets/img/posts/mobile-networks-communication/GSM-Architecture.png" alt="GSM Architecture" style="width: 30rem;">
 </div>
 
 ### עקרונות התקשורת הסלולרית
@@ -114,7 +114,7 @@ category: Stuff
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/computer-networks-communication/Wap_Stack.png" alt="Wap Stack">
+  <img src="/assets/img/posts/mobile-networks-communication/Wap_Stack.png" alt="Wap Stack">
 </div>
 
 **אז איך בנויה מחסנית הפרוטוקולים בשער ה wap?**
@@ -135,7 +135,7 @@ category: Stuff
 **נקודת גישה - APN**
 
 <div class="left">
-  <img src="/assets/img/posts/computer-networks-communication/APN_Structure.png" alt="APN Structure" style="width: 25rem;">
+  <img src="/assets/img/posts/mobile-networks-communication/APN_Structure.png" alt="APN Structure" style="width: 25rem;">
 </div>
 
 ראשי תיבות של Access Point Name. נקודת הגישה זהו קובץ הגדרות שנועד לזהות ולאמת את המשתמש. כאשר טלפון נייד מגדיר חיבור נתונים (במונחים טכניים הפעולה נקראת להקים קישור [PDP](http://en.wikipedia.org/wiki/GPRS_core_network#PDP_context)), ה APN משמש את שרת ה GGSN כדי לקבוע ולספק את כתובת ה IP.
@@ -165,7 +165,7 @@ category: Stuff
 
 ### הנתיב בו מנה עוברת
 
-הנתיב בו המנה עוברת הוא מה `B.T.S (אנטנה) -> HLR -> שרת SGSN -> שרת פלקסי -> שרת GGSN -> לרשת של חברה אחרת`.
+הנתיב בו המנה עוברת הוא מה `B.T.S (אנטנה)` -> `HLR` -> `שרת SGSN` -> `שרת פלקסי` -> `שרת GGSN` -> `לרשת של חברה אחרת`.
 
 **SGSN**
 
@@ -205,7 +205,7 @@ category: Stuff
 **CSD**
 
 <div class="left">
-  <img src="/assets/img/posts/computer-networks-communication/Packets_vs_CSD.png" alt="Packets vs CSD">
+  <img src="/assets/img/posts/mobile-networks-communication/Packets_vs_CSD.png" alt="Packets vs CSD">
 </div>
 
 ראשי תיבות של Circuit Switched Data. או יותר נכון עלי לכתוב CSD ז"ל / אבי הגלישה הסלולרית. הגלישה הסלולרית הזו מתומחרת לפי זמן (בדומה למודמים הישנים, 56KB, מודמים PSTN) ולא לפי נפח כפי שאנו רגילים כיום. הטכנולוגיה הינה הטכנולוגיה הראשונה שאפשרה גלישה "נורמלית" - 9.6KBPS ו 14.4KBPS לתדרים 900 / 1800 בהתאמה.
