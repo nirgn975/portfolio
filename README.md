@@ -1,7 +1,7 @@
 Stories of a Lifelong Student
 ===
 
-[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/nirgn975/Stories-of-a-Lifelong-Student/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/nirgn975/Stories-of-a-Lifelong-Student/blob/master/LICENSE) [![Build Status](https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student.svg?branch=master)](https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student)
 
 My private blog, written by me. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
 

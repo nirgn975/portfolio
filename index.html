@@ -25,13 +25,13 @@ layout: default
       <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_right</i></a>
     </li>
     {% else %}
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    <li class="disabled"><a><i class="material-icons">chevron_right</i></a></li>
     {% endif %}
 
     <!-- All page numbers-->
     {% for page in (1..paginator.total_pages) %}
       {% if page == paginator.page %}
-        <li class="active"><a href="#!">{{ page }}</a></li>
+        <li class="active"><a>{{ page }}</a></li>
       {% elsif page == 1 %}
         <li><a href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
       {% else %}
@@ -45,7 +45,7 @@ layout: default
         <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_left</i></a>
       </li>
     {% else %}
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
     {% endif %}
   </ul>
   {% endif %}
