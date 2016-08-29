@@ -30,7 +30,7 @@ for (i &lt;- 1 to n-1) do
 ```
 
 <div class="left">
-  <img src="/assets/img/posts/selection-sort/selection-sort-animation.gif" alt="Selection Sort Animation">
+  <img src="/assets/images/posts/selection-sort/selection-sort-animation.gif" alt="Selection Sort Animation">
 </div>
 
 להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {7 ,8 ,4 ,1, 3, 9, 6, 2, 5, 8}, והמערך המתקבל בסוף הוא {9, 8 ,7, 6, 5, 4, 3, 2, 1, 0}.

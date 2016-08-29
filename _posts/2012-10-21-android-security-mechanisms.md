@@ -76,7 +76,7 @@ category: Android
 ### אז איך מפתחים בורחים מ'ארגז החול'?
 
 <div class="left">
-  <img src="/assets/img/posts/android-security-mechanisms/Play_Premission.png" alt="Play Premission">
+  <img src="/assets/images/posts/android-security-mechanisms/Play_Premission.png" alt="Play Premission">
 </div>
 
 הרי בפועל אנחנו לא מרגישים שיש "ארגז חול", לדוגמה באפליקציית פייסבוק אנו מושכים תמונה מהגלריה, או כשאנו עושים צק'-אין אנו משתמשים באפליקציית ה GPS . אז רגע, יש ארגז חול או אין ארגז חול?
@@ -183,7 +183,7 @@ category: Android
 ### DRM - זכויות ניהול דיגיטליות.
 
 <div class="left">
-  <img src="/assets/img/posts/android-security-mechanisms/DRM.png" alt="DRM">
+  <img src="/assets/images/posts/android-security-mechanisms/DRM.png" alt="DRM">
 </div>
 
 ראשי תיבות: Digital Right Management. ב- API 11 אנדרואיד הוסיפה את האפשרות ל'זכויות ניהול דיגיטליות' - זהו ממשק המספק למכשירי OEM אישור לתוכן מסוים. הרעיון הוא להגן על התוכן של המשתמש באמצעות שימוש ברישיונות דיגיטליים לשימוש בתכנים. מה שמספק את ההגנה/החוצץ הזה הוא ה Binder.
