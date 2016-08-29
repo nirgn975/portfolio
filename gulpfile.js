@@ -74,8 +74,7 @@ gulp.task('sass', function () {
         .pipe(rename("main.min.css"))
         .pipe(cssmin())
         .pipe(gulp.dest('_site/assets/scss'))
-        .pipe(browserSync.reload({stream:true}))
-        .pipe(gulp.dest('assets/scss'));
+        .pipe(browserSync.stream());
 });
 
 
