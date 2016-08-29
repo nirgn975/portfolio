@@ -44,7 +44,7 @@ category: Android
 ### Root
 
 <div class="left">
-  <img src="/assets/img/posts/with-great-power-great-responsibility/Chain_Android.png" alt="Chain Android" style="width: 25%;">
+  <img src="/assets/images/posts/with-great-power-great-responsibility/Chain_Android.png" alt="Chain Android" style="width: 25%;">
 </div>
 
 אנשים טוענים כי ברגע שמכשיר פתוח ויש לך הרשאות root, אתה בעצם גם פותח את עצמך לפגיעות מהעולם החיצוני, אתה פגיע יותר ולכן בשל שיקולי אבטחה אין לתת למשתמש הרשאות root. אז לפני שאתחיל להסביר למה לדעתי זה לא נכון, אבצע יישור קו, על ידי כתיבת התשובה לשאלה המתבקשת: "מה זה root?"

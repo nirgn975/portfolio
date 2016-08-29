@@ -16,7 +16,7 @@ category: Android
 **השכבה האדומה: Linux Kernel – (אנדרואיד היא לא לינוקס)**
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Red_Layer.png" alt="Red Layer" style="width: 38rem;">
+  <img src="/assets/images/posts/android-grammar/Red_Layer.png" alt="Red Layer" style="width: 38rem;">
 </div>
 
 ליבת לינוקס ([Linux kernel](http://en.wikipedia.org/wiki/Linux_kernel)) היא הליבה המשמשת במערכות הפעלה ממשפחת לינוקס. השם "לינוקס" מתייחס אל ליבת המערכת, הקרנל (ליבה = בסיס המערכת), ז"א אלפי שורות קוד המהוות את הבסיס של מערכת ההפעלה.  
@@ -49,7 +49,7 @@ category: Android
 ## השכבה הירוקה, הרמה השנייה: (Libraries ( + Android Runtime
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Green_Layer.png" alt="Green Layer" style="width: 38rem;">
+  <img src="/assets/images/posts/android-grammar/Green_Layer.png" alt="Green Layer" style="width: 38rem;">
 </div>
 
 הרמה השנייה (הירוקה), מורכבת כולה מספריות קוד פתוח. הספריות האלו משמשות שירותים שונים של מערכת ההפעלה, ובנוסף גם את המפתחים.
@@ -77,7 +77,7 @@ category: Android
   3. Java VM טוענת את התוכנה לזיכרון (מהדיסק הקשיח) ורק אז יוצרת את האובייקט, שזה הגיוני, מכיוון שהדיסק הקשיח הרבה יותר איטי מה [RAM](http://en.wikipedia.org/wiki/Random-access_memory). דלביק לא עושה זאת, מכיוון שבמכשירים ניידים אין דיסק קשיח, ישנו זיכרון RAM ואחסון פלאש (מהיר מאוד להבדיל מהדיסק הקשיח המכני, ולכן אין סיבה לעשות זאת).
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Java_Bytecode__Dalvik_Bytecode.png" alt="Java Bytecode to Dalvik Bytecode">
+  <img src="/assets/images/posts/android-grammar/Java_Bytecode__Dalvik_Bytecode.png" alt="Java Bytecode to Dalvik Bytecode">
 </div>
 
 &nbsp;
@@ -99,7 +99,7 @@ category: Android
 ### השכבה הכחולה: Applications Framework
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Framework_Layer.png" alt="Framework Layer" style="width: 38rem;">
+  <img src="/assets/images/posts/android-grammar/Framework_Layer.png" alt="Framework Layer" style="width: 38rem;">
 </div>
 
 הרמה השלישית נקראת Application Framework ובמילים אחרות ניתן גם לקרוא לה API Level.
@@ -111,7 +111,7 @@ category: Android
 ### השכבה הכחולה: Applications
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Apploctions_Layer.png" alt="Apploctions Layer" style="width: 38rem;">
+  <img src="/assets/images/posts/android-grammar/Apploctions_Layer.png" alt="Apploctions Layer" style="width: 38rem;">
 </div>
 
 בשכבה הרבעית והאחרונה נמצא את כל האפליקציות המובנות, הבסיסיות, של המערכת (לדוגמה: החייגן, אנשי הקשר, הודעות, דפדפן, הלאנצ'ר וכ'ו).
@@ -121,7 +121,7 @@ category: Android
 כל השכבות יחדיו כפי שאנדרואיד מורכבת:
 
 <div style="text-align: center;">
-  <img src="/assets/img/posts/android-grammar/Android_Architecture.png" alt="Android Architecture">
+  <img src="/assets/images/posts/android-grammar/Android_Architecture.png" alt="Android Architecture">
 </div>
 
 &nbsp;
@@ -131,7 +131,7 @@ category: Android
 ADB(ראשי תיבות שלAndroid Debug Bridge) זוהי תוכנית הרצה משורת הפקודה (cmd / terminal) על המחשב ומתקשרת עם המכשיר או האמלוטר (ובמילים אחרות, תכניות adb פותחת שורת פקודה למכשיר).
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Android_ADB.png" alt="Android ADB">
+  <img src="/assets/images/posts/android-grammar/Android_ADB.png" alt="Android ADB">
 </div>
 
 ה adb משמש מפתחים לניהול מערכת ה Android הישר מהמחשב. הוא מהווה דרייבר בין המכשיר למחשב ומוסיף פקודות לטרמינל ( / cmd) שנותנות למפתחים את היכולת לבצע פעולות שונות, כמו לתת הוראה למכשיר להיכנס למצבים מסויימים, לתת הוראה להתקין אפליקציה מסוימת (שנמצאת על המחשב ולא על המכשיר) וכד'.
@@ -153,7 +153,7 @@ Emulator 2, adb: 5557
 ### Bootloader
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Bootloader.png" alt="Bootloader">
+  <img src="/assets/images/posts/android-grammar/Bootloader.png" alt="Bootloader">
 </div>
 
 ה [Bootloader](http://en.wikipedia.org/wiki/Booting) לא ממש קשור ישירות למערכת ההפעלה של Android , אלא זהו רכיב תוכנה מיוחד שרץ בזמן עליית המערכת (אחרי הדלקת המכשיר ולפני שמערכת האנדרואיד עולה). תפקידו הוא לבצע בדיקות לזיכרון ולהעלות את מערכת ההפעלה (OS) לזיכרון ה RAM ו"להעביר את המושכות" על המכשיר למערכת ההפעלה.
@@ -162,7 +162,7 @@ Emulator 2, adb: 5557
 
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Clockworkmod_Recovery.jpg" alt="Clockworkmod Recovery" style="width: 15rem;">
+  <img src="/assets/images/posts/android-grammar/Clockworkmod_Recovery.jpg" alt="Clockworkmod Recovery" style="width: 15rem;">
 </div>
 
 &nbsp;
@@ -183,7 +183,7 @@ Emulator 2, adb: 5557
 ### APK
 
 <div class="left">
-  <img src="/assets/img/posts/android-grammar/Apk.png" alt="Apk">
+  <img src="/assets/images/posts/android-grammar/Apk.png" alt="Apk">
 </div>
 
 [Apk](http://en.wikipedia.org/wiki/Android_application_package) זהוי סיומת הקובץ בו נשמרות אפליקציות של מערכת האנדרואיד. ניתן להשוות את הסיומת לסיומת bat, jar, exe וכד'. הקובץ עצמו הינו קובץ zip רגיל לחלוטין (ניתן לשנות לו את הסיומת מ app.apk ל app.zip ולפתוח אותו באופן רגיל).  
