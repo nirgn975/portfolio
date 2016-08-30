@@ -10,7 +10,7 @@ Merge Sort - מיון מיזוג. אלגוריתם זה פועל בשיטת הפ
 ### מהי שיטת הפרד ומשול?
 
 <div class="left">
-  <img src="/assets/img/posts/merge-sort/merge-sort-animation.gif" alt="Merge Sort Animation">
+  <img src="/assets/images/posts/merge-sort/merge-sort-animation.gif" alt="Merge Sort Animation">
 </div>
 
 **הפרד:** חלק את הבעיה לכמה תת בעיות.  
