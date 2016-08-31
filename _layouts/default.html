@@ -21,7 +21,9 @@
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js')
-        .then(function(reg){
+        .then(function(){
+          return navigator.serviceWorker.ready;
+        }).then(function(reg){
           console.log("Service Worker Registered.");
         }).catch(function(err) {
           console.log("Didn't Registered SW. This happened: ", err)

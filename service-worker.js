@@ -1,4 +1,7 @@
+'use strict';
+
 importScripts('/cache-polyfill.js');
+
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('airhorner').then(function(cache) {
@@ -20,4 +23,13 @@ self.addEventListener('fetch', function(event) {
       return response || fetch(event.request);
     })
   );
+});
+
+self.addEventListener('activate', function(event) {
+  console.log('Activated', event);
+});
+
+self.addEventListener('push', function(event) {
+  console.log('Push message received', event);
+  // TODO
 });

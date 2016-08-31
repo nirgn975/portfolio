@@ -45,5 +45,9 @@
   }],
   "related_applications": [{
     "platform": "web"
-  }]
+  }],
+  "permissions": [
+    "gcm"
+  ],
+  "gcm_sender_id": "134885482944"
 }
