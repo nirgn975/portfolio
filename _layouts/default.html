@@ -20,12 +20,11 @@
   </body>
   <script>
     if ('serviceWorker' in navigator) {
-      console.log("Will the service worker register?");
-      navigator.serviceWorker.register('/eservice-worker.js')
+      navigator.serviceWorker.register('/service-worker.js')
         .then(function(reg){
-          console.log("Yes, it did.");
+          console.log("Service Worker Registered.");
         }).catch(function(err) {
-          console.log("No it didn't. This happened: ", err)
+          console.log("Didn't Registered SW. This happened: ", err)
         });
     }
   </script>
