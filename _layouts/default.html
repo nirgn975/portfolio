@@ -25,6 +25,9 @@
           return navigator.serviceWorker.ready;
         }).then(function(reg){
           console.log("Service Worker Registered.");
+          reg.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) {
+            console.log('endpoint:', sub.endpoint);
+          });
         }).catch(function(err) {
           console.log("Didn't Registered SW. This happened: ", err)
         });
