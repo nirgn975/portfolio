@@ -5,7 +5,7 @@ Stories of a Lifelong Student
 
 My private blog, written by me. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
 
-## Prerequisites
+## Prerequisites2
 
 To install this project, you'll need the following things installed on your machine.
 
