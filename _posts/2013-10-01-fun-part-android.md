@@ -56,7 +56,7 @@ category: Android
 **Intent ו Intent Filter -** כל חבילה (אפליקציה) גדולה יחסית תכיל לרוב Service ,Activity ו Broadcast receiver, אלה שלושת מרכיבי הליבה של כל חבילה. שלושת אלה מופעלים באמצעות הודעות הנקראות intents. אובייקט מסוג Intent מייצג כוונה של המשתמש או של מערכת ההפעלה. קיימים 2 סוגים של Intent, הסוג הראשון הוא Intent שמכוון באופן ברור ל Activity או ל Component ספציפי ונקרא Explicit Intent.
 
 <div class="left">
-  <img src="/assets/img/posts/fun-part-of-android/Intent_Filter_Browser.png" alt="Intent Filter Browser">
+  <img src="/images/posts/fun-part-of-android/Intent_Filter_Browser.png" alt="Intent Filter Browser">
 </div>
 
 הסוג השני הוא Intent שלא מכוון באופן ברור ואפשר להגיד שהוא פשוט "נזרק לחלל האוויר". במקרה כזה המערכת (Intent Filter) תאתר את ה Activity (או את הרכיב החומרתי) אליו הוא מכוון בעזרת המאפיינים של ה Intent (שהינם Category ,Action, ו-Data).
@@ -77,7 +77,7 @@ category: Android
 בשביל להבין איך החבילות האלו בנויות מנקודת המבט של המפתחים, בניתי אפליקציה פשוטה שמורכבת מ Activity (מסך אחד). בצד שמאל יש לנו את האקספלורר ובו כל התיקיות והקבצים.
 
 <div>
-  <img src="/assets/img/posts/fun-part-of-android/layout_main.png" alt="Main Layout in Eclipse">
+  <img src="/images/posts/fun-part-of-android/layout_main.png" alt="Main Layout in Eclipse">
 </div>
 
   * **התיקייה src:** התיקייה מכילה את כל הקוד וקבצי המקור שפותח בחבילה, בשפת JAVA.
@@ -88,7 +88,7 @@ category: Android
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/fun-part-of-android/Resolutions.png" alt="Resolutions">
+  <img src="/images/posts/fun-part-of-android/Resolutions.png" alt="Resolutions">
 </div>
 
 **Resources:**
@@ -110,7 +110,7 @@ category: Android
 ### Take a look inside
 
 <div class="left">
-  <img src="/assets/img/posts/fun-part-of-android/dial_num_7_wht.png" alt="Android Dial Number 7 png">
+  <img src="/images/posts/fun-part-of-android/dial_num_7_wht.png" alt="Android Dial Number 7 png">
 </div>
 
 אחרי שפתחנו את הקובץ נקבל תיקייה בשם Phone (בחרתי לקרוא לתיקייה בשם המקורי של החבילה), אך פה נראה שהקובץ שבנוי בצורה קצת שונה ממה שראינו לעיל (מהזווית של המפתח), עכשיו אנו רואים את הפרויקט / חבילה בתצורה הסופית שלה (לאחר שעברה קימפול ע"י הקומפיילר של Dalvik מ bytecode, שהגיע כתוצאה מהקימפול של Java code).
@@ -125,7 +125,7 @@ category: Android
 ואת התמונה של הכפתור לקחתי מהתיקייה `drawable-hdpi` וניתן לראות (לפי ההפניה ב XML שלעיל) שהשם שלה הוא dial\_num\_7_wht (התמונה למעלה בצד שמאל).
 
 <div class="left">
-  <img src="/assets/img/posts/fun-part-of-android/Strings.png" alt="Strings">
+  <img src="/images/posts/fun-part-of-android/Strings.png" alt="Strings">
 </div>
 
 כמו שאמרנו, מחרוזות הטקסט באפליקציה נכתבות במסמך שונה, בקובץ XML בשם strings, וקובץ זה יהיה בתיקייה `values` (לכל שפה ישנה תיקיית values משלה, בצירוף קוד המדינה ב-2 תווים). ה strings.xml בשפה העברית יהיה בתיקייה `values-iw`.

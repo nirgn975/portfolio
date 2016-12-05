@@ -1,7 +1,8 @@
 # stories-of-a-lifelong-student
 
-[![license][license-image]][license-url] [![Build Status][travis-image]][travis-url]
-> A tech blog written by Nir Galon. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
+[![license][license-image]][license-url] [![Build Status][travis-image]][travis-url] [![Donate][donate-image]][donate-url]
+
+> My private blog, written by me. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
 
 ## Prerequisites
 
@@ -34,12 +35,20 @@ $ npm run gulp deploy
 
 ## Tests
 
-If you want to run the tests on your local machine please install `gem install html-proofer`. And then run the tests using
+If you want to verify the build output, please install `gem install html-proofer`. And then run it using
 ```shell
 $ htmlproofer ./_site
 ```
 
+If you want to run PWA tests, please install `npm install -g lighthouse`. And then run the tests using
+```shell
+$ npm run gulp& && lighthouse http://127.0.0.1:3000 --output=json --output-path=./validate/log.json
+$ node ./validate/checklog.js ./validate/log.json
+```
+
 [license-image]: https://img.shields.io/badge/license-ISC-blue.svg
-[license-url]: https://github.com/nirgn975/stories-of-a-lifelong-student/blob/master/LICENSE
-[travis-image]: https://travis-ci.org/nirgn975/stories-of-a-lifelong-student.svg?branch=master
-[travis-url]: https://travis-ci.org/nirgn975/stories-of-a-lifelong-student
+[license-url]: https://github.com/nirgn975/Stories-of-a-Lifelong-Student/blob/master/LICENSE
+[travis-image]: https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student.svg?branch=master
+[travis-url]: https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student
+[donate-image]: https://img.shields.io/badge/Donate-PayPal-lightgrey.svg
+[donate-url]: https://www.paypal.me/nirgn/2
