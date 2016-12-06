@@ -1,4 +1,4 @@
-# stories-of-a-lifelong-student
+# Stories of a Lifelong Student
 
 [![license][license-image]][license-url] [![Build Status][travis-image]][travis-url] [![Donate][donate-image]][donate-url]
 
