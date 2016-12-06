@@ -1,0 +1,60 @@
+body {
+  background-color: #F0F0F0;
+  color: #424242;
+  font-family: 'Arimo', sans-serif;
+}
+
+.container {
+  direction: rtl;
+
+  a {
+    color: #2196F3;
+    text-decoration: none;
+  }
+
+  .post-content {
+    @include center-base-elments;
+
+    .post-header {
+      h3 {
+        display: inline-block;
+
+        a {
+          color: #424242;
+        }
+      }
+      em {
+        float: left;
+        margin: 1.17rem;
+      }
+    }
+  }
+}
+
+.pagination {
+  @include center-base-elments;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    padding: 0.5rem;
+    height: 1.2rem;
+    vertical-align: middle;
+
+    &.disabled {
+      a {
+        color: #9E9E9E;
+        cursor: not-allowed;
+      }
+    }
+
+    &.active, &:hover {
+      @include selected;
+    }
+
+    i {
+      font-size: 1.5rem;
+      line-height: 1rem;
+    }
+  }
+}

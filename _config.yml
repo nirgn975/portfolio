@@ -1,24 +1,9 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing these this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: stories-of-a-lifelong-student
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  A tech blog written by Nir Galon. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
+title: Stories of a Lifelong Student
+email: nir@galon.io
+description: A tech blog written by Nir Galon. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://example.com" # the base hostname & protocol for your site
+url: "http://lifelongstudent.io" # the base hostname & protocol for your site
 twitter_username: nirgn975
 github_username:  nirgn975
 
@@ -37,3 +22,8 @@ exclude: [
   "sass",
   "scss"
 ]
+
+# Pagination
+gems: [jekyll-paginate]
+paginate: 8
+paginate_path: "/page:num/"

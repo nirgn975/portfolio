@@ -1,0 +1,28 @@
+footer {
+  text-align: left;
+
+  .container {
+    border-top: 1px solid #E0E0E0;
+    direction: ltr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+
+    .description, .links {
+      display: inline-block;
+    }
+
+    .description {
+      width: 60%;
+    }
+
+    .links {
+      margin-left: 5%;
+      width: 30%;
+    }
+
+    .footer-copyright {
+      text-align: center;
+    }
+  }
+}

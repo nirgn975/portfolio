@@ -3,18 +3,19 @@
 Thanks for looked at my humans.txt!
 
 /* TEAM */
-Developer: nirgn975.
-Site: email, link to a contact form, etc.
-Twitter: your Twitter username.
-Location: City, Country.
+Developer: Nir Galon
+Site: nir@galon.io
+Twitter: @nirgn975
+Location: Israel
 
-
-/* THANKS */
-Name: name or url
-
+/* TECHNOLOGIES */
+HTML5, CSS3, SASS.
+JavaScript, jQuery, Jekll,
+and Firebase hosting.
 
 /* SITE */
-Last update: YYYY/MM/DD
-Standards: HTML5, CSS3,..
-Components: Modernizr, jQuery, etc.
-Software: Software used for the development
+Last update: 2017/01/01
+Standards: HTML5, CSS3, SCSS.
+Components: Normalize, jQuery, ES2015 (using babel).
+Software: Jekyll.
+Hosting: Firebase.

@@ -1,0 +1,52 @@
+nav {
+  border-bottom: 1px solid #E0E0E0;
+  text-align: right;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  a {
+    display: inline-block;
+    float: left;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  ul {
+    display: inline-block;
+    padding-left: 0;
+    width: 100%;
+    text-align: center;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+      padding: 0.5rem;
+      margin: 0 0.5rem;
+
+
+      a {
+        color: #2196F3;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      &.active, &:hover {
+        @include selected;
+      }
+    }
+  }
+
+  @media (max-width: 1150px) {
+    a {
+      width: 100%;
+    }
+
+    ul {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
