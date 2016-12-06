@@ -36,7 +36,7 @@ category: Computer Networks
 להלן איור עם דוגמאות למבנים טופולוגיים של רשתות:
 
 <div style="text-align: center">
-  <img src="/assets/img/posts/computer-networks/NetworksTypes.png" alt="Networks Types">
+  <img src="/images/posts/computer-networks/NetworksTypes.png" alt="Networks Types">
 </div>
 
 **קריטריון נוסף לסיווג רשתות הוא גודלן:**
@@ -66,7 +66,7 @@ category: Computer Networks
 **חיבור חסר קשר (Connectionless) -** פועל על פי השיטה של הדואר. כל הודעה (מכתב) נושא את כתובת היעד המלאה, בנוסף כל הודעה כזו מנותבת דרך צמתי הביניים בתוך המערכת באופן עצמאי, ללא תלות של ההודעות שלאחר מכן. כאשר כל צומת ביניים צריכה לקבל את ההודעה במלואה, שליחתה אל הצומת הבאה (זה נקרא: Store-and-Forward Switching). כאשר החלופה היא להתחיל את שליחת ההודעה אל הצומת הבאה עוד לפני שההודעה התקבלה במלואה בצומת הנוכחית (נקרא: Cut-Through Switching). שימו לב כי כאן אין צורך בהקמת קשר ישיר עם כתובת היעד.
 
 <div class="left">
-  <img src="/assets/img/posts/computer-networks/Connection_OrientedLess.png" alt="Connection OrientedLess" style="width: 35rem;">
+  <img src="/images/posts/computer-networks/Connection_OrientedLess.png" alt="Connection OrientedLess" style="width: 35rem;">
 </div>
 
 כל שירות יכול להיות מאופיין ע"י האמינות שלו. כאשר חלק מהשירותים אמינים מבחינה זו שהם לעולם לא מאבדים מידע (לרוב, שירות אמין מוטמע ע"י כך שהוא מחייב את המקבל לאשר כל הודעה כך שהשולח בטוח שההודעות התקבלו). לא אלאה אתכם בפרטים, בצד שמאל הוספתי טבלה מסכמת של הגרסאות הקיימות בכל אחד מהשירותים. ולמרות שהקונספט של שימוש בשירות לא אמין יראה מוזר, הרי מדוע שמישהו יעדיף שירות לא אמין על פני שירות אמין? הוא בשימוש רב. תחילה, יתכן כי שירות אמין לא יהיה זמין בשכבה מסוימת (לדוגמה אתרנט לא מספק שירות אמין, מנות יכולות להשתבש בדרך, וזה על פרוטוקולים משכבות גבוהות יותר להתמודד עם הבעיה). בנוסף, הוספתי בטבלה דוגמאות לכל שירות, וניתן לראות כי שיחת וידיאו VoIP היא דוגמה מצויינת לשירות לא אמין, חשוב לנו יותר שלא יהיה דיילי והשיחה לא תקפא בגלל שמנה אחת שהשתבשה או לא הגיעה, מאשר שיהיה גליצ' קטן או שיבוש בפיקסל, לשניה באמצע השיחה.
@@ -96,7 +96,7 @@ category: Computer Networks
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/computer-networks/TCP-IP_OSI_Models.png" alt="TCP-IP OSI Models">
+  <img src="/images/posts/computer-networks/TCP-IP_OSI_Models.png" alt="TCP-IP OSI Models">
 </div>
 
 ### 3. המודלים השונים של חלוקה לשכבות
@@ -164,7 +164,7 @@ category: Computer Networks
 **ה ARPANET**
 
 <div class="left">
-  <img src="/assets/img/posts/computer-networks/TelephoneSystemStructure.png" alt="Telephone System Structure">
+  <img src="/images/posts/computer-networks/TelephoneSystemStructure.png" alt="Telephone System Structure">
 </div>
 
 הסיפור מתחיל בשנים המאוחרות של 1950, בשיא המלחמה הקרה, מחלקת ההגנה של ארה"ב (U.S. DoD, ראשי תיבות: [United States Department of Defense](http://en.wikipedia.org/wiki/United_States_Department_of_Defense)) רצתה רשת לפיקוד ובקרה שתוכל לשרוד התקפה גרעינית (בזמנו כל התקשורת הצבאית השתמשה בתשתית הטלפוניה הציבורית). רשת הטלפוניה הציבורית נחשבה לפגיעה בגלל המבנה שלה, אותו מבנה שניתן לראות בתמונה משמאל, בו ניתן לראות כי ישנם מרכזיות המחברות בין מרכזיות אחרות (או משתמשי קצה וכד') ואם הן נופלות לא ניתן יהיה להמשיך בתקשורת כי זוהי הדרך היחידה בה המרכזיות מחוברות בניהן.
@@ -192,7 +192,7 @@ ARPA הוציאה מכרז לבניה של הרשת (הכולל תיאור מד�
 **רשתות סלולריות**
 
 <div class="left">
-  <img src="/assets/img/posts/computer-networks/CellularNetwork.png" alt="Cellular Network" style="width: 30rem">
+  <img src="/images/posts/computer-networks/CellularNetwork.png" alt="Cellular Network" style="width: 30rem">
 </div>
 
 אנשים אוהבים לדבר בטלפון, וזה הפך את הרשת הסלולרית לרשת המצליחה ביותר בעולם. יש כיום יותר מ-4 מילארד מנויים (בעולם) לרשת הסלולרית (כדי לקבל פרספקטיבה, זה בערך 60% מאוכלוסיית העולם). הארכיטקטורה של רשת הסלולר השתנתה רבות ב-40 שנה האחרונות, יד ביד עם הצמיחה האדירה שחוותה. הדור הראשון של המכשירים הסלולריים העביר אותות רצפים אנלוגיים ונקרא AMPS, בעוד הדור השני (הנקרא GSM) היה דיגיטלי לגמרי, והדור השלישי (UMTS) גם הוא היה דיגיטלי וכבר הציע מענה לתופעת הגלישה והשימוש ביישומי אינטרנט גם מהמכשיר הנייד (למרות ששוב, הרשת מוצפת והמעבר לדור הרביעי, LTE, מתחיל לתפוס תאוצה).
@@ -220,7 +220,7 @@ ARPA הוציאה מכרז לבניה של הרשת (הכולל תיאור מד�
 כדי למנוע בלבול מיותר בניתי טבלה המסכמת את יחידות המידה בהם כנראה תיתקלו במהלך הפוסטים הבאים:
 
 <div style="text-align: center">
-  <img src="/assets/img/posts/computer-networks/Units.png" alt="Units">
+  <img src="/images/posts/computer-networks/Units.png" alt="Units">
 </div>
 
 כמה נקודות:
