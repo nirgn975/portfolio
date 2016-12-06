@@ -9,7 +9,7 @@ Counting Sort - מיון מניה, מיועד כדי למיין מספרים ש�
 
 <!--more-->
 <!-- <div class="left">
-  <img src="/assets/img/posts/counting-sort/counting-sort-animation.gif" alt="Counting Sort Animation">
+  <img src="/assets/images/posts/counting-sort/counting-sort-animation.gif" alt="Counting Sort Animation">
 </div> -->
 בהתחשב בידע זה, אנו יודעים שמערך הקלט מכיל מספרים טבעיים מ 1 עד k, ולכן נוכל ליצור מערך נפרד, בשם C, בגודל k איברים (ונאתחל אותו כך שיכיל את הספרה 0 בכל תא). לאחר מכן נעבור על מערך הקלט ובכל פעם שנקרא איבר ממערך הקלט נעלה באחד את האינדקס שלו במערך C (המערך שיצרנו) (עד כאן ביצענו את שלב a באיור למעלה).
 

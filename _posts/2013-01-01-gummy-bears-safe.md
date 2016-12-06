@@ -1,3 +1,4 @@
+
 ---
 title: כספת של סוכריות גומי
 author: nirgn
@@ -26,7 +27,7 @@ category: Android
 כדי להמחיש את הבעיה מצורפת בעמוד הבא טבלת החלוקה על פי גרסאות (נכון לדצמבר 2012).
 
 <div style="text-align: center;">
-  <img src="/assets/img/posts/gummy-bears-safe/Android_Version_Dec_Chart.png" alt="Android Version Chart">
+  <img src="/assets/images/posts/gummy-bears-safe/Android_Version_Dec_Chart.png" alt="Android Version Chart">
 </div>
 
 גוגל הכריזה בכנס ההכרזה של מוטורולה (הכנס האחרון בו קיבלנו מידע רשמי, והתקיים לפני כ-4 חודשים, בספטמבר האחרון) על 480 מיליון מכשירים שאוקטבו עד היום, בכל העולם (נכון לספטמבר כמובן), בקצב (שהולך וגדל) של 1.3 מיליון מכשירים שמאוקטבים כל יום (תארו לעצמכם כמה מכשירי אנדרואיד יהיו שנה הבאה בקצב גידול שכזה).
@@ -94,13 +95,13 @@ $ adb shell rm /data/system/password.key
 להלן תמונה של הקובץ מהמכשיר שלי, סימנתי את חלק מהדברים:
 
 <div class="left">
-  <img src="/assets/img/posts/gummy-bears-safe/Waze_log.png" alt="Waze log">
+  <img src="/assets/images/posts/gummy-bears-safe/Waze_log.png" alt="Waze log">
 </div>
 
   * [Readitlater](https://play.google.com/store/apps/details?id=com.ideashower.readitlater.pro&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5pZGVhc2hvd2VyLnJlYWRpdGxhdGVyLnBybyJd) שומרת אתרים וכתבות כדי שנוכל לקרוא אותם אחר כך (ועל הדרך בצורה נוחה), איפה היא שומרת את הכתבות?, בנתיב `\Android\data\com.ideashower.readitlater.pro\files\RIL_offline\RIL_pages`. שם כל הכתבות, התמונות מהכתבות והאתרים עצמם חשופים לכל, דוגמה:
 
 <div class="left">
-  <img src="/assets/img/posts/gummy-bears-safe/ReadItLater.png" alt="ReadItLater">
+  <img src="/assets/images/posts/gummy-bears-safe/ReadItLater.png" alt="ReadItLater">
 </div>
 
   * [WhatsApp](https://play.google.com/store/apps/details?id=com.whatsapp&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS53aGF0c2FwcCJd) כל המידע שהעברנו באפליקציה (תמונות, סרטונים, קבצי קול) פתוח לכל. ובנוסף הגיבויים יושבים על המכשיר עצמו, בנתיב: `WhatsApp\Databases\`, זאת אומרת שבקלות אפשר לקחת את קבצי הגיבוי.   
@@ -149,7 +150,7 @@ $ adb shell rm /data/system/password.key
 ASLR (קיצור של Address Space Layout Randomization) היא שיטת אבטחה שבסיסה הוא סידור אקראי (ועצמאי) של אזור נתונים בזיכרון בכל טעינה שלו מחדש. השיטה הזאת הוטמעה בגרסה JB 4.1 באופן מלא, כך שהמיקום של הספריות, המחסנית, הערמה וגם הלינקר, כולם מסודרים בזיכרון באופן אקראי.
 
 <div class="left">
-  <img src="/assets/img/posts/gummy-bears-safe/ASLR.png" alt="ASLR">
+  <img src="/assets/images/posts/gummy-bears-safe/ASLR.png" alt="ASLR">
 </div>
 
 כמו שניתן לראות בתמונה:
@@ -167,7 +168,7 @@ ASLR (קיצור של Address Space Layout Randomization) היא שיטת אבט
 ההבדל בין סורק הרוגלות הנ"ל ל-Bouncer עליו כתבתי במאמר הקודם (מעבר לכך ש-Bouncer כבר קיים ופועל זמן מה), הוא שה-Bouncer הינו סורק רוגלות בצד השרת של Play, ז"א כל אפליקציה שעולה ל-Play נסרקת על ידו (הוא ממש מדמה פעולה מלאה של האפליקציה על מכשיר אנדרואיד בשרת נפרד), והסורק רוגלות הנוכחי עליו מדובר, סורק את האפליקציות שיותקנו במכשיר. ה-Bouncer מבצע עוד פעולות, הנ"ל הוא הסבר במשפט, רק כדי להזכיר. למידע מלא יש לקרוא את המאמר הקודם.
 
 <div class="left">
-  <img src="/assets/img/posts/gummy-bears-safe/Verify_Apps.png" alt="Verify Apps" style="width: 30%">
+  <img src="/assets/images/posts/gummy-bears-safe/Verify_Apps.png" alt="Verify Apps" style="width: 30%">
 </div>
 
 _שורש הבעיה_
@@ -187,7 +188,7 @@ Hiroshi Lockheimer - סמנכ"ל ההנדסה בצוות אנדרואיד מסב
 בנוסף, בגרסה 4.2 אנו מקבלים כמה שינויים וויזואליים קטנים אך חשובים מאין כמותם. מסך ההרשאות בעת התקנת אפליקציה עבר שינויים וויזואליים ולא יסתיר יותר מידע, בנוסף לכך יהיה ליד כל הרשאה אייקון קטן המתקשר לסוג ההרשאה, ובכך הופך את המעבר עליו לקליל יותר. תמונת מצב (מימין, המצב החדש (גרסה 4.2). משמאל, המצב הישן (גרסה 4.1 ומטה)):
 
 <div class="left">
-  <img src="/assets/img/posts/gummy-bears-safe/Apps_Installation.png" alt="Apps Installation">
+  <img src="/assets/images/posts/gummy-bears-safe/Apps_Installation.png" alt="Apps Installation">
 </div>
 
 &nbsp;
