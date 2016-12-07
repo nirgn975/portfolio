@@ -17,9 +17,9 @@ category: Android
 
 ### הכנות
 
-בשביל לפתוח את קבצי ה Apk ואחר כך לבנות אותם מחדש, ניעזר בתוכנה ApkTool (הורידו את הקובץ [apktool1.5.2.tar.bz2](https://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2)).
+בשביל לפתוח את קבצי ה Apk ואחר כך לבנות אותם מחדש, ניעזר בתוכנה ApkTool (הורידו את הקובץ [apktool1.5.2.tar.bz2](https://bitbucket.org/iBotPeaches/apktool/downloads)).
 
-ובנוסף, את הקובץ [apktool-install-windows-r05-ibot.tar.bz2](https://android-apktool.googlecode.com/files/apktool-install-windows-r05-ibot.tar.bz2) (אם אתם משתמשים ב Windows), או את הקובץ [apktool-install-linux-r05-ibot.tar.bz2](https://android-apktool.googlecode.com/files/apktool-install-linux-r05-ibot.tar.bz2) (אם אתם משתמשים ב Linux).
+ובנוסף, את הקובץ [apktool-install-windows-r05-ibot.tar.bz2](https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat) (אם אתם משתמשים ב Windows), או את הקובץ [apktool-install-linux-r05-ibot.tar.bz2](https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool) (אם אתם משתמשים ב Linux).
 
 לאחר מכן, חלצו את הקובץ Jar שנמצא בתיקייה הנמצאת בתוך הקובץ הראשון שהורדנו (apktool1.5.2.tar.bz2) לתיקייה שהגיעה מתוך הקובץ השני (של ה Windows או ה Linux). יש לציין כי אתם יכולים למקם את התיקייה הנל איפה שנוח לכם, אני ממליץ על הנתיב `usr/local/bin/` ב Linux, או ב Windows בנתיב `C:\Program Files\Android\android-sdk\platform-tools`.
 
