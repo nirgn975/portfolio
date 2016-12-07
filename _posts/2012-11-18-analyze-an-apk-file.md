@@ -9,7 +9,7 @@ category: Android
 
 כמו שזכור לנו, אנדרואיד בנויה כולה מקבצי Apk ולכן בפוסט הזה נלמד כיצד לפתוח אותם, לבצע בהם שינויים, ולבסוף לבנות ולחתום אותם מחדש. בפוסט אדגים על קובץ Apk של אפליקציה מה Play, אך כמובן שאתם יכולים לעשות את זה עם כל אפליקציה (כולל אלו המגיעות בצורה מובנת במערכת).
 
-קודם כל על מנת לדעת מהו קובץ Apk ועל איך הוא בנוי קראו את הפוסט [A little bit of Android Grammar](http://www.lifelongstudent.net/2012/03/little-android-bit-grammar/). בנוסף אתם צריכים להתקין JDK ו JRE [מפה](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+קודם כל על מנת לדעת מהו קובץ Apk ועל איך הוא בנוי קראו את הפוסט [A little bit of Android Grammar]({% post_url 2012-09-16-little-android-bit-grammar %}). בנוסף אתם צריכים להתקין JDK ו JRE [מפה](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 <!--more-->
 
@@ -117,7 +117,6 @@ category: Android
 
   * בנוסף, בתיקיית ה fonts נמצאים הפונטים (החל מגרסת Android 2.2 קיימים פונטים בעברית, אך ניתן להחליף אותם לפונט אחר במידה ותרצו).
   * בתיקיית ה media נמצאים ההתראות, רינגטונים, וקבצי מערכת (כמו הקליק של המצלמה וכד').
-  * בפוסט [ליצור Boot Animation ב 5 שלבים](http://www.lifelongstudent.net/2012/04/%d7%9c%d7%99%d7%a6%d7%95%d7%a8-boot-animation-%d7%91-5-%d7%a9%d7%9c%d7%91%d7%99%d7%9d/) ישנו הסבר מעמיק, כיצד לבנות ולהחליף את אנימציית ההפעלה של המכשיר (bootAnimation).
   * בתיקייה framework נמצא הקובץ framework.res.apk שאחראי על התרגום של שאר המערכת (במקומות שלא שייכים לקבצי Apk ספצייפים כמו החייגן), לדוגמה: תפריט הכיבוי, כפתורי אישור, מסך נעילה וכד'.
 
 &nbsp;
