@@ -116,6 +116,13 @@ gulp.task('generate-service-worker', function(callback) {
   }, callback);
 });
 
+// Revert config file for gulp serve in local.
+gulp.task('travis-edit-config', () => {
+  return gulp.src('./_config.yml')
+    .pipe($.replace('http://lifelongstudent.io', 'http://127.0.0.1:8000'))
+    .pipe(gulp.dest('./'));
+});
+
 gulp.task('jekyll-build', ['scripts', 'scss'], $.shell.task([ 'jekyll build' ]));
 
 // Default task.
@@ -143,16 +150,6 @@ gulp.task('cleanup-sw-deploy', () => {
 gulp.task('jekyll-build-for-deploy', $.shell.task([ 'jekyll build' ]));
 
 gulp.task('firebase', $.shell.task([ 'firebase deploy' ]));
-
-// Revert config file for gulp serve in local.
-gulp.task('travis-edit-config', () => {
-  console.log(process.argv[3]);
-  if (process.argv[3] == '--travis') {
-    return gulp.src('./_config.yml')
-      .pipe($.replace('http://lifelongstudent.io', 'http://127.0.0.1:8000'))
-      .pipe(gulp.dest('./'));
-  }
-});
 
 gulp.task('deploy', () => {
   runSequence(
