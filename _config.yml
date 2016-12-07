@@ -1,11 +1,27 @@
 # Site settings
 title: Stories of a Lifelong Student
-description: A blog writin by Nir Galon. The posts are about computer science (data structures, algorithms, networks, databases, operating systems, programming languages, data mining, machine learning, etc), open source related stuff, software development, security information, etc.
-url: "http://lifelongstudent.net" # the base hostname & protocol for your site
-permalink: pretty
+email: nir@galon.io
+description: A tech blog written by Nir Galon. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://lifelongstudent.io" # the base hostname & protocol for your site
+twitter_username: nirgn975
+github_username:  nirgn975
 
 # Build settings
 markdown: kramdown
+permalink: pretty
+exclude: [
+  "node_modules",
+  "LICENSE",
+  "package.json",
+  "README.md",
+  "Gemfile",
+  "gulpfile.babel.js",
+  ".babelrc",
+  ".gitignore",
+  "sass",
+  "scss"
+]
 
 # Pagination
 gems: [jekyll-paginate]

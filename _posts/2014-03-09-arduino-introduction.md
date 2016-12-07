@@ -20,7 +20,7 @@ category: Arduino
 ### נתחיל ברכיבים השונים:
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Arduino_Uno.png" alt="Arduino Uno" style="width: 15rem;">
+  <img src="/images/posts/arduino-0/Arduino_Uno.png" alt="Arduino Uno" style="width: 15rem;">
 </div>
 
 **Arduino Uno**
@@ -30,7 +30,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Breadboard.png" alt="Breadboard" style="width: 15rem;">
+  <img src="/images/posts/arduino-0/Breadboard.png" alt="Breadboard" style="width: 15rem;">
 </div>
 
 **לוח מטריצה - Breadboard**
@@ -42,13 +42,13 @@ category: Arduino
 **לחצן סוללה - Battery Snap**
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/BatterySnap.png" alt="Battery Snap" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/BatterySnap.png" alt="Battery Snap" style="width: 10rem;">
 </div>
 
 משמש לחיבור סוללה 9V לארדואינו או ללוח המטריצה (הארדואינו יכול להיות מחובר לחשמל גם דרך כבל ה USB ולקבל כוח מהמחשב).
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Capacitors.png" alt="Capacitors" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/Capacitors.png" alt="Capacitors" style="width: 10rem;">
 </div>
 
 **קבלים - Capacitors**
@@ -60,7 +60,7 @@ category: Arduino
 **מנוע DC**
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/DC_Motor.png" alt="DC Motor" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/DC_Motor.png" alt="DC Motor" style="width: 10rem;">
 </div>
 
 ממיר את האנרגיה החשמלית לאנרגיה מכנית ,סלילי התיל בתוך המנוע הופכים לממוגנטים כאשר זורם דרכם זרם. השדות המגנטים האלו מושכים והודפים את המגנטים וגורמים למוט להסתובב (או להסתחרר). כשהכיוון של החשמל הפוך, המנוע יסתובב בכיוון ההפוך.
@@ -70,7 +70,7 @@ category: Arduino
 **דיודה - Diode**
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Diode.png" alt="Diode" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/Diode.png" alt="Diode" style="width: 10rem;">
 </div>
 
 הדיודה מבטיחה שהחשמל זורם רק בכיוון אחד (שימושי כאשר יש לנו מנוע או מתח/עומס גבוה אחר במעגל). דיודות הן מקוטבות, כלומר הכיוון שהן ממוקמות במעגל משנה. אם נניח אותן בדרך אחת, הן יאפשרו לזרם לעבור, נניח אותן הפוך, הן יחסמו אותו. הקוטב החיובי (אנודה) בדר"כ מתחברת לנקודה בה האנרגיה במעגל שלנו גבוהה. בעוד הקתודה בדר"כ מתחברת לנקודה בה האנרגיה נמוכה יותר או לקרקע. הקתודה היא בדר"כ עם הסימן של הלקה בצד אחד של גוף הרכיב (פס לקה).
@@ -78,7 +78,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Cellophane.png" alt="Cellophane" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/Cellophane.png" alt="Cellophane" style="width: 10rem;">
 </div>
 
 **נייר צלופן (בצבעים אדום, ירוק, כחול)**
@@ -88,7 +88,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/H-Bridge.png" alt="H-Bridge" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/H-Bridge.png" alt="H-Bridge" style="width: 10rem;">
 </div>
 
 **גשר אייצ'- H Bridge**
@@ -98,7 +98,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Jumper_Wires.png" alt="Jumper Wires" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/Jumper_Wires.png" alt="Jumper Wires" style="width: 10rem;">
 </div>
 
 **חוטי גישור - Jumper Wires**
@@ -108,7 +108,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/LEDs.png" alt="LEDs" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/LEDs.png" alt="LEDs" style="width: 10rem;">
 </div>
 
 **דיודות פולטות אור - LEDs**
@@ -118,7 +118,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/LCD.png" alt="LCD" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/LCD.png" alt="LCD" style="width: 10rem;">
 </div>
 
 **תצוגת גביש נוזלי - LCD**
@@ -128,7 +128,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Male_Header_Pins.png" alt="Male Header Pins" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/Male_Header_Pins.png" alt="Male Header Pins" style="width: 10rem;">
 </div>
 
 **סיכות כותרת זכר - Male Header Pins**
@@ -138,7 +138,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Optocoupler.png" alt="Optocoupler" style="width: 5rem;">
+  <img src="/images/posts/arduino-0/Optocoupler.png" alt="Optocoupler" style="width: 5rem;">
 </div>
 
 **מצמד אופטי - Optocoupler**
@@ -148,7 +148,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Piezo.png" alt="Piezo" style="width: 5rem;">
+  <img src="/images/posts/arduino-0/Piezo.png" alt="Piezo" style="width: 5rem;">
 </div>
 
 **חיישן פיזואלקטריים - Piezo**
@@ -158,7 +158,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Photoresistor.png" alt="Photoresistor" style="width: 2rem;">
+  <img src="/images/posts/arduino-0/Photoresistor.png" alt="Photoresistor" style="width: 2rem;">
 </div>
 
 **נגד תמונה - Photoresistor**
@@ -168,7 +168,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Potentiometer.png" alt="Potentiometer" style="width: 3rem;">
+  <img src="/images/posts/arduino-0/Potentiometer.png" alt="Potentiometer" style="width: 3rem;">
 </div>
 
 **פוטנציומטר - Potentiometer**
@@ -178,7 +178,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Button.png" alt="Button" style="width: 5rem;">
+  <img src="/images/posts/arduino-0/Button.png" alt="Button" style="width: 5rem;">
 </div>
 
 **לחצנים**
@@ -188,7 +188,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Resistors.png" alt="Resistors" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/Resistors.png" alt="Resistors" style="width: 10rem;">
 </div>
 
 **נגדים - Resistors**
@@ -197,13 +197,13 @@ category: Arduino
 להלן טבלת הערכים של הצבעים:
 
 <div style="text-align: center;">
-  <img src="/assets/img/posts/arduino-0/Resistor_Table.png" alt="Resistor Table">
+  <img src="/images/posts/arduino-0/Resistor_Table.png" alt="Resistor Table">
 </div>
 
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Servo_Engine.png" alt="Servo Engine" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/Servo_Engine.png" alt="Servo Engine" style="width: 10rem;">
 </div>
 
 **מנוע סרוו (Servo)**
@@ -213,7 +213,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Temperature_Sensor.png" alt="Temperature Sensor" style="width: 3rem;">
+  <img src="/images/posts/arduino-0/Temperature_Sensor.png" alt="Temperature Sensor" style="width: 3rem;">
 </div>
 
 **חיישן טמפרטורה**
@@ -223,7 +223,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Tilt_Sensor.png" alt="Tilt Sensor" style="width: 2rem;">
+  <img src="/images/posts/arduino-0/Tilt_Sensor.png" alt="Tilt Sensor" style="width: 2rem;">
 </div>
 
 **חיישן הטיה**
@@ -233,7 +233,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Transistors.png" alt="Transistors" style="width: 8rem;">
+  <img src="/images/posts/arduino-0/Transistors.png" alt="Transistors" style="width: 8rem;">
 </div>
 
 **טרנזיסטור**
@@ -243,7 +243,7 @@ category: Arduino
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/USB.png" alt="USB" style="width: 10rem;">
+  <img src="/images/posts/arduino-0/USB.png" alt="USB" style="width: 10rem;">
 </div>
 
 **כבל USB**
@@ -263,11 +263,11 @@ category: Arduino
 **כיצד הלוח בנוי:**
 
 <div style="text-align: center;">
-  <img src="/assets/img/posts/arduino-0/Arduino_Broad.png" alt="Arduino Broad">
+  <img src="/images/posts/arduino-0/Arduino_Broad.png" alt="Arduino Broad">
 </div>
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Serial_Port.png" alt="Serial Port" style="width: 15rem;">
+  <img src="/images/posts/arduino-0/Serial_Port.png" alt="Serial Port" style="width: 15rem;">
 </div>
 
 &nbsp;
@@ -277,13 +277,13 @@ category: Arduino
 על מנת לבדוק שהכל קשורה והמכשיר מזוהה פתחו את ה IDE (סביבת העבודה של ארדואינו &#8211; Sketch), כנסו ל `File` ומשם ל `Examples`, כאן נמצא דוגמאות לקטעי קוד המבצעים פעולות כלשהן כולל הסברים (הערות) בתוך הקוד. כדי לבצע בדיקה פשוטה נבחר ב `Basics` וב `Blink`. יפתח לנו חלון חדש (את הישן ניתן לסגור).
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Tools-Board.png" alt="Tools Board" style="width: 15rem;">
+  <img src="/images/posts/arduino-0/Tools-Board.png" alt="Tools Board" style="width: 15rem;">
 </div>
 
 לא נעבור על הקוד כעת אלה רק נעלה אותו ללוח הארדואינו שלנו, לכן ניכנס ל `Tools` ואז ל `Serial Port` ונבדק שה v נמצא על החיבור שהארדואינו נמצא עליו (כשנבחר את הלוח תקפוץ לנו הודעה קטנה באיזה חיבור הוא נמצא, וככלל אצבע בווינדוס הוא יהיה על ה COM עם המספר הגבוה ביותר). לאחר מכן נוודא שהוא מזהה שיש לנו את הלוח הנכון ע"י כניסה ל `Tools` ול `Board` ובחירת הלוח המתאים (אני משתמש ב Arduino Uno ועליו אבצע את כל הפרויקטים בעתיד).
 
 <div class="left">
-  <img src="/assets/img/posts/arduino-0/Upload.png" alt="Upload" style="width: 15rem;">
+  <img src="/images/posts/arduino-0/Upload.png" alt="Upload" style="width: 15rem;">
 </div>
 
 כעת נלחץ על החצן המצביע לכיוון ימין (כשנעבור מעליו נראה הודעה של Upload) ולאחר מכן נראה שהקוד שלנו מתקמפל ועולה אל הלוח (בבר התחתון שיופיע). לאחר שהעלינו את הקוד, בלי לבצע כל דבר מעבר לכך, הארדואינו שלנו צריך להתחיל להפעיל את הקוד, ונראה שהנורה של פין מס' 13 מהבהבת, זה כל מה שהקוד צריך לעשות. (ניתן לנסות לעבור עליו לבד ולהבין למה, בעתיד נכתוב את הקוד לבד ואסביר אותו).

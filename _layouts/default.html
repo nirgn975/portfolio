@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="he">
+<html>
 
   {% include head.html %}
 
   <body>
 
     {% include nav.html %}
-    
-    <div >
-      <div class="container">
-        {{ content }}
-      </div>
+
+    <div class="container">
+      {{ content }}
     </div>
 
     {% include footer.html %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="/assets/app.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <link async href="{{ "/scripts/main.min.js" | relative_url }}">
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("{{ "/sw.js" | relative_url }}").then(function() {
+      console.log("Service Worker Registered");
+    });
+  }
+  </script>
   </body>
 
 </html>
