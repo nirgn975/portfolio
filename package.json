@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.14.0",
-    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0"
   },
   "devDependencies": {
     "browser-sync": "^2.15.0",
