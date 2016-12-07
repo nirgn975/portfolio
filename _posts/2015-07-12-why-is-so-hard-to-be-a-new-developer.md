@@ -8,7 +8,7 @@ category: Stuff
 ---
 
 <div class="left">
-  <img src="/assets/img/posts/why-its-so-hard-to-be-a-new-developer/Software_developers_working.jpg" alt="Software Developers Working" style="width: 45%;">
+  <img src="/images/posts/why-its-so-hard-to-be-a-new-developer/Software_developers_working.jpg" alt="Software Developers Working" style="width: 45%;">
 </div>
 
 אתחיל בלהסביר שהפוסט הנל בא כתוצאה מקריאת הכתבה "[Computer science students are in demand and they know it](http://www.itworld.com/article/2945674/careers/computer-science-students-are-in-demand-and-they-know-it.html)" של ITWORLD. הפוסט מציין כי ישנו ביקוש הולך וגובר לבוגרי מדעי המחשב ותחומים דומים, והבוגרים מודעים לכך. ושללכת ללמוד מדעי המחשב זהו צעד חכם, במיוחד בהתחשב במחקרים המראים ביקוש הולך וגובר.

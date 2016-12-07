@@ -30,7 +30,7 @@ category: Operating Systems
 **מבנה המעבד בקצרה:**
 
 <div class="left">
-  <img src="/assets/img/posts/operating-system-part-2/interrupt_processor.png" alt="Interrupt Processor" style="width: 50%">
+  <img src="/images/posts/operating-system-part-2/interrupt_processor.png" alt="Interrupt Processor" style="width: 50%">
 </div>
 
 [אוגרים](https://en.wikipedia.org/wiki/Processor_register) מהווים סוג של זיכרון קטן, אך מהיר, המשמש לצמצום מספר הפניות לזיכרון הראשי ולצורך בקרה על פעולות המעבד. בין אוגרי הזיכרון נמצאים data registers (היכולים לשמש מתכנתים למטרות שונות. לדוג', בשפת C אפשר להציע למהדר ([compiler](https://en.wikipedia.org/wiki/Compiler)) לשמור משתנה באוגר (במקום בזיכרון הרגיל) על ידי המילה השמורה register בזמן הצהרת המשתנה), ו address registers (שומרים כתובת של הוראות מכונה או של data). לקבוצה של אוגרי הבקרה שייכים בין השאר PC (ראשי תיבות: program counter), ה IR (ראשי תיבות: instruction register), וה PSW (ראשי תיבות: program status word).
@@ -78,7 +78,7 @@ category: Operating Systems
   4. **סיום בעקבות הריגת תהליך -** תהליך שמתסיים בעקבות הבקשה המפורשת ממערכת ההפעלה לסיים את ריצתו. מערכת ההפעלה שמקבלת בקשה כזאת בוחנת את הרשאות המבקש (המבקש יכול להיות תהליך אחר, ובפרט תהליך של מערכת ההפעלה עצמה), ואם קיימות הרשאות מתאימות, היא מסיימת את ריצתו של התהליך המבוקש.
 
 <div class="left">
-  <img src="/assets/img/posts/operating-system-part-2/finite_state_machine.png" alt="Finite-state Machine" style="width: 30%">
+  <img src="/images/posts/operating-system-part-2/finite_state_machine.png" alt="Finite-state Machine" style="width: 30%">
 </div>
 
 מודל התהליכים מתאפיין בהגדרה של מבנה היררכי בין תהליכי מערכת ההפעלה. אחד המרכיבים החשובים ביותר של מודל התהליכים הוא **מכונת מצבים**, המתארת את תקופת חייו של התהליך.
@@ -103,7 +103,7 @@ category: Operating Systems
 כל מערכת הפעלה מנהלת מבני נתונים רבים כדי לאפשר החלפת תהליכים וכדי לאפשר קיום מעברים בין מצב משתמש (user mode) למצב מיוחס (kernel mode). אז כיצד מתבצע הקוד של מערכת ההפעלה? (האם המערכת היא אוסף של תהליכים? או אולי היא חלק מתהליכי המשתמש?) השאלות האלו מגדירות גישות שונות (גישת השרת &#8211; לקוח עליה דיברנו בפוסט הראשון ממומשת כאוסף של תהליכים. לעומת זאת מערכות הפעלה במחשבים ביתיים רצות במרחב הכתובות של תהליכי המשתמש).
 
 <div class="left">
-  <img src="/assets/img/posts/operating-system-part-2/cpu_utilization.jpg" alt="CPU Utilization">
+  <img src="/images/posts/operating-system-part-2/cpu_utilization.jpg" alt="CPU Utilization">
 </div>
 
 כמו שאמרנו, העלאת רמת המקביליות של המערכת מביאה לניצול טוב יותר של המשאבים. נניח שתהליך מבלה חלק מזמנו בפעולת קלט / פלט (ז"א 0 < p וגם 1 > p). כאשר n תהליכים נמצאים בזיכרון בבת אחת, ההסתברות לכך שכל התהליכים מבצעים פעולת קלט / פלט היא p^n (בהנחה שהתהליכים אינם תלויים זה בזה). בתנאים אלה, ההסתברות לכך שהמעבד פעיל היא 1 פחות p^n (וזאת הנוסחה לחישוב הניצולת של המעבד).
@@ -178,7 +178,7 @@ deleteFirst(){
 ```
 
 <div class="left">
-  <img src="/assets/img/posts/operating-system-part-2/critical_race.png" alt="Critical Race" style="width: 50%">
+  <img src="/images/posts/operating-system-part-2/critical_race.png" alt="Critical Race" style="width: 50%">
 </div>
 
 התוצאה הרצויה היא ששני התהליכונים ימחקו מראש הרשימה שני איברים ראשונים. אך נניח שבתור ישנם ארבעה עצמים. תהליכון 1 מגיע לפרוצדורה ()deleteFirst ומבצע את השורה הראשונה. לאחר ביצוע השורה, מתרחשת החלפת תהליכונים ותהליכון 2 מגיע לפונ' ()deleteFirst שלו ומבצע גם כן את השורה הראשונה. נניח שהתלהיכונים ממשיכים להתחלף כל שורה. באיור משמאל (חלק b) ניתן לראות מה מתרחש בתור לאחר שהתהליכונים ביצעו את השורה השנייה. ובחלק האחרון, c, ניתן לראות כי לאחר שהתהליכונים סיימו לבצע (כל אחד את העותק שלו של ()deleteFirst. הרי לכל תהליכון יש מחסנית נפרדת, ולכן עותקים נפרדים של הפרוצדורה רצים במקביל, המשתנה TmpNodePtr הוא משתנה מקומי ולכן בתמונה משמאל אנו רואים 2 כאלו -עותקים נפרדים שלו יפיעו בכל מחסנית. המשתנה ListNodePtr הוא משתנה גלובלי בספרייה ולכן הוא משותף לשני התהליכונים), רק איבר אחד נמחק מהרשימה.
@@ -713,7 +713,7 @@ E(4) = 0.5T(3) + 0.25T(2) + 0.125T(1) + 0.125E(1)
 **בעיית הפילוסופים הסועדים**
 
 <div class="left">
-  <img src="/assets/img/posts/operating-system-part-2/dining_philosophers_problem.png" alt="Dining Philosophers">
+  <img src="/images/posts/operating-system-part-2/dining_philosophers_problem.png" alt="Dining Philosophers">
 </div>
 
 [הבעיה המפורסמת ביותר](https://en.wikipedia.org/wiki/Dining_philosophers_problem) בהקשר זה, והפתרון שלה משמש כמודל שבאמצעותו בוחנים יעילות של מנגנונים חדשים לתקשורת בין תהליכים בסביבה בעלת מספר מוגבל של משאבים (כמו התקני קלט / פלט).

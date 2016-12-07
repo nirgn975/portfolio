@@ -31,7 +31,7 @@ for (j &lt;- 2 to length[A]) do
 ```
 
 <div class="left">
-  <img src="/assets/img/posts/insertion-sort/insertion-sort-animation.gif" alt="Insertion Sort Animation">
+  <img src="/images/posts/insertion-sort/insertion-sort-animation.gif" alt="Insertion Sort Animation">
 </div>
 
 להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.

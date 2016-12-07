@@ -6,12 +6,12 @@ layout: default
   {% for post in paginator.posts %}
     <div class="post-content">
       <div class="post-header">
-        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <em>{{ post.date | date: "%b %-d, %Y" }}</em>
       </div>
       <p>{{ post.summary }}</p>
       <div class="post-action">
-        <a href="{{ post.url | prepend: site.baseurl }}">המשך לפוסט ></a>
+        <a href="{{ post.url | relative_url }}">המשך לפוסט ></a>
       </div>
     </div>
   {% endfor %}
@@ -22,7 +22,7 @@ layout: default
     <!-- Previous page -->
     {% if paginator.previous_page %}
     <li>
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_right</i></a>
+      <a href="{{ paginator.previous_page_path | relative_url | replace: '//', '/' }}"><i class="material-icons">chevron_right</i></a>
     </li>
     {% else %}
     <li class="disabled"><a><i class="material-icons">chevron_right</i></a></li>
@@ -35,14 +35,14 @@ layout: default
       {% elsif page == 1 %}
         <li><a href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
       {% else %}
-        <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+        <li><a href="{{ site.paginate_path | relative_url | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
       {% endif %}
     {% endfor %}
 
     <!-- Next page -->
     {% if paginator.next_page %}
       <li>
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_left</i></a>
+        <a href="{{ paginator.next_page_path | relative_url | replace: '//', '/' }}"><i class="material-icons">chevron_left</i></a>
       </li>
     {% else %}
     <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>

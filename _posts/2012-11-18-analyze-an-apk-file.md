@@ -96,7 +96,7 @@ category: Android
 במידה וה Framework הותקן בהצלחה, נקבל את התוצאה: `I: Framework installed to yourPath 1.apk`.
 
 <div class="left">
-  <img src="/assets/img/posts/analyze-an-apk-file/Notepad.png" alt="Notepad" style="width: 35rem;">
+  <img src="/images/posts/analyze-an-apk-file/Notepad.png" alt="Notepad" style="width: 35rem;">
 </div>
 
 &nbsp;
@@ -110,7 +110,7 @@ category: Android
 בנוסף, אפליקציות מורכבות מתמונות, אם זה רקע, לחצנים וכד'. ניתן לערוך אותם בעזרת ה Photoshop (או Gimp), בדוגמה מצד ימין פתחתי את האפליקציה של Shazam וצבעתי את הרקע המוכר של האפליקציה (שהינה תמונה) באדום (למה? כי אני יכול (; ).
 
 <div class="left">
-  <img src="/assets/img/posts/analyze-an-apk-file/Red_Background_Shazam.png" alt="GSM Architecture" style="width: 15rem;">
+  <img src="/images/posts/analyze-an-apk-file/Red_Background_Shazam.png" alt="GSM Architecture" style="width: 15rem;">
 </div>
 
 והרי כמו שאמרנו, המערכת מורכבת מקבצי Apk, לכן, ניתן לתרגם כך את כל המערכת (אפליקציית החייגן, הודעות, אנשי קשר, הגדרות וכד'), אם תפתחו (בעזרת Winrar או 7Zip) את ה Rom שהורדתם (שבעצם הינו קובץ zip) תשימו לב שישנה תיקייה בשם system, ובתוכה תיקייה בשם app ובה נמצאים כל קבצי ה Apk שדיברנו עליהם.

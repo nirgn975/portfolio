@@ -34,7 +34,7 @@ else return m
 ```
 
 <div class="left">
-  <img src="/assets/img/posts/binary-search/binary_search.png" alt="BFS Algorithm" style="width: 40%;">
+  <img src="/images/posts/binary-search/binary_search.png" alt="BFS Algorithm" style="width: 40%;">
 </div>
 
 התמונה בצד שמאל ממחישה כיצד יראה המערך עליו אנו מחפשים, ואת הערכים שנעביר כשנקרא לעצמנו רקורסיבית.
