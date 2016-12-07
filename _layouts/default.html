@@ -7,19 +7,17 @@
 
     {% include nav.html %}
 
-    <div>
-      <div class="container">
-        {{ content }}
-      </div>
+    <div class="container">
+      {{ content }}
     </div>
 
     {% include footer.html %}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <link async href="{{ "/scripts/main.min.js" | absolute_url }}">
+  <link async href="{{ "/scripts/main.min.js" | relative_url }}">
   <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("{{ "/sw.js" | absolute_url }}").then(function() {
+    navigator.serviceWorker.register("{{ "/sw.js" | relative_url }}").then(function() {
       console.log("Service Worker Registered");
     });
   }

@@ -1,24 +1,53 @@
 ---
 layout: default
 ---
+<!-- This loops through the paginated posts -->
+<div class="row">
+  {% for post in paginator.posts %}
+    <div class="post-content">
+      <div class="post-header">
+        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+        <em>{{ post.date | date: "%b %-d, %Y" }}</em>
+      </div>
+      <p>{{ post.summary }}</p>
+      <div class="post-action">
+        <a href="{{ post.url | prepend: site.baseurl }}">המשך לפוסט ></a>
+      </div>
+    </div>
+  {% endfor %}
 
-<div class="home">
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <ul class="pagination">
+    <!-- Previous page -->
+    {% if paginator.previous_page %}
+    <li>
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_right</i></a>
+    </li>
+    {% else %}
+    <li class="disabled"><a><i class="material-icons">chevron_right</i></a></li>
+    {% endif %}
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
+    <!-- All page numbers-->
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <li class="active"><a>{{ page }}</a></li>
+      {% elsif page == 1 %}
+        <li><a href="/{{ site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+      {% else %}
+        <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+      {% endif %}
     {% endfor %}
+
+    <!-- Next page -->
+    {% if paginator.next_page %}
+      <li>
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="material-icons">chevron_left</i></a>
+      </li>
+    {% else %}
+    <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
+    {% endif %}
   </ul>
-
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  {% endif %}
+  <!-- END pagination -->
 </div>

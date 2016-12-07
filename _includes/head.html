@@ -6,7 +6,9 @@
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
 
-    <link rel="stylesheet" href="{{ "/css/main.css" | absolute_url }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700&subset=hebrew" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-    <link rel="manifest" href="{{ "/manifest.json" | absolute_url }}">
+    <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
 </head>
