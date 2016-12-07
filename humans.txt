@@ -1,9 +1,21 @@
 # humanstxt.org/
 
 Thanks for looked at my humans.txt!
-This site is made by Nir Galon.
 
-# The website made using:
-    HTML5, CSS3, SASS.
-    JavaScript, jQuery, Jekll,
-    and he's hosting on GitHub pages.
+/* TEAM */
+Developer: Nir Galon
+Site: nir@galon.io
+Twitter: @nirgn975
+Location: Israel
+
+/* TECHNOLOGIES */
+HTML5, CSS3, SASS.
+JavaScript, jQuery, Jekll,
+and Firebase hosting.
+
+/* SITE */
+Last update: 2017/01/01
+Standards: HTML5, CSS3, SCSS.
+Components: Normalize, jQuery, ES2015 (using babel).
+Software: Jekyll.
+Hosting: Firebase.

@@ -43,7 +43,7 @@ if (p &lt; r)
 ```
 
 <div class="left">
-  <img src="/assets/img/posts/quick-sort/quick-sort-animation.gif" alt="Quick Sort Animation">
+  <img src="/images/posts/quick-sort/quick-sort-animation.gif" alt="Quick Sort Animation">
 </div>
 
 להלן אנימציה (בצד שמאל) של האלגוריתם בפעולה על מערך, כשהמערך ההתחלתי הוא {4 ,2, 7, 8, 1, 3, 5, 6}, והמערך המתקבל בסוף הוא {8, 7, 6, 5, 4, 3, 2, 1}.

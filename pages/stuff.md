@@ -8,7 +8,7 @@ author: nirgn
 
 {% for post in site.posts %}
   {% if post.category == "Android" %}
-  *  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -22,7 +22,7 @@ author: nirgn
 
 {% for post in site.posts %}
   {% if post.category == "Chrome OS" %}
-  *  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -36,6 +36,6 @@ author: nirgn
 
 {% for post in site.posts %}
   {% if post.category == "Stuff" %}
-  *  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}

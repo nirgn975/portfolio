@@ -22,7 +22,7 @@ category: Stuff
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/mobile-networks-communication/GSM-Architecture.png" alt="GSM Architecture" style="width: 30rem;">
+  <img src="/images/posts/mobile-networks-communication/GSM-Architecture.png" alt="GSM Architecture" style="width: 30rem;">
 </div>
 
 ### עקרונות התקשורת הסלולרית
@@ -114,7 +114,7 @@ category: Stuff
 &nbsp;
 
 <div class="left">
-  <img src="/assets/img/posts/mobile-networks-communication/Wap_Stack.png" alt="Wap Stack">
+  <img src="/images/posts/mobile-networks-communication/Wap_Stack.png" alt="Wap Stack">
 </div>
 
 **אז איך בנויה מחסנית הפרוטוקולים בשער ה wap?**
@@ -135,7 +135,7 @@ category: Stuff
 **נקודת גישה - APN**
 
 <div class="left">
-  <img src="/assets/img/posts/mobile-networks-communication/APN_Structure.png" alt="APN Structure" style="width: 25rem;">
+  <img src="/images/posts/mobile-networks-communication/APN_Structure.png" alt="APN Structure" style="width: 25rem;">
 </div>
 
 ראשי תיבות של Access Point Name. נקודת הגישה זהו קובץ הגדרות שנועד לזהות ולאמת את המשתמש. כאשר טלפון נייד מגדיר חיבור נתונים (במונחים טכניים הפעולה נקראת להקים קישור [PDP](http://en.wikipedia.org/wiki/GPRS_core_network#PDP_context)), ה APN משמש את שרת ה GGSN כדי לקבוע ולספק את כתובת ה IP.
@@ -205,7 +205,7 @@ category: Stuff
 **CSD**
 
 <div class="left">
-  <img src="/assets/img/posts/mobile-networks-communication/Packets_vs_CSD.png" alt="Packets vs CSD">
+  <img src="/images/posts/mobile-networks-communication/Packets_vs_CSD.png" alt="Packets vs CSD">
 </div>
 
 ראשי תיבות של Circuit Switched Data. או יותר נכון עלי לכתוב CSD ז"ל / אבי הגלישה הסלולרית. הגלישה הסלולרית הזו מתומחרת לפי זמן (בדומה למודמים הישנים, 56KB, מודמים PSTN) ולא לפי נפח כפי שאנו רגילים כיום. הטכנולוגיה הינה הטכנולוגיה הראשונה שאפשרה גלישה "נורמלית" - 9.6KBPS ו 14.4KBPS לתדרים 900 / 1800 בהתאמה.
