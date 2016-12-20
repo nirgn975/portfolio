@@ -1,6 +1,6 @@
 {
-  "name": "stories-of-a-lifelong-student",
-  "short_name": "stories-of-a-lifelong-student",
+  "name": "Stories of a Lifelong Student",
+  "short_name": "Lifelong Student",
   "icons": [{
         "src": "images/touch/android-chrome-96x96.png",
         "sizes": "96x96",
@@ -28,6 +28,6 @@
       }],
   "start_url": "/index.html?homescreen=1",
   "display": "standalone",
-  "background_color": "#F0F0F0",
-  "theme_color": "#F0F0F0"
+  "background_color": "#f0f0f0",
+  "theme_color": "#f0f0f0"
 }
