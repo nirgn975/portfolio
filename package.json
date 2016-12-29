@@ -5,7 +5,7 @@
   "homepage": "https://github.com/nirgn975/Stories-of-a-Lifelong-Student",
   "main": "index.js",
   "scripts": {
-    "gulp": "gulp",
+    "start": "gulp serve",
     "gulp deploy": "gulp deploy"
   },
   "author": {
