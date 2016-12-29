@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp serve",
-    "gulp deploy": "gulp deploy"
+    "deploy": "gulp deploy"
   },
   "author": {
     "name": "Nir Galon",

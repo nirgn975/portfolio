@@ -9,7 +9,7 @@ author: nirgn
 
 {% for post in site.posts reversed %}
   {% if post.category == "Git" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -24,7 +24,7 @@ author: nirgn
 
 {% for post in site.posts reversed %}
   {% if post.category == "Arduino" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -38,6 +38,6 @@ author: nirgn
 
 {% for post in site.posts reversed %}
   {% if post.category == "Contribution" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}

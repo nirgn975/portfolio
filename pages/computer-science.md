@@ -9,7 +9,7 @@ author: nirgn
 
 {% for post in site.posts reversed %}
   {% if post.category == "Data Structures" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -26,7 +26,7 @@ author: nirgn
 
 {% for post in site.posts reversed %}
   {% if post.category == "Algorithms" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -41,7 +41,7 @@ author: nirgn
 
 {% for post in site.posts reversed %}
   {% if post.category == "Computer Networks" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -56,6 +56,6 @@ author: nirgn
 
 {% for post in site.posts reversed %}
   {% if post.category == "Operating Systems" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
