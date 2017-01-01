@@ -23,12 +23,12 @@ Binary Search - חיפוש בינארי, הוא אלגוריתם רקורסיב�
 
 ```c
 BINARY-SEARCH (A, l, r, x)
-if (r &lt; l)
+if (r > l)
     return "not found"
-m &lt;- ~(l+r)/2~
-if (A[m] &gt; x)
+m <- ~(l+r)/2~
+if (A[m] > x)
     return BINARY-SEARCH (A, l, m - 1, x)
-else if (A[m] &lt; x)
+else if (A[m] < x)
     return BINARY-SEARCH (A, m + 1, r, x)
 else return m
 ```
