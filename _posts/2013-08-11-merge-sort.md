@@ -38,27 +38,27 @@ Merge Sort - מיון מיזוג. אלגוריתם זה פועל בשיטת הפ
 
 ```c
 MERGE (A, p, q, r)
-n1 &lt;- q - p + 1
-n2 &lt;- r - q
+n1 <- q - p + 1
+n2 <- r - q
 create arrays L[1..n1 + 1] and R[1..n2+1]
-for (i &lt;- 1 to n1) do
-    L[i] &lt;- A[p + i - 1]
-for (j &lt;- 1 to n2) do
-    R[j] &lt;- A[q + j]
-L[n1 + 1] &lt;- infinity
-R[n2 + 1] &lt;- infinity
-i &lt;- 1
-j &lt;- 1
-for (k &lt;- p to r) do
-    if (L[i] =&lt; R[j])
-        A[k] &lt;- L[i]
+for (i <- 1 to n1) do
+    L[i] <- A[p + i - 1]
+for (j <- 1 to n2) do
+    R[j] <- A[q + j]
+L[n1 + 1] <- infinity
+R[n2 + 1] <- infinity
+i <- 1
+j <- 1
+for (k <- p to r) do
+    if (L[i] =< R[j])
+        A[k] <- L[i]
     else
-        A[k] &lt;- R[j]
-    j &lt;- j + 1
+        A[k] <- R[j]
+    j <- j + 1
 
 MERGE-SORT (A, p, r)
-if ( p &lt; r )
-    q &lt;- ~(p + r )/ 2~
+if ( p < r )
+    q <- ~(p + r )/ 2~
     MERGE-SORT (A, p, q)
     MERGE-SORT (A, q + 1, r)
     MERGE (A, p, q, r)

@@ -7,9 +7,9 @@ author: nirgn
 ### Data Structures:
 מבנה נתונים הוא דרך לאחסן ולארגן נתונים במחשב כך שניתן יהיה להשתמש בהם ביעילות. בעוד האחסון עצמו הוא בזיכרון המחשב או בטבלאות בבסיסי נתונים, מבנה הנתונים מספק הפשטה מסויימת של המציאות. סוגים שונים של מבני נתונים מתאימים לסוגים שונים של יישומים (וחלקם אף מיוחדים למשימות ספציפיות), החשיבות היא כה גדולה עד כדי כך שבדרך כלל, מבנה נתונים יעיל הוא מפתח לעיצוב אלגוריתם יעיל.
 
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
   {% if post.category == "Data Structures" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -24,9 +24,9 @@ author: nirgn
 
 דוגמה לבעיה בסיסית הינה מיון של סדרת מספרים מהקטן לגדול. הסדרה שנקבל יכולה להשתנות אך ההוראות שיהיה עליה לבצע ישארו זהות לכל סדרה באשר היא, וכמובן שגם התוצאה תישאר זהה בעקרונה &#8211; סדרה הממויינת מהערך הקטן ביותר לערך הגדול ביותר (כמובן שבהינתן שתי סדרות שונות הפלט לא יראה אותו הדבר, הרי הערכים שבכל סדרה שונים).
 
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
   {% if post.category == "Algorithms" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -39,9 +39,9 @@ author: nirgn
 ### Computer Networks:
 רשתות תקשורת או יותר נכון, תקשורת מחשבים זהו שם של רשת תקשורת המאפשרת למחשבים להחליף מידע / נתונים. ברשתות תקשורת, המכשירים המחוברים לרשת מעבירים מידע מאחד לשני לאורך חיבורי נתונים (קישורי רשת). המידע מועבר בצורה של מנות, והקישורים בין צמתים מבוצעים באמצעות כבלים או תקשורת אלחוטית. רשת המחשבים הידועה ביותר היא רשת האינטרנט.
 
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
   {% if post.category == "Computer Networks" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
 
@@ -54,8 +54,8 @@ author: nirgn
 ### Operating Systems:
 רשתות תקשורת או יותר נכון, תקשורת מחשבים זהו שם של רשת תקשורת המאפשרת למחשבים להחליף מידע / נתונים. ברשתות תקשורת, המכשירים המחוברים לרשת מעבירים מידע מאחד לשני לאורך חיבורי נתונים (קישורי רשת). המידע מועבר בצורה של מנות, והקישורים בין צמתים מבוצעים באמצעות כבלים או תקשורת אלחוטית. רשת המחשבים הידועה ביותר היא רשת האינטרנט.
 
-{% for post in site.posts %}
+{% for post in site.posts reversed %}
   {% if post.category == "Operating Systems" %}
-  *  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
