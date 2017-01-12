@@ -27,6 +27,6 @@ install:
 script:
   - npm run build
   - cd _site && ws&
-  - htmlproofer ./_site
+  - htmlproofer ./_site --check-html --disable-external
   - lighthouse http://127.0.0.1:8000 --output=json --output-path=./validate/log.json
   - node ./validate/checklog.js ./validate/log.json
