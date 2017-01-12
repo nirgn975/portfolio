@@ -24,10 +24,10 @@ Bubble Sort - מיון בועות, ידוע גם בתור מיון החלפה, �
 
 ```c
 BUBBLE-SORT(A)
-for (i &lt;- 1 to length[A]) do
-    for (j &lt;- length[A] downto i + 1) do
-        if (A[j] &lt; A[j - 1]
-            exchange A[j] &lt;-&gt; A[j - 1]
+for (i <- 1 to length[A]) do
+    for (j <- length[A] downto i + 1) do
+        if (A[j] < A[j - 1]
+            exchange A[j] <-> A[j - 1]
 ```
 
 <div class="left">

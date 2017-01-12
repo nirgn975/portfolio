@@ -3,7 +3,7 @@ title: עץ בינארי (Binary Tree)
 author: nirgn
 layout: post
 summary: "עץ בינארי הוא מבנה נתונים מופשט, הבנוי / מאורגן בצורת עץ, כשלכל קודקוד יש לכל היותר שני בנים (המתייחסים אליהם כ’בן ימיני’ ו’בן שמאלי’) ולכל קודקוד (פרט לראשון, הנקרא שורש) יש אב יחיד."
-category: Data_Structures
+category: Data Structures
 ---
 
 <div class="left">

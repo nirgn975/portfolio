@@ -5,8 +5,9 @@
   "homepage": "https://github.com/nirgn975/Stories-of-a-Lifelong-Student",
   "main": "index.js",
   "scripts": {
-    "gulp": "gulp",
-    "gulp deploy": "gulp deploy"
+    "start": "gulp serve",
+    "build": "gulp build",
+    "deploy": "gulp deploy"
   },
   "author": {
     "name": "Nir Galon",
