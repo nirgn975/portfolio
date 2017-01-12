@@ -25,7 +25,7 @@ install:
   - $LIGHTHOUSE_CHROMIUM_PATH --version
 
 script:
-  - npm run gulp build
+  - npm run build
   - cd _site && ws&
   - htmlproofer ./_site --check-html --disable-external
   - lighthouse http://127.0.0.1:8000 --output=json --output-path=./validate/log.json

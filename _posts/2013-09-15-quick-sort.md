@@ -26,18 +26,18 @@ Quick Sort - מיון מהיר. גם אלגוריתם זה הינו רקורסי
 
 ```c
 PARTITION (A, p, r)
-x &lt;- A[r]
-i &lt;- p -1
-for (j &lt;- 1 to r - 1) do
-    if (A[j] &lt;= x)
-        i &lt;- i +1
-        exchange A[i] &lt;-&gt; A[j]
-exchange A[i + 1] &lt;-&gt; A[r]
+x <- A[r]
+i <- p -1
+for (j <- 1 to r - 1) do
+    if (A[j] <= x)
+        i <- i +1
+        exchange A[i] <-> A[j]
+exchange A[i + 1] <-> A[r]
 return i + 1
 
 QUICKSORT (A, p, r)
-if (p &lt; r)
-    q &lt;- PARTITION (A, p, r)
+if (p < r)
+    q <- PARTITION (A, p, r)
     QUICKSORT (A, p, q - 1)
     QUICKSORT(A, q + 1, r)
 ```
