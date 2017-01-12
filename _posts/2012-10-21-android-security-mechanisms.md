@@ -40,7 +40,7 @@ category: Android
       * האם המידע שלנו מוגן אם המכשיר שלנו נפרץ / נגנב / נאבד?
   4. מרכז הגישה למכשיר.
 
-לפני שנתחיל לעבור על הדברים אני ממליץ להכיר באופן בסיסי את הקרנל של המערכת, ניתן לקרוא בקישור הבא: [A little bit of Android Grammar](http://www.lifelongstudent.net/2012/03/little-android-bit-grammar/).
+לפני שנתחיל לעבור על הדברים אני ממליץ להכיר באופן בסיסי את הקרנל של המערכת, ניתן לקרוא בקישור הבא: [A little bit of Android Grammar]({% post_url 2012-09-16-little-android-bit-grammar %}).
 
 &nbsp;
 

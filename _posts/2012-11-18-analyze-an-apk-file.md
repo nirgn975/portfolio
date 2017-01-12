@@ -9,7 +9,7 @@ category: Android
 
 כמו שזכור לנו, אנדרואיד בנויה כולה מקבצי Apk ולכן בפוסט הזה נלמד כיצד לפתוח אותם, לבצע בהם שינויים, ולבסוף לבנות ולחתום אותם מחדש. בפוסט אדגים על קובץ Apk של אפליקציה מה Play, אך כמובן שאתם יכולים לעשות את זה עם כל אפליקציה (כולל אלו המגיעות בצורה מובנת במערכת).
 
-קודם כל על מנת לדעת מהו קובץ Apk ועל איך הוא בנוי קראו את הפוסט [A little bit of Android Grammar](http://www.lifelongstudent.net/2012/03/little-android-bit-grammar/). בנוסף אתם צריכים להתקין JDK ו JRE [מפה](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+קודם כל על מנת לדעת מהו קובץ Apk ועל איך הוא בנוי קראו את הפוסט [A little bit of Android Grammar]({% post_url 2012-09-16-little-android-bit-grammar %}). בנוסף אתם צריכים להתקין JDK ו JRE [מפה](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 <!--more-->
 
@@ -17,9 +17,9 @@ category: Android
 
 ### הכנות
 
-בשביל לפתוח את קבצי ה Apk ואחר כך לבנות אותם מחדש, ניעזר בתוכנה ApkTool (הורידו את הקובץ [apktool1.5.2.tar.bz2](https://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2)).
+בשביל לפתוח את קבצי ה Apk ואחר כך לבנות אותם מחדש, ניעזר בתוכנה ApkTool (הורידו את הקובץ [apktool1.5.2.tar.bz2](https://bitbucket.org/iBotPeaches/apktool/downloads)).
 
-ובנוסף, את הקובץ [apktool-install-windows-r05-ibot.tar.bz2](https://android-apktool.googlecode.com/files/apktool-install-windows-r05-ibot.tar.bz2) (אם אתם משתמשים ב Windows), או את הקובץ [apktool-install-linux-r05-ibot.tar.bz2](https://android-apktool.googlecode.com/files/apktool-install-linux-r05-ibot.tar.bz2) (אם אתם משתמשים ב Linux).
+ובנוסף, את הקובץ [apktool-install-windows-r05-ibot.tar.bz2](https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat) (אם אתם משתמשים ב Windows), או את הקובץ [apktool-install-linux-r05-ibot.tar.bz2](https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool) (אם אתם משתמשים ב Linux).
 
 לאחר מכן, חלצו את הקובץ Jar שנמצא בתיקייה הנמצאת בתוך הקובץ הראשון שהורדנו (apktool1.5.2.tar.bz2) לתיקייה שהגיעה מתוך הקובץ השני (של ה Windows או ה Linux). יש לציין כי אתם יכולים למקם את התיקייה הנל איפה שנוח לכם, אני ממליץ על הנתיב `usr/local/bin/` ב Linux, או ב Windows בנתיב `C:\Program Files\Android\android-sdk\platform-tools`.
 
@@ -117,7 +117,6 @@ category: Android
 
   * בנוסף, בתיקיית ה fonts נמצאים הפונטים (החל מגרסת Android 2.2 קיימים פונטים בעברית, אך ניתן להחליף אותם לפונט אחר במידה ותרצו).
   * בתיקיית ה media נמצאים ההתראות, רינגטונים, וקבצי מערכת (כמו הקליק של המצלמה וכד').
-  * בפוסט [ליצור Boot Animation ב 5 שלבים](http://www.lifelongstudent.net/2012/04/%d7%9c%d7%99%d7%a6%d7%95%d7%a8-boot-animation-%d7%91-5-%d7%a9%d7%9c%d7%91%d7%99%d7%9d/) ישנו הסבר מעמיק, כיצד לבנות ולהחליף את אנימציית ההפעלה של המכשיר (bootAnimation).
   * בתיקייה framework נמצא הקובץ framework.res.apk שאחראי על התרגום של שאר המערכת (במקומות שלא שייכים לקבצי Apk ספצייפים כמו החייגן), לדוגמה: תפריט הכיבוי, כפתורי אישור, מסך נעילה וכד'.
 
 &nbsp;
