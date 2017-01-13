@@ -7,7 +7,7 @@ layout: default
     <div class="post-content">
       <div class="post-header">
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <em>{{ post.date | date: "%b %-d, %Y" }}</em>
+        <em>{{ post.date | localize: ":long" }}</em>        
       </div>
       <p>{{ post.summary }}</p>
       <div class="post-action">
