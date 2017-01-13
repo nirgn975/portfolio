@@ -11,6 +11,7 @@ ruby RUBY_VERSION
 # Happy Jekylling!
 gem "jekyll", "3.3.1"
 gem "jekyll-paginate", "1.1.0"
+gem "i18n"
 
 # If you have any plugins, put them here!
 # group :jekyll_plugins do

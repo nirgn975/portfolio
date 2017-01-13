@@ -6,6 +6,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://lifelongstudent.io" # the base hostname & protocol for your site
 twitter_username: nirgn975
 github_username:  nirgn975
+lang: he
 
 # Build settings
 markdown: kramdown
