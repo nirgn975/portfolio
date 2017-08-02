@@ -52,5 +52,5 @@ $ node ./validate/checklog.js ./validate/log.json
 [travis-url]: https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student
 [daviddm-image]: https://david-dm.org/nirgn975/Stories-of-a-Lifelong-Student.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/nirgn975/Stories-of-a-Lifelong-Student
-[donate-image]: https://img.shields.io/badge/Donate-PayPal-lightgrey.svg
+[donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg
 [donate-url]: https://www.paypal.me/nirgn/2
