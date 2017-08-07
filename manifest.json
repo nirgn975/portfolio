@@ -2,31 +2,27 @@
   "name": "Stories of a Lifelong Student",
   "short_name": "Lifelong Student",
   "icons": [{
-        "src": "images/touch/android-chrome-96x96.png",
-        "sizes": "96x96",
-        "type": "image/png"
+        "src": "images/touch/128x128.jpg",
+        "sizes": "128x128",
+        "type": "image/jpg"
       }, {
-        "src": "images/touch/icon-120x120.png",
-        "sizes": "120x120",
-        "type": "image/png"
-      },  {
-        "src": "images/touch/ms-touch-icon-144x144.png",
+        "src": "images/touch/144x144.jpg",
         "sizes": "144x144",
-        "type": "image/png"
+        "type": "image/jpg"
       }, {
-        "src": "images/touch/apple-touch-icon-152x152.png",
+        "src": "images/touch/152x152.jpg",
         "sizes": "152x152",
-        "type": "image/png"
+        "type": "image/jpg"
       }, {
-        "src": "images/touch/chrome-touch-icon-192x192.png",
+        "src": "images/touch/192x192.jpg",
         "sizes": "192x192",
-        "type": "image/png"
+        "type": "image/jpg"
       }, {
-        "src": "images/touch/ms-touch-icon-270x270.png",
-        "sizes": "270x270",
-        "type": "image/png"
+        "src": "images/touch/512x512.jpg",
+        "sizes": "512x512",
+        "type": "image/jpg"
       }],
-  "start_url": "/index.html?homescreen=1",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#f0f0f0",
   "theme_color": "#f0f0f0"

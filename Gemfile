@@ -9,11 +9,11 @@ ruby RUBY_VERSION
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "3.3.1"
-gem "jekyll-paginate", "1.1.0"
-gem "i18n"
+gem "jekyll", "3.5.1"
 
 # If you have any plugins, put them here!
 # group :jekyll_plugins do
 #   gem "jekyll-github-metadata", "~> 1.0"
 # end
+gem "jekyll-paginate", "1.1.0"
+gem "i18n"
