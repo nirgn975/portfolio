@@ -1,6 +1,6 @@
 # Stories of a Lifelong Student
 
-[![license][license-image]][license-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url]
+[![license][license-image]][license-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![Donate][donate-image]][donate-url]
 
 > My private blog, written by me. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
 
@@ -47,3 +47,5 @@ $ htmlproofer ./_site
 [travis-url]: https://travis-ci.org/nirgn975/Stories of a Lifelong Student
 [dependencyci-image]: https://dependencyci.com/github/nirgn975/Stories of a Lifelong Student/badge
 [dependencyci-url]: https://dependencyci.com/github/nirgn975/Stories of a Lifelong Student
+[donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg
+[donate-url]: https://www.paypal.me/nirgn/2

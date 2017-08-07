@@ -137,11 +137,9 @@ gulp.task('build', () =>
     'minify-html',
     'css',
     'generate-service-worker',
-    'minify-images',
-    'revert-config'
+    'minify-images'
   )
 );
-
 
 // Remove 404.html from service worker, because firebase don't serve the page
 // in a GET request, and return 404 code.
