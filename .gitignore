@@ -58,3 +58,9 @@ $RECYCLE.BIN/
 
 ### Lighthouse ###
 validate/log.json
+
+### NPM ###
+package-lock.json
+
+### Lighthouse ###
+validate/log.json

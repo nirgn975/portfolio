@@ -7,6 +7,12 @@ import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
 const $ = gulpLoadPlugins();
 
+// Delete the _site directory.
+gulp.task('cleanup-build', () => {
+  return gulp.src('_site', {read: false})
+      .pipe($.clean());
+});
+
 // Minify the HTML.
 gulp.task('minify-html', () => {
   return gulp.src('_site/**/*.html')
@@ -43,7 +49,7 @@ gulp.task('scripts', () => {
   ])
     .pipe($.concat('main.min.js'))
     .pipe($.babel())
-    .pipe($.uglify({preserveComments: 'some'}))
+    .pipe($.uglify())
     .pipe(gulp.dest('scripts'));
 });
 
@@ -106,7 +112,7 @@ gulp.task('serve', ['jekyll-build'], () => {
   gulp.watch('_scripts/**/*.js', ['scripts']);
 });
 
-gulp.task('generate-service-worker', function(callback) {
+gulp.task('generate-service-worker', (callback) => {
   var path = require('path');
   var rootDir = '_site';
 
@@ -116,25 +122,23 @@ gulp.task('generate-service-worker', function(callback) {
   }, callback);
 });
 
-// Revert config file for gulp serve in local.
-gulp.task('travis-edit-config', () => {
-  return gulp.src('./_config.yml')
-    .pipe($.replace('http://lifelongstudent.io', 'http://127.0.0.1:8000'))
-    .pipe(gulp.dest('./'));
-});
-
 gulp.task('jekyll-build', ['scripts', 'scss'], $.shell.task([ 'jekyll build' ]));
+
+gulp.task('jekyll-build-for-deploy', $.shell.task([ 'jekyll build' ]));
+
 
 // Default task.
 gulp.task('build', () =>
   runSequence(
-    'travis-edit-config',
+    'cleanup-build',
     'scss',
-    'jekyll-build',
+    'scripts',
+    'jekyll-build-for-deploy',
     'minify-html',
     'css',
     'generate-service-worker',
-    'minify-images'
+    'minify-images',
+    'revert-config'
   )
 );
 
@@ -147,12 +151,11 @@ gulp.task('cleanup-sw-deploy', () => {
     .pipe(gulp.dest('./_site/'));
 });
 
-gulp.task('jekyll-build-for-deploy', $.shell.task([ 'jekyll build' ]));
-
 gulp.task('firebase', $.shell.task([ 'firebase deploy' ]));
 
 gulp.task('deploy', () => {
   runSequence(
+    'cleanup-build',
     'scss',
     'scripts',
     'jekyll-build-for-deploy',
