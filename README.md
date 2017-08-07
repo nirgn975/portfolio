@@ -42,10 +42,10 @@ $ htmlproofer ./_site
 ```
 
 [license-image]: https://img.shields.io/badge/license-ISC-blue.svg
-[license-url]: https://github.com/nirgn975/Stories of a Lifelong Student/blob/master/LICENSE
-[travis-image]: https://travis-ci.org/nirgn975/Stories of a Lifelong Student.svg?branch=master
-[travis-url]: https://travis-ci.org/nirgn975/Stories of a Lifelong Student
-[dependencyci-image]: https://dependencyci.com/github/nirgn975/Stories of a Lifelong Student/badge
-[dependencyci-url]: https://dependencyci.com/github/nirgn975/Stories of a Lifelong Student
+[license-url]: https://github.com/nirgn975/Stories-of-a-Lifelong-Student/blob/master/LICENSE
+[travis-image]: https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student.svg?branch=master
+[travis-url]: https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student
+[dependencyci-image]: https://dependencyci.com/github/nirgn975/Stories-of-a-Lifelong-Student/badge
+[dependencyci-url]: https://dependencyci.com/github/nirgn975/Stories-of-a-Lifelong-Student
 [donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg
 [donate-url]: https://www.paypal.me/nirgn/2
