@@ -5,10 +5,11 @@ layout: post
 summary: "A production ready Angular — Django RESTful seed repository"
 category: Development and Contribution
 ---
-
+<div style="direction: ltr;" markdown="1">
+<div style="direction: rtl;" markdown="1">
 פוסט זה פורסם במקור ב [medium](https://medium.com/@nirgn/angular-django-seed-project-5319c33d7bac).
-
-## Load Balancing Applications with HAProxy and Docker
+</div>
+### Load Balancing Applications with HAProxy and Docker
 
 > A production ready Angular — Django RESTful seed repository
 
@@ -16,7 +17,7 @@ In the recent weeks I decided to build a repo that will contain a seed repo for 
 
 <!--more-->
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/angular-django-seed-project/project-logo.png" alt="Project Logo">
 </div>
 
@@ -34,7 +35,7 @@ The use case I chose is to expose a users list form the [Django](https://www.dja
 
 Writing tests are the best practice, it’s known. So even though the django and angular apps are small, tests are a must! We test the client and server for lint errors and has a 90+ test coverage. We run it in [Travis-CI](https://travis-ci.org/) and calculate coverage with [codecov](https://codecov.io) for every commit.
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/angular-django-seed-project/tests-are-best-practice-its-known.jpeg" alt="Tests are best practice, it’s known.">
 </div>
 
@@ -44,7 +45,7 @@ Writing tests are the best practice, it’s known. So even though the django and
 
 It’s essential to check how much requests our system can handle. We do it with [Locust](http://locust.io/) an open source tool to define user behaviour, and swarm our system with millions of simultaneous users. It has a nice web UI and can export the report in the end of the session.
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/angular-django-seed-project/locust-web-ui.png" alt="Locust Web UI">
 </div>
 
@@ -58,7 +59,7 @@ But scalability is not just docker containers. Something need to handle and mana
 
 We also have a [visualizer](https://github.com/dockersamples/docker-swarm-visualizer) container to visualize where is each container is located at (on which server).
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/angular-django-seed-project/docker-swarm-visualizer.png" alt="Docker Swarm Visualizer">
 </div>
 
@@ -80,7 +81,7 @@ The backups are saved at `/var/backups/postgres` at the host machine via a share
 
 We use the [ELK Stack](https://www.elastic.co/products) for logging. The server (Django app) logs are sent to Logstash, and saved in Elasticsearch. There is separate container for every part of this stack. And of course we also have a Kibana instance to check and analyze all the logs.
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/angular-django-seed-project/kibana-ui.png" alt="Kibana UI">
 </div>
 
@@ -101,3 +102,4 @@ At the end we have all we need to start a new project based on Angular and Djang
 I would love to get your help on this and make this project the go to seed app for everyone who want to start building an Angular and Django RESTful apps.
 
 GitHub repo: [https://github.com/nirgn975/Angular-Django-Seed-Project](https://github.com/nirgn975/Angular-Django-Seed-Project)
+</div>

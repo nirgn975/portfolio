@@ -5,10 +5,12 @@ layout: post
 summary: "A tutorial for a real world docker use case."
 category: Development and Contribution
 ---
-
+<div style="direction: ltr;" markdown="1">
+<div style="direction: rtl;" markdown="1">
 פוסט זה פורסם במקור ב [medium](https://medium.com/@nirgn/load-balancing-applications-with-haproxy-and-docker-d719b7c5b231).
+</div>
 
-## Load Balancing Applications with HAProxy and Docker
+### Load Balancing Applications with HAProxy and Docker
 
 > A tutorial for a real world docker use case.
 
@@ -24,7 +26,7 @@ There are a lot of articles about this topic, but sadly the use case they presen
 
 For that reason I decided to write this post and present the way we use. It’s not by any mean the “right” way or the only way, but it’s the way that works for us right now. Also, I’m assuming you know Docker, Docker Compose, and Docker Swarm.
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/load-balancing-applications-with-haproxy-and-docker/lets-start.jpeg" alt="Let's start!">
 </div>
 
@@ -112,7 +114,7 @@ Let’s explain what the hell is happening here. We create 2 services:
 2. The second service we create is `HAProxy` from the haproxy Docker (the compony) uses in their cloud (we don’t build it and doesn’t create a `Dockerfile` for it, we just specify from where to pull the image). It `depends_on` the `awesome` service, so it won’t boot until the `awesome` service is finished (i.e. all of the container are up and running). It’s also shared the `docker.sock` file (`volumes` field). This is the file the HAProxy container needs to look at to learn about the containers in it’s network (new and existing containers). We expose port 80, and put this container in the `web` network, In the `deploy` setting, we just tell it to always put this container on the manager node (this settings is related to Docker Swarm, when we have couple of node (i.e. servers).
 3. The last thing we do is to create the network (named `web`).
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so far.jpeg" alt="Our project looks good so far, and we almost at the finish line!">
 </div>
 
@@ -130,13 +132,13 @@ The network, the services, and all the containers called `stack`. To create our 
 
 When we’ll hit [http://localhost](http://localhost) we’ll get the container id in the response, and we can see it has a different id every request.
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.png" alt="Different container id evert request">
 </div>
 
 Now let’s look at our services by writing `docker service ls` and we’ll see all of our services and replicas
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.png" alt="All of our docker services">
 </div>
 
@@ -155,7 +157,7 @@ So we need to build the image again, but this time it’s the second version of 
 
 We can see our docker slowly (but surly) kill the old containers and create new ones with the second version of our app. And when we hit [http://localhost](http://localhost) we still get a response, there is no downtime.
 
-<div>
+<div style="text-align: center;">
   <img src="/images/posts/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.png" alt="Some containers are already use the second version. No Downtime (:">
 </div>
 
@@ -168,3 +170,4 @@ Also, if we want to scale the service to more than 20 containers, we can do it w
 So, we don’t need to create hundreds of containers manually. We don’t need to place every container of our app in a different port. We don’t need to manually write our containers ip and port in ngninx/haproxy `conf` file. And we can do it with multiple servers (with docker swarm), with multiple services (with docker compose), update our application without downtime, and scale it up (or down) without downtime.
 
 Hope it’s been practical, and I would love to hear how you do it in your compony!
+</div>

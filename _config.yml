@@ -26,6 +26,6 @@ exclude: [
 ]
 
 # Pagination
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 paginate: 8
 paginate_path: "/page:num/"
