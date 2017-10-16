@@ -8,12 +8,15 @@ layout: default
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
   {% endif %}
 
+  {% assign words = content | number_of_words %}
+  
   <!-- Content -->
   <div class="post-content" itemprop="articleBody">
     <!-- Title and Date -->
     <header class="post-header">
       <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | localize: ":long" }}</time></p>
       <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+      <p class="post-readtime">זמן קריאה: {{ words | divided_by:180 }} דקות</p>
     </header>
 
     {{ content }}
