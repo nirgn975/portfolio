@@ -5,13 +5,13 @@
     .post-meta {
       display: inline-block;
       float: left;
+
+      .post-readtime {
+        margin: 0;
+      }
     }
     .post-title {
       margin-top: 0;
-    }
-    .post-readtime {
-      display: inline-block;
-      float: right;
     }
   }
 
