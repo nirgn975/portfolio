@@ -4,10 +4,14 @@ layout: default
 <!-- This loops through the paginated posts -->
 <div class="row">
   {% for post in paginator.posts %}
+    {% assign words = post.content | number_of_words %}
     <div class="post-content">
       <div class="post-header">
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <em>{{ post.date | localize: ":long" }}</em>
+        <em>
+          {{ post.date | localize: ":long" }}
+          <p class="post-readtime">זמן קריאה: {{ words | divided_by:180 }} דקות</p>
+        </em>
       </div>
       <p>{{ post.summary }}</p>
       <div class="post-action">
