@@ -26,6 +26,11 @@ body {
       em {
         float: left;
         margin: 1.17rem;
+
+        .post-readtime {
+          line-height: 1em;
+          margin-top: 5px;
+        }
       }
     }
   }
