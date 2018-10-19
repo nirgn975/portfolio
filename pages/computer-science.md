@@ -59,3 +59,16 @@ author: nirgn
   *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
+
+---
+
+<br>
+
+### Data Mining:
+משהו..
+
+{% for post in site.posts reversed %}
+  {% if post.category == "Data Mining" %}
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  {% endif %}
+{% endfor %}
