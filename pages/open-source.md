@@ -41,3 +41,15 @@ author: nirgn
   *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   {% endif %}
 {% endfor %}
+
+---
+
+<br>
+
+### Unix:
+
+{% for post in site.posts reversed %}
+  {% if post.category == "UNIX" %}
+  *  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  {% endif %}
+{% endfor %}
