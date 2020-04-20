@@ -1,0 +1,295 @@
+baseURL = "http://lifelongstudent.io/"
+defaultContentLanguage = "en"
+languageCode = "en-us"
+title = "Stories of a Lifelong Student"
+theme = "LoveIt"
+copyright = "Everything is mine"
+
+
+[params]
+  # LoveIt theme version
+  version = "0.1.X"
+  # site description
+  description = "Stories of a Lifelong Student Description"
+  # site keywords
+  keywords = ["computer science", "data structures", "algorithms", "computer networks", "operating system", "machine learning", "open source", "linux", "arduino", "programming", "security", "pen testing", "hacking", "android", "reverse engineering"]
+  # site default theme ("light", "dark", "auto")
+  defaultTheme = "auto"
+  # public git repo url only then enableGitInfo is true
+  gitRepo = ""
+  # LoveIt   v0.1.1
+  # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
+  fingerprint = ""
+  # Header info
+  [params.header]
+    # desktop header mode ("fixed", "normal", "auto")
+    desktopMode = "fixed"
+    # mobile header mode ("fixed", "normal", "auto")
+    mobileMode = "auto"
+  # Footer Copyright Info
+  [params.footer]
+    # Site creation time
+    since = 2019
+    # ICP info only in China (HTML format is allowed)
+    icp = ""
+    # license info (HTML format is allowed)
+    license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+  # Home Page Info
+  [params.home]
+    # Home Page Profile
+    [params.home.profile]
+      enable = true
+      # Gravatar Email for preferred avatar in home page
+      gravatarEmail = ""
+      # URL of avatar shown in home page
+      avatarURL = "/images/avatar.png"
+      # subtitle shown in home page
+      subtitle = "This is My New Hugo Site"
+      # whether to use typeit animation for subtitle
+      typeit = true
+      # whether to show social links
+      social = true
+    # Home Page Posts
+    [params.home.posts]
+      enable = true
+      # special amount of posts in each home posts page
+      paginate = 6
+      # default behavior when you don't set "hiddenFromHomePage" in front matter
+      defaultHiddenFromHomePage = false
+  # Social Info in home page
+  [params.social]
+    GitHub = "nirgn975"
+    Linkedin = "nirgn"
+    Twitter = "nirgn975"
+    Email = "nir@galon.io"
+    Medium = "@nirgn"
+    Keybase = "nirgn975"
+    Reddit = "nirgn975"
+    Stackoverflow = "2040160/nirgn"
+  # Page config
+  [params.page]
+    # whether to use lightgallery in the page
+    lightgallery = true
+    # whether to show link to Raw Markdown content of the post
+    linkToMarkdown = true
+  # mathematical formulas (KaTeX https://katex.org/)
+  [params.math]
+    enable = true
+    # default block delimiter is $$ ... $$ and \\[ ... \\]
+    blockLeftDelimiter = ""
+    blockRightDelimiter = ""
+    # default inline delimiter is $ ... $ and \\( ... \\)
+    inlineLeftDelimiter = ""
+    inlineRightDelimiter = ""
+    # KaTeX extension copy_tex
+    copyTex = true
+    # KaTeX extension mhchem
+    mhchem = true
+  # Social Share Links in post page
+  [params.share]
+    enable = true
+    Twitter = true
+    Facebook = true
+    Linkedin = true
+    Whatsapp = true
+    Reddit = true
+  # Comment Config
+  [params.comment]
+    enable = true
+    # Disqus Comment Config (https://disqus.com/)
+    [params.comment.disqus]
+      # LoveIt   v0.1.1
+      enable = false
+      # Disqus shortname to use Disqus in posts
+      shortname = ""
+    # Valine Comment Config (https://github.com/xCss/Valine)
+    [params.comment.valine]
+      enable = false
+      appId = ""
+      appKey = ""
+      placeholder = "Your comment ..."
+      notify = false
+      verify = true
+      avatar = "mp"
+      meta= ""
+      pageSize = 10
+      lang = "en"
+      visitor = true
+      recordIP = true
+
+  # site verification code for Google/Bing/Yandex/Pinterest/Baidu
+  [params.verification]
+    google = ""
+    bing = ""
+    yandex = ""
+    baidu = ""
+  # Publisher Info just for SEO
+  [params.publisher]
+    name = "Nir Galon"
+    [params.publisher.logo]
+      url = "logo.png"
+      width = 127
+      height = 40
+  # Website Log Info just for SEO
+  [params.logo]
+    url = "logo.png"
+    width = 127
+    height = 40
+  # Website Image Info just for SEO
+  [params.image]
+    url = "cover.png"
+    width = 800
+    height = 600
+  # CSS and JS Files CDN
+  [params.cdn]
+    # fontawesome-free@5.12.1 https://fontawesome.com/
+    fontawesomeFreeCSS = ''
+    # animate.css@3.7.2 https://github.com/daneden/animate.css
+    animateCSS = ''
+    # smooth-scroll@16.1.2 https://github.com/cferdinandi/smooth-scroll
+    smoothScrollJS = ''
+    # sharer@0.4.0 https://github.com/ellisonleao/sharer.js
+    sharerJS = ''
+    # lazysizes@5.2.0 https://github.com/aFarkas/lazysizes
+    lazysizesJS = ''
+    # lightgallery@1.1.3 lg-thumbnail@1.1.0 lg-zoom@1.1.0 https://github.com/sachinchoolur/lightgallery.js
+    lightgalleryCSS = ''
+    lightgalleryJS = ''
+    lightgalleryThumbnailJS = ''
+    lightgalleryZoomJS = ''
+    # typeit@6.5.1 https://github.com/alexmacarthur/typeit
+    typeitJS = ''
+    # katex@0.11.1 https://github.com/KaTeX/KaTeX
+    katexCSS = ''
+    katexJS = ''
+    katexAutoRenderJS = ''
+    katexCopyTexCSS = ''
+    katexCopyTexJS = ''
+    katexMhchemJS = ''
+    # mermaid@8.4.8 https://github.com/knsv/mermaid
+    mermaidJS = ''
+    # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
+    aplayerCSS = ''
+    aplayerJS = ''
+    # meting@2.0.1 https://github.com/metowolf/MetingJS
+    metingJS = ''
+    # echarts@4.6.0 https://echarts.apache.org/
+    echartsJS = ''
+    echartsMacaronsJS = ''
+    # gitalk@1.6.2 https://github.com/gitalk/gitalk
+    gitalkCSS = ''
+    gitalkJS = ''
+    # valine@1.3.10 https://valine.js.org/
+    valineJS = ''
+
+# Markup related configuration in Hugo
+[markup]
+  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = "monokai"
+    tabWidth = 4
+  # Goldmark is from Hugo 0.60 the default library used for Markdown
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      # whether to use HTML tags directly in the document
+      unsafe = true
+  # Table Of Contents settings
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
+# Author Info
+[author]
+  name = "xxxx"
+  link = ""
+
+# Sitemap Info
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+# Permalinks Info (https://gohugo.io/content-management/urls/#permalinks)
+[Permalinks]
+  posts = ":year/:month/:filename"
+  # posts = ":filename"
+
+# Privacy Info (https://gohugo.io/about/hugo-and-gdpr/)
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+
+  [privacy.youtube]
+    privacyEnhanced = true
+
+# Options to make output .md files
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+# Options to make output .md files
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+
+# Options to make hugo output files
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    # you can add extra information before the name (HTML format is allowed), such as icons
+    pre = ""
+    name = "Posts"
+    url = "/posts/"
+    # title will be shown when you hover on this menu link
+    title = ""
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+    weight = 2
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+    weight = 3
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    name = "About"
+    url = "/about"
+    title = "About"
+    weight = 4
+  [[menu.main]]
+    identifier = "github"
+    pre = "<i class='fab fa-github fa-fw'></i>"
+    name = ""
+    url = "https://github.com/nirgn975/stories-of-a-lifelong-student"
+    title = "GitHub"
+    weight = 5
