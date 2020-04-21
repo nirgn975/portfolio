@@ -3,8 +3,13 @@ defaultContentLanguage = "en"
 languageCode = "en-us"
 title = "Stories of a Lifelong Student"
 theme = "LoveIt"
-copyright = "Everything is mine"
+enableRobotsTXT = true
 
+# Will give values to .Lastmod etc.
+enableGitInfo = true
+
+copyright = "The Docsy Authors"
+privacy_policy = "https://policies.google.com/privacy"
 
 [params]
   # LoveIt theme version
@@ -16,7 +21,7 @@ copyright = "Everything is mine"
   # site default theme ("light", "dark", "auto")
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
-  gitRepo = ""
+  gitRepo = "https://github.com/nirgn975/stories-of-a-lifelong-student.git"
   # LoveIt   v0.1.1
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
@@ -42,9 +47,9 @@ copyright = "Everything is mine"
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/images/avatar.png"
+      avatarURL = "/images/logo.png"
       # subtitle shown in home page
-      subtitle = "This is My New Hugo Site"
+      subtitle = "Welcome to Stories of a Lifelong Student, a blog for geeks (:"
       # whether to use typeit animation for subtitle
       typeit = true
       # whether to show social links
@@ -96,26 +101,13 @@ copyright = "Everything is mine"
   # Comment Config
   [params.comment]
     enable = true
-    # Disqus Comment Config (https://disqus.com/)
-    [params.comment.disqus]
-      # LoveIt   v0.1.1
-      enable = false
-      # Disqus shortname to use Disqus in posts
-      shortname = ""
-    # Valine Comment Config (https://github.com/xCss/Valine)
-    [params.comment.valine]
-      enable = false
-      appId = ""
-      appKey = ""
-      placeholder = "Your comment ..."
-      notify = false
-      verify = true
-      avatar = "mp"
-      meta= ""
-      pageSize = 10
-      lang = "en"
-      visitor = true
-      recordIP = true
+    # Gitalk Comment Config (https://github.com/gitalk/gitalk)
+    [params.comment.gitalk]
+      enable = true
+      owner = "nirgn975"
+      repo = "stories-of-a-lifelong-student"
+      clientId = "Iv1.725a4125ddf861e2"
+      clientSecret = "9fb3d81a9f4df0278fa3e8033ff4b3e1c68c9a20"
 
   # site verification code for Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
@@ -127,60 +119,58 @@ copyright = "Everything is mine"
   [params.publisher]
     name = "Nir Galon"
     [params.publisher.logo]
-      url = "logo.png"
+      url = "/images/publisher/nir-galon.jpg"
       width = 127
       height = 40
   # Website Log Info just for SEO
   [params.logo]
-    url = "logo.png"
+    url = "/images/logo.png"
     width = 127
     height = 40
   # Website Image Info just for SEO
   [params.image]
-    url = "cover.png"
+    url = "/images/logo.png"
     width = 800
     height = 600
   # CSS and JS Files CDN
   [params.cdn]
     # fontawesome-free@5.12.1 https://fontawesome.com/
-    fontawesomeFreeCSS = ''
+    fontawesomeFreeCSS = 'https://kit.fontawesome.com/9738f200c1.js'
     # animate.css@3.7.2 https://github.com/daneden/animate.css
-    animateCSS = ''
+    animateCSS = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'
     # smooth-scroll@16.1.2 https://github.com/cferdinandi/smooth-scroll
-    smoothScrollJS = ''
+    smoothScrollJS = 'https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16/dist/smooth-scroll.polyfills.min.js'
     # sharer@0.4.0 https://github.com/ellisonleao/sharer.js
-    sharerJS = ''
+    sharerJS = 'https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js'
     # lazysizes@5.2.0 https://github.com/aFarkas/lazysizes
-    lazysizesJS = ''
+    lazysizesJS = 'https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js'
     # lightgallery@1.1.3 lg-thumbnail@1.1.0 lg-zoom@1.1.0 https://github.com/sachinchoolur/lightgallery.js
-    lightgalleryCSS = ''
-    lightgalleryJS = ''
-    lightgalleryThumbnailJS = ''
-    lightgalleryZoomJS = ''
+    lightgalleryCSS = 'https://github.com/sachinchoolur/lightGallery/blob/master/src/css/lightgallery.css'
+    lightgalleryJS = 'https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.js'
+    lightgalleryThumbnailJS = 'https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-thumbnail.min.js'
+    lightgalleryZoomJS = 'https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-zoom.min.js'
     # typeit@6.5.1 https://github.com/alexmacarthur/typeit
-    typeitJS = ''
+    typeitJS = 'https://cdn.jsdelivr.net/npm/typeit@VERSION_NUMBER/dist/typeit.min.js'
     # katex@0.11.1 https://github.com/KaTeX/KaTeX
-    katexCSS = ''
-    katexJS = ''
-    katexAutoRenderJS = ''
-    katexCopyTexCSS = ''
-    katexCopyTexJS = ''
-    katexMhchemJS = ''
+    katexCSS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css'
+    katexJS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js'
+    katexAutoRenderJS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js'
+    katexCopyTexCSS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.css'
+    katexCopyTexJS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js'
+    katexMhchemJS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js'
     # mermaid@8.4.8 https://github.com/knsv/mermaid
-    mermaidJS = ''
+    mermaidJS = 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.0/mermaid.min.js'
     # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
-    aplayerCSS = ''
-    aplayerJS = ''
+    aplayerCSS = 'https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css'
+    aplayerJS = 'https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js'
     # meting@2.0.1 https://github.com/metowolf/MetingJS
-    metingJS = ''
+    metingJS = 'https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js'
     # echarts@4.6.0 https://echarts.apache.org/
-    echartsJS = ''
+    echartsJS = 'https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js'
     echartsMacaronsJS = ''
     # gitalk@1.6.2 https://github.com/gitalk/gitalk
-    gitalkCSS = ''
-    gitalkJS = ''
-    # valine@1.3.10 https://valine.js.org/
-    valineJS = ''
+    gitalkCSS = 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css'
+    gitalkJS = 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js'
 
 # Markup related configuration in Hugo
 [markup]
@@ -214,8 +204,8 @@ copyright = "Everything is mine"
 
 # Author Info
 [author]
-  name = "xxxx"
-  link = ""
+  name = "Nir Galon"
+  link = "https://nir.galon.io/"
 
 # Sitemap Info
 [sitemap]
@@ -226,7 +216,6 @@ copyright = "Everything is mine"
 # Permalinks Info (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
   posts = ":year/:month/:filename"
-  # posts = ":filename"
 
 # Privacy Info (https://gohugo.io/about/hugo-and-gdpr/)
 [privacy]

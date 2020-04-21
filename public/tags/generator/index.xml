@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>generator on Stories of a Lifelong Student</title>
+    <link>http://lifelongstudent.io/tags/generator/</link>
+    <description>Recent content in generator on Stories of a Lifelong Student</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The Docsy Authors</copyright>
+    <lastBuildDate>Thu, 03 Aug 2017 18:19:10 +0300</lastBuildDate>
+    
+	<atom:link href="http://lifelongstudent.io/tags/generator/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Jekyll Starter Kit generator 2.1.0 is out!</title>
+      <link>http://lifelongstudent.io/2017/08/jekyll-starter-kit-generator-2.1.0-is-out/</link>
+      <pubDate>Thu, 03 Aug 2017 18:19:10 +0300</pubDate>
+      
+      <guid>http://lifelongstudent.io/2017/08/jekyll-starter-kit-generator-2.1.0-is-out/</guid>
+      <description>Creating Jekyll progressive web apps has never been easier!
+ 1. Jekyll Starter Kit First thing first, for those of you who has yet to hear about the Jekyll Starter Kit generator, it’s a Yeoman generator for creating Jekyll projects or really Jekyll static websites.
+It’ll create for you the default Jekyll website template, with all the best practices from Google Web Starter Kit , all the things you need for your website to be a PWA (progressive web app), and some more cool stuff.</description>
+    </item>
+    
+  </channel>
+</rss>

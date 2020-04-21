@@ -8,7 +8,7 @@
 
 To install this project, you'll need the following things installed on your machine.
 
-1. [Jekyll](http://jekyllrb.com/) - `$ gem install jekyll -v 3.5.1`
+1. [Hugo](https://gohugo.io/)
 2. [NodeJS](http://nodejs.org) - use the installer.
 3. [Firebase CLI](https://github.com/firebase/firebase-tools).
 
@@ -21,17 +21,22 @@ To install this project, you'll need the following things installed on your mach
 
 **Development mode**
 
-This will give you file watching, browser synchronisation, auto-rebuild, CSS injecting etc.
+This will run hugo local dev server for file watching, browser synchronisation, auto-rebuild, CSS injecting etc.
 
 ```shell
-$ npm run start
+$ hugo serve -D
 ```
 
 **Deploy mode**
 
-You can easily deploy your site build with the command
+First you need firebase
 ```shell
-$ npm run deploy
+$ npm install -g firebase-tools
+```
+
+Then easily deploy the blog
+```shell
+$ hugo && firebase deploy
 ```
 
 ## Tests

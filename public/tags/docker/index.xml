@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Stories of a Lifelong Student</title>
+    <link>http://lifelongstudent.io/tags/docker/</link>
+    <description>Recent content in docker on Stories of a Lifelong Student</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The Docsy Authors</copyright>
+    <lastBuildDate>Tue, 11 Jul 2017 12:53:47 +0300</lastBuildDate>
+    
+	<atom:link href="http://lifelongstudent.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Load Balancing Applications with HAProxy and Docker</title>
+      <link>http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/</link>
+      <pubDate>Tue, 11 Jul 2017 12:53:47 +0300</pubDate>
+      
+      <guid>http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/</guid>
+      <description>A tutorial for a real world docker use case.
+Recently I read a lot of articles about load balancing applications with Docker, Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.
+There are a lot of articles about this topic, but sadly the use case they present is quit simple and because of that they really don’t help.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Load Balancing Applications with HAProxy and Docker | Stories of a Lifelong Student</title>
+        <meta name="Description" content="Stories of a Lifelong Student Description"><meta property="og:title" content="Load Balancing Applications with HAProxy and Docker" />
+<meta property="og:description" content="A tutorial for a real world docker use case.
+Recently I read a lot of articles about load balancing applications with Docker, Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.
+There are a lot of articles about this topic, but sadly the use case they present is quit simple and because of that they really don’t help." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/" />
+<meta property="article:published_time" content="2017-07-11T12:53:47+03:00" />
+<meta property="article:modified_time" content="2020-04-20T18:32:34+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Load Balancing Applications with HAProxy and Docker"/>
+<meta name="twitter:description" content="A tutorial for a real world docker use case.
+Recently I read a lot of articles about load balancing applications with Docker, Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.
+There are a lot of articles about this topic, but sadly the use case they present is quit simple and because of that they really don’t help."/>
+<meta name="theme-color" content="#ffffff">
+<meta name="msapplication-TileColor" content="#da532c">
+<link rel="canonical" href="http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="next" href="http://lifelongstudent.io/2017/08/jekyll-starter-kit-generator-2.1.0-is-out/" />https://kit.fontawesome.com/9738f200c1.jshttps://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css<link rel="stylesheet" href="/css/style.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Load Balancing Applications with HAProxy and Docker",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/lifelongstudent.io\/2017\/07\/load-balancing-applications-with-haproxy-and-docker\/"
+        },"image": {
+                "@type": "ImageObject",
+                "url": "http:\/\/lifelongstudent.io\/images\/logo.png",
+                "width":  800 ,
+                "height":  600 
+            },"genre": "posts","keywords": "development, contribution, docker, haproxy, load balance, cloud, devops, nginx","wordcount":  1408 ,
+        "url": "http:\/\/lifelongstudent.io\/2017\/07\/load-balancing-applications-with-haproxy-and-docker\/","datePublished": "2017-07-11","dateModified": "2020-04-20","license": "The Docsy Authors","publisher": {
+                "@type": "Organization",
+                "name": "Nir Galon",
+                "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/lifelongstudent.io\/images\/publisher\/nir-galon.jpg",
+                "width":  127 ,
+                "height":  40 
+                }
+            },"author": {
+                "@type": "Person",
+                "name": "Nir Galon"
+            },"description": ""
+    }
+    </script></head>
+    <body><script>
+            if (!window.localStorage || !window.localStorage.getItem('theme')) {window.isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;} else {
+                window.isDark = (window.localStorage && window.localStorage.getItem('theme')) === 'dark';
+            }
+            window.isDark && document.body.classList.add('dark-theme');
+        </script><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/">Stories of a Lifelong Student</a>
+        </div>
+        <div class="menu"><a class="menu-item" href="/posts/" rel="noopener noreffer">Posts</a><a class="menu-item" href="/tags/" rel="noopener noreffer">Tags</a><a class="menu-item" href="/categories/" rel="noopener noreffer">Categories</a><a class="menu-item" href="/about" title="About" rel="noopener noreffer">About</a><a class="menu-item" href="https://github.com/nirgn975/stories-of-a-lifelong-student" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><span class="menu-item">|</span>
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-wrapper">
+        <div class="header-container">
+            <div class="header-title">
+                <a href="/">Stories of a Lifelong Student</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="" rel="noopener noreffer">Posts</a><a class="menu-item" href="/tags/" title="" rel="noopener noreffer">Tags</a><a class="menu-item" href="/categories/" title="" rel="noopener noreffer">Categories</a><a class="menu-item" href="/about" title="About" rel="noopener noreffer">About</a><a class="menu-item" href="https://github.com/nirgn975/stories-of-a-lifelong-student" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+
+<script>
+    window.desktopHeaderMode = "fixed";
+    window.mobileHeaderMode = "auto";
+</script>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Load Balancing Applications with HAProxy and Docker</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://nir.galon.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Nir Galon</a>
+</span>&nbsp;
+                    <span class="post-category">included in<a href="/categories/development">
+                                <i class="far fa-folder fa-fw"></i>Development
+                            </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i><time datetime=2017-07-11>2017-07-11</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>about 1408 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>7 min&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-sizes="auto"
+        data-srcset="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.jpeg, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.jpeg 1.5x, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.jpeg 2x"
+        data-src="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.jpeg"
+        alt=""
+        title="" /></div><div class="toc" id="toc-auto">
+                <h2 class="toc-title">Contents</h2>
+                <div class="toc-content always-active" id="toc-content-auto"></div>
+            </div>
+            <div class="toc" id="toc-static">
+                <details>
+                    <summary>
+                        <div class="toc-title">
+                            <span>Contents</span>
+                            <span><i class="details icon fas fa-angle-down"></i></span>
+                        </div>
+                    </summary>
+                    <div class="toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-our-simple-application">1. Our simple application</a></li>
+    <li><a href="#2-enter-docker-compose">2. Enter Docker Compose</a></li>
+    <li><a href="#3-dockercloud-haproxy">3. DockerCloud HAProxy</a>
+      <ul>
+        <li><a href="#31-docker-swarm">3.1 Docker Swarm</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-summery">4. Summery</a></li>
+  </ul>
+</nav></div>
+                </details>
+            </div><div class="content" id="content"><p>A tutorial for a real world docker use case.</p>
+<p>Recently I read a lot of articles about load balancing applications with Docker, Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.</p>
+<p>There are a lot of articles about this topic, but sadly the use case they present is quit simple and because of that they really don’t help. Here is a couple of examples to what I mean:</p>
+<ol>
+<li>Manually create hundreds of containers is not practical.</li>
+<li>Create hundred of containers each one on a different port is not practical.</li>
+<li>Write the containers ip and port manually in nginx conf file is not practical.</li>
+</ol>
+<p>For that reason I decided to write this post and present the way we use. It’s not by any mean the “right” way or the only way, but it’s the way that works for us right now. Also, I’m assuming you know Docker, Docker Compose, and Docker Swarm.</p>
+<p> </p>
+<h2 id="1-our-simple-application">1. Our simple application</h2>
+<p>Let’s start by creating our simple Node.js application. Create a file named <code>index.js</code> with the following code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">os</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">);</span>
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="sb">`&lt;h1&gt;I&#39;m </span><span class="si">${</span><span class="nx">os</span><span class="p">.</span><span class="nx">hostname</span><span class="p">()</span><span class="si">}</span><span class="sb">&lt;/h1&gt;`</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now we need to dockerize the app, so we’ll create a file named <code>Dockerfile</code> with the following code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml">FROM<span class="w"> </span>node<span class="w">
+</span><span class="w"></span>RUN<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/usr/src/app<span class="w">
+</span><span class="w"></span>COPY<span class="w"> </span>index.js<span class="w"> </span>/usr/src/app<span class="w">
+</span><span class="w"></span>EXPOSE<span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w"></span>CMD<span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;node&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;/usr/src/app/index&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>To build a docker image of our newly awesome Node.js app from this docker file instructions we’ll write <code>docker build -t awesome .</code> in the command line, where our <code>Dockerfile</code> file is located.</p>
+<p>Now we have a docker image of our simple (and awesome) Node.js app, and we can create containers from that image. Let’s say we need 20 containers of that app, so we need an automated way to create those containers and manage them. Also we need a container with some HTTP server to route and load balance the requests to our Node.js containers.</p>
+<p> </p>
+<h2 id="2-enter-docker-compose">2. Enter Docker Compose</h2>
+<p>For our HTTP server we’ll use HAProxy, that means we need to create a container with HAProxy that will listen to port 80 and load balance the requests to the different Node.js containers on port 8080. To create our containers (Node.js apps and HAProxy) we’ll use Docker Compose, let’s write our <code>docker-compose.yml</code> file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">awesome</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>awesome<span class="w">
+</span><span class="w">   </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">     </span>- <span class="m">8080</span><span class="w">
+</span><span class="w">   </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">     </span>- SERVICE_PORTS=<span class="m">8080</span><span class="w">
+</span><span class="w">   </span><span class="k">deploy</span><span class="p">:</span><span class="w">
+</span><span class="w">     </span><span class="k">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
+</span><span class="w">     </span><span class="k">update_config</span><span class="p">:</span><span class="w">
+</span><span class="w">       </span><span class="k">parallelism</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">       </span><span class="k">delay</span><span class="p">:</span><span class="w"> </span>10s<span class="w">
+</span><span class="w">     </span><span class="k">restart_policy</span><span class="p">:</span><span class="w">
+</span><span class="w">       </span><span class="k">condition</span><span class="p">:</span><span class="w"> </span>on-failure<span class="w">
+</span><span class="w">       </span><span class="k">max_attempts</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="w">       </span><span class="k">window</span><span class="p">:</span><span class="w"> </span>120s<span class="w">
+</span><span class="w">   </span><span class="k">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">     </span>- web<span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="k">proxy</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>dockercloud/haproxy<span class="w">
+</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- awesome<span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- BALANCE=leastconn<span class="w">
+</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- /var/run/docker.sock<span class="p">:</span>/var/run/docker.sock<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">80</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span><span class="w">    </span><span class="k">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- web<span class="w">
+</span><span class="w">    </span><span class="k">deploy</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">placement</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">constraints</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>node.role<span class="w"> </span>==<span class="w"> </span>manager<span class="p">]</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">web</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>overlay<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Let’s explain what the hell is happening here. We create 2 services:</p>
+<ol>
+<li>The first service is our Node.js app (that call <code>awesome</code>). It builds that service from an image that call <code>awesome</code> (that we previously built). We expose port 8080, and add an environment variable named <code>SERVICE_PORTS</code> with the port we exposed (we do it for the HAProxy, I’ll explain why later on). We also create 20 replicas from that image (20 containers) and have some update and restart settings for them. The important thing to notice is that we put all those containers in a network called <code>web</code> (we create the network later, in the end of the file).</li>
+<li>The second service we create is <code>HAProxy</code> from the haproxy Docker (the compony) uses in their cloud (we don’t build it and doesn’t create a <code>Dockerfile</code> for it, we just specify from where to pull the image). It <code>depends_on</code> the <code>awesome</code> service, so it won’t boot until the <code>awesome</code> service is finished (i.e. all of the container are up and running). It’s also shared the <code>docker.sock</code> file (<code>volumes</code> field). This is the file the HAProxy container needs to look at to learn about the containers in it’s network (new and existing containers). We expose port 80, and put this container in the <code>web</code> network, In the <code>deploy</code> setting, we just tell it to always put this container on the manager node (this settings is related to Docker Swarm, when we have couple of node (i.e. servers).</li>
+<li>The last thing we do is to create the network (named <code>web</code>).</li>
+</ol>
+<p><figure><a class="lightgallery" href="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.jpeg" title="Our project looks good so far, and we almost at the finish line!" data-thumbnail="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.jpeg" data-sub-html="<h2>Our project looks good so far, and we almost at the finish line!</h2><p>Our project looks good so far, and we almost at the finish line!</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-sizes="auto"
+            data-srcset="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.jpeg, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.jpeg 1.5x, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.jpeg 2x"
+            data-src="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.jpeg"
+            alt="Our project looks good so far, and we almost at the finish line!" />
+    </a><figcaption class="image-caption">Our project looks good so far, and we almost at the finish line!</figcaption>
+    </figure></p>
+<h2 id="3-dockercloud-haproxy">3. DockerCloud HAProxy</h2>
+<p>For our HTTP Server we use HAProxy, but not the regular version of HAProxy, we use the version <a href="https://github.com/docker/dockercloud-haproxy" target="_blank" rel="noopener noreffer">docker uses in their cloud</a>
+. That’s why we set an environment variable named <code>SERVICE_PORTS</code> in our <code>awesome</code> service, because this is the ports that will be exposed to HAProxy (we can put multiple ports there by separating them with comma). We also set an environment variable named <code>BALANCE</code> to set the load balancing algorithm to be <code>leastconn</code> and not <code>roundrobin</code> (which is what set in default).</p>
+<h3 id="31-docker-swarm">3.1 Docker Swarm</h3>
+<p>Now let’s create a swarm (with one computer for now, but you can easily add more to the swarm). To do this we&rsquo;ll write <code>docker swarm init</code> and we created a swarm!! It’s also added our computer to the swarm, and because our computer is the first it’s also the manager of the swarm.</p>
+<p>The network, the services, and all the containers called <code>stack</code>. To create our stack we need to use <code>docker stack</code> command, but we want to point the stack to our <code>docker-compose.yml</code> file, so it’ll build the stuck according to our plan there. We can do it by writing <code>docker stack deploy --compose-file=docker-compose.yml prod</code>. we use the <code>deploy</code> command to deploy a new stack (we’ll also use it to update an existing stack), we add a flag to point it to our <code>docker-compose.yml</code> file. And finally we call our stack <code>prod</code> (this is what came up in my head when I wrote those lines, sorry).</p>
+<p> </p>
+<p>When we’ll hit <a href="http://localhost" target="_blank" rel="noopener noreffer">http://localhost</a>
+ we’ll get the container id in the response, and we can see it has a different id every request.</p>
+<p><figure><a class="lightgallery" href="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.png" title="Different container id every request" data-thumbnail="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.png" data-sub-html="<h2>Different container id evert request</h2><p>Different container id every request</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-sizes="auto"
+            data-srcset="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.png, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.png 1.5x, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.png 2x"
+            data-src="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.png"
+            alt="Different container id evert request" />
+    </a><figcaption class="image-caption">Different container id evert request</figcaption>
+    </figure></p>
+<p>Now let’s look at our services by writing <code>docker service ls</code> and we’ll see all of our services and replicas</p>
+<p><figure><a class="lightgallery" href="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.png" title="All of our docker services" data-thumbnail="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.png" data-sub-html="<h2>All of our docker services</h2><p>All of our docker services</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-sizes="auto"
+            data-srcset="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.png, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.png 1.5x, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.png 2x"
+            data-src="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.png"
+            alt="All of our docker services" />
+    </a><figcaption class="image-caption">All of our docker services</figcaption>
+    </figure></p>
+<p>We can also create a second version of our <code>awesome</code> app. Let’s change the code a little bit (let’s add some exclamation marks at the end):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">os</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">);</span>
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="sb">`&lt;h1&gt;I&#39;m </span><span class="si">${</span><span class="nx">os</span><span class="p">.</span><span class="nx">hostname</span><span class="p">()</span><span class="si">}</span><span class="sb">!!!&lt;/h1&gt;`</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>So we need to build the image again, but this time it’s the second version of the app so we’ll write <code>docker build -t awesome:v2 .</code> and we’ll create an image called <code>awesome</code> but with a <code>v2</code> tag. To update our containers in the <code>awesome</code> service to use the <code>v2</code> version of our app (without stop the service) we’ll write <code>docker service update --image awesome:v2 prod_awesome</code> and our service called <code>awesome</code>, in <code>prod</code> stack, will update it’s containers five by five to use the second version of our app (why 5 containers at a time? because we wrote <code>parallelism: 5</code> in our <code>docker-compose.yml</code> file.</p>
+<p>We can see our docker slowly (but surly) kill the old containers and create new ones with the second version of our app. And when we hit <a href="http://localhost" target="_blank" rel="noopener noreffer">http://localhost</a>
+ we still get a response, there is no downtime.</p>
+<p><figure><a class="lightgallery" href="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.png" title="Some containers are already use the second version. No Downtime (:" data-thumbnail="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.png" data-sub-html="<h2>Some containers are already use the second version. No Downtime (:</h2><p>Some containers are already use the second version. No Downtime (:</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-sizes="auto"
+            data-srcset="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.png, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.png 1.5x, /images/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.png 2x"
+            data-src="/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.png"
+            alt="Some containers are already use the second version. No Downtime (:" />
+    </a><figcaption class="image-caption">Some containers are already use the second version. No Downtime (:</figcaption>
+    </figure></p>
+<p>Also, if we want to scale the service to more than 20 containers, we can do it with only one command: <code>docker service scale prod_awesome=50</code> and docker will start 30 more containers from the <code>awesome:v2</code> image.</p>
+<p> </p>
+<h2 id="4-summery">4. Summery</h2>
+<p>So, we don’t need to create hundreds of containers manually. We don’t need to place every container of our app in a different port. We don’t need to manually write our containers ip and port in ngninx/haproxy <code>conf</code> file. And we can do it with multiple servers (with docker swarm), with multiple services (with docker compose), update our application without downtime, and scale it up (or down) without downtime.</p>
+<p>Hope it’s been practical, and I would love to hear how you do it in your compony!</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>The article was updated on 2020-04-20&nbsp;<a class="git-hash" href="https://github.com/nirgn975/stories-of-a-lifelong-student.git/commit/2d15799dc4a75d97da1c1f7add0c7857e4c5a1db" target="_blank" title="commit by Nir Galon(nir@galon.io) 2d15799dc4a75d97da1c1f7add0c7857e4c5a1db: Start the blog in hugo and english">
+                            <i class="fas fa-hashtag fa-fw"></i>2d15799</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2017/07/load-balancing-applications-with-haproxy-and-docker/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/" data-title="Load Balancing Applications with HAProxy and Docker" data-via="nirgn975" data-hashtags="development,contribution,docker,haproxy,load balance,cloud,devops,nginx"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/" data-hashtag="development"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/" data-title="Load Balancing Applications with HAProxy and Docker" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/"><i class="fab fa-reddit fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/development">development</a>,&nbsp;<a href="/tags/contribution">contribution</a>,&nbsp;<a href="/tags/docker">docker</a>,&nbsp;<a href="/tags/haproxy">haproxy</a>,&nbsp;<a href="/tags/load-balance">load balance</a>,&nbsp;<a href="/tags/cloud">cloud</a>,&nbsp;<a href="/tags/devops">devops</a>,&nbsp;<a href="/tags/nginx">nginx</a></section>
+        <section>
+            <span><a href="javascript:window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/2017/08/jekyll-starter-kit-generator-2.1.0-is-out/" class="next" rel="next" title="Jekyll Starter Kit generator 2.1.0 is out!">Jekyll Starter Kit generator 2.1.0 is out!<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div class="comment"><div id="gitalk"></div><script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                var gitalk = new Gitalk({
+                    id: '2017-07-11 12:53:47 \x2b0300 IDT',
+                    title: 'Load Balancing Applications with HAProxy and Docker',
+                    clientID: 'Iv1.725a4125ddf861e2',
+                    clientSecret: '9fb3d81a9f4df0278fa3e8033ff4b3e1c68c9a20',
+                    repo: 'stories-of-a-lifelong-student',
+                    owner: 'nirgn975',
+                    admin: ['nirgn975'],
+                    body: decodeURI(location.href),
+                });
+                gitalk.render('gitalk');
+            });
+        </script>
+        <noscript>
+            Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a>
+        </noscript></div>
+    </article></div>
+            </main><footer class="footer">
+    <div class="copyright"><div class="copyright-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="external nofollow noopener noreffer"><i class="far fa-heart fa-fw"></i> LoveIt</a>
+        </div>
+
+        <div class="copyright-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://nir.galon.io/" target="_blank">Nir Galon</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+</footer>
+</div><a href="#" class="dynamic-to-top animated faster" id="dynamic-to-top">
+            <i class="fas fa-chevron-up fa-fw"></i>
+        </a><script>
+        document.addEventListener('DOMContentLoaded', function () {
+            lightGallery(document.getElementById('content'), {
+                selector: '.lightgallery',
+                speed: 400,
+                hideBarsDelay: 2000,
+                thumbnail: true,
+                exThumbImage: 'data-thumbnail',
+                thumbWidth: 80,
+                thumbContHeight: 80,
+            });
+        });
+    </script>https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.csshttps://github.com/sachinchoolur/lightGallery/blob/master/src/css/lightgallery.csshttps://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.jshttps://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16/dist/smooth-scroll.polyfills.min.jshttps://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.jshttps://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.jshttps://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.jshttps://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-thumbnail.min.jshttps://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-zoom.min.js<script src="/js/theme.min.js"></script></body>
+</html>

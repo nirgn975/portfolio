@@ -4,7 +4,6 @@ date: 2017-07-11T12:53:47+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
-license: ""
 
 tags: ["development", "contribution", "docker", "haproxy", "load balance", "cloud", "devops", "nginx"]
 categories: ["development"]

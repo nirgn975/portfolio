@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Stories of a Lifelong Student</title>
+    <link>http://lifelongstudent.io/posts/</link>
+    <description>Recent content in Posts on Stories of a Lifelong Student</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The Docsy Authors</copyright>
+    <lastBuildDate>Tue, 21 Apr 2020 15:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://lifelongstudent.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>New design for the blog!</title>
+      <link>http://lifelongstudent.io/2020/04/new-design-for-the-blog/</link>
+      <pubDate>Tue, 21 Apr 2020 15:00:00 +0300</pubDate>
+      
+      <guid>http://lifelongstudent.io/2020/04/new-design-for-the-blog/</guid>
+      <description>I&amp;rsquo;m really excited for this! Don&amp;rsquo;t ask me why because I can&amp;rsquo;t explain it. This is not the first time I make a new design for this blog, it&amp;rsquo;s actually the fifth time! and yet, I feel this is the best one yet. It have everything I ever wanted in my blog.
+ 1. New Design I can&amp;rsquo;t even start to describe to you how much I feel this design is perfect for this blog.</description>
+    </item>
+    
+    <item>
+      <title>Jekyll Starter Kit generator 2.1.0 is out!</title>
+      <link>http://lifelongstudent.io/2017/08/jekyll-starter-kit-generator-2.1.0-is-out/</link>
+      <pubDate>Thu, 03 Aug 2017 18:19:10 +0300</pubDate>
+      
+      <guid>http://lifelongstudent.io/2017/08/jekyll-starter-kit-generator-2.1.0-is-out/</guid>
+      <description>Creating Jekyll progressive web apps has never been easier!
+ 1. Jekyll Starter Kit First thing first, for those of you who has yet to hear about the Jekyll Starter Kit generator, it’s a Yeoman generator for creating Jekyll projects or really Jekyll static websites.
+It’ll create for you the default Jekyll website template, with all the best practices from Google Web Starter Kit , all the things you need for your website to be a PWA (progressive web app), and some more cool stuff.</description>
+    </item>
+    
+    <item>
+      <title>Load Balancing Applications with HAProxy and Docker</title>
+      <link>http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/</link>
+      <pubDate>Tue, 11 Jul 2017 12:53:47 +0300</pubDate>
+      
+      <guid>http://lifelongstudent.io/2017/07/load-balancing-applications-with-haproxy-and-docker/</guid>
+      <description>A tutorial for a real world docker use case.
+Recently I read a lot of articles about load balancing applications with Docker, Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.
+There are a lot of articles about this topic, but sadly the use case they present is quit simple and because of that they really don’t help.</description>
+    </item>
+    
+  </channel>
+</rss>
