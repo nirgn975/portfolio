@@ -21,7 +21,7 @@ privacy_policy = "https://policies.google.com/privacy"
   # site default theme ("light", "dark", "auto")
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
-  gitRepo = "https://github.com/nirgn975/stories-of-a-lifelong-student.git"
+  gitRepo = "https://github.com/nirgn975/stories-of-a-lifelong-student"
   # LoveIt   v0.1.1
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
@@ -105,9 +105,9 @@ privacy_policy = "https://policies.google.com/privacy"
     [params.comment.gitalk]
       enable = true
       owner = "nirgn975"
-      repo = "stories-of-a-lifelong-student"
-      clientId = "Iv1.725a4125ddf861e2"
-      clientSecret = "9fb3d81a9f4df0278fa3e8033ff4b3e1c68c9a20"
+      repo = "https://github.com/nirgn975/stories-of-a-lifelong-student.git"
+      clientId = "880ec2caa2220cd1b9c8"
+      clientSecret = "acaa67efba02ae928a9137b1357ce42d85e0e14a"
 
   # site verification code for Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
@@ -135,42 +135,42 @@ privacy_policy = "https://policies.google.com/privacy"
   # CSS and JS Files CDN
   [params.cdn]
     # fontawesome-free@5.12.1 https://fontawesome.com/
-    fontawesomeFreeCSS = 'https://kit.fontawesome.com/9738f200c1.js'
+    fontawesomeFreeCSS = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'
     # animate.css@3.7.2 https://github.com/daneden/animate.css
     animateCSS = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'
     # smooth-scroll@16.1.2 https://github.com/cferdinandi/smooth-scroll
-    smoothScrollJS = 'https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16/dist/smooth-scroll.polyfills.min.js'
+    smoothScrollJS = 'https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'
     # sharer@0.4.0 https://github.com/ellisonleao/sharer.js
-    sharerJS = 'https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js'
+    sharerJS = 'https://cdnjs.cloudflare.com/ajax/libs/sharer.js/0.4.0/sharer.min.js'
     # lazysizes@5.2.0 https://github.com/aFarkas/lazysizes
-    lazysizesJS = 'https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js'
+    lazysizesJS = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js'
     # lightgallery@1.1.3 lg-thumbnail@1.1.0 lg-zoom@1.1.0 https://github.com/sachinchoolur/lightgallery.js
-    lightgalleryCSS = 'https://github.com/sachinchoolur/lightGallery/blob/master/src/css/lightgallery.css'
-    lightgalleryJS = 'https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.js'
-    lightgalleryThumbnailJS = 'https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-thumbnail.min.js'
-    lightgalleryZoomJS = 'https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/modules/lg-zoom.min.js'
+    lightgalleryCSS = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.1.3/css/lightGallery.css'
+    lightgalleryJS = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.1.3/js/lightGallery.min.js'
+    lightgalleryThumbnailJS = 'https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.1.0/lg-thumbnail.min.js'
+    lightgalleryZoomJS = 'https://cdnjs.cloudflare.com/ajax/libs/lg-zoom/1.1.0/lg-zoom.min.js'
     # typeit@6.5.1 https://github.com/alexmacarthur/typeit
-    typeitJS = 'https://cdn.jsdelivr.net/npm/typeit@VERSION_NUMBER/dist/typeit.min.js'
+    typeitJS = 'https://cdnjs.cloudflare.com/ajax/libs/typeit/6.5.1/typeit.min.js'
     # katex@0.11.1 https://github.com/KaTeX/KaTeX
-    katexCSS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css'
-    katexJS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js'
-    katexAutoRenderJS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js'
-    katexCopyTexCSS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.css'
-    katexCopyTexJS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js'
-    katexMhchemJS = 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js'
+    katexCSS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css'
+    katexJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js'
+    katexAutoRenderJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/auto-render.min.js'
+    katexCopyTexCSS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/copy-tex.min.css'
+    katexCopyTexJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/copy-tex.min.js'
+    katexMhchemJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/mhchem.min.js'
     # mermaid@8.4.8 https://github.com/knsv/mermaid
-    mermaidJS = 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.0/mermaid.min.js'
+    mermaidJS = 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.js'
     # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
-    aplayerCSS = 'https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css'
-    aplayerJS = 'https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js'
+    aplayerCSS = 'https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css'
+    aplayerJS = 'https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js'
     # meting@2.0.1 https://github.com/metowolf/MetingJS
     metingJS = 'https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js'
     # echarts@4.6.0 https://echarts.apache.org/
-    echartsJS = 'https://cdn.jsdelivr.net/npm/echarts@4.7.0/dist/echarts.min.js'
+    echartsJS = 'https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts.min.js'
     echartsMacaronsJS = ''
     # gitalk@1.6.2 https://github.com/gitalk/gitalk
-    gitalkCSS = 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css'
-    gitalkJS = 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js'
+    gitalkCSS = 'https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.6.2/gitalk.min.css'
+    gitalkJS = 'https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.6.2/gitalk.min.js'
 
 # Markup related configuration in Hugo
 [markup]
