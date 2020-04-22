@@ -1,12 +1,12 @@
 ---
 title: "Jekyll Starter Kit generator 3.x.x"
-date: 2020-04-23T11:00:00+03:00
+date: 2020-04-22T11:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 
 tags: ["jekyll", "contribution", "github", "generator", "starter kit", "yeoman", "pwa", "npm"]
-categories: ["development"]
+categories: ["contribution"]
 hiddenFromHomePage: false
 
 featuredImage: "/images/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.jpg"

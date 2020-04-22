@@ -6,7 +6,7 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 
 tags: ["hugo", "design", "blog", "github"]
-categories: ["development"]
+categories: ["miscellaneous"]
 hiddenFromHomePage: false
 
 featuredImage: "/images/logo.png"
@@ -39,7 +39,7 @@ The navigation at the upper right side of the website contains all the configura
 
 #### 1.1.1 Posts
 
-The [Posts](/posts) page will have all of the posts of the blog, it'll be ordered by year and will show the title of the post and the date it was published.
+The [Posts](/posts) page will have all of the posts of the blog, it'll be ordered by year and will show the title of the post and the date it was published. This is the simplest way to go over old posts and just browse them.
 
 #### 1.1.2 Tags
 
@@ -59,24 +59,46 @@ The [About](/about) page is a simple one, it's just one static page with some in
 
 #### 1.1.6 Dark Mode!
 
-People that know me, know how much I love dark mode! I can't explain it, it's just easier on my eyes.
+People that know me, know how much I love dark mode! I can't explain it, it's just easier on my eyes. I loved the old design of the blog, but not having a dark mode was a major bug. So the new design solved this by implement a tiny button on the top right corner to toggle between light and dark mods.
 
-I loved the old design on the blog, but not having a dark mode was a major bug. So the new design 
+This was a big motivation boost for me to move on from the old design. The toggle don't just add dark mode, it enable the option to choose for each user what is better for him/she, which is super important to me.
+
+&nbsp;
 
 ### 1.2 Post
-Something about the new Post design.
+
+In the beginning of the old design I just have a title, text, pictures and code blocks. After some time I added the publish date of the post and how much time (approximately) it'll take to read the post (based on the number of words). In this new design we keep those features but add a content table to the right of the post, the category the post belong to, the tags list at the bottom of the post, and much needed share buttons for easy sharing via social media.
+
+In the technical side of the post I added a few futures that will help me write better readable text, for example [KaTeX](https://github.com/KaTeX/KaTeX) to render TeX math on the screen and [mermaid](https://github.com/mermaid-js/mermaid) to generates diagrams and flowcharts.
+
+&nbsp;
 
 ### 1.3 Comments
-Something about the Comments system.
+
+When I moved from blogger and then tried Wordpress for a bit, I had a comment system in place. But when I moved to static sites for a while I didn't have any comment system and I was missing that. Missing the interactions and the user that tried for themselves the things I wrote about and got some errors and needed help. I know I need help somethings when the documentation of a project isn't clear enough.
+
+So after a while I implement [disqus](https://disqus.com/) but it was out of necessity. I didn't like it because it has a lot of privacy issues, it was really slow and the user couldn't make an anonymous comment (they force you to login via one of the social networks login buttons or sign up and open an account in their website).
+
+&nbsp;
+
+A new design make a new opportunity to change all of that! I searched for days for the best commenting system for static websites that will keep the user privacy, let the user make an anonymous comment, and will be beautiful and easy to use. And I think i found it! [commento](https://www.commento.io/) is (in my research) the best there is out there right now, it fulfills all my requirements and more.
+
+![commento.io Platform](/images/posts/2020/new-design-for-the-blog/commento-io-platform.jpg "commento.io Platform")
 
 &nbsp;
 
 ## 2. New language
 
-I'm also decided to make the move and start writing in English (I think it have a big part of my excitement). English is not my native language (Hebrew is) so don't expect perfect. But I think I'm good enough to make it readable and I'm sure it'll get better over time.
+The hardest decision I had to make is to move to English or stay in Hebrew. The user base in Hebrew is very small, but there is something spacial and important in making quality content available to all (and by all I mean people how don't know Enligsh as a second language). And I did do that for years. But it's time to grow, my perspective has changed and I now think it's a must to at least be comfortable to read in English if you want to be successful in tech. I want to believe this will not be an issue to my Israeli readers and from now I'll start writing in English (I think it have a big part of my excitement).
+
+English is not my native language (Hebrew is) so don't expect perfect. But I think I'm good enough to make it readable and I'm sure it'll get better over time, so bear with me.
+
+&nbsp;
 
 ## 3. Summary
 
-The project has been updated, maintained, bugs are squashed and everything is looking good and work great! I'm really happy with it's current situation.
+So the new design of the blog is beautiful, useful, and I'm very excited to move to writing posts in English.
 
-Just one more thing. If you ever used or try this project, I'll be thrilled to get a link or hear from you how you use it, and what it helps you accomplished. I want to hear about your issues and how this project can help you solve them.
+I have a lot of great ideas for new posts and I can't wait to start writing them. Here is a little glimpse for one of them: a series of posts to build a little Twitter clone website with a live GitHub repo that will update at any post (so you could jump and `checkout` to the relevant post if you want), and in production level (deploy it to the [Google cloud](https://cloud.google.com/), monitor, backups, etc). We'll plan our architecture together, write a list of features (based on the real Twitter), build the client ([Angular](https://angular.io/)) and the server ([Node.js](https://nodejs.org)), write tests, build CI/CD with GitHub actions and GCP tools, and use [Docker](https://www.docker.com/) and [kubernetes](https://kubernetes.io/) for deployment at scale. All of that step by step, it'll be fun!
+
+There is a lot to wait for! (;

@@ -6,7 +6,7 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 
 tags: ["jekyll", "contribution", "github", "generator", "starter kit", "yeoman", "pwa", "npm"]
-categories: ["development"]
+categories: ["contribution"]
 hiddenFromHomePage: false
 
 featuredImage: "/images/posts/2017/jekyll-starter-kit-generator-2.1.0-is-out/jekyll-starter-kit.png"

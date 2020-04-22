@@ -12,22 +12,16 @@ To install this project, you'll need the following things installed on your mach
 2. [NodeJS](http://nodejs.org) - use the installer.
 3. [Firebase CLI](https://github.com/firebase/firebase-tools).
 
-## Local Installation
+## Development
 
 1. Clone this repo, or download it into a directory of your choice.
-2. Inside the directory, run `npm install`.
-
-## Usage
-
-**Development mode**
-
-This will run hugo local dev server for file watching, browser synchronisation, auto-rebuild, CSS injecting etc.
+2. Inside the directory, run
 
 ```shell
 $ hugo serve -D
 ```
 
-**Deploy mode**
+## Deployment
 
 First you need firebase
 ```shell
@@ -37,6 +31,13 @@ $ npm install -g firebase-tools
 Then easily deploy the blog
 ```shell
 $ hugo && firebase deploy
+```
+
+If you want to build it locally do
+
+```shell
+$ export HUGO_ENV=devlopment
+$ hugo
 ```
 
 ## Tests

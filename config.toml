@@ -34,7 +34,7 @@ privacy_policy = "https://policies.google.com/privacy"
   # Footer Copyright Info
   [params.footer]
     # Site creation time
-    since = 2019
+    since = 2012
     # ICP info only in China (HTML format is allowed)
     icp = ""
     # license info (HTML format is allowed)
@@ -101,13 +101,6 @@ privacy_policy = "https://policies.google.com/privacy"
   # Comment Config
   [params.comment]
     enable = true
-    # Gitalk Comment Config (https://github.com/gitalk/gitalk)
-    [params.comment.gitalk]
-      enable = true
-      owner = "nirgn975"
-      repo = "https://github.com/nirgn975/stories-of-a-lifelong-student.git"
-      clientId = "880ec2caa2220cd1b9c8"
-      clientSecret = "acaa67efba02ae928a9137b1357ce42d85e0e14a"
 
   # site verification code for Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
@@ -139,7 +132,7 @@ privacy_policy = "https://policies.google.com/privacy"
     # animate.css@3.7.2 https://github.com/daneden/animate.css
     animateCSS = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'
     # smooth-scroll@16.1.2 https://github.com/cferdinandi/smooth-scroll
-    smoothScrollJS = 'https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js'
+    smoothScrollJS = 'https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16.1.2/dist/smooth-scroll.min.js'
     # sharer@0.4.0 https://github.com/ellisonleao/sharer.js
     sharerJS = 'https://cdnjs.cloudflare.com/ajax/libs/sharer.js/0.4.0/sharer.min.js'
     # lazysizes@5.2.0 https://github.com/aFarkas/lazysizes
@@ -279,6 +272,6 @@ privacy_policy = "https://policies.google.com/privacy"
     identifier = "github"
     pre = "<i class='fab fa-github fa-fw'></i>"
     name = ""
-    url = "https://github.com/nirgn975/stories-of-a-lifelong-student"
+    url = "https://github.com/nirgn975"
     title = "GitHub"
     weight = 5

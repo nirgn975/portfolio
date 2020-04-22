@@ -6,7 +6,7 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 
 tags: ["development", "contribution", "docker", "haproxy", "load balance", "cloud", "devops", "nginx"]
-categories: ["development"]
+categories: ["contribution"]
 hiddenFromHomePage: false
 
 featuredImage: "/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.jpeg"
