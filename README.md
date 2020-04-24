@@ -14,7 +14,7 @@ To install this project, you'll need the following things installed on your mach
 
 ## Development
 
-1. Clone this repo, or download it into a directory of your choice.
+1. Clone this repo `git clone --recurse-submodules git@github.com:nirgn975/stories-of-a-lifelong-student.git`
 2. Inside the directory, run
 
 ```shell
