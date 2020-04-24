@@ -22,12 +22,16 @@ share:
 comment: true
 ---
 
-Something about this chapter.
+First thing we need to do, before we even start writing a single line of code, is to plan. Plan our MVP.
+
+How it's going to look? What features it will have? Wha a user can or cannot do? Will there will be somethings a user can do without sign in? How our API will look like? How our Database Architecture will look like? How the client and server will communicate? Where are we planning to deploy it and how?
+
+A lot of questions to answer in one post, but we'll do our best!
 
 
 ## 1. Planning Our MVP
 
-What is even mean MVP? MVP is an acronyms of minimum viable product. It's a development technique in which a new product is developed with sufficient features to satisfy early adopters. The final, complete set of features is only designed and developed after considering feedback from the product's initial users.
+What is even mean MVP? MVP is an acronyms of *minimum viable product*. It's a development technique in which a new product is developed with sufficient features to satisfy early adopters. The final, complete set of features is only designed and developed after considering feedback from the product's initial users.
 
 An MVP has three key characteristics:
 1. It has enough value that people are willing to use it or buy it initially.
@@ -38,40 +42,42 @@ Let's start to think about the minimal number of futures, from a high point of v
 
 ### 1.1. User
 
-- We need users of course, they should have a way to sign-up and login with a username and password. We should validate their account by sending an email to their email address.
+- We need users of course, they should have a way to sign-up and login with a username and a password. And we should probably validate their account by sending an email to their email address to complete the sign-up process.
 - Every user should be able to do something called Tweet, send a public message that is limited to 140 characters.
-- Every user should have a profile page, with their basic information, and a list of all their tweets ordered from the last one by time (timeline page).
-- Every user can follow and be followed by other users.
-- Every user have a feed.
+- Every user should have a profile page, with their basic information, and a list of all their tweets ordered from the last one by time (called timeline page in Twitter).
+- Every user can follow and be followed by other users (more on that in [section 1.2](#12-following-and-followers)).
+- Every user have a feed (more on that in [section 1.5](#15-feed)).
 
 ### 1.2. Following and Followers
 
-- When a user decide to follow some other user, he will see all of his tweets from the begging (and not from when he start to follow that user).
+- A user need to actively decide to follow another user, e.g. to go to user 2 profile page and press on the `follow` button.
+- The user 1 (who been follow) do not need to accept the following and cannot decline it, but he can see the list of users who are following after him.
+- When a user (user 1) decide to follow some other user (user 2), he (user 1) will see all of user 2 tweets from the begging (and not from when user 1 start to follow user 2).
 
 ### 1.3. Tweet
 
 - Every tweet should be limited to 140 characters.
-- Every tweet should have replays, they are also a tweet, so they are also limited to 140 characters.
+- Every tweet should have `replays`, they are also a tweet, so they are also limited to 140 characters.
 - Every tweet have a `like` counter, which reflects how many people are liking the content of the tweet.
 - Everyone can see the `like` counter and the list of people who `like` that tweet.
 - A tweet will contain only text and images.
 - All tweets need to be linkable (have a unique link people can share).
-- When enter a tweet the user should be able to see all of the comments (also other tweets) of that tweet.
+- When enter a tweet page, a user should be able to see all of the comments (also other tweets) of that tweet.
 
 ### 1.4. Replays
 
-- A replay should be seen in the feed as a tweet.
+- A replay should be seen in the feed as a regular tweet.
 - It should reflect to which tweet the current tweet is replay to.
 - When enter to a replay, the user should be able to scroll up and see the original tweet this tweet is replays to.
 
 ### 1.5. Feed
 
 - The feed will be custom to every user.
-- The feed will show the tweets and replays other users tweeted. The only tweets that will be shown on the user feed are tweets from people he follows (not random people and not people who are follows him).
+- The feed will show the tweets and replays other users tweeted. The only tweets that will be shown on the user feed are tweets from users he follows (not random users and not users who are follows him).
 
 ### 1.6. What we are not want to do for this MVP
 
-This may not seem like a lot of work, but it does. We don't want to do things we don't know if our users will use. And the strongest reason to not build those features is that this book needs to end sometime soon (:
+This may not seem like a lot of work, but it does. We don't want to do things we don't know if our users will use. And the strongest reason to not build those features is that this series needs to end sometime (:
 
 - We don't want to `retweet`.
 - We don't want to add gifs or videos to a tweet.
@@ -80,19 +86,19 @@ This may not seem like a lot of work, but it does. We don't want to do things we
 - We don't want to `pin` tweets.
 - We don't do `Trends`.
 - We don't suggest new people to follow.
-- We don't plan to scale for 1 billion users, not even close to that. We'll think about performance but it's not the purpose of this book, so don't get distracted.
+- We don't plan to scale for 1 billion users, not even close to that. We'll think about performance but it's not the purpose of this series, so don't get distracted.
 
-I think we have a good set of features, let's plan our architecture and database in the next chapter.
+I think we have a good set of features, let's plan our architecture and database next.
 
 &nbsp;
 
-## 2. Architecture
+## 2. High Level Architecture
 
-The next step we need to do is to plan our architecture. The first thing I decide is to use as much SASS I can. The reasons are:
+The next step we need to do is to plan our architecture. The first thing I decide is to use as much SASS as I can. The reasons are:
 
 - I'm a one man show here and I can't do everything alone.
-- Most of the times it's better to pay to experts to do what they're do best, and do not get distracted from our product.
-- This book needs to end sometime, it cannot cover all the things.
+- Most of the time it's better to pay to experts to do what they're do best, and do not get distracted from our product.
+- This series needs to end sometime, it cannot cover all the things.
 
 So, we're not going to host our website ourselves, we'll need [Google Cloud Platform](https://console.cloud.google.com/) (GCP for short). If it's your first time on their platform they're offer a credit worth $300, so just use your gmail and don't worry about payment, if you're already used your credit, you have 3 options:
 
@@ -103,51 +109,93 @@ So, we're not going to host our website ourselves, we'll need [Google Cloud Plat
 The services we're going to use on GCP are:
 
 - [Kubernetes Engine](https://cloud.google.com/kubernetes-engine) will manage our backend via a Docker containers (more on that in the future), and load balance between couple of backend instances (replicas), check our containers health, etc.
-- A [Storage](https://cloud.google.com/storage) to create a 2 buckets, first to store our Client/UI (angular files, static files). Second to store all of our media files (mainly pictures).
-- [Logging](https://cloud.google.com/logging) to collect all of the logs we print to the stdout.
-- [Error Reporting](https://cloud.google.com/error-reporting) to collect all of the errors that are logged to the stdout.
+- A [Storage](https://cloud.google.com/storage) to create a 2 buckets, first to store our Client/UI (angular files, static files). Second to store all of our media files (mainly pictures from users and tweets).
+- [Logging](https://cloud.google.com/logging) to collect all of the logs we print to the `stdout`.
+- [Error Reporting](https://cloud.google.com/error-reporting) to collect all of the errors that are logged to the `stdout`.
 - [Monitoring](https://cloud.google.com/monitoring) to monitor our API and alert us if anything goes wrong.
-- [Cloud](https://cloud.google.com/cloud-build) Build to build our Docker images and `apply` them to Kubernetes.
+- [Cloud](https://cloud.google.com/cloud-build) Build our Docker images and `apply` them to Kubernetes (the CD part in CI/CD).
 
 ### 2.1. Database
 
 Our database of choice is MongoDB. On our local machine we'll use a single node of Mongo and Robo 3T as our GUI (to see what is going on inside of our database easily). But on the cloud we don't want to create an instance of MongoDB and manage it alone (update it, manage master/slave instances, automatically backup, round [robin backups](https://en.wikipedia.org/wiki/Round-robin_scheduling), check once in a while a backups is good and we are able to restore from it, etc).
 
-So in the our production we're going to use MongoDB cloud called [Atlas](https://www.mongodb.com/cloud/atlas/lp/try2). We'll talk about that when we'll be ready to upload our project to the cloud.
+So in the our production we're going to use MongoDB cloud called [Atlas](https://www.mongodb.com/cloud/atlas/lp/try2). To been able to connect it to our GKE (Google Kubernetes Engine) we have to use at least M10 tier. This means it's going to cost us money, M10 (3 nodes replicas) with 10GB storage (which is the minimum and is more then enough for us) cost $0.09/hr.
 
-### 2.2. Architecture Schema
+So, when we'll get there I'll also write a section to deploy a single node of MongoDB to our cluster (that we are already using in GCP). This is in no way close to been production ready. But it's here for people that cannot afford the cost of MongoDB cloud and want to continue with the series and deploy their website to the cloud. I'll not expend on that, it'll be a "development ready" solution, and the rest of that post will be focus on connecting our MongoDB Atlas instance to GCP for "production ready" level.
 
-Here is our schema:
+### 2.2. More Tools
 
-![git bash output](/images/posts/2020/chapter-1-simple-twitter/macbook_git_installed.jpg "git bash output")
+We'll also use some more tools like GitHub repositories and GitHub actions (for the CI part of CI/CD), but we'll use public repos (repositories) so those will be free of charge.
 
+### 2.3. Architecture Schema
 
-Every request to our website in going to first hit our frontend bucket (our angular app). From there we'll do a request to our backend to get the data we need, using a [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer) we'll write. Some of our endpoint will be protected (for example to post a tweet for a user we need to verify the request is sent from that user, we'll a `token` to do that, more on that in the future). From our backend we'll go to our database (MongoDB in our case) to get the data we need, we'll probably do some other things and then return a response to our client (frontend), everything we'll do on our backend (or server) we'll log to `stdout` so other services on the cloud (that we'll setup) will be able to collect and analyze our logs to give us a picture on what is happening on our product. That will also help us to monitor it, and catch and fix bugs.
+How we're going to connect everything? Here is our technical product schema:
 
-Last thing is our media bucket. It'll store media files we'll upload from our backend service. When we'll return a response to our frontend (client), some of the response will be pure data that we'll show to the user, and some will be URL for picture and a like. Some of the pictures will be pictures from other locations on the internet and some will be from our bucket. Once we'll return the user (browser) a URL and our code in the client side will put those url in an `img` html tag, the browser will automatically go to this URL to get the image and show it, so your bucket need to be public and accessible.
+![Architecture Schema](/images/posts/2020/chapter-2-simple-twitter/architecture-schema.png "Architecture Schema")
+
+Every request to our website in going to first hit our domain. From there it'll get to a load balancer how sits in front of our bucket and will serve the user the static files in the bucket (our Angular app).
+
+Then the browser will probably request some images (from the static bucket) and in parallel the code in the frontend will send requests to our backend to get the data we need (in a form of [JSON format](https://en.wikipedia.org/wiki/JSON)), using a [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer) we'll write in our backend.
+
+Some of the endpoint will be protected, the user will have to sign in before they use them and will get a `token`, with that token he'll send a request to the backend and if the token is valid he'll get the data he need or post a new data (tweet), etc.
+
+The backend has couple of instances and have an `nginx` in front of them for reverse proxy and load balancing. Every request will first hit the `nginx` (represented as *Cloud Load Balancing* on our schema) and then will get to one of them backend instances. When the backend code will need the database to make a query it'll call it using `mongoose` in a regular fashion. In our environment variables we'll make a distinction between `dev` and `prod` environments and will call our MongoDB Atlas Cloud cluster.
+
+Every request or error will be logged to `stdout`. And other services in GCP (that we'll setup) will be able to collect and analyze our logs to give us a pictures of what is happening on our product. That will also help us to monitor it, and catch and fix bugs.
+
+### 2.4. CI / CD  Pipleline
+
+The way we'll deploy new code to the cloud will use GitHub actions, and GCP Cloud Build triggers.
+
+![CI/CD Schema](/images/posts/2020/chapter-2-simple-twitter/ci-cd-schema.png "CI/CD Schema")
+
+In our repo we'll have GitHub action that run a linter, run the tests and make sure there isn't any error when build the projects. When we'll merge Pull Requests to the `master` branch, the action will run and if everything is good it'll create a new tag for the new commit.
+
+On the other hand, we'll use GCP Cloud Build trigger to catch new tags in the repos and using `cloudbuild.yaml` file (that is the default name of the file that cloudbuild is expecting) we'll build our project (backend or frontend, every repo will have it's own `cloudbuild.yaml` file with a set of instructions on how to build that project).
+
+The backend will build a Docker image (using a `Dockerfile`), will host it on GCP Cloud Registry and will `apply` the new kubernetes yaml files so that kubernetes will take the new Docker image.
+
+The frontend will build the Angular app and will copy the files to a public bucket (instead of the old files that was there before).
 
 &nbsp;
 
 ## 3. Screenshots
 
-n order to be on the same page I take a bunch of screenshots of Tweeter and cleaned it up a bit (remove some of the feature we'll not build), let's go over them and see what we're building. This will determine the endpoints and the database schema.
-First thing first, the home page when we are not connected
-Press on Sign Up
-Press on Log In
-User Feed
-User Timeline / Likes
-User Following / Followers
-User Settings Page
-Search
-Tweet
-Tweet Likes
-Tweet via URL (when not logged in)
+In order to be on the same page I took a bunch of screenshots of Tweeter and cleaned it up a bit (remove some of the feature we'll not build), let's go over them and see what we're building.
+
+![Home Page](/images/posts/2020/chapter-2-simple-twitter/twitter-home-page.jpg "Home Page")
+
+After we hit the Home Page we can *Sign up* or *Log in*, in twitter the *Sign-up* button will bring a popup and the *Log in* will move us to a new page. We'll not do data, the *Sign up* will bring a popup with couple of `input`s to fill to sign up, and the *Log in* will just try to login the user using the `username` and `password` `input`s above.
+
+![Feed Page](/images/posts/2020/chapter-2-simple-twitter/twitter-feed-page.jpg "Feed Page")
+
+When the user logged in, or sign up and activate his account via the email confirmation he will get to the Feed Page. This is a list of tweets from the users that he follows, ordered by time (the most recent is at the top).
+
+This is the main page of the website. From this page he can post a new tweet (at the top of the feed there is a `textarea`), and at the left side there is the navigation of the website. In the navigation there are links to: *Notifications* Page, *Profile* Page, and *Settings* page.
+
+![Profile Page](/images/posts/2020/chapter-2-simple-twitter/twitter-profile-page.jpg "Profile Page")
+
+The Profile page (or timeline) has the same navigation in the left side, but in the right side of the page, instead of the feed, we see at the top the general user information, and under that a tab to see the user tweets by:
+- *Tweets* (or timeline): this is all the user tweets in order (recent at the top).
+- *Tweets & replies*: this will show all of the user tweets include the tweets that are replies to other users tweets.
+- *Media*: Tweets that include some media type (in our case it can include only images).
+- *Likes*: Tweets of other users that this users liked.
+
+![Followers & Following Page](/images/posts/2020/chapter-2-simple-twitter/twitter-followers-and-following-page.jpg "Followers & Following Page")
+
+The Followers and Following Page has the same navigation the left side and the right is the same tab view of the Profile page with 2 lists. The first is users who followers after the current user and the second is a list of users who the current user follows after.
+
+![Tweet Page](/images/posts/2020/chapter-2-simple-twitter/twitter-tweet-page.jpg "Tweet Page")
+
+When the user clicks on a tweet he sees the original tweet (no more information that we didn't show in the Feed or Profile pages), but he sees some general info about the tweet (time of publish) and a list of tweets that replies to that tweet. The user also can click on the `334 Likes` and it'll open a popup with the list of users who liked that tweet (I'll not show a screenshot of this to keep the post lighter and because the list is actually looks the same as the list of Followers & Following).
+
+I will not add a screenshot of the Settings Page because it'll be pretty different from the Twitter one, because it's an MVP, we'll not have all the settings a full blown social media have. So we'll design it as close as we can to the design language of the website, but we'll not have a reference.
 
 &nbsp;
 
 ## 4. Routes
 
-Let's plan all the routes that will be in our backend services. Why even do this? Because we need to check that we cover all the cases and our backend services can talk to each other and have all the things they need to do so.
+Let's plan all the routes that will be in our backend service. Every route is basically a Collection in MongoDB, we'll have a folder architecture that will put every Model (collection), routes, and controller of the same "group" together.
 
 ### 4.1 Users
 
@@ -182,8 +230,6 @@ Let's plan all the routes that will be in our backend services. Why even do this
 | GET    | /media/:media_id            | None     | Get an image            |
 | POST   | /media/:media_id            | Token    | Upload a new image      |
 | DELETE | /media/:media_id            | Token    | Delete an image         |
-
-In the next chapter we look at some edited screenshots from twitter.com to see how our web app (how it'll look, which data is needed in which page, the layout, the colors, etc).
 
 &nbsp;
 
