@@ -1,8 +1,8 @@
 ---
 title: "New design for the blog!"
 subtitle: ""
-date: 2020-04-21T15:00:00+03:00
-lastmod: 2020-04-21T15:00:00+03:00
+date: 2020-04-25T09:00:00+03:00
+lastmod: 2020-04-25T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"

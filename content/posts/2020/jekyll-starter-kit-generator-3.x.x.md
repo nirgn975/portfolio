@@ -1,8 +1,8 @@
 ---
 title: "Jekyll Starter Kit generator 3.x.x"
 subtitle: ""
-date: 2020-04-22T11:00:00+03:00
-lastmod: 2020-04-22T11:00:00+03:00
+date: 2020-05-01T09:00:00+03:00
+lastmod: 2020-05-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"

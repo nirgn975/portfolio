@@ -1,171 +1,360 @@
-baseURL = "http://lifelongstudent.io/"
+baseURL = "http://lifelongstudent.io"
+# [en, zh-cn, fr, pl, ...] determines default content language
 defaultContentLanguage = "en"
-languageCode = "en-us"
-title = "Stories of a Lifelong Student"
+# theme
 theme = "LoveIt"
-enableRobotsTXT = true
 
-# Will give values to .Lastmod etc.
+# website title
+title = "Stories of a Lifelong Student"
+
+# whether to use robots.txt
+enableRobotsTXT = true
+# whether to use git commit log
 enableGitInfo = true
+# whether to use emoji code
+enableEmoji = true
+
+[languages]
+  [languages.en]
+    weight = 1
+    # language code
+    languageCode = "en"
+    # language name
+    languageName = "English"
+    # whether to include Chinese/Japanese/Korean
+    hasCJKLanguage = false
+    # default amount of posts in each pages
+    paginate = 12
+    # [UA-XXXXXXXX-X] google analytics code
+    googleAnalytics = ""
+    # copyright description used only for seo schema
+    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+    # Menu config
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "posts"
+        # you can add extra information before the name (HTML format is supported), such as icons
+        pre = ""
+        # you can add extra information after the name (HTML format is supported), such as icons
+        post = ""
+        name = "Posts"
+        url = "/posts/"
+        # title will be shown when you hover on this menu link.
+        title = ""
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "tags"
+        pre = ""
+        post = ""
+        name = "Tags"
+        url = "/tags/"
+        title = ""
+        weight = 2
+      [[languages.en.menu.main]]
+        identifier = "categories"
+        pre = ""
+        post = ""
+        name = "Categories"
+        url = "/categories/"
+        title = ""
+        weight = 3
+      [[languages.en.menu.main]]
+        identifier = "about"
+        pre = ""
+        post = ""
+        name = "About"
+        url = "/about/"
+        title = ""
+        weight = 4
+      [[languages.en.menu.main]]
+        identifier = "github"
+        pre = "<i class='fab fa-github fa-fw'></i>"
+        name = ""
+        url = "https://github.com/nirgn975"
+        title = "GitHub"
+        weight = 5
+    [languages.en.params]
+      # site description
+      description = "About Stories of a Lifelong Student"
+      # site keywords
+      keywords = ["computer science", "data structures", "algorithms", "computer networks", "operating system", "machine learning", "open source", "linux", "arduino", "programming", "security", "pen testing", "hacking", "android", "reverse engineering"]
+      # Search config
+      [languages.en.params.search]
+        enable = true
+        # type of search engine ("lunr", "algolia")
+        type = "algolia"
+        # index length of the content
+        contentLength = 5000
+        # placeholder of the search bar
+        placeholder = ""
+        [languages.en.params.search.algolia]
+          index = "index.en"
+          appID = "PASDMWALPK"
+          searchKey = "b42948e51daaa93df92381c8e2ac0f93"
+      # Home page config
+      [languages.en.params.home]
+        # amount of RSS pages
+        rss = 10
+        # Home page profile
+        [languages.en.params.home.profile]
+          enable = true
+          # Gravatar Email for preferred avatar in home page
+          gravatarEmail = ""
+          # URL of avatar shown in home page
+          avatarURL = "/images/logo.png"
+          # subtitle shown in home page
+          subtitle = "Welcome to Stories of a Lifelong Student, a blog for geeks (:"
+          # whether to use typeit animation for subtitle
+          typeit = true
+          # whether to show social links
+          social = true
+          # disclaimer (HTML format is supported)
+          disclaimer = ""
+        # Home page posts
+        [languages.en.params.home.posts]
+          enable = true
+          # special amount of posts in each home posts page
+          paginate = 6
+      # Social config in home page
+      [languages.en.params.social]
+        GitHub = "nirgn975"
+        Linkedin = "nirgn"
+        Twitter = "nirgn975"
+        Medium = "@nirgn"
+        Keybase = "nirgn975"
+        Reddit = "nirgn975"
+        Stackoverflow = "2040160/nirgn"
+        Email = "nir@galon.io"
 
 [params]
   # LoveIt theme version
   version = "0.2.X"
-  # site description
-  description = "Stories of a Lifelong Student Description"
-  # site keywords
-  keywords = ["computer science", "data structures", "algorithms", "computer networks", "operating system", "machine learning", "open source", "linux", "arduino", "programming", "security", "pen testing", "hacking", "android", "reverse engineering"]
   # site default theme ("light", "dark", "auto")
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
   gitRepo = "https://github.com/nirgn975/stories-of-a-lifelong-student"
-  # LoveIt   v0.1.1
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
-  # default amount of posts in each pages
-  paginate = 12
-  # Header info
+  # date format
+  dateFormat = "2006-01-02"
+
+  # Header config
   [params.header]
     # desktop header mode ("fixed", "normal", "auto")
     desktopMode = "fixed"
     # mobile header mode ("fixed", "normal", "auto")
     mobileMode = "auto"
-  # Footer Copyright Info
+    # Header title config
+    [params.header.title]
+      # URL of the LOGO
+      logo = ""
+      # title name
+      name = "Stories of a Lifelong Student Description"
+      # you can add extra information before the name (HTML format is supported), such as icons
+      pre = ""
+      # you can add extra information after the name (HTML format is supported), such as icons
+      post = ""
+
+  # Footer config
   [params.footer]
-    # Site creation time
+    enable = true
+    # Custom content (HTML format is supported)
+    custom = ''
+    # whether to show Hugo and theme info
+    hugo = false
+    # whether to show copyright info
+    copyright = true
+    # whether to show the author
+    author = true
+    # site creation time
     since = 2012
-    # ICP info only in China (HTML format is allowed)
+    # ICP info only in China (HTML format is supported)
     icp = ""
-    # license info (HTML format is allowed)
+    # license info (HTML format is supported)
     license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
-  # Home Page Info
-  [params.home]
-    # Home Page Profile
-    [params.home.profile]
-      enable = true
-      # Gravatar Email for preferred avatar in home page
-      gravatarEmail = ""
-      # URL of avatar shown in home page
-      avatarURL = "/images/logo.png"
-      # subtitle shown in home page
-      subtitle = "Welcome to Stories of a Lifelong Student, a blog for geeks (:"
-      # whether to use typeit animation for subtitle
-      typeit = true
-      # whether to show social links
-      social = true
-    # Home Page Posts
-    [params.home.posts]
-      enable = true
-      # special amount of posts in each home posts page
-      paginate = 6
-      # default behavior when you don't set "hiddenFromHomePage" in front matter
-      defaultHiddenFromHomePage = false
-  # Social Info in home page
-  [params.social]
-    GitHub = "nirgn975"
-    Linkedin = "nirgn"
-    Twitter = "nirgn975"
-    Email = "nir@galon.io"
-    Medium = "@nirgn"
-    Keybase = "nirgn975"
-    Reddit = "nirgn975"
-    Stackoverflow = "2040160/nirgn"
+
+  # Section (all posts) page config
+  [params.section]
+    # special amount of posts in each section page
+    paginate = 20
+    # date format (month and day)
+    dateFormat = "01-02"
+    # amount of RSS pages
+    rss = 10
+
+  # List (category or tag) page config
+  [params.list]
+    # special amount of posts in each list page
+    paginate = 20
+    # date format (month and day)
+    dateFormat = "01-02"
+    # amount of RSS pages
+    rss = 10
+
   # Page config
   [params.page]
-    # whether to use lightgallery in the page
-    lightgallery = true
-    # whether to show link to Raw Markdown content of the post
+    # whether to hide a page from home page
+    hiddenFromHomePage = false
+    # whether to hide a page from search results
+    hiddenFromSearch = false
+    # whether to enable lightgallery
+    lightgallery = false
+    # whether to show the copy button of the code block
+    copyCode = true
+    # whether to enable the ruby extended syntax
+    ruby = true
+    # whether to enable the fraction extended syntax
+    fraction = true
+    # whether to enable the fontawesome extended syntax
+    fontawesome = true
+    # whether to show link to Raw Markdown content of the content
     linkToMarkdown = true
-  # mathematical formulas (KaTeX https://katex.org/)
-  [params.math]
-    enable = true
-    # default block delimiter is $$ ... $$ and \\[ ... \\]
-    blockLeftDelimiter = ""
-    blockRightDelimiter = ""
-    # default inline delimiter is $ ... $ and \\( ... \\)
-    inlineLeftDelimiter = ""
-    inlineRightDelimiter = ""
-    # KaTeX extension copy_tex
-    copyTex = true
-    # KaTeX extension mhchem
-    mhchem = true
-  # Social Share Links in post page
-  [params.share]
-    enable = true
-    Twitter = true
-    Facebook = true
-    Linkedin = true
-    Whatsapp = true
-    Reddit = true
-  # Comment Config
-  [params.comment]
-    enable = true
-    # commento.io Comment Config (https://commento.io/)
-    [params.comment.commento]
+    # Table of the contents config
+    [params.page.toc]
+      # whether to enable the table of the contents
       enable = true
+      # whether to make the table of the contents automatically collapsed
+      auto = false
+    # KaTeX mathematical formulas config (KaTeX https://katex.org/)
+    [params.page.math]
+      enable = false
+      # default block delimiter is $$ ... $$ and \\[ ... \\]
+      blockLeftDelimiter = ""
+      blockRightDelimiter = ""
+      # default inline delimiter is $ ... $ and \\( ... \\)
+      inlineLeftDelimiter = ""
+      inlineRightDelimiter = ""
+      # KaTeX extension copy_tex
+      copyTex = true
+      # KaTeX extension mhchem
+      mhchem = true
+    # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
+    [params.page.mapbox]
+      # access token of Mapbox GL JS
+      # Mapbox GL JS 的 access token
+      accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
+      # style for the light theme
+      lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
+      # style for the dark theme
+      darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
+      # whether to add NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
+      navigation = true
+      # whether to add GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
+      geolocate = true
+      # whether to add ScaleControl (https://docs.mapbox.com/mapbox-gl-js/api/#scalecontrol)
+      scale = true
+      # whether to add FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
+      fullscreen = true
+    # Social share links in post page
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Facebook = true
+      Linkedin = true
+      Whatsapp = true
+      Reddit = true
+    # Comment config
+    [params.page.comment]
+      enable = true
+      # Commento comments config (https://commento.io/)
+      [params.page.comment.commento]
+        enable = true
+    # SEO config
+    [params.page.seo]
+      # Publisher info
+      [params.page.seo.publisher]
+        name = "xxxx"
+        [params.page.seo.publisher.logo]
+          url = "logo.png"
+          width = 127
+          height = 40
+      # Logo info
+      [params.page.seo.logo]
+        url = "logo.png"
+        width = 127
+        height = 40
+      # Image info
+      [params.page.seo.image]
+        url = "cover.png"
+        width = 800
+        height = 600
 
-  # site verification code for Google/Bing/Yandex/Pinterest/Baidu
+  # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
     google = ""
     bing = ""
     yandex = ""
+    pinterest = ""
     baidu = ""
-  # Publisher Info just for SEO
-  [params.publisher]
-    name = "Nir Galon"
-    [params.publisher.logo]
-      url = "/images/publisher/nir-galon.jpg"
-      width = 127
-      height = 40
-  # Website Log Info just for SEO
-  [params.logo]
-    url = "/images/logo.png"
-    width = 127
-    height = 40
-  # Website Image Info just for SEO
-  [params.image]
-    url = "/images/logo.png"
-    width = 800
-    height = 600
+
+  # Analytics config
+  [params.analytics]
+    enable = false
+    # Google Analytics
+    [params.analytics.google]
+      id = ""
+      # whether to anonymize IP
+      anonymizeIP = true
+      # whether to use cookie
+      cookie = false
+    # Fathom Analytics
+    [params.analytics.fathom]
+      id = ""
+      # server url for your tracker if you're self hosting
+      server = ""
+
   # CSS and JS Files CDN
   [params.cdn]
-    # fontawesome-free@5.12.1 https://fontawesome.com/
-    fontawesomeFreeCSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">'
+    # normalize.css@8.0.1 https://github.com/necolas/normalize.css
+    normalizeCSS = 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css'
+    # fontawesome-free@5.13.0 https://fontawesome.com/
+    fontawesomeFreeCSS = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'
+    # simple-icons@2.9.0 https://github.com/simple-icons/simple-icons
+    # ('https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/')
+    simpleIconsPrefix = 'https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/'
     # animate.css@3.7.2 https://github.com/daneden/animate.css
-    animateCSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">'
-    # smooth-scroll@16.1.2 https://github.com/cferdinandi/smooth-scroll
-    smoothScrollJS = '<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16.1.2/dist/smooth-scroll.min.js"></script>'
-    # sharer@0.4.0 https://github.com/ellisonleao/sharer.js
-    sharerJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/sharer.js/0.4.0/sharer.min.js"></script>'
+    animateCSS = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'
+    # smooth-scroll@16.1.3 https://github.com/cferdinandi/smooth-scroll
+    smoothScrollJS = 'https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16.1.3/dist/smooth-scroll.min.js'
+    # autocomplete.js@0.37.1 https://github.com/algolia/autocomplete.js
+    autocompleteJS = 'https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.37.1/autocomplete.min.js'
+    # lunr.js@2.3.8 https://lunrjs.com/
+    lunrJS = 'https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js'
+    # algoliasearch@4.2.0 https://github.com/algolia/algoliasearch-client-javascript
+    algoliasearchJS = 'https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.2.0/algoliasearch.umd.js'
     # lazysizes@5.2.0 https://github.com/aFarkas/lazysizes
-    lazysizesJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"></script>'
-    # lightgallery@1.1.3 lg-thumbnail@1.1.0 lg-zoom@1.1.0 https://github.com/sachinchoolur/lightgallery.js
-    lightgalleryCSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.1.3/css/lightGallery.css">'
-    lightgalleryJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.1.3/js/lightGallery.min.js"></script>'
-    lightgalleryThumbnailJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.1.0/lg-thumbnail.min.js"></script>'
-    lightgalleryZoomJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/lg-zoom/1.1.0/lg-zoom.min.js"></script>'
-    # typeit@6.5.1 https://github.com/alexmacarthur/typeit
-    typeitJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/6.5.1/typeit.min.js"></script>'
-    # katex@0.11.1 https://github.com/KaTeX/KaTeX
-    katexCSS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">'
-    katexJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>'
-    katexAutoRenderJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/auto-render.min.js"></script>'
+    lazysizesJS = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js'
+    # lightgallery.js@1.1.3 lg-thumbnail@1.1.0 lg-zoom@1.1.0 https://github.com/sachinchoolur/lightgallery.js
+    lightgalleryCSS = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.1.3/css/lightGallery.css'
+    lightgalleryJS = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.1.3/js/lightGallery.min.js'
+    lightgalleryThumbnailJS = 'https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.1.0/lg-thumbnail.min.js'
+    lightgalleryZoomJS = 'https://cdnjs.cloudflare.com/ajax/libs/lg-zoom/1.1.0/lg-zoom.min.js'
+    # clipboard.js@2.0.6 https://github.com/zenorocha/clipboard.js
+    clipboardJS = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js'
+    # sharer.js@0.4.0 https://github.com/ellisonleao/sharer.js
+    sharerJS = 'https://cdnjs.cloudflare.com/ajax/libs/sharer.js/0.4.0/sharer.min.js'
+    # typeit@7.0.3 https://github.com/alexmacarthur/typeit
+    typeitJS = 'https://cdnjs.cloudflare.com/ajax/libs/typeit/7.0.3/typeit.min.js'
+    # katex@0.11.1 https://katex.org/
+    katexCSS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css'
+    katexJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js'
+    katexAutoRenderJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/auto-render.min.js'
     katexCopyTexCSS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/copy-tex.min.css'
-    katexCopyTexJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/copy-tex.min.js"></script>'
-    katexMhchemJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/mhchem.min.js"></script>'
-    # mermaid@8.4.8 https://github.com/knsv/mermaid
-    mermaidJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.js"></script>'
-    # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
-    aplayerCSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css'
-    aplayerJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>'
-    # meting@2.0.1 https://github.com/metowolf/MetingJS
-    metingJS = '<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>'
-    # echarts@4.6.0 https://echarts.apache.org/
-    echartsJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts.min.js"></script>'
+    katexCopyTexJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/copy-tex.min.js'
+    katexMhchemJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/mhchem.min.js'
+    # mermaid@8.5.0 https://github.com/knsv/mermaid
+    mermaidJS = 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.0/mermaid.js'
+    # echarts@4.7.0 https://echarts.apache.org/
+    echartsJS = 'https://cdnjs.cloudflare.com/ajax/libs/echarts/4.7.0/echarts.min.js'
     echartsMacaronsJS = ''
-    # gitalk@1.6.2 https://github.com/gitalk/gitalk
-    gitalkCSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.6.2/gitalk.min.css">'
-    gitalkJS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.6.2/gitalk.min.js"></script>'
+    # mapbox-gl@1.9.1 https://docs.mapbox.com/mapbox-gl-js
+    mapboxGLCSS = 'https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.9.1/mapbox-gl.css'
+    mapboxGLJS = 'https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.9.1/mapbox-gl.js'
+    # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
+    aplayerCSS = 'https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css'
+    aplayerJS = 'https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js'
+    # meting@2.0.1 https://github.com/metowolf/MetingJS
+    metingJS = 'https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js'
 
 # Markup related configuration in Hugo
 [markup]
@@ -173,12 +362,10 @@ enableGitInfo = true
   [markup.highlight]
     codeFences = true
     guessSyntax = true
-    lineNoStart = 1
     lineNos = true
     lineNumbersInTable = true
+    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
-    style = "monokai"
-    tabWidth = 4
   # Goldmark is from Hugo 0.60 the default library used for Markdown
   [markup.goldmark]
     [markup.goldmark.extensions]
@@ -197,26 +384,29 @@ enableGitInfo = true
     startLevel = 2
     endLevel = 6
 
-# Author Info
+# Author config
 [author]
   name = "Nir Galon"
+  email = "nir@galon.io"
   link = "https://nir.galon.io/"
 
-# Sitemap Info
+# Sitemap config
 [sitemap]
   changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
 
-# Permalinks Info (https://gohugo.io/content-management/urls/#permalinks)
+# Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
   posts = ":year/:month/:filename"
 
-# Privacy Info (https://gohugo.io/about/hugo-and-gdpr/)
+# Privacy config (https://gohugo.io/about/hugo-and-gdpr/
 [privacy]
+  # privacy of the Google Analytics (replaced by params.analytics.google)
   [privacy.googleAnalytics]
-    anonymizeIP = true
-
+    # ...
+  [privacy.twitter]
+    enableDNT = true
   [privacy.youtube]
     privacyEnhanced = true
 
@@ -233,47 +423,8 @@ enableGitInfo = true
 
 # Options to make hugo output files
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "JSON"]
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
-
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    # you can add extra information before the name (HTML format is allowed), such as icons
-    pre = ""
-    name = "Posts"
-    url = "/posts/"
-    # title will be shown when you hover on this menu link
-    title = ""
-    weight = 1
-  [[menu.main]]
-    identifier = "tags"
-    pre = ""
-    name = "Tags"
-    url = "/tags/"
-    title = ""
-    weight = 2
-  [[menu.main]]
-    identifier = "categories"
-    pre = ""
-    name = "Categories"
-    url = "/categories/"
-    title = ""
-    weight = 3
-  [[menu.main]]
-    identifier = "about"
-    pre = ""
-    name = "About"
-    url = "/about"
-    title = "About"
-    weight = 4
-  [[menu.main]]
-    identifier = "github"
-    pre = "<i class='fab fa-github fa-fw'></i>"
-    name = ""
-    url = "https://github.com/nirgn975"
-    title = "GitHub"
-    weight = 5

@@ -3,7 +3,7 @@ title: "Simple Twitter - Chapter 1: Setup"
 subtitle: ""
 date: 2020-04-22T13:00:00+03:00
 lastmod: 2020-04-22T13:00:00+03:00
-draft: false
+draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
