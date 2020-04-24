@@ -1,5 +1,5 @@
 {
   "projects": {
-    "prod": "stories-of-a-lifelong-student"
+    "default": "stories-of-a-lifelong-student"
   }
 }
