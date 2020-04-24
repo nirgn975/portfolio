@@ -101,6 +101,9 @@ privacy_policy = "https://policies.google.com/privacy"
   # Comment Config
   [params.comment]
     enable = true
+    # commento.io Comment Config (https://commento.io/)
+    [params.comment.commento]
+      enable = true
 
   # site verification code for Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
