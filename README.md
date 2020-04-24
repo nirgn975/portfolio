@@ -8,30 +8,36 @@
 
 To install this project, you'll need the following things installed on your machine.
 
-1. [Jekyll](http://jekyllrb.com/) - `$ gem install jekyll -v 3.5.1`
+1. [Hugo](https://gohugo.io/)
 2. [NodeJS](http://nodejs.org) - use the installer.
 3. [Firebase CLI](https://github.com/firebase/firebase-tools).
 
-## Local Installation
+## Development
 
-1. Clone this repo, or download it into a directory of your choice.
-2. Inside the directory, run `npm install`.
-
-## Usage
-
-**Development mode**
-
-This will give you file watching, browser synchronisation, auto-rebuild, CSS injecting etc.
+1. Clone this repo `git clone --recurse-submodules git@github.com:nirgn975/stories-of-a-lifelong-student.git`
+2. Inside the directory, run
 
 ```shell
-$ npm run start
+$ hugo serve -D
 ```
 
-**Deploy mode**
+## Deployment
 
-You can easily deploy your site build with the command
+First you need firebase
 ```shell
-$ npm run deploy
+$ npm install -g firebase-tools
+```
+
+Then easily deploy the blog
+```shell
+$ hugo && firebase deploy
+```
+
+If you want to build it locally do
+
+```shell
+$ export HUGO_ENV=devlopment
+$ hugo
 ```
 
 ## Tests
