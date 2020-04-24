@@ -1,25 +1,28 @@
 ---
 title: "Simple Twitter - Chapter 2: Planning"
+subtitle: ""
 date: 2020-04-22T14:00:00+03:00
+lastmod: 2020-04-22T14:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["twitter", "development", "mvp", "database", "collection", "architecture", "api", "schema"]
 categories: ["development"]
+
 hiddenFromHomePage: false
+hiddenFromSearch: false
 
 featuredImage: "/images/posts/2020/chapter-2-simple-twitter/simple-twitter-cover.jpg"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 
 First thing we need to do, before we even start writing a single line of code, is to plan. Plan our MVP.

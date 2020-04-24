@@ -1,23 +1,26 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "{{ replace .TranslationBaseName "-" " " | title }}"
+subtitle: ""
 date: {{ .Date }}
+lastmod: {{ .Date }}
 draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: []
 categories: []
+
 hiddenFromHomePage: false
+hiddenFromSearch: false
 
 featuredImage: "/images/"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---

@@ -1,25 +1,28 @@
 ---
 title: "Load Balancing Applications with HAProxy and Docker"
+subtitle: ""
 date: 2017-07-11T12:53:47+03:00
+lastmod: 2017-07-11T12:53:47+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["development", "contribution", "docker", "haproxy", "load balance", "cloud", "devops", "nginx"]
 categories: ["contribution"]
+
 hiddenFromHomePage: false
+hiddenFromSearch: false
 
 featuredImage: "/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.jpeg"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: true
+license: ""
 ---
 A tutorial for a real world docker use case.
 

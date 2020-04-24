@@ -8,12 +8,9 @@ enableRobotsTXT = true
 # Will give values to .Lastmod etc.
 enableGitInfo = true
 
-copyright = "The Docsy Authors"
-privacy_policy = "https://policies.google.com/privacy"
-
 [params]
   # LoveIt theme version
-  version = "0.1.X"
+  version = "0.2.X"
   # site description
   description = "Stories of a Lifelong Student Description"
   # site keywords
@@ -25,6 +22,8 @@ privacy_policy = "https://policies.google.com/privacy"
   # LoveIt   v0.1.1
   # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
+  # default amount of posts in each pages
+  paginate = 12
   # Header info
   [params.header]
     # desktop header mode ("fixed", "normal", "auto")

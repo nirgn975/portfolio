@@ -1,25 +1,28 @@
 ---
 title: "Jekyll Starter Kit generator 2.1.0 is out!"
+subtitle: ""
 date: 2017-08-03T18:19:10+03:00
+lastmod: 2017-08-03T18:19:10+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["jekyll", "contribution", "github", "generator", "starter kit", "yeoman", "pwa", "npm"]
 categories: ["contribution"]
+
 hiddenFromHomePage: false
+hiddenFromSearch: false
 
 featuredImage: "/images/posts/2017/jekyll-starter-kit-generator-2.1.0-is-out/jekyll-starter-kit.png"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: true
+license: ""
 ---
 Creating Jekyll progressive web apps has never been easier!
 

@@ -1,25 +1,28 @@
 ---
 title: "New design for the blog!"
+subtitle: ""
 date: 2020-04-21T15:00:00+03:00
+lastmod: 2020-04-21T15:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["hugo", "design", "blog", "github"]
 categories: ["miscellaneous"]
+
 hiddenFromHomePage: false
+hiddenFromSearch: false
 
 featuredImage: "/images/logo.png"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 I'm really excited for this! Don't ask me why because I can't explain it. This is not the first time I make a new design for this blog, it's actually the fifth time! and yet, I feel this is the best one yet. It have everything I ever wanted in my blog.
 

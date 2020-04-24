@@ -1,25 +1,28 @@
 ---
 title: "Simple Twitter - Chapter 1: Setup"
+subtitle: ""
 date: 2020-04-22T13:00:00+03:00
+lastmod: 2020-04-22T13:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["twitter", "development", "git", "github", "angular", "node.js", "monogodb", "robo 3t", "gcloud", "kubectl"]
 categories: ["development"]
+
 hiddenFromHomePage: false
+hiddenFromSearch: false
 
 featuredImage: "/images/posts/2020/chapter-1-simple-twitter/simple-twitter-cover.jpg"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 
 This is the start of a series of posts to build Twitter like website. But why did I even want to do that? Because I saw a gap in software engineering blog universe about bring software to production level. Nobody explain what we need to do it and didn't do it with the reader, together, while keep it as simple and stupid as one can so even the most junior software engineer can understand why and how to get his next project to production.
