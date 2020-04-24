@@ -195,41 +195,46 @@ I will not add a screenshot of the Settings Page because it'll be pretty differe
 
 ## 4. Routes
 
-Let's plan all the routes that will be in our backend service. Every route is basically a Collection in MongoDB, we'll have a folder architecture that will put every Model (collection), routes, and controller of the same "group" together.
+Let's plan all the routes that will be in our backend service. Every route is basically a `Collection` in MongoDB, we'll have a folder architecture that will put every Model (collection), routes, and controller of the same "group" together.
 
 ### 4.1 Users
 
-| Method | Path                        | Auth     | Description             |
-|--------|-----------------------------|----------|-------------------------|
-| GET    | /user                       | None     | Get own info            |
-| GET    | /user/:username             | None     | Get the user info       |
-| POST   | /user                       | None     | Create a new user       |
-| POST   | /user/reset-password        | None     | Reset own password      |
-| POST   | /user/follow/:user_id       | Token    | Start following a user  |
-| POST   | /user/unfollow/:user_id     | Token    | Stop following a user   |
-| PUT    | /user/info                  | Token    | Edit own info           |
-| PUT    | /user/password              | Token    | Edit own password       |
-| PUT    | /user/settings              | Token    | Edit own settings       |
-| DELETE | /user/:username             | Token    | Delete a user           |
+| Method | Path                       | Auth   | Description               |
+|--------|----------------------------|--------|---------------------------|
+| POST   | /user                      | None   | Create a new user         |
+| PUT    | /user                      | Token  | Edit own info             |
+| DELETE | /user                      | Token  | Delete own user           |
+| GET    | /user/feed                 | Token  | Get own feed              |
+| GET    | /user/:username            | None   | Get a user info           |
+| GET    | /user/followers/:username  | Token  | Get a user followers list |
+| GET    | /user/following/:username  | Token  | Get a user following list |
+| POST   | /user/follow/:username     | Token  | Start following a user    |
+| POST   | /user/unfollow/:username   | Token  | Stop following a user     |
+| POST   | /user/reset-password       | None   | Reset own password        |
+| PUT    | /user/password             | Token  | Edit own password         |
+| PUT    | /user/settings             | Token  | Edit own settings         |
 
-### 4.2 Tweets
+### 4.2 Notifications
 
-| Method | Path                        | Auth     | Description             |
-|--------|-----------------------------|----------|-------------------------|
-| GET    | /tweets/:username           | None     | Get all the user tweets |
-| POST   | /tweet                      | Token    | Create a new tweet      |
-| PUT    | /tweets/:tweet_id           | Token    | Edit a tweet            |
-| DELETE | /tweets/:tweet_id           | Token    | Delete a tweet          |
-| DELETE | /tweets/:tweet_id           | Token    | Delete a tweet          |
+| Method | Path                      | Auth   | Description                                   |
+|--------|---------------------------|--------|-----------------------------------------------|
+| GET    | /notifications/:username  | Token  | Get all the notifications for a specific user |
+| PUT    | /notifications/:username  | Token  | Mark notification as read / unread            |
 
+### 4.3 Tweets
 
-### 4.3 Media
+| Method | Path               | Auth   | Description                        |
+|--------|--------------------|--------|------------------------------------|
+| GET    | /tweets/:username  | None   | Get all the user tweets (timeline) |
+| POST   | /tweet             | Token  | Create a new tweet                 |
+| PUT    | /tweets/:tweet_id  | Token  | Edit a tweet                       |
+| DELETE | /tweets/:tweet_id  | Token  | Delete a tweet                     |
 
-| Method | Path                        | Auth     | Description             |
-|--------|-----------------------------|----------|-------------------------|
-| GET    | /media/:media_id            | None     | Get an image            |
-| POST   | /media/:media_id            | Token    | Upload a new image      |
-| DELETE | /media/:media_id            | Token    | Delete an image         |
+### 4.4 Media
+
+| Method | Path      | Auth   | Description          |
+|--------|-----------|--------|----------------------|
+| POST   | /media    | Token  | Upload a new image   |
 
 &nbsp;
 
@@ -237,30 +242,62 @@ Let's plan all the routes that will be in our backend service. Every route is ba
 
 ### 5.1. Users Collection
 
-| Field Name    | Type      | Description             |
-|---------------|-----------|-------------------------|
-| private_name  | string    | Get an image            |
+| Field Name    | Type      | required | unique | Description                        |
+|---------------|-----------|----------|--------|------------------------------------|
+| firstName     | `string`  | false    | false  | User first name                    |
+| lastName      | `string`  | false    | false  | User last name                     |
+| username      | `string`  | true     | true   | User username                      |
+| email         | `string`  | true     | true   | User email                         |
+| profileImage  | `string`  | false    | false  | URL to the user profile image      |
+| active        | `boolean` | true     | false  | User confirm his account via email |
+| password      | `string`  | true     | false  | User hashed password               |
+| createdAt     | `date`    | true     | false  | User account created date          |
+| country       | `string`  | false    | false  | User country                       |
+| website       | `string`  | false    | false  | User website                       |
+| birthday      | `date`    | false    | false  | User birthday dat                  |
 
-### 5.2. Tweets Collection
+### 5.2. Followers Collection
 
-| Field Name    | Type      | Description             |
-|---------------|-----------|-------------------------|
-| private_name  | string    | Get an image            |
+| Field Name  | Type        | required | unique | Description                |
+|-------------|-------------|----------|--------|----------------------------|
+| user        | `ref<user>` | true     | false  | The unique user `_id`      |
+| follower    | `ref<user>` | true     | false  | Unique follower user `_id` |
+
+### 5.3. Following Collection
+
+| Field Name  | Type        | required | unique | Description                 |
+|-------------|-------------|----------|--------|-----------------------------|
+| user        | `ref<user>` | true     | false  | The unique user `_id`       |
+| following   | `ref<user>` | true     | false  | Unique following user `_id` |
+
+### 5.4. Tweets Collection
+
+| Field Name   | Type            | required | unique | Description                                    |
+|--------------|-----------------|----------|--------|------------------------------------------------|
+| author       | `ref<user>`     | true     | false  | The unique user `_id`                          |
+| text         | `string`        | false    | false  | Tweet text                                     |
+| image        | `array<string>` | false    | false  | Array of URLs for tweet images                 |
+| replay       | `ref<tweet>`    | false    | false  | The tweet `_id` this tweet replays to (if any) |
+
+### 5.4. Likes Collection
+
+| Field Name  | Type         | required | unique | Description                    |
+|-------------|--------------|----------|--------|--------------------------------|
+| user        | `ref<user>`  | true     | false  | The unique user `_id`          |
+| tweet       | `ref<tweet>` | true     | false  | The tweet `_id` the user liked |
 
 ### 5.3. Notifications Collection
 
-| Field Name    | Type      | Description             |
-|---------------|-----------|-------------------------|
-| private_name  | string    | Get an image            |
-
-### 5.4. Media Collection
-
-| Field Name    | Type      | Description             |
-|---------------|-----------|-------------------------|
-| private_name  | string    | Get an image            |
+| Field Name | Type                       | required | unique | Description                  |
+|------------|----------------------------|----------|--------|------------------------------|
+| user       | `ref<user>`                | true     | false  | The unique user `_id`        |
+| userAction | `ref<user>`                | true     | false  | The user who make the action |
+| type       | `enum<like,follow,replay>` | true     | false  | Get an image                 |
 
 &nbsp;
 
 ## 6. Summary
 
-Something
+This was a lot of work, but we done. We now understand what we're going to build, and how. We have our MVP, some screenshot references, our routes and collection schema planning. And we understand how we're going to build everything (which technology stack we're going to use, how to deploy to it, and how everything will connect together to bring us to production).
+
+We're ready now to start coding! So that's what we're going to do in the next chapter, hope you're excited as me right now.
