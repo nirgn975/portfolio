@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,17 +22,6 @@ jobs:
 
       - name: Build
         run: hugo --minify
-
-  deploy:
-    runs-on: ubuntu-latest
-    if: github.event.pull_request.merged
-
-    steps:
-      - name: checkout
-        if: github.event.pull_request.merged
-        uses: actions/checkout@v1
-        with:
-          ref: master
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
