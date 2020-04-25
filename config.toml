@@ -149,7 +149,7 @@ enableEmoji = true
       # URL of the LOGO
       logo = ""
       # title name
-      name = "Stories of a Lifelong Student Description"
+      name = "Stories of a Lifelong Student"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
