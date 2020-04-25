@@ -28,4 +28,4 @@ jobs:
         with:
           directory: "./public" # The directory to scan
           # arguments: --allow_hash_href --url-ignore [/(https:\/\/lifelongstudent.io|https:\/\/galon.io)/]
-          arguments: --url-ignore [/https:\/\/lifelongstudent.io\//]
+          arguments: --url-ignore [/https:\/\/lifelongstudent.io\//] --allow_hash_href
