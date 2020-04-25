@@ -1,25 +1,28 @@
 ---
 title: "Simple Twitter - Chapter 3: Getting Started Coding"
-date: 2020-04-22T14:30:00+03:00
-draft: false
+subtitle: ""
+date: 2020-05-17T11:00:00+03:00
+lastmod: 2020-05-17T11:00:00+03:00
+draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["twitter", "development", "angular", "angular cli", "node.js", "express", "git", "workflow", "github"]
 categories: ["development"]
-hiddenFromHomePage: false
 
-featuredImage: "/images/posts/2020/chapter-3-simple-twitter/simple-twitter-cover.jpg"
+hiddenFromHomePage: false
+hiddenFromSearch: false
+
+featuredImage: "/images/posts/2020/chapter-3-simple-twitter/simple-twitter-cover.webp"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 
 In this chapter we're going to open a new repository on GitHub and commit everything to it. We will learn about issues, pull requests (PR), branches, etc. And talk about the way we're going to work with GitHub for the rest of the book.

@@ -18,6 +18,7 @@ To install this project, you'll need the following things installed on your mach
 2. Inside the directory, run
 
 ```shell
+$ export HUGO_ENV=devlopment
 $ hugo serve -D
 ```
 
@@ -36,15 +37,8 @@ $ hugo && firebase deploy
 If you want to build it locally do
 
 ```shell
-$ export HUGO_ENV=devlopment
+$ export HUGO_ENV=production
 $ hugo
-```
-
-## Tests
-
-If you want to run the tests on your local machine please install `gem install html-proofer`. And then run the tests using
-```shell
-$ htmlproofer ./_site
 ```
 
 [license-image]: https://img.shields.io/badge/license-ISC-blue.svg
