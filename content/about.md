@@ -2,7 +2,7 @@ Hi!
 
 My name is Nir Galon, I'm a geek who always want to learn new things. I work as a software engineer and I love what I do!
 
-![Nir Galon](/images/publishers/nir-galon.jpg "Nir Galon")
+![Nir Galon](/images/publishers/nir-galon.webp "Nir Galon")
 
 To learn more about me you can visit my resume website at [nir.galon.io](https://nir.galon.io) or just follow me on [twitter](https://twitter.com/nirgn975), [github](https://github.com/nirgn975) or one of the other social networks I am on. If you wish to contact me just send me an email to nirgn[at]protonmail[dot]com.
 

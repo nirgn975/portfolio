@@ -1,25 +1,28 @@
 ---
 title: "Simple Twitter - Chapter 2: Planning"
-date: 2020-04-22T14:00:00+03:00
-draft: false
+subtitle: ""
+date: 2020-05-17T09:00:00+03:00
+lastmod: 2020-05-17T09:00:00+03:00
+draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["twitter", "development", "mvp", "database", "collection", "architecture", "api", "schema"]
 categories: ["development"]
-hiddenFromHomePage: false
 
-featuredImage: "/images/posts/2020/chapter-2-simple-twitter/simple-twitter-cover.jpg"
+hiddenFromHomePage: false
+hiddenFromSearch: false
+
+featuredImage: "/images/posts/2020/chapter-2-simple-twitter/simple-twitter-cover.webp"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 
 First thing we need to do, before we even start writing a single line of code, is to plan. Plan our MVP.
@@ -131,7 +134,7 @@ We'll also use some more tools like GitHub repositories and GitHub actions (for 
 
 How we're going to connect everything? Here is our technical product schema:
 
-![Architecture Schema](/images/posts/2020/chapter-2-simple-twitter/architecture-schema.png "Architecture Schema")
+![Architecture Schema](/images/posts/2020/chapter-2-simple-twitter/architecture-schema.webp "Architecture Schema")
 
 Every request to our website in going to first hit our domain. From there it'll get to a load balancer how sits in front of our bucket and will serve the user the static files in the bucket (our Angular app).
 
@@ -147,7 +150,7 @@ Every request or error will be logged to `stdout`. And other services in GCP (th
 
 The way we'll deploy new code to the cloud will use GitHub actions, and GCP Cloud Build triggers.
 
-![CI/CD Schema](/images/posts/2020/chapter-2-simple-twitter/ci-cd-schema.png "CI/CD Schema")
+![CI/CD Schema](/images/posts/2020/chapter-2-simple-twitter/ci-cd-schema.webp "CI/CD Schema")
 
 In our repo we'll have GitHub action that run a linter, run the tests and make sure there isn't any error when build the projects. When we'll merge Pull Requests to the `master` branch, the action will run and if everything is good it'll create a new tag for the new commit.
 
@@ -163,17 +166,17 @@ The frontend will build the Angular app and will copy the files to a public buck
 
 In order to be on the same page I took a bunch of screenshots of Tweeter and cleaned it up a bit (remove some of the feature we'll not build), let's go over them and see what we're building.
 
-![Home Page](/images/posts/2020/chapter-2-simple-twitter/twitter-home-page.jpg "Home Page")
+![Home Page](/images/posts/2020/chapter-2-simple-twitter/twitter-home-page.webp "Home Page")
 
 After we hit the Home Page we can *Sign up* or *Log in*, in twitter the *Sign-up* button will bring a popup and the *Log in* will move us to a new page. We'll not do data, the *Sign up* will bring a popup with couple of `input`s to fill to sign up, and the *Log in* will just try to login the user using the `username` and `password` `input`s above.
 
-![Feed Page](/images/posts/2020/chapter-2-simple-twitter/twitter-feed-page.jpg "Feed Page")
+![Feed Page](/images/posts/2020/chapter-2-simple-twitter/twitter-feed-page.webp "Feed Page")
 
 When the user logged in, or sign up and activate his account via the email confirmation he will get to the Feed Page. This is a list of tweets from the users that he follows, ordered by time (the most recent is at the top).
 
 This is the main page of the website. From this page he can post a new tweet (at the top of the feed there is a `textarea`), and at the left side there is the navigation of the website. In the navigation there are links to: *Notifications* Page, *Profile* Page, and *Settings* page.
 
-![Profile Page](/images/posts/2020/chapter-2-simple-twitter/twitter-profile-page.jpg "Profile Page")
+![Profile Page](/images/posts/2020/chapter-2-simple-twitter/twitter-profile-page.webp "Profile Page")
 
 The Profile page (or timeline) has the same navigation in the left side, but in the right side of the page, instead of the feed, we see at the top the general user information, and under that a tab to see the user tweets by:
 - *Tweets* (or timeline): this is all the user tweets in order (recent at the top).
@@ -181,11 +184,11 @@ The Profile page (or timeline) has the same navigation in the left side, but in 
 - *Media*: Tweets that include some media type (in our case it can include only images).
 - *Likes*: Tweets of other users that this users liked.
 
-![Followers & Following Page](/images/posts/2020/chapter-2-simple-twitter/twitter-followers-and-following-page.jpg "Followers & Following Page")
+![Followers & Following Page](/images/posts/2020/chapter-2-simple-twitter/twitter-followers-and-following-page.webp "Followers & Following Page")
 
 The Followers and Following Page has the same navigation the left side and the right is the same tab view of the Profile page with 2 lists. The first is users who followers after the current user and the second is a list of users who the current user follows after.
 
-![Tweet Page](/images/posts/2020/chapter-2-simple-twitter/twitter-tweet-page.jpg "Tweet Page")
+![Tweet Page](/images/posts/2020/chapter-2-simple-twitter/twitter-tweet-page.webp "Tweet Page")
 
 When the user clicks on a tweet he sees the original tweet (no more information that we didn't show in the Feed or Profile pages), but he sees some general info about the tweet (time of publish) and a list of tweets that replies to that tweet. The user also can click on the `334 Likes` and it'll open a popup with the list of users who liked that tweet (I'll not show a screenshot of this to keep the post lighter and because the list is actually looks the same as the list of Followers & Following).
 

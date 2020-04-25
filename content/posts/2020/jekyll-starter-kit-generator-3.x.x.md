@@ -1,25 +1,28 @@
 ---
 title: "Jekyll Starter Kit generator 3.x.x"
-date: 2020-04-22T11:00:00+03:00
+subtitle: ""
+date: 2020-05-01T09:00:00+03:00
+lastmod: 2020-05-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["jekyll", "contribution", "github", "generator", "starter kit", "yeoman", "pwa", "npm"]
 categories: ["contribution"]
-hiddenFromHomePage: false
 
-featuredImage: "/images/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.jpg"
+hiddenFromHomePage: false
+hiddenFromSearch: false
+
+featuredImage: "/images/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 First thing first, I want to send virtual thanks, gratitudes and hugs to all the people that star, download, use, and contribute the project! This is huge for me, you don't know how much it's affect and keep me going. Thank you!!
 
@@ -33,7 +36,7 @@ I want to call all of you who have an idea for a new feature, who have the gener
 
 If you're new to GitHub, contribution, or even JavaScript, I would be happy to help you get started!
 
-![Social Coding](/images/posts/2020/jekyll-starter-kit-generator-3.x.x/hello-world.png "Social Coding")
+![Social Coding](/images/posts/2020/jekyll-starter-kit-generator-3.x.x/hello-world.webp "Social Coding")
 
 ## 2. Jekyll Starter Kit 3.x.x
 

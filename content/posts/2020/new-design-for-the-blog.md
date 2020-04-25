@@ -1,25 +1,28 @@
 ---
 title: "New design for the blog!"
-date: 2020-04-21T15:00:00+03:00
+subtitle: ""
+date: 2020-04-25T09:00:00+03:00
+lastmod: 2020-04-25T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
+description: ""
 
 tags: ["hugo", "design", "blog", "github"]
 categories: ["miscellaneous"]
-hiddenFromHomePage: false
 
-featuredImage: "/images/logo.png"
+hiddenFromHomePage: false
+hiddenFromSearch: false
+
+featuredImage: "/images/logo.webp"
 featuredImagePreview: ""
 
-toc: true
-autoCollapseToc: false
-math: false
-lightgallery: true
-linkToMarkdown: true
-share:
+toc:
   enable: true
-comment: true
+math:
+  enable: false
+lightgallery: false
+license: ""
 ---
 I'm really excited for this! Don't ask me why because I can't explain it. This is not the first time I make a new design for this blog, it's actually the fifth time! and yet, I feel this is the best one yet. It have everything I ever wanted in my blog.
 
@@ -35,7 +38,7 @@ Let's break it down
 
 The navigation at the upper right side of the website contains all the configuration and links of the website.
 
-![Navigation](/images/posts/2020/new-design-for-the-blog/navigation.jpg "Navigation")
+![Navigation](/images/posts/2020/new-design-for-the-blog/navigation.webp "Navigation")
 
 #### 1.1.1 Posts
 
@@ -57,7 +60,11 @@ The [About](/about) page is a simple one, it's just one static page with some in
 
 [GitHub](https://github.com/nirgn975) is the main platform I'm on right now (and [twitter](https://twitter.com/nirgn975)), it's the most important one because it's store all of my projects (work and private ones), my code examples, etc. And it makes sense to expect that I will direct readers there during the posts, so it's handy to have a direct link.
 
-#### 1.1.6 Dark Mode!
+#### 1.1.6 Search
+
+In time our blog will have a lot of posts. This will create a problem for new people who just came across this blog and went to search for a specific post related to a specific subject. To solve this problem I use [algolia](https://www.algolia.com/) to provide a web search through a SaaS model. That way I keep the blog lean and static like I want to (I can focus on creating content and not features) while provide superhero powers!
+
+#### 1.1.7 Dark Mode!
 
 People that know me, know how much I love dark mode! I can't explain it, it's just easier on my eyes. I loved the old design of the blog, but not having a dark mode was a major bug. So the new design solved this by implement a tiny button on the top right corner to toggle between light and dark mods.
 
@@ -83,7 +90,7 @@ So after a while I implement [disqus](https://disqus.com/) but it was out of nec
 
 A new design make a new opportunity to change all of that! I searched for days for the best commenting system for static websites that will keep the user privacy, let the user make an anonymous comment, and will be beautiful and easy to use. And I think i found it! [commento](https://www.commento.io/) is (in my research) the best there is out there right now, it fulfills all my requirements and more.
 
-![commento.io Platform](/images/posts/2020/new-design-for-the-blog/commento-io-platform.jpg "commento.io Platform")
+![commento.io Platform](/images/posts/2020/new-design-for-the-blog/commento-io-platform.webp "commento.io Platform")
 
 &nbsp;
 
