@@ -8,7 +8,7 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["twitter", "development", "git", "github", "angular", "node.js", "monogodb", "robo 3t", "gcloud", "kubectl"]
+tags: ["twitter", "development", "git", "github", "atom", "angular", "node.js", "monogodb", "robo 3t", "gcloud", "kubectl", "brew"]
 categories: ["development"]
 
 hiddenFromHomePage: false
@@ -43,7 +43,7 @@ While I'm using Mac and I'll show how to install everything on a Mac, it should 
 
 I recommend to use a package manager to install everything on your machine, on mac it's `brew`. Once you have [brew](https://brew.sh/) installed on your machine all you need to do to install `git` is:
 
-```bash
+```shell
 $ brew install git
 ```
 
@@ -59,7 +59,7 @@ GitHub is a web based git with some extra features. We don't need to install any
 
 After you sign up you'll need to confirm your account, so check your email. Now we need to config our local `git` with our `email` and `username`. We can do it by typing those command:
 
-```bash
+```shell
 $ git config --global user.name "Nir Galon"
 $ git config --global user.email nir@galon.io
 ```
@@ -72,14 +72,14 @@ My code editor of choice is [Atom](https://atom.io/). But you have plenty of cho
 
 To install Atom with `brew` we need to add [cask](https://github.com/Homebrew/homebrew-cask), cask extends brew (Homebrew) and let us install macOS applications with brew. So let's add `cask`:
 
-```bash
+```shell
 $ brew update
 $ brew tap caskroom/cask
 ```
 
 And now we can install Atom
 
-```bash
+```shell
 $ brew cask install atom
 ```
 
@@ -87,29 +87,51 @@ $ brew cask install atom
 
 ## 2. Database Setup
 
-Something
+Our Database of choice will be [MongoDB](https://www.mongodb.com/). MongoDB is a NoSQL database which only means it's not a SQL one, but if it's not SQL what it is? It's a document-oriented database, it uses JSON-like documents with schema to store data. What it's actually means is that everything in our database is [JSON](https://www.json.org/) valid and we use a `key=value` schema for it.
 
-### 2.1. mongodb
+MongoDB has it's advantages and disadvantages, but for our use case it fits the bill. When you go to choose a database for a new project you need to choose the best database for the job in hand, and not force the database you love and know on the project. You may (even most likely) need to use couple of databases and everyone of them will do something else with the same or different data. But this is a topic for another post.
 
-install mongodb
+### 2.1. MongoDB
 
-### 2.2. robo 3t
+To install MongoDB we'll head over to the [MongoDB documentation](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x) and go through the instructions. First we'll add their tap to `brew`, then we'll install the mongodb community edition, and finally start the database through [brew services](https://github.com/Homebrew/homebrew-services).
 
-install robo 3t
+```shell
+$ brew tap mongodb/brew
+$ brew install mongodb-community
+$ brew services start mongodb-community
+```
+
+Now we have MongoDB installed and running on our local machine. But how can we see and run stuff?
+
+### 2.2. Robo 3T
+
+Robo 3T is a free and open-source cross-platform MongoDB GUI. With it we can see our databases, collections and even documents in a nice and easy way with a [GUI (Graphical User Interface)](https://en.wikipedia.org/wiki/Graphical_user_interface). Let's continue to install things with the same convenient way, with `brew`. This is a GUI software so it will no be on `brew`, but we already have the `cask` extension for `brew`, so let's search it there: https://formulae.brew.sh.
+
+![Homebrew Cask Robo 3T Search](/images/posts/2020/chapter-1-simple-twitter/homebrew-cask.webp "Homebrew Cask Robo 3T Search")
+
+Success! so let's install it with `brew cask`
+
+```shell
+$ brew cask install robo-3t
+```
 
 &nbsp;
 
 ## 3. Backend Setup
 
-Something
+To build our backend we'll use [Typescript](https://www.typescriptlang.org/). TypeScript is an open source programming language developed and maintained by Microsoft. It is a superset of JavaScript that adds a few things to the language and transcompiles to JavaScript. To write Javascript in the backend (not in the browser) we'll use [Node.js](https://nodejs.org/en/) runtime environment.
 
 ### 3.1. Node.js
 
-Install nodeJS
+I want to believe you already understand how useful is a package manager by now, but if you haven't let's use it again and install Node.js.
+
+```shell
+$ brew install node
+```
 
 ### 3.2. NPM
 
-Make sure npm is installed
+When you installed Node.js something else was installed on your machine in the same time, it's [NPM](https://www.npmjs.com/). NPM is a [Package Manager](https://en.wikipedia.org/wiki/Package_manager) for the JavaScript programming language and is the default package manager for the JavaScript runtime environment Node.js. We'll use it exclusively to download new packages for our Backend as well as for our Frontend project.
 
 &nbsp;
 

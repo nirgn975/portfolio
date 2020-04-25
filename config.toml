@@ -14,6 +14,8 @@ enableGitInfo = true
 # whether to use emoji code
 enableEmoji = true
 
+googleAnalytics = "UA-87725724-1"
+
 [languages]
   [languages.en]
     weight = 1
