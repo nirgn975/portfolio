@@ -27,4 +27,4 @@ jobs:
         uses: chabad360/htmlproofer@master
         with:
           directory: "./public" # The directory to scan
-          arguments: --allow_hash_href --url-ignore (.*lifelongstudent.io.*|.*galon.io.*)
+          arguments: --allow_hash_href --url-ignore [/.*lifelongstudent.io.*|.*galon.io.*/]
