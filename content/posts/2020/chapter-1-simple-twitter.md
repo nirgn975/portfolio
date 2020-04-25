@@ -1,9 +1,9 @@
 ---
 title: "Simple Twitter - Chapter 1: Setup"
 subtitle: ""
-date: 2020-04-25T10:00:00+03:00
-lastmod: 2020-04-25T10:00:00+03:00
-draft: true
+date: 2020-05-01T10:00:00+03:00
+lastmod: 2020-05-01T10:00:00+03:00
+draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
@@ -28,6 +28,8 @@ license: ""
 This is the start of a series of posts to build Twitter like website. But why did I even want to do that? Because I saw a gap in software engineering blog universe about bring software to production level. Nobody explain what we need to do it and didn't do it with the reader, together, while keep it as simple and stupid as one can so even the most junior software engineer can understand why and how to get his next project to production.
 
 So this is what I'm planning to do here. To get you from the basic to production. This will not be an easy journey, or even short one. But I can promise you one thing, you'll learn **a lot**!
+
+> **Disclaimer:** I'm not going to teach you web development, but I'm going to start from the very basic. So you need to know HTML, CSS and JavaScript up front. But that's pretty much it.
 
 The first things we're going to do is the most basic, install the things we need to develop our website on our computer.
 
@@ -133,32 +135,62 @@ $ brew install node
 
 When you installed Node.js something else was installed on your machine in the same time, it's [NPM](https://www.npmjs.com/). NPM is a [Package Manager](https://en.wikipedia.org/wiki/Package_manager) for the JavaScript programming language and is the default package manager for the JavaScript runtime environment Node.js. We'll use it exclusively to download new packages for our Backend as well as for our Frontend project.
 
+### 3.3 Postman
+
+When we'll build our backend we'll want to make requests to it and tests our code from time to time (this is not to write tests, it's to test our code while developing). We can do it in multiple ways, but the easiest one is with an API client. It let you quickly and easily send REST requests against your API.
+
+[Postman](https://www.postman.com/) is one of the most popular ones out there, it's free and has a lot more features, so let's install it
+
+```shell
+$ brew cask install postman
+```
+
 &nbsp;
 
 ## 4. Frontend Setup
 
-Something
+To build our Frontend we'll use [Angular](https://angular.io/). Angular is a typeScript based open source web application framework led by Google. Okay, this is a lot of words, we know what is a web application (a user interface and logic that runs in a web browser), but what is a framework?
+
+A framework is an abstraction layer that may include support programs, compilers, code libraries, tool sets, and more. it's aim to facilitate software developments by allowing us to devote our time to meeting software requirements rather than dealing with the more standard low-level details of providing a working system.
 
 ### 4.1 Angular CLI
 
-install angular cli -g
+Angular has a [CLI (Command Line Interface)](https://en.wikipedia.org/wiki/Command-line_interface) (surprisingly called [Angular CLI](https://cli.angular.io/)) to help us create a new project and components in the Angular way. It saves us time and guide us in the "right" direction.
+
+Angular is a JavaScript framework, so we'll use the JavaScript package manager, `npm`, to install it.
+
+```shell
+$ npm install -g @angular/cli
+```
 
 &nbsp;
 
 ## 5. Cloud / Devops Setup
 
-Something
+When it'll be time to upload our project to the cloud (it'll be sooner then you might think), we'll use couple of tools to connect to our cloud provider and setup our infrastructure. The first will be `gcloud` because we'll use [GCP](https://cloud.google.com/) as our cloud provider (we'll talk about it more in the next chapter), the second will be `kubectl` because we'll use [Kubernetes](https://kubernetes.io/) as part of our infrastructure.
 
 ### 5.1 Google Cloud
 
-Install gcloud
+To use [GCP (Google Cloud Platform)](https://cloud.google.com/) from the command line we need to install [gcloud](https://cloud.google.com/sdk/gcloud) which is the primary CLI tool to create and manage Google Cloud resources.
+
+To install it, we just use `brew cask` command. This is a cli tool, so it probably should be just `brew`, but brew doesn't have a formulae for `gcloud` (don't ask me why, but I'm sure the internet has an answer for that somewhere), so lucky for us, `cask` has us cover.
+
+```shell
+$ brew cask install google-cloud-sdk
+```
 
 ### 5.2 Kubernetes
 
-install kubectl
+[Kubernetes](https://kubernetes.io/) is an open source container orchestration system for automating application deployment, scaling, and management. This is a lot of buzz words, I know. But Kubernetes is worth it. We'll use it to deploy and manage our backend on top of GCP. And to interact with it we need it's CLI (do you see a pattern here yet?). Kubernetes CLI called [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and we can install it like any other CLI tool, with `brew`.
+
+```shell
+$ brew install kubectl
+```
 
 &nbsp;
 
 ## 6. Summary
 
-Something
+To recap, we installed everything we need to start developing our web application / website. We have a GitHub account, a text editor, a database and a GUI to check what is going on inside it, our software for backend and client development (including a software to help us debug our backend API), and even the tools we need to deploy our software to the cloud.
+
+In the next chapter we'll start planning our Twitter website and the architecture of it. I'm sure you are excited as me right now, and I hope to meet you on the comment section.

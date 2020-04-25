@@ -291,7 +291,7 @@ googleAnalytics = "UA-87725724-1"
 
   # Analytics config
   [params.analytics]
-    enable = false
+    enable = true
     # Google Analytics
     [params.analytics.google]
       id = "UA-87725724-1"
@@ -310,7 +310,7 @@ googleAnalytics = "UA-87725724-1"
     # normalize.css@8.0.1 https://github.com/necolas/normalize.css
     normalizeCSS = 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css'
     # fontawesome-free@5.13.0 https://fontawesome.com/
-    fontawesomeFreeCSS = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'
+    # fontawesomeFreeCSS = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'
     # simple-icons@2.9.0 https://github.com/simple-icons/simple-icons
     # ('https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/')
     simpleIconsPrefix = 'https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/'
