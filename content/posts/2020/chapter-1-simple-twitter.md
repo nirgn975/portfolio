@@ -14,7 +14,7 @@ categories: ["development"]
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "/images/posts/2020/chapter-1-simple-twitter/simple-twitter-cover.jpg"
+featuredImage: "/images/posts/2020/chapter-1-simple-twitter/simple-twitter-cover.webp"
 featuredImagePreview: ""
 
 toc:
@@ -49,13 +49,13 @@ $ brew install git
 
 That's it, now if you'll write `git` on your command line of choice you'll get as an output all the git commands you can use.
 
-![git bash output](/images/posts/2020/chapter-1-simple-twitter/macbook_git_installed.jpg "git bash output")
+![git bash output](/images/posts/2020/chapter-1-simple-twitter/macbook_git_installed.webp "git bash output")
 
 ### 1.2. Open a GitHub account
 
 GitHub is a web based git with some extra features. We don't need to install anything to use GitHub, just open an account and configure some stuff. So let's do it! Let's go to https://github.com and pick a `username`, `email`, and `password` and click on the big green button says *Sign up for GitHub*.
 
-![GitHub Sign Up Page](/images/posts/2020/chapter-1-simple-twitter/github_sign_up_page.png "GitHub Sign Up Page")
+![GitHub Sign Up Page](/images/posts/2020/chapter-1-simple-twitter/github_sign_up_page.webp "GitHub Sign Up Page")
 
 After you sign up you'll need to confirm your account, so check your email. Now we need to config our local `git` with our `email` and `username`. We can do it by typing those command:
 

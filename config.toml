@@ -101,7 +101,7 @@ enableEmoji = true
           # Gravatar Email for preferred avatar in home page
           gravatarEmail = ""
           # URL of avatar shown in home page
-          avatarURL = "/images/logo.png"
+          avatarURL = "/images/logo.webp"
           # subtitle shown in home page
           subtitle = "Welcome to Stories of a Lifelong Student, a blog for geeks (:"
           # whether to use typeit animation for subtitle
@@ -265,12 +265,12 @@ enableEmoji = true
       [params.page.seo.publisher]
         name = "xxxx"
         [params.page.seo.publisher.logo]
-          url = "logo.png"
+          url = "logo.webp"
           width = 127
           height = 40
       # Logo info
       [params.page.seo.logo]
-        url = "logo.png"
+        url = "logo.webp"
         width = 127
         height = 40
       # Image info

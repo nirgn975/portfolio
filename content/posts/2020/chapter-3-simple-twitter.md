@@ -14,7 +14,7 @@ categories: ["development"]
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "/images/posts/2020/chapter-3-simple-twitter/simple-twitter-cover.jpg"
+featuredImage: "/images/posts/2020/chapter-3-simple-twitter/simple-twitter-cover.webp"
 featuredImagePreview: ""
 
 toc:
