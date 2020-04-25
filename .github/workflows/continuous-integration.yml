@@ -1,6 +1,5 @@
 name: Continuous Integration
 
-# on: [push]
 on:
   pull_request:
     branches:
@@ -28,3 +27,4 @@ jobs:
         uses: chabad360/htmlproofer@master
         with:
           directory: "./public" # The directory to scan
+          arguments: --allow-missing-href --allow_hash_href
