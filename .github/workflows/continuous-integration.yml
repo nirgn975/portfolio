@@ -23,8 +23,8 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Check HTML
+      - name: HTML Proofer
         uses: chabad360/htmlproofer@master
         with:
           directory: "./public" # The directory to scan
-          arguments: --allow-missing-href --allow_hash_href
+          arguments: --allow_hash_href --url-ignore */lifelongstudent.io/*
