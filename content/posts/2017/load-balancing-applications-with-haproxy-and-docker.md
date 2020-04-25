@@ -155,7 +155,7 @@ http.createServer(function (req, res) {
 
 So we need to build the image again, but this time it’s the second version of the app so we’ll write `docker build -t awesome:v2 .` and we’ll create an image called `awesome` but with a `v2` tag. To update our containers in the `awesome` service to use the `v2` version of our app (without stop the service) we’ll write `docker service update --image awesome:v2 prod_awesome` and our service called `awesome`, in `prod` stack, will update it’s containers five by five to use the second version of our app (why 5 containers at a time? because we wrote `parallelism: 5` in our `docker-compose.yml` file.
 
-We can see our docker slowly (but surly) kill the old containers and create new ones with the second version of our app. And when we hit [http://localhost](http://localhost) we still get a response, there is no downtime.
+We can see our docker slowly (but surly) kill the old containers and create new ones with the second version of our app. And when we hit `http://localhost` we still get a response, there is no downtime.
 
 ![Some containers are already use the second version. No Downtime (:](/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.webp "Some containers are already use the second version. No Downtime (:")
 
