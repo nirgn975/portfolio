@@ -263,9 +263,9 @@ enableEmoji = true
     [params.page.seo]
       # Publisher info
       [params.page.seo.publisher]
-        name = "xxxx"
+        name = "Nir Galon"
         [params.page.seo.publisher.logo]
-          url = "logo.webp"
+          url = "publishers/nir-galon.webp"
           width = 127
           height = 40
       # Logo info
@@ -275,7 +275,7 @@ enableEmoji = true
         height = 40
       # Image info
       [params.page.seo.image]
-        url = "cover.png"
+        url = "logo.webp"
         width = 800
         height = 600
 
@@ -292,7 +292,7 @@ enableEmoji = true
     enable = false
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "UA-87725724-1"
       # whether to anonymize IP
       anonymizeIP = true
       # whether to use cookie

@@ -134,7 +134,7 @@ The network, the services, and all the containers called `stack`. To create our 
 
 &nbsp;
 
-When we’ll hit [http://localhost](http://localhost) we’ll get the container id in the response, and we can see it has a different id every request.
+When we’ll hit `http://localhost` we’ll get the container id in the response, and we can see it has a different id every request.
 
 ![Different container id every request](/images/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.webp "Different container id evert request")
 
