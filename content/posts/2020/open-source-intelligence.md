@@ -46,3 +46,8 @@ https://github.com/OWASP/Amass
 https://github.com/sundowndev/PhoneInfoga
 https://github.com/Viralmaniar/I-See-You
 https://github.com/DataSploit/datasploit
+
+
+&nbsp;
+
+## 7. Summary
