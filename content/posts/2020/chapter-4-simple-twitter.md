@@ -1,14 +1,14 @@
 ---
-title: "Simple Twitter - Chapter 4: Something!"
+title: "Simple Twitter - Chapter 4: Login!"
 subtitle: ""
-date: 2020-08-01T11:00:00+03:00
-lastmod: 2020-08-01T11:00:00+03:00
+date: 2020-08-01T10:00:00+03:00
+lastmod: 2020-08-01T10:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["twitter", "development", "github"]
+tags: ["twitter", "development", "github", "node.js", "expressjs", "angular", "ngrx", "modules", "jwt", "token", "controller", "model", "router", "mongodb"]
 categories: ["development"]
 
 hiddenFromHomePage: false

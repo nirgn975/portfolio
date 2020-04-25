@@ -1,14 +1,14 @@
 ---
-title: "Simple Twitter - Chapter 3: Getting Started Coding"
+title: "Simple Twitter - Chapter 3: Started Coding"
 subtitle: ""
-date: 2020-07-01T11:00:00+03:00
-lastmod: 2020-07-01T11:00:00+03:00
+date: 2020-04-01T10:00:00+03:00
+lastmod: 2020-04-01T10:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["twitter", "development", "angular", "angular cli", "node.js", "express", "git", "workflow", "github"]
+tags: ["twitter", "development", "angular", "angular cli", "node.js", "express", "git", "workflow", "github", "github actions", "nodemon", "lint", "unit tests", "coverage", "codecov"]
 categories: ["development"]
 
 hiddenFromHomePage: false
