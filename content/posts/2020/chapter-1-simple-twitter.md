@@ -135,14 +135,14 @@ $ brew install node
 
 When you installed Node.js something else was installed on your machine in the same time, it's [NPM](https://www.npmjs.com/). NPM is a [Package Manager](https://en.wikipedia.org/wiki/Package_manager) for the JavaScript programming language and is the default package manager for the JavaScript runtime environment Node.js. We'll use it exclusively to download new packages for our Backend as well as for our Frontend project.
 
-### 3.3 Postman
+### 3.3 API Client
 
 When we'll build our backend we'll want to make requests to it and tests our code from time to time (this is not to write tests, it's to test our code while developing). We can do it in multiple ways, but the easiest one is with an API client. It let you quickly and easily send REST requests against your API.
 
-[Postman](https://www.postman.com/) is one of the most popular ones out there, it's free and has a lot more features, so let's install it
+[Insomnia](https://insomnia.rest) is one of the most popular ones out there, it's free and has a lot more features, so let's install it
 
 ```shell
-$ brew cask install postman
+$ brew cask install insomnia
 ```
 
 &nbsp;
