@@ -21,7 +21,7 @@ toc:
   enable: true
 math:
   enable: false
-lightgallery: true
+lightgallery: false
 license: ""
 ---
 Creating Jekyll progressive web apps has never been easier!

@@ -1,8 +1,8 @@
 # Stories of a Lifelong Student
 
-[![license][license-image]][license-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][dependencyci-image]][dependencyci-url] [![Donate][donate-image]][donate-url]
+[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](http://creativecommons.org/licenses/by/4.0/) ![Continuous Deployment](https://github.com/nirgn975/stories-of-a-lifelong-student/workflows/Continuous%20Deployment/badge.svg?branch=master) [![Donate](https://img.shields.io/badge/PayPal-Donate-lightgrey.svg)](https://www.paypal.me/nirgn/2)
 
-> My private blog, written by me. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, arduino, contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hackers), Google stuff (search, android, chrome, chrome os, and web apps), etc.
+> My private blog, written by me. The posts are about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, code contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hacking), android and reverse engineering.
 
 ## Prerequisites
 
@@ -14,7 +14,12 @@ To install this project, you'll need the following things installed on your mach
 
 ## Development
 
-1. Clone this repo `git clone --recurse-submodules git@github.com:nirgn975/stories-of-a-lifelong-student.git`
+1. Clone this repo
+
+```shell
+$ git clone --recurse-submodules git@github.com:nirgn975/stories-of-a-lifelong-student.git
+```
+
 2. Inside the directory, run
 
 ```shell
@@ -40,12 +45,3 @@ If you want to build it locally do
 $ export HUGO_ENV=production
 $ hugo
 ```
-
-[license-image]: https://img.shields.io/badge/license-ISC-blue.svg
-[license-url]: https://github.com/nirgn975/Stories-of-a-Lifelong-Student/blob/master/LICENSE
-[travis-image]: https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student.svg?branch=master
-[travis-url]: https://travis-ci.org/nirgn975/Stories-of-a-Lifelong-Student
-[dependencyci-image]: https://dependencyci.com/github/nirgn975/Stories-of-a-Lifelong-Student/badge
-[dependencyci-url]: https://dependencyci.com/github/nirgn975/Stories-of-a-Lifelong-Student
-[donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg
-[donate-url]: https://www.paypal.me/nirgn/2
