@@ -1,14 +1,14 @@
 ---
-title: "Simple Twitter - Chapter 3: Getting Started Coding"
+title: "Simple Twitter - Chapter 3: Started Coding"
 subtitle: ""
-date: 2020-05-17T11:00:00+03:00
-lastmod: 2020-05-17T11:00:00+03:00
+date: 2020-04-01T10:00:00+03:00
+lastmod: 2020-04-01T10:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["twitter", "development", "angular", "angular cli", "node.js", "express", "git", "workflow", "github"]
+tags: ["twitter", "development", "angular", "angular cli", "node.js", "express", "git", "workflow", "github", "github actions", "nodemon", "lint", "unit tests", "coverage", "codecov"]
 categories: ["development"]
 
 hiddenFromHomePage: false
@@ -32,16 +32,22 @@ We'll also start a new [Angular](https://angular.io/) application with [Angular 
 
 ## 1. GitHub Workflow
 
-something
+issues and pull requests, run tests, run codecov (dont merge if tests not work), squash and merge.
 
 &nbsp;
 
 ## 2. Scaffolding Basic Client
 
-something
+ngrx, material, core module, basic scss style, github action to run lint and tests, add codecov, add badges
 
 &nbsp;
 
 ## 3. Scaffolding Basic Server
 
 something
+
+typescript, express, nodemon, .env, dummy data import, github action to run lint and tests, add codecov, add badges
+
+&nbsp;
+
+## 4. Summary

@@ -18,8 +18,6 @@ I also evolve from the technical side of it, the source code of the blog is on [
 
 Before I finish I just want to share with you a quote that I take with me for life and especially when writing posts, and you can count on the posts to be in this spirit.
 
-&nbsp;
-
 > If you can't explain it simply, you don't understand it well enough.
 >
 > Albert Einstein
