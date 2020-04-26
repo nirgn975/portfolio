@@ -1,8 +1,8 @@
 ---
 title: "Simple Twitter - Chapter 3: Started Coding"
 subtitle: ""
-date: 2020-04-01T10:00:00+03:00
-lastmod: 2020-04-01T10:00:00+03:00
+date: 2020-07-05T10:00:00+03:00
+lastmod: 2020-07-05T10:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
