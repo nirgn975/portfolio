@@ -87,8 +87,8 @@ googleAnalytics = "UA-87725724-1"
     placeholder = ""
     [params.search.algolia]
       index = "index.en"
-      appID = "PASDMWALPK"
-      searchKey = "b42948e51daaa93df92381c8e2ac0f93"
+      appID = "T2SWIQEAVY"
+      searchKey = "6447497d689848aaf0c52a0b85b7c4f8"
 
   # Home page config
   [params.home]
