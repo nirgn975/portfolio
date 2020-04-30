@@ -36,12 +36,6 @@ $ npm install -g firebase-tools
 
 Then easily deploy the blog
 ```shell
-$ hugo && firebase deploy
-```
-
-If you want to build it locally do
-
-```shell
 $ export HUGO_ENV=production
-$ hugo
+$ hugo && firebase deploy
 ```
