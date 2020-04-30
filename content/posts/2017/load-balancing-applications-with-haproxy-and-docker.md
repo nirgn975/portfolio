@@ -21,7 +21,7 @@ toc:
   enable: true
 math:
   enable: false
-lightgallery: false
+lightgallery: true
 license: ""
 ---
 A tutorial for a real world docker use case.

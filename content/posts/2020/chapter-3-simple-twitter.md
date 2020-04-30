@@ -22,7 +22,7 @@ toc:
   enable: true
 math:
   enable: false
-lightgallery: false
+lightgallery: true
 license: ""
 ---
 
@@ -108,13 +108,13 @@ After that we'll be redirect to a new page when we need to fill some basic infor
 In *Simple Twitter - Chapter 1: Setup* we installed the [Angular CLI](https://cli.angular.io), now we're going to use it. Let's open our terminal on our local machine, I'm using [Hyper](https://hyper.is/) but you can use which ever terminal you used to, and navigate to the directory we want our project to be in (in my case it'll be a `web` directory in home).
 
 ```shell
-cd web
+$ cd ~/web
 ```
 
-Once we're in the desirable directory we will create a new Angular project, using the [Angular CLI](https://cli.angular.io). To do that we use the `new` command and after it give the name of the project (will be the name of the repo we created). After the Angular CLI start to work it'll ask us a bunch of questions, and we'll answer `y` to the routing one (yes we want the cli to add a routing file for us) and we'll choose [SCSS](https://sass-lang.com/) for the stylesheet (don't worry if you don't know `scss`, it's just like `css` but with superpowers. We'll go over them when we'll start coding).
+Once we're in the desirable directory we will create a new Angular project, using the [Angular CLI](https://cli.angular.io). To do that we use the `new` command and after it give the name of the project (will be the name of the repo we created). After the Angular CLI start to work it'll ask us a bunch of questions, and we'll answer `y` to the routing one (yes we want the cli to add a routing file for us) and we'll choose [SCSS](https://sass-lang.com/) for the stylesheet (don't worry if you don't know `scss`, it's just like `css` but with superpowers. We'll go over them once we start coding).
 
 ```shell
-ng new simple-twitter-client
+$ ng new simple-twitter-client
 ```
 
 ![Create a new project](/images/posts/2020/chapter-3-simple-twitter/ng-create-a-new-project.webp "Create a new project")
@@ -129,18 +129,46 @@ We can see there is a git directory called `.git`. This directory hold all of th
 ![Our Newly Created Repo](/images/posts/2020/chapter-3-simple-twitter/empty-repo.webp "Our Newly Created Repo")
 
 {{< admonition type=warning title="Pro Tip" open=true >}}
-If you haven't setup you SSH key on GitHub yet, [generating a new SSH key](https://help.github.com/en/enterprise/2.17/user/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) and then [add it to your GitHub account](https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account). Now you can clone and push to repos with ssh (you can also do it with `https` but you'll need to enter your password every time).
+If you haven't setup your SSH key on GitHub yet, [generating a new SSH key](https://help.github.com/en/enterprise/2.17/user/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) and then [add it to your GitHub account](https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account). Now you can clone and push to repos with ssh (you can also do it with `https` but you'll need to enter your password every time).
 {{< /admonition >}}
 
-add origin
+So as we can read in the instructions we need to `add` a `remote` and we call it `origin`, this will point to our repo. So every time we'll push a new thing (branch, commit, etc) to `origin` it'll push it to our remote GitHub repo. Let's do it!
 
-commit "init"
+```shell
+$ git remote add origin git@github.com:nirgn975/simple-twitter-client.git
+$ git push -u origin master
+```
 
-push to master
+If you didn't get any git errors, you can see on your terminal it `push` your local `master` branch to the `origin` (remote, GitHub one) `master` branch. Now when we go to our repo GitHub page and refresh the page we'll see all of our directories and files.
+
+![Our repo after push to master](/images/posts/2020/chapter-3-simple-twitter/first-commit.webp "Our repo after push to master")
 
 ### 2.3 Install additional modules
 
-create an issue
+Now that we have a `master` branch with basic Angular project in it, let's create our first issue. I'll give it the title *Configuration*, and will add some TODOs to it so we don't need to remember our tasks.
+
+```markdown
+- [ ] Install and configure the [ngrx](https://ngrx.io) package.
+- [ ] Install and configure the [material](https://material.angular.io) package.
+- [ ] Create a `core` module with basic configuration.
+- [ ] Add basic SCSS style.
+```
+
+Plus I'll assign this issue to myself (not that it's matter, because we're working alone), add an `enhancement` label, and add it to `Chapter 3` milestone (the last one is just to keep track of things for myself while I'm build it, and to keep things organized in the repo for future readers).
+
+![Our first issue](/images/posts/2020/chapter-3-simple-twitter/configuration-issue.webp "Our first issue")
+
+When we created the issue, GitHub give it a unique number, in this case, because it's our first issue / pull request, it the number `#1`. So, like we mention in the GitHub workflow, we'll create a new branch with the name `1` (with the `branch` command) and then move from `master` branch to our new branch (with the `checkout` command).
+
+```shell
+$ git branch 1
+$ git checkout 1
+```
+
+Now, if you'll type in the terminal `git status`, it'll tell us we're `On branch 1`.
+
+The first task is to install the [ngrx](https://ngrx.io) package.
+
 
 Install ngrx
 
@@ -155,6 +183,12 @@ basic scss style
 ### 2.5 Tests
 
 github action to run lint and tests
+
+```markdown
+- [ ] Create a GitHub action workflow to run lint and tests.
+- [ ] Add [codecov](https://codecov.io) to the GitHub action.
+- [ ] Add badges to `README.md` file.
+```
 
 ### 2.6 Last things
 
