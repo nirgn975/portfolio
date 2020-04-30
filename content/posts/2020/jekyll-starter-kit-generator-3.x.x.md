@@ -21,7 +21,7 @@ toc:
   enable: true
 math:
   enable: false
-lightgallery: false
+lightgallery: true
 license: ""
 ---
 First thing first, I want to send virtual thanks, gratitudes and hugs to all the people that star, download, use, and contribute the project! This is huge for me, you don't know how much it's affect and keep me going. Thank you!!

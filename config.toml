@@ -16,117 +16,49 @@ enableEmoji = true
 
 googleAnalytics = "UA-87725724-1"
 
-[languages]
-  [languages.en]
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    # you can add extra information before the name (HTML format is supported), such as icons
+    pre = ""
+    # you can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+    name = "Posts"
+    url = "/posts/"
+    # title will be shown when you hover on this menu link.
+    title = ""
     weight = 1
-    # language code
-    languageCode = "en"
-    # language name
-    languageName = "English"
-    # whether to include Chinese/Japanese/Korean
-    hasCJKLanguage = false
-    # default amount of posts in each pages
-    paginate = 12
-    # [UA-XXXXXXXX-X] google analytics code
-    googleAnalytics = "UA-87725724-1"
-    # copyright description used only for seo schema
-    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
-    # Menu config
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "posts"
-        # you can add extra information before the name (HTML format is supported), such as icons
-        pre = ""
-        # you can add extra information after the name (HTML format is supported), such as icons
-        post = ""
-        name = "Posts"
-        url = "/posts/"
-        # title will be shown when you hover on this menu link.
-        title = ""
-        weight = 1
-      [[languages.en.menu.main]]
-        identifier = "tags"
-        pre = ""
-        post = ""
-        name = "Tags"
-        url = "/tags/"
-        title = ""
-        weight = 2
-      [[languages.en.menu.main]]
-        identifier = "categories"
-        pre = ""
-        post = ""
-        name = "Categories"
-        url = "/categories/"
-        title = ""
-        weight = 3
-      [[languages.en.menu.main]]
-        identifier = "about"
-        pre = ""
-        post = ""
-        name = "About"
-        url = "/about/"
-        title = ""
-        weight = 4
-      [[languages.en.menu.main]]
-        identifier = "github"
-        pre = "<i class='fab fa-github fa-fw'></i>"
-        name = ""
-        url = "https://github.com/nirgn975"
-        title = "GitHub"
-        weight = 5
-    [languages.en.params]
-      # site description
-      description = "About Stories of a Lifelong Student"
-      # site keywords
-      keywords = ["computer science", "data structures", "algorithms", "computer networks", "operating system", "machine learning", "open source", "linux", "arduino", "programming", "security", "pen testing", "hacking", "android", "reverse engineering"]
-      # Search config
-      [languages.en.params.search]
-        enable = true
-        # type of search engine ("lunr", "algolia")
-        type = "algolia"
-        # index length of the content
-        contentLength = 5000
-        # placeholder of the search bar
-        placeholder = ""
-        [languages.en.params.search.algolia]
-          index = "index.en"
-          appID = "PASDMWALPK"
-          searchKey = "b42948e51daaa93df92381c8e2ac0f93"
-      # Home page config
-      [languages.en.params.home]
-        # amount of RSS pages
-        rss = 10
-        # Home page profile
-        [languages.en.params.home.profile]
-          enable = true
-          # Gravatar Email for preferred avatar in home page
-          gravatarEmail = ""
-          # URL of avatar shown in home page
-          avatarURL = "/images/logo.webp"
-          # subtitle shown in home page
-          subtitle = "Welcome to Stories of a Lifelong Student, a blog for geeks (:"
-          # whether to use typeit animation for subtitle
-          typeit = true
-          # whether to show social links
-          social = true
-          # disclaimer (HTML format is supported)
-          disclaimer = ""
-        # Home page posts
-        [languages.en.params.home.posts]
-          enable = true
-          # special amount of posts in each home posts page
-          paginate = 6
-      # Social config in home page
-      [languages.en.params.social]
-        GitHub = "nirgn975"
-        Linkedin = "nirgn"
-        Twitter = "nirgn975"
-        Medium = "@nirgn"
-        Keybase = "nirgn975"
-        Reddit = "nirgn975"
-        Stackoverflow = "2040160/nirgn"
-        Email = "nir@galon.io"
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+    weight = 2
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+    weight = 3
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about/"
+    title = ""
+    weight = 4
+  [[menu.main]]
+    identifier = "github"
+    pre = "<i class='fab fa-github fa-fw'></i>"
+    name = ""
+    url = "https://github.com/nirgn975"
+    title = "GitHub"
+    weight = 5
 
 [params]
   # LoveIt theme version
@@ -139,6 +71,60 @@ googleAnalytics = "UA-87725724-1"
   fingerprint = ""
   # date format
   dateFormat = "2006-01-02"
+  # site description
+  description = "About Stories of a Lifelong Student"
+  # site keywords
+  keywords = ["computer science", "data structures", "algorithms", "computer networks", "operating system", "machine learning", "open source", "linux", "arduino", "programming", "security", "pen testing", "hacking", "android", "reverse engineering"]
+
+  # Search config
+  [params.search]
+    enable = true
+    # type of search engine ("lunr", "algolia")
+    type = "algolia"
+    # index length of the content
+    contentLength = 5000
+    # placeholder of the search bar
+    placeholder = ""
+    [params.search.algolia]
+      index = "index.en"
+      appID = "T2SWIQEAVY"
+      searchKey = "6447497d689848aaf0c52a0b85b7c4f8"
+
+  # Home page config
+  [params.home]
+    # amount of RSS pages
+    rss = 10
+    # Home page profile
+    [params.home.profile]
+      enable = true
+      # Gravatar Email for preferred avatar in home page
+      gravatarEmail = ""
+      # URL of avatar shown in home page
+      avatarURL = "/images/logo.webp"
+      # subtitle shown in home page
+      subtitle = "Welcome to Stories of a Lifelong Student, a blog for geeks (:"
+      # whether to use typeit animation for subtitle
+      typeit = true
+      # whether to show social links
+      social = true
+      # disclaimer (HTML format is supported)
+      disclaimer = ""
+    # Home page posts
+    [params.home.posts]
+      enable = true
+      # special amount of posts in each home posts page
+      paginate = 6
+
+  # Social config in home page
+  [params.social]
+    GitHub = "nirgn975"
+    Linkedin = "nirgn"
+    Twitter = "nirgn975"
+    Medium = "@nirgn"
+    Keybase = "nirgn975"
+    Reddit = "nirgn975"
+    Stackoverflow = "2040160/nirgn"
+    Email = "nir@galon.io"
 
   # Header config
   [params.header]
