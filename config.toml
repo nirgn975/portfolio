@@ -86,7 +86,7 @@ googleAnalytics = "UA-87725724-1"
     # placeholder of the search bar
     placeholder = ""
     [params.search.algolia]
-      index = "index.en"
+      index = "index.json"
       appID = "T2SWIQEAVY"
       searchKey = "6447497d689848aaf0c52a0b85b7c4f8"
 
