@@ -32,7 +32,8 @@ jobs:
 
       - name: Update index.json To Algolia
         run: |
-          npm install atomic-algolia
+          npm install -D atomic-algolia
+          npx atomic-algolia
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
