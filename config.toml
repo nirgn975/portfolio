@@ -186,7 +186,7 @@ googleAnalytics = "UA-87725724-1"
     # whether to hide a page from search results
     hiddenFromSearch = false
     # whether to enable lightgallery
-    lightgallery = false
+    lightgallery = true
     # whether to show the copy button of the code block
     copyCode = true
     # whether to enable the ruby extended syntax
@@ -313,10 +313,10 @@ googleAnalytics = "UA-87725724-1"
     # lazysizes@5.2.0 https://github.com/aFarkas/lazysizes
     lazysizesJS = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js'
     # lightgallery.js@1.1.3 lg-thumbnail@1.1.0 lg-zoom@1.1.0 https://github.com/sachinchoolur/lightgallery.js
-    lightgalleryCSS = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.1.3/css/lightGallery.css'
-    lightgalleryJS = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.1.3/js/lightGallery.min.js'
-    lightgalleryThumbnailJS = 'https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.1.0/lg-thumbnail.min.js'
-    lightgalleryZoomJS = 'https://cdnjs.cloudflare.com/ajax/libs/lg-zoom/1.1.0/lg-zoom.min.js'
+    lightgalleryCSS = 'https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/css/lightgallery.min.css'
+    lightgalleryJS = 'https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js'
+    lightgalleryThumbnailJS = 'https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.1.0/dist/lg-thumbnail.min.js'
+    lightgalleryZoomJS = 'https://cdn.jsdelivr.net/npm/lg-zoom.js@1.0.1/dist/lg-zoom.min.js'
     # clipboard.js@2.0.6 https://github.com/zenorocha/clipboard.js
     clipboardJS = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js'
     # sharer.js@0.4.0 https://github.com/ellisonleao/sharer.js

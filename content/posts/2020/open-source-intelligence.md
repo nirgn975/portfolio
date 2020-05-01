@@ -2,7 +2,7 @@
 title: "Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!"
 subtitle: ""
 <!-- date: 2020-08-16T11:00:00+03:00 -->
-date: 2020-04-16T11:00:00+03:00
+date: 2020-04-30T23:00:00+03:00
 lastmod: 2020-08-16T11:00:00+03:00
 draft: true
 author: "Nir Galon"
@@ -69,6 +69,7 @@ https://github.com/OWASP/Amass
 https://github.com/sundowndev/PhoneInfoga
 https://github.com/Viralmaniar/I-See-You
 https://github.com/DataSploit/datasploit
+https://github.com/humblelad/Shodan-Dorks
 
 https://crocs.fi.muni.cz/_media/public/openlab/osint.pdf
 
