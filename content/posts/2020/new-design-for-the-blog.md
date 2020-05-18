@@ -38,7 +38,7 @@ Let's break it down
 
 The navigation at the upper right side of the website contains all the configuration and links of the website.
 
-![Navigation](/images/posts/2020/new-design-for-the-blog/navigation.webp "Navigation")
+![Navigation](/posts/2020/new-design-for-the-blog/navigation.webp "Navigation")
 
 #### 1.1.1 Posts
 
@@ -90,7 +90,7 @@ So after a while I implement [disqus](https://disqus.com/) but it was out of nec
 
 A new design make a new opportunity to change all of that! I searched for days for the best commenting system for static websites that will keep the user privacy, let the user make an anonymous comment, and will be beautiful and easy to use. And I think i found it! [commento](https://www.commento.io/) is (in my research) the best there is out there right now, it fulfills all my requirements and more.
 
-![commento.io Platform](/images/posts/2020/new-design-for-the-blog/commento-io-platform.webp "commento.io Platform")
+![commento.io Platform](/posts/2020/new-design-for-the-blog/commento-io-platform.webp "commento.io Platform")
 
 &nbsp;
 
