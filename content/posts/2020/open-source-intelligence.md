@@ -9,7 +9,7 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["osint", "reconnaissance", "hacking", "white hat", "intelligence", "open source"]
+tags: ["osint", "reconnaissance", "hacking", "white hat", "intelligence", "open source", "data leaks", "arjun", "hunter.io", "theHarvester", "sublist3r"]
 categories: ["hacking"]
 
 hiddenFromHomePage: false
@@ -673,7 +673,7 @@ URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
 
 We can see words in Indonesian, his name (Dian Wahyudi), and his phone number that also in his Facebook profile, so the domain was his in this date. We can see a physical address (street: `Kutajaya no.15 Rt.03 Rw.01`, city: `bogor`, state: `Jawa Barat`, zip: `16131`), and a new email (`diansoft1711@gmail.com`).
 
-Before we continue digging with our new findings, let's keep looking in our Google search for `slikeye.com`. There was nothing more in there expect from the fourth result, it was his [Twitter profile](https://twitter.com/dianwhyd). It doesn't look like much, he upload more photos and talk more in his Facebook profile (he also abandoned Twitter in 2017). But a quick scroll through is tweets with pictures shows a tweet from 2014 with a Facebook login that says "fb maintenance", and the start of his email is the `input` field. It says `slikeye` so it's probably `slikeye1711@gmail.com`.
+Before we continue digging with our new findings, let's keep looking in our Google search for `slikeye.com`. There was nothing more in there expect from the fourth result, it was his [Twitter profile](https://twitter.com/dianwhyd). It doesn't look like much, he upload more photos and talk more in his Facebook profile (he also abandoned Twitter in 2017). But a quick scroll through his tweets with pictures shows a tweet from 2014 with a Facebook login that says "fb maintenance", and the start of his email is the `input` field. It says `slikeye` so it's probably `slikeye1711@gmail.com`.
 
 It's time to do a *"Forget Password"* on Facebook with his email. It's got us his last 2 digits in his phone number, and they're the same as the phone number in his Facebook profile and his 2017 WHOIS record for `slikeye.com`, so we know it's probably his real and private phone number (also, a *"Forget Password"* in Twitter, for the same email, get us the same 2 last digits).
 
@@ -762,7 +762,7 @@ This doesn't look good for our guy, this is probably a fake account for an apple
 
 &nbsp;
 
-The next step is to search for more information about those phishing sites. When I search for `*.bocah.team` on Google will results in couple of new emails and websites, but we hav enogh of that, let's search specific for Pastebin, because that's where we find the apple scam page with his email and Facebook profile URL. So when I searched `*.bocah.team site:pastebin.com` I found 4 different pastes:
+The next step is to search for more information about those phishing sites. The search for `*.bocah.team` on Google results in couple of new emails and websites, but we have enough of that, let's search specific for Pastebin, because that's where we find the apple scam page with his email and Facebook profile URL. So when I searched `*.bocah.team site:pastebin.com` I found 4 different pastes:
 - The [first](https://pastebin.com/T6bnuqze) from profile named [ARIDHO](https://pastebin.com/u/aridho), that have a lot of phishing pastes in his profile.
 - The [second](https://pastebin.com/XmEBg6vF) from a profile named [RIZKYIBENG](https://pastebin.com/u/rizkyibeng) and all of his pastes are Apple scam page, except of one, when he has a gmail address `ibengrizky01@gmail.com`.
 - The [third](https://pastebin.com/3MZySMy1) is a guest, and there is nothing interesting in the paste.
@@ -770,9 +770,7 @@ The next step is to search for more information about those phishing sites. When
 
 Now, we can go search about `RIZKYIBENG` with his email `ibengrizky01@gmail.com`, but it is out of scope right now. He can be a member of this phishing operation and maybe he isn't, and just doing those stuff alone, either way it's not an interest for me right now.
 
-But the stuff I started to notice is that all of those scam / phishing pages are look the same. For example here is the slikeye panel of our target, and `ARIDHO` Apple scam panel (rendered with (jsfiddle)[https://jsfiddle.net]).
-
-It's time to scan for open ports on his server.
+But the stuff I started to notice is that all of those scam / phishing pages are look the same. For example here is the slikeye panel of our target, and `ARIDHO` Apple scam panel (rendered with [jsfiddle](https://jsfiddle.net)).
 
 ![Silkeye Panel](/posts/2020/open-source-intelligence/silkeye-panel.webp "Silkeye Panel")
 
@@ -797,11 +795,11 @@ We can see he have a different `fullname` here (`Andi`). And we manage to get hi
 
 Before I wrap this up, I just want to quickly mention a couple of tools I use all the time, but in this case wasn't any help (or other tools get more data), and I just didn't mention them in the write up.
 
-So the first one is [sublist3r](https://github.com/aboul3la/Sublist3r), its gave me some subdomains (but DNSscan found more, much more! subdomains).
+So the first one is [sublist3r](https://github.com/aboul3la/Sublist3r), its gave me some subdomains (but DNSscan found more, much more! subdomains (and much faster)).
 
 ![sublist3r Results](/posts/2020/open-source-intelligence/sublist3r-results.webp "sublist3r Results")
 
-Another tool I always use is [theHarvester](https://github.com/laramies/theHarvester). The Harvester found the `johnny_pacocha` email which led us to his Pastebin and then his Facebook profile page. But to be truthful this is not the first way I found this email, so I include the original way (with [hunter.io](https://hunter.io)). But, if I didn't have an account there, or hunter wasn't able to find it, I probably found it the theHarvester.
+Another tool I always use is [theHarvester](https://github.com/laramies/theHarvester). The Harvester found the `johnny_pacocha` email which led us to his Pastebin and then his Facebook profile page. But to be truthful this is not the first way I found this email, so I include the original way (with [hunter.io](https://hunter.io)). But, if I didn't have an account there, or hunter wasn't able to find it, I probably been able to found it the theHarvester.
 
 ![The Harvester Report](/posts/2020/open-source-intelligence/theHarvester-yahoo.webp "The Harvester Report")
 
@@ -809,6 +807,6 @@ Another tool I always use is [theHarvester](https://github.com/laramies/theHarve
 
 ## 8. Summary
 
-So, to recap our trip, we started with just 2 email address from the same domain and 2 IPs. We manage to probably find our guy and determine he is a member in a scam / phishing operation. We found more people from this operation but didn't continue to investigate them. But the most important thing, the final verdict is that no one was trying to hack my service at work. He is probably did some scanning and encountered my client app, he tried to enter but quickly noticed the security protection or just simply gave up because he didn't think there is anything important there and it's not worth the trouble and time.
+So, to recap our trip, we started with just 2 email address from the same domain and 2 IPs. We manage to probably find our guy and determine he is a member in a scam / phishing operation. We found more people from this operation but didn't continue to investigate them. But the most important thing, the final verdict is that no one was trying to hack my service at work. He is probably did some scanning and encountered my client app, he tried to enter but quickly noticed the security protections or just simply gave up because he didn't think there is anything important there and it's not worth the trouble and time (he also stopped trying after the 4 attempts).
 
 The other thing we gain in this reconnaissance (a part from the final verdict), is a lot of fun time and some brushing of old rust. I hope you learned something new or that I just pick your interest. This world is really big, there are a lot of tools that I didn't use here and there are a lot of cool people that do cool stuff and find really inventive ways to investigate.
