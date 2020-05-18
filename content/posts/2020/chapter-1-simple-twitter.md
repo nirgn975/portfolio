@@ -1,8 +1,8 @@
 ---
 title: "Simple Twitter - Chapter 1: Setup"
 subtitle: ""
-date: 2020-04-30T22:00:00+03:00
-lastmod: 2020-04-30T22:00:00+03:00
+date: 2020-05-01T09:00:00+03:00
+lastmod: 2020-05-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -14,7 +14,7 @@ categories: ["development"]
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "/images/posts/2020/chapter-1-simple-twitter/simple-twitter-cover.webp"
+featuredImage: "/posts/2020/chapter-1-simple-twitter/simple-twitter-cover.webp"
 featuredImagePreview: ""
 
 toc:
@@ -51,13 +51,13 @@ $ brew install git
 
 That's it, now if you'll write `git` on your command line of choice you'll get as an output all the git commands you can use.
 
-![git bash output](/images/posts/2020/chapter-1-simple-twitter/macbook_git_installed.webp "git bash output")
+![git bash output](/posts/2020/chapter-1-simple-twitter/macbook_git_installed.webp "git bash output")
 
 ### 1.2. Open a GitHub account
 
 GitHub is a web based git with some extra features. We don't need to install anything to use GitHub, just open an account and configure some stuff. So let's do it! Let's go to https://github.com and pick a `username`, `email`, and `password` and click on the big green button says *Sign up for GitHub*.
 
-![GitHub Sign Up Page](/images/posts/2020/chapter-1-simple-twitter/github_sign_up_page.webp "GitHub Sign Up Page")
+![GitHub Sign Up Page](/posts/2020/chapter-1-simple-twitter/github_sign_up_page.webp "GitHub Sign Up Page")
 
 After you sign up you'll need to confirm your account, so check your email. Now we need to config our local `git` with our `email` and `username`. We can do it by typing those command:
 
@@ -109,7 +109,7 @@ Now we have MongoDB installed and running on our local machine. But how can we s
 
 Robo 3T is a free and open-source cross-platform MongoDB GUI. With it we can see our databases, collections and even documents in a nice and easy way with a [GUI (Graphical User Interface)](https://en.wikipedia.org/wiki/Graphical_user_interface). Let's continue to install things with the same convenient way, with `brew`. This is a GUI software so it will no be on `brew`, but we already have the `cask` extension for `brew`, so let's search it there: https://formulae.brew.sh.
 
-![Homebrew Cask Robo 3T Search](/images/posts/2020/chapter-1-simple-twitter/homebrew-cask.webp "Homebrew Cask Robo 3T Search")
+![Homebrew Cask Robo 3T Search](/posts/2020/chapter-1-simple-twitter/homebrew-cask.webp "Homebrew Cask Robo 3T Search")
 
 Success! so let's install it with `brew cask`
 
