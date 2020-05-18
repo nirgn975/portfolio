@@ -15,7 +15,7 @@ categories: ["development"]
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "/images/posts/2020/chapter-3-simple-twitter/simple-twitter-cover.webp"
+featuredImage: "/posts/2020/chapter-3-simple-twitter/simple-twitter-cover.webp"
 featuredImagePreview: ""
 
 toc:
@@ -99,7 +99,7 @@ Now that we know how to work with git and GitHub are going to open our client re
 
 So let's start by open a new repository on GitHub, we can do it by pressing on the `+` sign in next to our profile picture, and then choose *New repository*
 
-![Open a New Repository](/images/posts/2020/chapter-3-simple-twitter/new-repository.webp "Open a New Repository")
+![Open a New Repository](/posts/2020/chapter-3-simple-twitter/new-repository.webp "Open a New Repository")
 
 After that we'll be redirect to a new page when we need to fill some basic information about our repo. The name I choose for the repo is `simple-twitter-client` and it'll be a `public` repo, other then those you can leave everything as is and press on the big green button that says *Create Repository*.
 
@@ -117,16 +117,16 @@ Once we're in the desirable directory we will create a new Angular project, usin
 $ ng new simple-twitter-client
 ```
 
-![Create a new project](/images/posts/2020/chapter-3-simple-twitter/ng-create-a-new-project.webp "Create a new project")
+![Create a new project](/posts/2020/chapter-3-simple-twitter/ng-create-a-new-project.webp "Create a new project")
 
 
 Once the cli stop working we can see (with the `ls` command) that he created a new directory for us (with the name we gave it earlier). Let's navigate inside it (with the `cd` command), and, again, list the files inside the directory we're in (with `ls` command, but now let's use the `-a` flag to also see all of the hidden files - files and directories that start with `.` and by that not listed = hidden, in our file explorer).
 
-![List all the files and directories](/images/posts/2020/chapter-3-simple-twitter/list-files-ng-directory.webp "List all the files and directories")
+![List all the files and directories](/posts/2020/chapter-3-simple-twitter/list-files-ng-directory.webp "List all the files and directories")
 
 We can see there is a git directory called `.git`. This directory hold all of the git stuff for our project, it's like a mini database with a log of all the commits and changes we do. Angular CLI created it for us, but it doesn't know our GitHub repository, we need to manually let our git know about it. So let's head back to the GitHub repo, and there we can see couple of instructions, we'll use the *…or push an existing repository from the command line* one.
 
-![Our Newly Created Repo](/images/posts/2020/chapter-3-simple-twitter/empty-repo.webp "Our Newly Created Repo")
+![Our Newly Created Repo](/posts/2020/chapter-3-simple-twitter/empty-repo.webp "Our Newly Created Repo")
 
 {{< admonition type=warning title="Pro Tip" open=true >}}
 If you haven't setup your SSH key on GitHub yet, [generating a new SSH key](https://help.github.com/en/enterprise/2.17/user/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) and then [add it to your GitHub account](https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account). Now you can clone and push to repos with ssh (you can also do it with `https` but you'll need to enter your password every time).
@@ -141,7 +141,7 @@ $ git push -u origin master
 
 If you didn't get any git errors, you can see on your terminal it `push` your local `master` branch to the `origin` (remote, GitHub one) `master` branch. Now when we go to our repo GitHub page and refresh the page we'll see all of our directories and files.
 
-![Our repo after push to master](/images/posts/2020/chapter-3-simple-twitter/first-commit.webp "Our repo after push to master")
+![Our repo after push to master](/posts/2020/chapter-3-simple-twitter/first-commit.webp "Our repo after push to master")
 
 ### 2.3 Install additional modules
 
@@ -156,7 +156,7 @@ Now that we have a `master` branch with basic Angular project in it, let's creat
 
 Plus I'll assign this issue to myself (not that it's matter, because we're working alone), add an `enhancement` label, and add it to `Chapter 3` milestone (the last one is just to keep track of things for myself while I'm build it, and to keep things organized in the repo for future readers).
 
-![Our first issue](/images/posts/2020/chapter-3-simple-twitter/configuration-issue.webp "Our first issue")
+![Our first issue](/posts/2020/chapter-3-simple-twitter/configuration-issue.webp "Our first issue")
 
 When we created the issue, GitHub give it a unique number, in this case, because it's our first issue / pull request, it the number `#1`. So, like we mention in the GitHub workflow, we'll create a new branch with the name `1` (with the `branch` command) and then move from `master` branch to our new branch (with the `checkout` command).
 
