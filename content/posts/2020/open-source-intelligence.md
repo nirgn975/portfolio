@@ -3,7 +3,7 @@ title: "Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!"
 subtitle: ""
 date: 2020-06-01T10:00:00+03:00
 lastmod: 2020-06-01T10:00:00+03:00
-draft: true
+draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
