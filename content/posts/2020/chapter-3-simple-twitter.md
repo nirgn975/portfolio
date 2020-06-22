@@ -1,7 +1,8 @@
 ---
 title: "Simple Twitter - Chapter 3: Started Coding"
 subtitle: ""
-date: 2020-09-01T10:00:00+03:00
+<!-- date: 2020-09-01T10:00:00+03:00 -->
+date: 2020-06-01T10:00:00+03:00
 lastmod: 2020-09-01T10:00:00+03:00
 draft: true
 author: "Nir Galon"
@@ -20,7 +21,7 @@ featuredImagePreview: ""
 toc:
   enable: true
 math:
-  enable: false
+  enable: true
 lightgallery: true
 license: ""
 ---
@@ -166,22 +167,197 @@ $ git checkout 1
 
 Now, if you'll type in the terminal `git status`, it'll tell us we're `On branch 1`.
 
-The first task is to install the [ngrx](https://ngrx.io) package.
+The first task is to install the [ngrx](https://ngrx.io) packages. ngrx as a whole is a state management for Angular applications, and the first package we need to install is the [store](https://ngrx.io/guide/store), which is the state itself. Because we're on angular version higher then 6 we can use the `add` command to install and configure the package.
+
+After we did that we need to add couple of more packages. The first is the [store-devtools](https://ngrx.io/guide/store-devtools) so we can see a visual representation of our store and debug it if we need to. The second is the [effects](https://ngrx.io/guide/effects) which is a way to interact with Angular services and isolate them from the components.
+
+In short, it's the reactive way to handle external interactions (such as fetching data (network requests, web socket messages), long-running tasks that produce multiple events, etc). In the effects you should write most/all of you application "business logic".
+
+```bash
+$ ng add @ngrx/store
+$ ng add @ngrx/store-devtools
+$ ng add @ngrx/effects
+```
+
+After we did all of that, we can `commit` the changes and not that we have our first commit in the new branch we can push the branch to the GitHub (`origin`) repo and create a PR (Pull Request).
+
+```bash
+$ git add .
+$ git commit -m "Install ngrx packages"
+$ git push origin 1
+```
+
+Now if we go to the `Pull requests` tab on GitHub, we can create a new pull request for that branch (if you push the branch for the first time, GitHub will even suggest to create a PR).
+
+![GitHub Suggest Pull Request](/posts/2020/chapter-3-simple-twitter/github-suggest-pull-request.webp "GitHub Suggest Pull Request")
+
+When we click on it, we redirect to a new page to edit the details of the new PR. For convenient we'll use couple of self conventions, we'll give the PR the title we used in the issue, we'll assign the PR to ourselves (because the issue is also assigned to us), and we'll write in the description that this PR is _"Closes #1"_. This description is linking our PR with the issue, so if we hover on the `#1` part we can see the issue details (if we click on it we're redirect to the issue page), and when we'll close this PR the issue will automatically will also close itself.
+
+The last thing to check before we actually open the Pull Request is that the `base` branch is `master` and `compare` is `1`. Because we want to open a PR for the branch named `1` and to merge it to the branch named `master` (which is our main branch in the project).
+
+![First Pull Request Opened](/posts/2020/chapter-3-simple-twitter/first-pull-request-opened.webp "First Pull Request Opened")
+
+Now we can head over to the issue page and mark the first task as done. hooray! :tada:
+
+The next package we need is the [Angular Material](https://material.angular.io). To install and configure it we'll also use the angular-cli `add` command, and we'll pick the "Indigo/Pink" theme for now, we'll choose `Y` to _"Set up global Angular Material typography styles"_ and `Y` to _"Set up browser animations for Angular Material"_.
+
+```bash
+$ ng add @angular/material
+```
+
+Last time (when we install `ngrx`) we were done by now, but with the material package we need to do some stuff, to get ourselves ready for the future. We'll use the material components pretty much all over our app, this means in the main module and also in the different modules we'll create, import, or navigate to. And the one thing we're not want to do is to import them in couple of places, this will not be fun and / or efficient (if we already `import` the component we want to use the same one and not to import another instance of the same thing - duplication).
+
+To achieve that we'll crate a [shard module](https://angular.io/guide/sharing-ngmodules) to import all of the material components, and we'll import just that module to all of our other modules that need to use material components.
+
+Shard module is just a regular module, we'll create a new directory inside of `app` called `modules` where we'll put all of our modules in. Next, we'll create our new module using the angular-cli. We'll call that module `material` and the ng cli will create a new directory for it, and a module file with the same name.
+
+```bash
+$ cd src/app
+$ mkdir -p modules
+$ ng g module modules/material
+```
+
+Now we have a new module, but it's not a _"shard"_ one yet, we need to add an `exports` array to the `NgModule` object, so every module we add to the `imports` array should also be added to the `exports` array.
+
+```typescript
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 
-Install ngrx
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+  ],
+  exports: [
+  ],
+})
+export class MaterialModule { }
+```
 
-install material
+After we created our new shard module we need to import it in the main module, e.g. `AppModule`. So we'll add the line `import { MaterialModule } from './modules/material/material.module';` with the other imports in the `app.module.ts` file, and add `MaterialModule` to the `imports` array. Your `app.module.ts` file should look like this:
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { environment } from '../environments/environment';
+
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
+    BrowserAnimationsModule,
+    MaterialModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+To check if material is working we can `import` some angular material component (for example the button component) and add it to the `app.component.html`, then when we start our app we'll see the button rendered in the browser.
+
+We'll add the below line to the `material.module.ts` file and add `MatButtonModule` to the `imports` array and the `exports` array.
+
+```typescript
+import { MatButtonModule } from '@angular/material/button';
+```
+
+Next, we'll delete all of the content in the `app.component.html` file add add the below line instead.
+
+```html
+<button mat-raised-button color="primary">Primary</button>
+```
+
+Then, when we `npm start` the angular app (run this command at the terminal when in the root directory of the project), and navigate to it in the browser at [localhost:4200](http://localhost:4200) we can see the button on the screen.
+
+![Localhost Material Button](/posts/2020/chapter-3-simple-twitter/localhost-material-button.webp "Localhost Material Button")
+
+Now we should `commit` our changes, push it to GitHub, and we can mark another task in the [Configuration #1 Issue](https://github.com/nirgn975/simple-twitter-client/issues/1) as done.
 
 ### 2.4 Some basic stuff
 
-core module
+The next 2 tasks in our issue is to create a `core` module and add  some `scss` basic styling. The `core` module should be a shard module, like the `material` one, and it should contain all of the stuff we'll `import` in the different modules (like `HttpClientModule`, `RouterModule`, `FormsModule`, etc). It also will contain some shard code, like `guards`, `models`, `services`, and `components` (but it's not relevant now, we'll talk about it when we need to).
 
-basic scss style
+For now, let's create it and `import` and `export` some basic modules (that we know we're going to use). We'll create the module with ng cli
+
+```bash
+$ ng g module modules/core
+```
+
+And then `imports` and `exports` some basic stuff in it. Let's import the `HttpClientModule`, `FormsModule` and `ReactiveFormsModule`. The `core.module.ts` file should look like
+
+```typescript
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  exports: [
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+})
+export class CoreModule { }
+```
+
+Then, all that left to do is to import the `CoreModule` in the `AppModule`, like we did with the `MaterialModule`, and `commit` and `push` the new changes.
+
+The last item on our issue's to-do list is the basic `scss` styling. This is just some css rules that we need to write in the `style.scss` located in the `src` directory.
+
+```scss
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+```
+
+And now we can `commit` and `push`, again, and check all of the tasks in the issue. Before we'll `merge` the Pull Request (`1`) to the base branch (`master`) we'll go over the [_"Files changed tab"_](https://github.com/nirgn975/simple-twitter-client/pull/3/files) and check all of our changes that our PR is going to make to the `master` branch, just to check everything together for the last time, and when we're sure that everything is looking good, we'll head back to the _" Conversation"_ tab and scroll down to _"Squash and merge"_ the pull request.
+
+![Squash And Merge](/posts/2020/chapter-3-simple-twitter/squash-and-merge.webp "Squash And Merge")
 
 ### 2.5 Tests
 
-github action to run lint and tests
+The next issue we'll open will be to add GitHub action workflow, for CI (Continuous Integration), the title we'll give it is `Add GitHub action for tests`, we'll assign it to ourselves, add a `CI/CD` label, and a description with a to-do list of all of the tasks we're going to do in this pull request.
 
 ```markdown
 - [ ] Create a GitHub action workflow to run lint and tests.
@@ -189,11 +365,121 @@ github action to run lint and tests
 - [ ] Add badges to `README.md` file.
 ```
 
-### 2.6 Last things
+![Second GitHub Issue](/posts/2020/chapter-3-simple-twitter/second-github-issue.webp "Second GitHub Issue")
 
-add codecov
+In the terminal we're still on `1` branch, we need to go back to `master` branch, delete the `1` branch (because we no longer need it), pull the changes that we made in GitHub (`origin`) to our local machine, and then create a new branch named `4` (because that's the number of our new issue).
 
-add badges to readme
+```bash
+$ git checkout master
+$ git branch -D 1
+$ git pull origin master
+$ git checkout -b 4
+```
+
+To run the linter and the tests we can check the `scripts` object in the `package.json` file, and we can see there is a `test` script, so let's run it
+
+```bash
+$ npm test
+```
+
+Now, some test are obviously will break, because we made some changes to the default project that the ng cli created for us, and didn't update the tests, so let's update the tests so every test will pass. In the first run of Karma we see that `should render title` test in `AppComponent` is failing.
+
+![Run Karma Tests](/posts/2020/chapter-3-simple-twitter/run-karma-tests.webp "Run Karma Tests")
+
+And it's obvious why it's failing, because it check if there is a `span` element in `AppComponent` with the class `.content` that his text is `simple-twitter-client app is running!`. And there isn't, because we delete the HTML of the `AppComponent` and replace it with a button. For now, we don't have anything to test, our `AppComponent` is pretty much empty, so let's just delete this test.
+
+Next let's check if the linter is pass. We can do it by running `npm run lint`. If everything is good we should see on the terminal the line: `All files pass linting.`.
+
+So we're ready to create a GitHub action workflow that runs the lint and tests, great! If you don't know what GitHub actions is, go to there [documentation page](https://github.com/features/actions) and read about it a little (it's basically a way to get a new and clean VM every commit and run a commands). We'll take the template of a basic Node.js action and start from there.
+
+```yml
+name: Continuous Integration
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+```
+
+From here, we'll add a command to install all the project dependencies, then run the lint, and then the tests, just like we run them on our local machine. So our final file should look like the one below.
+
+```yml
+name: Continuous Integration
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: install dependencies
+      run: npm install
+
+    - name: check lint errors
+      run: npm run lint
+
+    - name: run tests
+      run: npm run test
+```
+
+Now we can commit the changes and push the new branch. After that, we'll create a new PR for this new branch and we can notice that our GitHub action is start right away, with us doing anything. If you'll wait a little bit and let the workflow run, you'll see that it will fail, specifically the the `run tests` step, because it'll fail to start chrome to run the tests.
+
+That's because we can run chrome in a headless VM (a VM without a screen), so we'll create a new npm script to run the Karma tests with a custom browser, the headless version of chrome. We'll call the script `ci-test` and the command will be `ng test --watch=false --browsers=HeadlessChrome`. Now we need to tell Karma what is this _"HeadlessChrome"_ so we'll go to the `karma.conf.js` file and will add a `customLaunchers` right after `restartOnFileChange`. The `customLaunchers` will look like this:
+
+```js
+customLaunchers: {
+  HeadlessChrome: {
+    base: 'ChromeHeadless',
+    flags: ['--no-sandbox']
+  },
+},
+```
+
+Now when we run `npm run ci-test` the chrome runs in the background (without opening up), and we see the output of the tests in the terminal, so change our workflow step to run this command instead of `npm run test` and commit the changes and see if it works.
+
+The next task is to add [codecov](https://codecov.io), Codecov is a reporting tool that can process any coverage report format, it'll give us a clearer picture on how we're doing with our tests (what we already cover, and what's left out), so we can improve. The step is to get a token, so we can push our coverage to the platform, so let's log in to Codecov via GitHub login, then to add our repository and we'll get a token key.
+
+![Codecov Token](/posts/2020/chapter-3-simple-twitter/codecov-token.webp "Codecov Token")
+
+Let's copy it and head over to our GitHub repo -> settings -> secrets, and let's create a new `secret`. The name of our `secret` will be `CODECOV_TOKEN` and the value will be the token we copied from Codecov. We do this because our repo is public, and we don't want anyone to see our token (because we want to be the only ones that can push new coverage report to our repository report on Codecov).
+
+Now let's use it in the GitHub action workflow. Angular already have all it takes to generate automatic coverage report from our tests, we just need to add the flag to the npm script command to do that. A simple google search tell us it's `--code-coverage`, so now our `ci-test` script will look like `ng test --watch=false --browsers=HeadlessChrome --code-coverage`.
+
+And to push the coverage report that automatically generated by Angular we'll use the [Codecov GitHub action](https://github.com/codecov/codecov-action) Codecov already built. So let's add that step to our CI workflow, and tell it from where to get the token, and also to fail the CI if this step is failing.
+
+```yml
+- uses: codecov/codecov-action@v1
+  with:
+    token: ${{ secrets.CODECOV_TOKEN }}
+    fail_ci_if_error: true
+```
+
+Because we didn't push the coverage to the `master` branch, we didn't see anything happen on our Codecov main page, because it can have a diff between the coverage from our `master` branch to our current branch (`4`) and tell us if we have higher or lower the coverage percentage, but that ok, it'll sort it self out once we'll merge to `master`. In the meantime we can check the [branches Codecov page](https://codecov.io/gh/nirgn975/simple-twitter-client/branches) and see our branch (`4`) there, with the coverage report.
+
+The third and last task in the issue is to add Codecov badge to the `README.md` file. We can get the badge code from the _"Settings"_ page in our repository page at Codecov, and go to the _"Badge"_ tab and just copy the markdown code to the top of our `README.md` file (just under the title of our repo).
+
+Now we can check the last task in our current issue and we're ready to _"Squash and merge"_ to `master`.
 
 &nbsp;
 
