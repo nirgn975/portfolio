@@ -95,7 +95,7 @@ end
 
 Now that we know how to work with git and GitHub are going to open our client repository and scaffold our frontend project. The first commit will be on `master` (without an issue and a pull request), because when we are open a PR it need a *base* branch to merge it to, and when we first open a repository we don't have and branch.
 
-### 2.1 Create A Repository
+### 2.1. Create A Repository
 
 So let's start by open a new repository on GitHub, we can do it by pressing on the `+` sign in next to our profile picture, and then choose *New repository*
 
@@ -103,7 +103,7 @@ So let's start by open a new repository on GitHub, we can do it by pressing on t
 
 After that we'll be redirect to a new page when we need to fill some basic information about our repo. The name I choose for the repo is `simple-twitter-client` and it'll be a `public` repo, other then those you can leave everything as is and press on the big green button that says *Create Repository*.
 
-### 2.2 Scaffold an Angular Project
+### 2.2. Scaffold an Angular Project
 
 In *Simple Twitter - Chapter 1: Setup* we installed the [Angular CLI](https://cli.angular.io), now we're going to use it. Let's open our terminal on our local machine, I'm using [Hyper](https://hyper.is/) but you can use which ever terminal you used to, and navigate to the directory we want our project to be in (in my case it'll be a `web` directory in home).
 
@@ -143,7 +143,7 @@ If you didn't get any git errors, you can see on your terminal it `push` your lo
 
 ![Our repo after push to master](/posts/2020/chapter-3-simple-twitter/first-commit.webp "Our repo after push to master")
 
-### 2.3 Install additional modules
+### 2.3. Install additional modules
 
 Now that we have a `master` branch with basic Angular project in it, let's create our first issue. I'll give it the title *Configuration*, and will add some TODOs to it so we don't need to remember our tasks.
 
@@ -293,7 +293,7 @@ Then, when we `npm start` the angular app (run this command at the terminal when
 
 Now we should `commit` our changes, push it to GitHub, and we can mark another task in the [Configuration #1 Issue](https://github.com/nirgn975/simple-twitter-client/issues/1) as done.
 
-### 2.4 Some basic stuff
+### 2.4. Some basic stuff
 
 The next 2 tasks in our issue is to create a `core` module and add  some `scss` basic styling. The `core` module should be a shard module, like the `material` one, and it should contain all of the stuff we'll `import` in the different modules (like `HttpClientModule`, `RouterModule`, `FormsModule`, etc). It also will contain some shard code, like `guards`, `models`, `services`, and `components` (but it's not relevant now, we'll talk about it when we need to).
 
@@ -355,7 +355,7 @@ And now we can `commit` and `push`, again, and check all of the tasks in the iss
 
 ![Squash And Merge](/posts/2020/chapter-3-simple-twitter/squash-and-merge.webp "Squash And Merge")
 
-### 2.5 Tests
+### 2.5. Tests
 
 The next issue we'll open will be to add GitHub action workflow, for CI (Continuous Integration), the title we'll give it is `Add GitHub action for tests`, we'll assign it to ourselves, add a `CI/CD` label, and a description with a to-do list of all of the tasks we're going to do in this pull request.
 
@@ -479,15 +479,357 @@ Because we didn't push the coverage to the `master` branch, we didn't see anythi
 
 The third and last task in the issue is to add Codecov badge to the `README.md` file. We can get the badge code from the _"Settings"_ page in our repository page at Codecov, and go to the _"Badge"_ tab and just copy the markdown code to the top of our `README.md` file (just under the title of our repo).
 
-Now we can check the last task in our current issue and we're ready to _"Squash and merge"_ to `master`.
+Now we can check the last task in our current issue and we're ready to _"Squash and merge"_ this PR to `master`.
 
 &nbsp;
 
 ## 3. Scaffolding Basic Server
 
-something
+I think we're ready to take a little break from the `client` side of the project and scaffolding the backend. Our backend side will be written with [typescript](https://www.typescriptlang.org) which is a superset open-source programming language of [javascript](https://en.wikipedia.org/wiki/JavaScript) that developed and maintained by Microsoft.
 
-typescript, express, nodemon, .env, dummy data import, github action to run lint and tests, add codecov, add badges
+Our backend code will be run on [Node.js](https://nodejs.org), and we'll use the [express](http://expressjs.com) framework. The last tool we need is [nodemon](https://nodemon.io) which is a utility tool that monitor for any changes in our source code and automatically restart the server.
+
+Node.js and Express.js don't have any official cli tool to scaffold a basic project in a bit, like we had with Angular. But there are a lot of GitHub repositories with a basic project template, and all we need to do is to `clone` it and that's it. But I don't really like all that I found, so I made one myself, and we'll use it in this project. But we'll not just `clone` it and call it a day, we're going to built it from scratch, so we'll know how to do it in the future, and in the same time, get to know all the files and how everything is connected and working together.
+
+&nbsp;
+
+### 3.1. Installation & GitHub Preparation
+
+The first thing we need to do is to install couple of tools in our local machine. We already installed Node.js in the [first chapter](/2020/05/chapter-1-simple-twitter/#31-nodejs), so we have that, and `npm`. The next thing is to install typescript, and nodemon in a global mode.
+
+```bash
+$ npm install -g typescript
+$ npm install -g nodemon
+```
+
+Let's head over to GitHub and create a new repo named `simple-twitter-server`, the repo should be empty, and public like we did with the client. Now let's `clone` it to our machine, and get inside it in the terminal.
+
+```bash
+$ git clone git@github.com:nirgn975/simple-twitter-server.git
+$ cd simple-twitter-server
+```
+
+Now we just need to create a new npm project with `npm init` command, and we have answer the questions that npm asks as. The _"package name"_ will be `simple-twitter-server`, and for everything else we can just press enter and accept the default value, we'll change it in a bit. The next thing we need to do is to start installing some packages.
+
+```bash
+$ npm install --save express
+$ npm install --save-dev @types/express @types/node concurrently ts-node tslint typescript
+```
+
+The last thing we need to do is to add some scripts to start and build the project.
+
+```json
+"scripts": {
+  "start": "npm run build && npm run watch",
+  "build": "tsc && npm run tslint",
+  "serve": "nodemon dist/server.js",
+  "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"npm run serve\"",
+  "tslint": "tslint -c tslint.json -p tsconfig.json"
+},
+```
+
+Don't try to run them yet, because it's now going to succeed, we need to add some typescript configuration for it to work. But before we do that, let's just go over the scripts and understand them.
+
+- The first one, `start`, will be the script we'll use the most, it'll run the npm `build` script and the npm `watch` script.
+- The next one is the `build` which is compile the typescript code with `tsc` (which is the default compiler of typescript and you have it because we installed the `typescript` package), and it runs another npm script named `tslint`.
+- The `serve` script run the compiled entry point file with nodemon (to watch for changes in the file).
+- The `watch` script run couple of commands in concurrently, with the [concurrently package](https://www.npmjs.com/package/concurrently). It runs the `tsc` compiler and the npm `serve` script from above. The smart thing it do is to add the `[TypeScript]` or `[Node]` keywords to the beginning of the command and color code it with yellow if it's `[TypeScript]` or in cyan if it's `[Node]`.
+- The last script, `tslint` is running the typescript linter to check for errors, and we give it some rules and configuration files.
+
+Now that we know what every script do, we understand that we just need to create 2 files for the scripts to work, the rules (`tslint.json`) file and the configuration (`tsconfig.json`) file. So let's create them next to the `package.json` file, and we'll add some basic rules to `tslint.json` file:
+
+```json
+{
+  "rules": {
+    "class-name": true,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-whitespace"
+    ],
+    "no-var-keyword": true,
+    "quotemark": [
+      true,
+      "double",
+      "avoid-escape"
+    ],
+    "semicolon": [
+      true,
+      "always",
+      "ignore-bound-class-methods"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type"
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      },
+      {
+        "call-signature": "onespace",
+        "index-signature": "onespace",
+        "parameter": "onespace",
+        "property-declaration": "onespace",
+        "variable-declaration": "onespace"
+      }
+    ],
+    "no-internal-module": true,
+    "no-trailing-whitespace": true,
+    "no-null-keyword": true,
+    "prefer-const": true,
+    "jsdoc-format": true
+  }
+}
+```
+
+And then write the basic configuration for `tsconfig.json` file:
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "src/types/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
+```
+
+Those configuration and rules are basic templates you can find on the documentation sites of typescript and tslint packages, so we'll not go over them. Now, we just need the `server.ts` file, so the `tsc` will compile it to `server.js` and and npm `serve` script will have something to run. The default path the compiler looks for this file is under a directory named `src`, so we'll create  it there.
+
+```bash
+$ touch src/server.ts
+```
+
+Now, just to see some output on the screen and be sure everything is compiled and running we'll write `console.log("hello world!")` in the `server.ts` file. And when we run the project (with `npm start` in the terminal) we'll see _"hello world!"_ in the terminal output.
+
+![First Run Terminal Output](/posts/2020/chapter-3-simple-twitter/first-run-terminal-output.webp "First Run Terminal Output")
+
+Before we commit everything, we want to add a `.gitignore` file, so we actually don't commit everything, because we don't need everything. What we don't need? the `dist` directory for example, it's a directory with files that are automatically generated from our source code, we don't need them, we just need our source code. And we don't need the `node_modules` directory, because it's a directory with all the packages that we installed and the rules to installed them are saved in the `package.json` file, so we just need to save that file.
+
+We have a free website that can help us create this `.gitignore` file. [gitignore.io](https://www.toptal.com/developers/gitignore), we'll add there some keywords like `macOS`, `Node`, `linux`, `dotenv`, and we'll create a file named `.gitignore` next to the `package.json` file and paste to it the output that the website will show us.
+
+```bash
+$ touch .gitignore
+```
+
+```txt
+### dotenv ###
+.env
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for instrumented libs generated by jscoverage/JSCover
+lib-cov
+
+# Coverage directory used by tools like istanbul
+coverage
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript v1 declaration files
+typings/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env.test
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+### Deployment ###
+dist/
+```
+
+Before we commit we'll create a `README.md` file (`$ touch README.md`) with some instructions.
+
+``````markdown
+# Simple Twitter Server
+
+This is the backend of Simple Twitter project. This project is for educational purpose only.
+
+## Our Stack
+  * [Express](http://expressjs.com)
+  * [Node.js](https://nodejs.org)
+  * [MongoDB](https://www.mongodb.com)
+
+## Pre Requirements
+  1. [NodeJS](https://nodejs.org).
+  2. [TypeScript](https://www.typescriptlang.org).
+  3. [MongoDB](https://www.mongodb.com).
+
+## Installation
+  1. Install nodemon globally `npm i -g nodemon`.
+  1. Install requirements with `npm install`.
+  2. Run the server with `npm start`.
+  3. Open your http client at [http://localhost:8080](http://localhost:8080).
+
+**Configurations**
+
+Create a `.env` file at the root directory (this file should not be commit).
+
+Here is an example of the `.env` file:
+```
+MONGODB_URI=mongodb://localhost/simpletwitter
+JWT=SIMTWITT
+PORT=4000
+LOG_LEVEL=info
+NODE_ENV=test
+```
+
+## Tests
+  * Run `npm run tslint` to check for ESLint mistakes.
+  * Run `npm test` to run the integration tests.
+``````
+
+And now we have a basic npm project and we're ready to commit everything on `master` branch (because it's our first commit, we cannot open a PR because we don't have a default branch to compare it to it, yet), and push it to GitHub.
+
+```bash
+$ git add .
+$ git commit -m "Init"
+$ git push origin master
+```
+
+&nbsp;
+
+### 3.2. Basic Express Server with MongoDB
+
+basic express server and connect to mongodb with config file.
+
+&nbsp;
+
+### 3.3. Environment Variables & Dummy Data
+
+.env, dummy data import.
+
+&nbsp;
+
+### 3.4. Tests
+
+github action to run lint and tests, add codecov, add badges.
 
 &nbsp;
 
