@@ -282,14 +282,14 @@ Let's plan all the routes that will be in our backend service. Every route is ba
 | image        | `array<string>` | false    | false  | Array of URLs for tweet images                 |
 | replay       | `ref<tweet>`    | false    | false  | The tweet `_id` this tweet replays to (if any) |
 
-### 5.4. Likes Collection
+### 5.5. Likes Collection
 
 | Field Name  | Type         | required | unique | Description                    |
 |-------------|--------------|----------|--------|--------------------------------|
 | user        | `ref<user>`  | true     | false  | The unique user `_id`          |
 | tweet       | `ref<tweet>` | true     | false  | The tweet `_id` the user liked |
 
-### 5.3. Notifications Collection
+### 5.6. Notifications Collection
 
 | Field Name | Type                       | required | unique | Description                  |
 |------------|----------------------------|----------|--------|------------------------------|
