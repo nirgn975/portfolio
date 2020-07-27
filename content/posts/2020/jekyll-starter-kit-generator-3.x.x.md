@@ -46,7 +46,10 @@ Honestly there haven't been much to improve, the project is very stable and is w
 
 So when I update the [Jekyll Starter Kit](https://github.com/nirgn975/generator-jekyll-starter-kit) to use Jekll version 4, I also introduce some breaking changes, to mark this in the version number I bump the major from 2 to 3.
 
+&nbsp;
+
 ### 2.1 The Jekll update is a major change! But what else we have done?
+
  * npm bought [nsp](https://github.com/nodesecurity/nsp) and incorporated it to `npm audit`. So we moved our security check to use `npm audit --audit-level high` before every publish of a new release.
  * We Removed [Travis-CI](https://travis-ci.org/) and moved to [GitHub actions](https://github.com/features/actions) for our CI. I think it's much easier to write and you don't need to sign in to yet another service, so it's a win win. We also add support for node version 12 in the CI and remove version 8.
  * We also publish the package to [GitHub registry](https://github.com/features/packages) in addition to [npm](https://www.npmjs.com/package/generator-jekyll-starter-kit).
