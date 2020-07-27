@@ -1,8 +1,8 @@
 ---
 title: "Big Data Pipeline"
 subtitle: ""
-date: 2020-06-01T12:00:00+03:00
-lastmod: 2020-06-01T12:00:00+03:00
+date: 2020-07-01T12:00:00+03:00
+lastmod: 2020-07-01T12:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -206,7 +206,30 @@ And that's it, we can use this function to publish messages to pub/sub, like thi
 
 ## 6. Dataflow
 
-The next step is to subscribe to this topic in a Dataflow script and to write the code that save the data to our database. First thing, let's create a simple python file that will host a basic template for a streaming Dataflow job.
+The next step is to subscribe to this topic in a Dataflow script and to write the code that save the data to our database. But first, to save the response we probably need to know what we're going to save, how the data looks like. So, let's imagine we get a `json` response containing 2 keys, the first named `message` and the second `data`, and the `data` value it's what we want to save. The data value is an `array` of users, and we want to save each user in the `users` collection as a document.
+
+The primary index here is the `username` field, because I created this example based on Twitter, and it's a unique field there, so it'll be a unique field on our database too. we also want to create graph based on those documents with a `follow` edge between the two users in this example, because we see that the user with the username `johnny1` is following the user `john_doe`.
+
+Here is an example of the response we imagine above.
+
+```json
+{
+  "message": "success",
+  "data": [{
+    "username": "johnny1",
+    "first_name": "Johnny",
+    "age": "31",
+    "follow": "john_doe"
+  }, {
+    "username": "john_doe",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "example@example.com"  
+  }]
+}
+```
+
+Now we're ready to work, so let's create a simple python file that will host a basic template for a streaming Dataflow job.
 
 ```bash
 $ touch basic-pubsub-streaming.py
@@ -289,13 +312,13 @@ if __name__ == "__main__":
     )
 ```
 
-First, the lines 51-72 are running, we get some arguments and can the `run` function with them. Next the `run` function on line 37 is running and create a beam pipeline, in this beam pipeline we have 3 steps:
+First, the lines 51-72 are running, we get some arguments from the environment variables and then the `run` function (line 68) is running with those arguments. Next we go over to line 37 where the `run` function create a beam pipeline, in this beam pipeline we have 3 steps:
 
 1. We're reading the pub/sub messages.
 2. Group all of them in a window.
 3. Loop over all the messages in the window time frame and save them to the database.
 
-The first step in the pipeline is a built in step from beam, we don't do anything spacial there. The second step (`GroupWindowsIntoBatches`) is a custom one, there we group all the messages in the window time frame (default is 1 minutes, but it's a custom argument we can change when we run the script. You can see it in lines 60-65). And the last step, step 3 (`WriteBatchesToArangoDB`), is also a custom code (class) that for now does nothing. There we're going to write our code to save the message in the ArangoDB database.
+The first step in the pipeline is a built in step from beam, we don't do anything spacial there. The second step (`GroupWindowsIntoBatches`) is a custom one, there we group all the messages in the window time frame (default is 1 minutes, but it's a custom argument we can change it when we run the script. You can see it in lines 60-65). And the last step, step 3 (`WriteBatchesToArangoDB`), is also a custom code (class) that for now does nothing. There we're going to write our code to save the message in the ArangoDB database.
 
 Last thing, in line 58 you can see the argument to subscribe to the pub/sub topic, instead of get it from the input argument when we run the script we can uncomment this line and replace the `<PROJECT_NAME>` with our GCP project ID and `<TOPIC_NAME>` with the topic name we created earlier (in our case it's `test`).
 
@@ -313,7 +336,7 @@ And then loop over the elements and convert them to `json` (it'll be a dictionar
 
 ```python
 for element in batch:
-    data = json.dumps(element.decode("utf-8"))
+    message = json.dumps(element.decode("utf-8"))
 ```
 
 The next step is to connect to the database and I'll use the [python-arango](https://github.com/joowani/python-arango) package to do that. First let's install it in our local environment (I use [pipenv](https://github.com/pypa/pipenv) to create and manage my Python virtual environments).
@@ -346,12 +369,262 @@ client = ArangoClient(hosts='https://<YOUR_ARANGODB_ENDPOINT>.arangodb.cloud:852
 sys_db = client.db('_system', username='<YOUR_USERNAME>', password='<YOUR_PASSWORD>')
 ```
 
+Before we save the data we need to create the collections and the connections between them. Let's create a new graph and a new `users` collection (we'll only create it if it's not already exist). After that, we can create the new `follow` edge collection from and to the `users` vertex.
+
+```python
+# Get the API wrapper for "twitter" graph, create it if not exist.
+if sys_db.has_graph(name='twitter'):
+    graph = sys_db.graph(name='twitter')
+else:
+    graph = sys_db.create_graph(name='twitter', smart=True)
+
+# Get the API wrapper for "users" vertex collection, create it if not exist.
+if graph.has_vertex_collection('users'):
+    users_collection = graph.vertex_collection('users')
+else:
+    users_collection = graph.create_vertex_collection('users')
+
+# Get the API wrapper for edge collection "follow", create it if not exist.
+if graph.has_edge_definition('follow'):
+    follow_edge = graph.edge_collection('follow')
+else:
+    follow_edge = graph.create_edge_definition(
+        edge_collection='follow',
+        from_vertex_collections=['users'],
+        to_vertex_collections=['users']
+    )
+```
+
+Now that we have all the collections in place we can actually save the data, so let's loop over the array of users and save the users in a new documents and create a `follow` edge if there is any.
+
+```python
+# Insert new documents into the collection.
+for user in message['data']:
+    # Check if user already exist.
+    exist_user = users_collection.get(user['username'])
+
+    # # Copy the user to a different dictionary.
+    copy_user = user.copy()
+
+    # Remove the `follow` field from the new dictionary.
+    if 'follow' in copy_user:
+        del copy_user['follow']
+
+    # Update user if already exist.
+    if exist_user:
+        exist_user.update(copy_user)
+        users_collection.update(exist_user)
+    else:
+        # Insert a new document if it isn't exist already.
+        copy_user['_key'] = copy_user['username']
+        users_collection.insert(copy_user)
+
+    # If follow is present, insert new user with only the key, and create an edge.
+    if 'follow' in user:
+        new_user = users_collection.insert({'_key': user['follow']})
+        follow_edge.insert({
+            '_from': 'users/{}'.format(copy_user['username']),
+            '_to': 'users/{}'.format(user['follow']),
+        })
+```
+
+Here is the final file, with all of the pieces piece together.
+
+```python
+import argparse
+import datetime
+import json
+import logging
+
+import apache_beam as beam
+from apache_beam.options.pipeline_options import PipelineOptions
+import apache_beam.transforms.window as window
+
+from arango import ArangoClient
+from google.cloud import storage
+
+client = storage.Client()
+bucket = client.get_bucket('bucket-id-here')
+
+
+class GroupWindowsIntoBatches(beam.PTransform):
+    """A composite transform that groups Pub/Sub messages based on publish
+    time and outputs a list of dictionaries, where each contains one message
+    and its publish timestamp.
+    """
+
+    def __init__(self, window_size):
+        # Convert minutes into seconds.
+        self.window_size = int(window_size * 60)
+
+    def expand(self, pcoll):
+        return (
+            pcoll
+            # Assigns window info to each Pub/Sub message based on its
+            # publish timestamp.
+            | "Window into Fixed Intervals" >> beam.WindowInto(window.FixedWindows(self.window_size))
+            # Use a dummy key to group the elements in the same window.
+            # Note that all the elements in one window must fit into memory
+            # for this. If the windowed elements do not fit into memory,
+            # please consider using `beam.util.BatchElements`.
+            # https://beam.apache.org/releases/pydoc/current/apache_beam.transforms.util.html#apache_beam.transforms.util.BatchElements
+            | "Add Dummy Key" >> beam.Map(lambda elem: (None, elem))
+            | "Groupby" >> beam.GroupByKey()
+            | "Abandon Dummy Key" >> beam.MapTuple(lambda _, val: val)
+        )
+
+
+class WriteBatchesToArangoDB(beam.DoFn):
+    def __init__(self):
+        pass
+
+    def process(self, batch, window=beam.DoFn.WindowParam):
+        for element in batch:
+            message = json.loads(element.decode("utf-8"))
+
+            # Initialize the client for ArangoDB.
+            client = ArangoClient(hosts='https://<YOUR_ARANGODB_ENDPOINT>.arangodb.cloud:8529')
+
+            # Connect to "_system" database as root user.
+            sys_db = client.db('_system', username='<YOUR_USERNAME>', password='<YOUR_PASSWORD>')
+
+            # Get the API wrapper for "twitter" graph, create it if not exist.
+            if sys_db.has_graph(name='twitter'):
+                graph = sys_db.graph(name='twitter')
+            else:
+                graph = sys_db.create_graph(name='twitter', smart=True)
+
+            # Get the API wrapper for "users" vertex collection, create it if not exist.
+            if graph.has_vertex_collection('users'):
+                users_collection = graph.vertex_collection('users')
+            else:
+                users_collection = graph.create_vertex_collection('users')
+
+            # Get the API wrapper for edge collection "follow", create it if not exist.
+            if graph.has_edge_definition('follow'):
+                follow_edge = graph.edge_collection('follow')
+            else:
+                follow_edge = graph.create_edge_definition(
+                    edge_collection='follow',
+                    from_vertex_collections=['users'],
+                    to_vertex_collections=['users']
+                )
+
+            # Insert new documents into the collection.
+            for user in message['data']:
+                # Check if user already exist.
+                exist_user = users_collection.get(user['username'])
+
+                # # Copy the user to a different dictionary.
+                copy_user = user.copy()
+
+                # Remove the `follow` field from the new dictionary.
+                if 'follow' in copy_user:
+                    del copy_user['follow']
+
+                # Update user if already exist.
+                if exist_user:
+                    exist_user.update(copy_user)
+                    users_collection.update(exist_user)
+                else:
+                    # Insert a new document if it isn't exist already.
+                    copy_user['_key'] = copy_user['username']
+                    users_collection.insert(copy_user)
+
+                # If follow is present, insert new user with only the key, and create an edge.
+                if 'follow' in user:
+                    new_user = users_collection.insert({'_key': user['follow']})
+                    follow_edge.insert({
+                        '_from': 'users/{}'.format(copy_user['username']),
+                        '_to': 'users/{}'.format(user['follow']),
+                    })
+
+
+def run(input_topic, window_size=1.0, pipeline_args=None):
+    pipeline_options = PipelineOptions(
+        pipeline_args, streaming=True, save_main_session=True
+    )
+
+    with beam.Pipeline(options=pipeline_options) as pipeline:
+        (
+            pipeline
+            | "Read PubSub Messages" >> beam.io.ReadFromPubSub(topic=input_topic)
+            | "Window into" >> GroupWindowsIntoBatches(window_size)
+            | "Write to ArangoDB" >> beam.ParDo(WriteBatchesToArangoDB())
+        )
+
+
+if __name__ == "__main__":
+    logging.getLogger().setLevel(logging.INFO)
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--input_topic",
+        help="The Cloud Pub/Sub topic to read from.\n"
+        # '"projects/<PROJECT_NAME>/topics/<TOPIC_NAME>".',
+    )
+    parser.add_argument(
+        "--window_size",
+        type=float,
+        default=1.0,
+        help="Output file's window size in number of minutes.",
+    )
+    known_args, pipeline_args = parser.parse_known_args()
+
+    run(
+        known_args.input_topic,
+        known_args.window_size,
+        pipeline_args,
+    )
+```
+
 &nbsp;
 
 ## 7. Connect the dots
 
-foobar
+So, how do we run this Dataflow script? We can do it in two ways:
+
+1. It's just an Apache Beam script, so we can run it on our local machine (we'll do it probably when we build it, for debugging).
+2. And the second way is in the cloud (on GCP, in Dataflow).
+
+For both ways, it doesn't matter which one we choose we'll need to setup an environment variable named `GOOGLE_APPLICATION_CREDENTIALS`, and it's value should be the absolute path to the service account file. We need it to get the messages from pub/sub.
+
+So let's go to GCP again and create another service account just like we did in the [Pub / Sub section](#5-pub--sub) and give it _"Dataflow Admin"_ role, click create and then download the `json` file.
+
+Now let's place the `json` file in the same directory as the `basic-pubsib-streamin.py` file is, and create the environment variable.
+
+```bash
+$ export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/service-account.json
+```
+
+We're ready to run the script, let's start with the first option, to run it locally we need
+
+```bash
+$ python basic-pubsub-streaming.py \
+  --input_topic=projects/gcpProjectId/topics/test
+  --requirements_file requirements.txt
+```
+
+We run the Python script and add two argument variables, the first one is our topic address and the second one is the regular requirements file, so we can add custom packages.
+
+To run the same script on GCP Dataflow we just need to add some more arguments.
+
+```bash
+python basic-pubsub-streaming.py \
+  --project=<gcpProjectId> \
+  --region europe-west1 \
+  --input_topic=projects/<gcpProjectId>/topics/test \
+  --runner=DataflowRunner \
+  --temp_location=gs://<bucketNAme>/dataflow/tmp \
+  --requirements_file requirements.txt
+```
+
+Notice we add the project id, the region we want to Dataflow script to run in, and a bucket to host temp files and errors. We can notice the cool thing that we're referring to code as a single thread and the Dataflow service will handle the autoscaling.
 
 &nbsp;
 
 ## 8. Summary
+
+That's it, we built a Data Pipeline. We publish the data using Pub/Sub, and we consume it using a Dataflow script. In the Dataflow (Python) script we can manipulate the data to fit our models, and then save it in our Database.
+
+The most important thing for me is - it can be a one man job. The GCP platform is handling all the hard stuff like scaling our messages and our Dataflow script. While on the other hand the ArangoDB Oasis is handling the hard stuff like scaling our database cluster, doing backups, etc.
