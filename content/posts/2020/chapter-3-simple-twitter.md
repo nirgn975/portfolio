@@ -1,9 +1,9 @@
 ---
-title: "Simple Twitter - Chapter 3: Started Coding"
+title: "Simple Twitter - Chapter 3: Start Coding"
 subtitle: ""
-<!-- date: 2020-09-01T10:00:00+03:00 -->
-date: 2020-06-01T10:00:00+03:00
-lastmod: 2020-09-01T10:00:00+03:00
+<!-- date: 2020-08-01T10:00:00+03:00 -->
+date: 2020-07-01T10:00:00+03:00
+lastmod: 2020-08-01T10:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -528,12 +528,12 @@ The last thing we need to do is to add some scripts to start and build the proje
 },
 ```
 
-Don't try to run them yet, because it's now going to succeed, we need to add some typescript configuration for it to work. But before we do that, let's just go over the scripts and understand them.
+Don't try to run them yet, because it's not going to succeed, we need to add some typescript configuration for it to work. But before we do that, let's just go over the scripts and understand them.
 
 - The first one, `start`, will be the script we'll use the most, it'll run the npm `build` script and the npm `watch` script.
 - The next one is the `build` which is compile the typescript code with `tsc` (which is the default compiler of typescript and you have it because we installed the `typescript` package), and it runs another npm script named `tslint`.
 - The `serve` script run the compiled entry point file with nodemon (to watch for changes in the file).
-- The `watch` script run couple of commands in concurrently, with the [concurrently package](https://www.npmjs.com/package/concurrently). It runs the `tsc` compiler and the npm `serve` script from above. The smart thing it do is to add the `[TypeScript]` or `[Node]` keywords to the beginning of the command and color code it with yellow if it's `[TypeScript]` or in cyan if it's `[Node]`.
+- The `watch` script run couple of commands in concurrently, with the [concurrently package](https://www.npmjs.com/package/concurrently). It runs the `tsc` compiler and the npm `serve` script from above. The smart thing it's doing is to add the `[TypeScript]` or `[Node]` keywords to the beginning of the command and color code them with yellow if it's `[TypeScript]` or in cyan if it's `[Node]`.
 - The last script, `tslint` is running the typescript linter to check for errors, and we give it some rules and configuration files.
 
 Now that we know what every script do, we understand that we just need to create 2 files for the scripts to work, the rules (`tslint.json`) file and the configuration (`tsconfig.json`) file. So let's create them next to the `package.json` file, and we'll add some basic rules to `tslint.json` file:
@@ -817,17 +817,223 @@ $ git push origin master
 
 ### 3.2. Basic Express Server with MongoDB
 
-basic express server and connect to mongodb with config file.
+The next thing we're going to do is to create an issue. Because we have some code in `master` branch, we can now open an PR and compare it to `master`, so'll create an issue first and write there all of the tasks we plan to do in this PR.
+
+```markdown
+- [ ] Basic express server.
+- [ ] Load env files.
+- [ ] Create a config instance.
+- [ ] Connect to MongoDB.
+```
+
+Let's start with the first task, to create a basic `express` server. We'll do it in a separate file (we'll call it `app`) and then we'll import that `exprerss` instance in the `server` file.
+
+But let's not forget that we first need to move to a new branch, and as usual we'll call that branch name like the issue number we just opend.
+
+```bash
+$ git checkout -b 2
+$ touch src/app.ts
+```
+
+The first thing we want to do is to `import` the `express` package. Then we'll create a `class` named `App` and create there a local variable named `app`, it'll be from `express.Application` type. For this `class` we'll create a `constructor` and there we'll create an `express` application and save it in our `app` variable.
+
+```typescript
+import * as express from "express";
+
+export class App {
+  public app: express.Application;
+
+  /**
+   * @class App
+   * @constructor
+   */
+  constructor() {
+    this.app = express();
+  }
+}
+```
+
+Next we want to create two private methods for that `class`, the first one will register some [Middlewares](https://en.wikipedia.org/wiki/Middleware), and the second one will register our future routes. Let's start with the first one, for all of the middlewares we'll use. But first what is a middleware?
+
+> Express middleware are functions that execute during the lifecycle of a request to the Express server. Each middleware has access to the HTTP request and response for each route (or path) it's attached to. In fact, Express itself is compromised wholly of middleware functions.
+
+So let's install some packages that are middlewares. The [cors](https://www.npmjs.com/package/cors) package will help us to enable [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). The [morgan](https://www.npmjs.com/package/morgan) package will help us log all of the requests so we can keep track on what's happening with our server. The [body-parser](https://www.npmjs.com/package/body-parser) will help us parse the `body` of an incoming request.
+
+```bash
+$ npm install --save cors morgan body-parser
+```
+
+And then we can import them at the top of the file
+
+```typescript
+import * as cors from "cors";
+import * as morgan from "morgan";
+import * as express from "express";
+import * as bodyParser from "body-parser";
+```
+
+And create a method with the name `configMiddleware` in the `App` class, and `use` them with our express app.
+
+```typescript
+/**
+ * Registr middlewares.
+ *
+ * @class App
+ * @method configMiddleware
+ * @return void
+ */
+private configMiddleware() {
+  this.app.use(cors());
+  this.app.use(morgan("[:date[clf]] - :method :url :status :res[content-length] - :response-time ms ':user-agent'"));
+  this.app.use(bodyParser.json());
+  this.app.use(bodyParser.urlencoded({ extended: true }));
+}
+```
+
+The final step is to create a `router` variable right after all the `import` statements.
+
+```typescript
+const router: express.Router = express.Router();
+```
+
+We'll not use it yet, but we want to create it now because we know we're going to need it in the future. For now let's create a new method with the name `configureRoutes` and there we'll create a new endpoint in the root (`/`) path that we'll return us a simple text that our express app is working.
+
+
+```typescript
+/**
+ * Registr routes.
+ *
+ * @class App
+ * @method configureRoutes
+ * @return void
+ */
+private configureRoutes() {
+  this.app.use("/", (_, res) => res.send("app is working!!!"));
+}
+```
+
+And let's not forget that we need to call those methods from the `constructor`, so we'll add those lines right after our `express` app creation.
+
+```typescript
+this.configMiddleware();
+this.configureRoutes();
+```
+
+That's it, we have a basic express app. Let's head over to the `server.ts` file and use this app, so we can check that everyhing is working. In the `server.ts` file we'll import `express` and `chalk`. [chalk](https://www.npmjs.com/package/chalk) is a package to help us styling our text in the terminal (we'll use it to add colors to our logs). The third `import` will be our app class we created earlier.
+
+```typescript
+import * as express from "express";
+import * as chalk from "chalk";
+
+import { App } from "./app";
+```
+
+Now we'll create a `server` class and in the `constructor` we'll handle some Node.js errors and create an instance of that `App`.
+
+
+```typescript
+/**
+ * @class Server
+ */
+export class Server {
+  public app: express.Application;
+
+  /**
+   * @class Api
+   * @constructor
+   */
+  constructor() {
+    // Set handler for all unhandled exceptions.
+    process.on("uncaughtException", (err) => {
+      console.log("Unhandled exception: \n\t", err);
+    });
+
+    // Set handler for all unhandled promise rejections.
+    process.on("unhandledRejection", (err) => {
+      console.error("unhandled rejection: \n\t", err);
+    });
+
+    this.app = new App().app;
+  }
+}
+```
+
+And at the end of the file we'll export an instance of the `Server` for testing (we'll use it in the future when we'll write out unit tests).
+
+```typescript
+// Export for testing
+export default new Server;
+```
+
+So everything is good, we create our `App` instance, but we need to `listen` to some port with this API. So let's add a new method with the name `configurExpress` in the `Server` class and set the express port and start listen on that port.
+
+```typescript
+/**
+ * Express configuration.
+ *
+ * @class Server
+ * @method configurExpress
+ * @return void
+ */
+private configurExpress() {
+  this.app.set("port", "8080");
+
+  if (!module.parent) {
+    this.app.listen(this.app.get("port"), () => {
+      console.log(chalk.cyan(`✨ App is running at http://localhost:${this.app.get("port")} in ${this.app.get("env")} mode ✨`));
+      console.log(chalk.red(`✨ Press CTRL-C to stop✨ \n`));
+    });
+  }
+}
+```
+
+And don't forget to call this method in the last line of the `constructor`.
+
+```typescript
+this.configurExpress();
+```
+
+Now if we head back to the terminal and run the start command we can see our Express app is created and is listening on port `8080`.
+
+```bash
+$ npm start
+```
+
+![Our Express App is a live!](/posts/2020/chapter-3-simple-twitter/express-app-live.webp "Our Express App is a live!")
+
+If we'll [Insomnia](https://insomnia.rest) to make a request to the root path on our `localhost:8080` we'll get the `app is working!!!` text in return.
+
+![Insomnia Root Request](/posts/2020/chapter-3-simple-twitter/insomnia-root_request.webp "Insomnia Root Request")
+
+And now it's a really good time to commit.
+
+```bash
+$ git add .
+$ git commit -m "Create a basic express app"
+$ git push origin 2
+```
+
+{{< admonition type=info title="Pro Tip" open=true >}}
+If you want to take a look at my code, as always it available live on the repo of, here is the [commit for the last chapter](https://github.com/nirgn975/simple-twitter-server/pull/3/commits/01367b969373b9331643fd3c5fd0667f53cb5f80) so you can see everything I just committed and follow along.
+{{< /admonition >}}
 
 &nbsp;
 
-### 3.3. Environment Variables & Dummy Data
+### 3.3. Dummy Data & Simple API endpoint
 
-.env, dummy data import.
+Load `users` dummy data import.
+
+Create a simple API endpoint to get all users.
+
+(async middleware?)
+
+config file.
 
 &nbsp;
 
 ### 3.4. Tests
+
+Write test for the endpoint.
 
 github action to run lint and tests, add codecov, add badges.
 
