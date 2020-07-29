@@ -118,11 +118,10 @@ googleAnalytics = "UA-87725724-1"
   # Social config in home page
   [params.social]
     GitHub = "nirgn975"
-    Linkedin = "nirgn"
     Twitter = "nirgn975"
-    Medium = "@nirgn"
-    Reddit = "nirgn975"
     Stackoverflow = "2040160/nirgn"
+    Linkedin = "nirgn"
+    Reddit = "nirgn975"
     Email = "nir@galon.io"
     RSS = true
 
@@ -221,7 +220,7 @@ googleAnalytics = "UA-87725724-1"
        # whether to show the copy button of the code block
        copy = true
        # the maximum number of lines of displayed code by default
-       maxShownLines = 10
+       maxShownLines = 30
     # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
     [params.page.mapbox]
       # access token of Mapbox GL JS
