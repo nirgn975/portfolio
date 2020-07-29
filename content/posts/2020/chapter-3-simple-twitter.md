@@ -1,8 +1,7 @@
 ---
 title: "Simple Twitter - Chapter 3: Start Coding"
 subtitle: ""
-<!-- date: 2020-08-01T10:00:00+03:00 -->
-date: 2020-07-01T10:00:00+03:00
+date: 2020-08-01T10:00:00+03:00
 lastmod: 2020-08-01T10:00:00+03:00
 draft: true
 author: "Nir Galon"
@@ -793,11 +792,12 @@ Create a `.env` file at the root directory (this file should not be commit).
 
 Here is an example of the `.env` file:
 ```
-MONGODB_URI=mongodb://localhost/simpletwitter
+DATABASE_URI=mongodb://localhost/simpletwitter
 JWT=SIMTWITT
-PORT=4000
+REFRESHJWT=RESIMTWITT
+PORT=8080
 LOG_LEVEL=info
-NODE_ENV=test
+NODE_ENV=dev
 ```
 
 ## Tests
@@ -1019,24 +1019,300 @@ If you want to take a look at my code, as always it available live on the repo o
 
 &nbsp;
 
-### 3.3. Dummy Data & Simple API endpoint
+### 3.3. Configuration & Environment Variables
 
-Load `users` dummy data import.
+In this section we'll create a configuration file, this file will "read" the environment variables based on the environment we're currently in (prod / dev / test) and load the right configurations.
 
-Create a simple API endpoint to get all users.
+So, let's create a file called `config.ts` in a `util` directory, inside the `src` directory. In this file we'll use the [dotenv](https://www.npmjs.com/package/dotenv) and [lodash](https://www.npmjs.com/package/lodash) packages, so let's install them.
 
-(async middleware?)
+```bash
+$ npm install --save dotenv lodash
+```
 
-config file.
+Now we need to create a class named `Config` in the new `config.ts` file we created. In this file we'll create a `config` object (variable) that will hold all of our configurations that we'll use later. and in the `constructor` of the class we'll use the `dotent` package to import the `.env` file.
+
+```typescript
+import * as dotenv from "dotenv";
+import * as _ from "lodash";
+
+/**
+ * @class Config
+ */
+export default class Config {
+  public config = {
+    logging: false,
+    seed: false,
+    db: "",
+    environment: "",
+    port: process.env.PORT || 4000,
+    tokenExpireTime: 60 * 60, // 1 hours (in seconds).
+    refreshTokenLife: 60 * 60 * 24, // 24 hours (in seconds).
+    secrets: {
+      jwt: process.env.JWT || "SIMTWITT",
+      refreshTokenSecret: process.env.REFRESHJWT || "RESIMTWITT",
+    },
+  };
+
+  /**
+   * @class Config
+   * @constructor
+   */
+  constructor() {
+    dotenv.config({ path: ".env" });
+  }
+}
+```
+
+Now we'll create a `.env` file in the root path of the project, and just like we written earlier in the `README.md` file we'll add all the environment variables we need for the project. We already have an example for the `.env` file but I'll write it here again.
+
+```env
+DATABASE_URI=mongodb://localhost/simpletwitter
+JWT=SIMTWITT
+REFRESHJWT=RESIMTWITT
+PORT=8080
+LOG_LEVEL=info
+NODE_ENV=dev
+```
+
+Here is a short description that explaining what `dotenv` is doing.
+
+> Dotenv is a module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on [The Twelve-Factor App methodology](https://12factor.net/config).
+
+The last thing we need to do in the configuration file is to load the right environment file and merge it's content with the `config` variable. To do that let's create a new method in `config.ts` file and call it `configDB`. In this function we'll load the right file based on the `NODE_ENV` environment variable.
+
+```typescript
+/**
+ * Load testing or production environment variables.
+ *
+ * @class Config
+ * @method configDB
+ * @return config object
+ */
+private configDB() {
+  process.env.NODE_ENV = process.env.NODE_ENV || "dev";
+  this.config.environment = process.env.NODE_ENV;
+  return require(`./envs/${process.env.NODE_ENV}`);
+}
+```
+
+Now, we need to call this method inside the `constructor` and merge it's content with the `config` variable. To do this we'll use the `lodash` function called [merge](https://lodash.com/docs/4.17.15#merge).
+
+```typescript
+const envConfig = this.configDB();
+this.config = _.merge(this.config, envConfig);
+```
+
+Our `NODE_ENV` environment variable is `dev` (because that's what we wrote in the `.env` file), so in the `configDB` we're trying to load (`require`) a file called `dev` inside a `envs` directory, but we don't have it yet, so let's create it. And a long side with it, let's create a `test` and `prod` files, so we'll have different configurations for each of the environments.
+
+```bash
+$ touch src/util/envs/test.ts
+$ touch src/util/envs/dev.ts
+$ touch src/util/envs/prod.ts
+```
+
+The `test.ts` file will have
+
+```typescript
+module.exports = {
+  logging: false, // disbable logging for testing.
+  seed: true,
+  db: process.env.DATABASE_URI,
+  port: process.env.PORT,
+};
+```
+
+The `dev.ts` file will have
+
+```typescript
+module.exports = {
+  logging: true, // enabled logging for development.
+  seed: true,
+  db: process.env.DATABASE_URI,
+  port: process.env.PORT,
+};
+```
+
+The `prod.ts` file will have
+
+```typescript
+module.exports = {
+  logging: true, // enabled logging for production.
+  seed: false,
+  db: process.env.DATABASE_URI,
+  port: process.env.PORT,
+};
+```
+
+The last thing we need to do is to `import` the `config` file in `server.ts` file.
+
+```typescript
+import Config from "./util/config";
+```
+
+And then create an instance of the `config` class. We'll do it inside the `constructor` right after the line we create our `express` app.
+
+```typescript
+this.config = new Config();
+```
+
+Now, if we'll run the project (`npm start`) the `config` class should be created and load our environment variables (we can check that out with a simple `console.log` command, but I'll leave you that job). If you want to take a look at the final code for this section, as always, you can head over to the Pull Request and look at the [commit hash](https://github.com/nirgn975/simple-twitter-server/pull/3/commits/55f4968a6263d859bb7f5625434326549f36fc10) for this section.
 
 &nbsp;
 
-### 3.4. Tests
+### 3.4. MongoDB & Dummy Data
 
-Write test for the endpoint.
+In this section we'll connect to the MongoDB database (we installed it already on our local machine in the [first chapter](/2020/05/chapter-1-simple-twitter/#21-mongodb)) and we'll create a `Seed` file to load some dummy data to our database (we'll not load it yet, just create the file).
 
-github action to run lint and tests, add codecov, add badges.
+So, first let's connect to our Database. To do this let's install [mongoose](https://www.npmjs.com/package/mongoose). Mongoose is an ODM (much like [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) just for NoSQL documents databases) and it helps us doing validation, casting and business logic. With mongoose we don't need to deal with the MongoDB client.
+
+```bash
+npm install --save mongoose
+```
+
+Now, let's import it at the top of the `server.ts` file
+
+```typescript
+import * as mongoose from "mongoose";
+```
+
+The next step is to create a new function in `server.ts` file and call it `connectMongoDB`. This function will use `mongoose` to `connect` to the MongoDB database and log an error if something went wrong.
+
+```typescript
+/**
+ * Connect to MongoDB.
+ *
+ * @class Server
+ * @method connectMongoDB
+ * @return void
+ */
+private async connectMongoDB() {
+  await mongoose.connect(this.config.config.db, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    promiseLibrary: global.Promise,
+  } as mongoose.ConnectionOptions);
+
+  await mongoose.connection.on("error", (error: any) => {
+    console.error(`MongoDB connection error. Please make sure MongoDB is running. ${error}`);
+    process.exit(1);
+  });
+}
+```
+
+And let's not forget to call it inside the `constructor` (right before we call our `configurExpress` method).
+
+```typescript
+this.connectMongoDB();
+```
+
+While we're in the `server.ts` file, let's change the port we run our express app and take it from the `config` instead of hard coded it.
+
+```typescript
+this.app.set("port", this.config.config.port);
+```
+
+Now, the last thing we need to do is to create our seed script, so we can load, in the future, some dummy data to our database, so it'll be easier to "play" with our endpoints and to write tests. So, let's create a `seed.ts` file.
+
+
+```bash
+$ touch src/util/seed.ts
+```
+
+We need to do some imports there and create a `Seed` class.
+
+```typescript
+import * as _ from "lodash";
+import * as chalk from "chalk";
+import * as mongoose from "mongoose";
+
+/**
+ * @class Seed
+ */
+export default class Seed {
+
+  /**
+   * @class Seed
+   * @constructor
+   */
+  constructor() {}
+}
+```
+
+We'll create a new `public` method named `seeding` so we can call it from outside the class. This method will log some text so we can see what is going on, and then call a private method to clean the database (empty it from previous data) and we get a promise in return, when we'll get it we'll cal a new method (`private` one so we can only call it within the class) to create a new dummy data users.
+
+```typescript
+/**
+ * Seed the Database.
+ *
+ * @class Seed
+ * @method seeding
+ * @return void
+ */
+public seeding() {
+  console.log(chalk.yellow("💦 Cleaning the DB 💦"));
+  this.cleanDB()
+    .then(this.createUsers);
+
+  console.log(chalk.yellow(`Seeded DB with`));
+  console.log(chalk.yellow("🎉 Finish seeding the DB 🎉"));
+}
+```
+
+Now it's time to create the `cleanDB` method. It'll connect to the database using `mongoose` and will drop all the collection in it. After we'll drop it, we'll log that we start seeding the database (And let's add some emojis for fun).
+
+```typescript
+/**
+ * Clean all the database documents.
+ *
+ * @class Seed
+ * @method cleanDB
+ * @return promise
+ */
+private cleanDB() {
+  mongoose.connection.dropDatabase().catch((error: any) => {
+    console.error("error dropping collections", error);
+  });
+  console.log(chalk.yellow("💪 Start seeding the DB 💪"));
+  return new Promise((resolve) => { resolve(""); });
+}
+```
+
+Now, we don't have a `user` model or dummy data yet, so for the `createUsers` method, we'll just create it for now and leave it empty.
+
+```typescript
+/**
+ * Create fixtures for users.
+ *
+ * @class Seed
+ * @method createUsers
+ * @return promise
+ */
+private createUsers(data) {
+}
+```
+
+The last thing is left to do is just run the `seeding` method when we need to seed the database. So let's head back to the `server.ts` file and import the `Seed` class.
+
+```typescript
+import Seed from "./util/seed";
+```
+
+And inside the `connectMongoDB` method, right at the end of the method, after we already connected to the database let's call the method.
+
+```typescript
+if (this.config.config.seed) {
+  const seed = new Seed();
+  seed.seeding();
+}
+```
+
+That's it, we did it! Last not forget to add everything to the git staging area, commit, and push it. After that we can _"Squash and merge"_ this Pull request.
 
 &nbsp;
 
 ## 4. Summary
+
+This was a long post! I didn't plan for it to be that long. In the future they will be shorter. But we did a lot! we bootstrap our client and server applications. We're ready to write the first "custom" code for our Simple Twitter website in the next chapter. This is awesome!
+
+In the next chapter we'll keep our focus on the server, we'll create the user model, some routes and endpoints, we'll add some auth endpoints and logic so we'll have everything ready to do the sign up and login processes, and of course write some tests because we have to tests our code to make sure everything is working correctly.
