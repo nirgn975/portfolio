@@ -1,8 +1,8 @@
 ---
 title: "Simple Twitter - Chapter 2: Planning"
 subtitle: ""
-date: 2020-07-01T10:00:00+03:00
-lastmod: 2020-07-01T10:00:00+03:00
+date: 2020-07-01T09:00:00+03:00
+lastmod: 2020-07-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
