@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/open-source-intelligence/osint-cover.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2020/open-source-intelligence/osint-cover.webp"
 
 toc:
   enable: true

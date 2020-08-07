@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/chapter-1-simple-twitter/simple-twitter-cover.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2020/chapter-1-simple-twitter/simple-twitter-cover.webp"
 
 toc:
   enable: true
