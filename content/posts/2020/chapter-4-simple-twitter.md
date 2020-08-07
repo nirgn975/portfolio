@@ -1,8 +1,8 @@
 ---
 title: "Simple Twitter - Chapter 4: Login!"
 subtitle: ""
-date: 2020-10-01T10:00:00+03:00
-lastmod: 2020-10-01T10:00:00+03:00
+date: 2020-10-01T09:00:00+03:00
+lastmod: 2020-10-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/chapter-4-simple-twitter/simple-twitter-cover.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2020/chapter-4-simple-twitter/simple-twitter-cover.webp"
 
 toc:
   enable: true

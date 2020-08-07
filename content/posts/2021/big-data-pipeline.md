@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2021/big-data-pipeline/big-data.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2021/big-data-pipeline/big-data.webp"
 
 toc:
   enable: true

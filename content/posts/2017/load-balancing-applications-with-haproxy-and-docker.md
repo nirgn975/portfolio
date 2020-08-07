@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.webp"
 
 toc:
   enable: true

@@ -1,9 +1,9 @@
 ---
 title: "Moving House And Getting To Know My Neighbors"
 subtitle: ""
-<!-- date: 2020-11-01T10:00:00+03:00 -->
-date: 2020-08-02T10:00:00+03:00
-lastmod: 2020-11-01T10:00:00+03:00
+<!-- date: 2020-11-01T09:00:00+03:00 -->
+date: 2020-08-02T09:00:00+03:00
+lastmod: 2020-11-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -16,7 +16,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/getting-to-know-my-neighbors/blue-wireless-connection.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2020/getting-to-know-my-neighbors/blue-wireless-connection.webp"
 
 toc:
   enable: true
@@ -32,4 +32,10 @@ It's don't that I have something against getting to know my neighbors in person,
 
 &nbsp;
 
-## 4. Summary
+## 1. Setup
+
+Let's set it up. First thing we need to do is
+
+&nbsp;
+
+## 7. Summary

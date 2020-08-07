@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp"
 
 toc:
   enable: true
