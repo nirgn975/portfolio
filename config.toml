@@ -63,6 +63,10 @@ googleAnalytics = "UA-87725724-1"
 [params]
   # LoveIt theme version
   version = "0.2.X"
+  # site description
+  description = "Stories of a Lifelong Student is a blog written by Nir Galon about computer science, open source, software development, security information, android and reverse engineering"
+  # site keywords
+  keywords = ["computer science", "data structures", "algorithms", "computer networks", "operating system", "machine learning", "open source", "linux", "arduino", "programming", "security", "pen testing", "hacking", "android", "reverse engineering"]
   # site default theme ("light", "dark", "auto")
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
@@ -71,10 +75,23 @@ googleAnalytics = "UA-87725724-1"
   fingerprint = ""
   # date format
   dateFormat = "2006-01-02"
-  # site description
-  description = "About Stories of a Lifelong Student"
-  # site keywords
-  keywords = ["computer science", "data structures", "algorithms", "computer networks", "operating system", "machine learning", "open source", "linux", "arduino", "programming", "security", "pen testing", "hacking", "android", "reverse engineering"]
+  # website images for Open Graph and Twitter Cards
+  images = ["/images/logo.png"]
+
+  # App icon config
+  [params.app]
+    # optional site title override for the app when added to an iOS home screen or Android launcher
+    title = "Stories of a Lifelong Student"
+    # whether to omit favicon resource links
+    noFavicon = false
+    # modern SVG favicon to use in place of older style .png and .ico files
+    svgFavicon = ""
+    # Android browser theme color
+    themeColor = "#ffffff"
+    # Safari mask icon color
+    iconColor = "#5bbad5"
+    # Windows v8-10 tile color
+    tileColor = "#da532c"
 
   # Search config
   [params.search]
@@ -85,45 +102,18 @@ googleAnalytics = "UA-87725724-1"
     contentLength = 5000
     # placeholder of the search bar
     placeholder = ""
+    # max number of results length
+    maxResultLength = 10
+    # snippet length of the result
+    snippetLength = 30
+    # HTML tag name of the highlight part in results
+    highlightTag = "em"
+    # whether to use the absolute URL based on the baseURL in search index
+    absoluteURL = false
     [params.search.algolia]
       index = "index.json"
       appID = "T2SWIQEAVY"
       searchKey = "6447497d689848aaf0c52a0b85b7c4f8"
-
-  # Home page config
-  [params.home]
-    # amount of RSS pages
-    rss = 10
-    # Home page profile
-    [params.home.profile]
-      enable = true
-      # Gravatar Email for preferred avatar in home page
-      gravatarEmail = ""
-      # URL of avatar shown in home page
-      avatarURL = "/images/logo.webp"
-      # subtitle shown in home page
-      subtitle = "Welcome to Stories of a Lifelong Student, a blog for geeks (:"
-      # whether to use typeit animation for subtitle
-      typeit = true
-      # whether to show social links
-      social = true
-      # disclaimer (HTML format is supported)
-      disclaimer = ""
-    # Home page posts
-    [params.home.posts]
-      enable = true
-      # special amount of posts in each home posts page
-      paginate = 6
-
-  # Social config in home page
-  [params.social]
-    GitHub = "nirgn975"
-    Twitter = "nirgn975"
-    Stackoverflow = "2040160/nirgn"
-    Linkedin = "nirgn"
-    Reddit = "nirgn975"
-    Email = "nir@galon.io"
-    RSS = true
 
   # Header config
   [params.header]
@@ -141,6 +131,8 @@ googleAnalytics = "UA-87725724-1"
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
       post = ""
+      # whether to use typeit animation for title name
+      typeit = false
 
   # Footer config
   [params.footer]
@@ -178,6 +170,42 @@ googleAnalytics = "UA-87725724-1"
     # amount of RSS pages
     rss = 10
 
+  # Home page config
+  [params.home]
+    # amount of RSS pages
+    rss = 10
+    # Home page profile
+    [params.home.profile]
+      enable = true
+      # Gravatar Email for preferred avatar in home page
+      gravatarEmail = ""
+      # URL of avatar shown in home page
+      avatarURL = "/images/logo.webp"
+      # subtitle shown in home page
+      subtitle = "Welcome to Stories of a Lifelong Student, a blog for geeks (:"
+      # whether to use typeit animation for subtitle
+      typeit = true
+      # whether to show social links
+      social = true
+      # disclaimer (HTML format is supported)
+      disclaimer = "All of the posts are written for educational purposes only."
+    # Home page posts
+    [params.home.posts]
+      enable = true
+      # special amount of posts in each home posts page
+      paginate = 6
+
+  # Social config in home page
+  [params.social]
+    GitHub = "nirgn975"
+    Linkedin = "nirgn"
+    Twitter = "nirgn975"
+    Youtubechannel = "UCLflz8DM_Ef3l8SF3UsWsKQ"
+    Reddit = "nirgn975"
+    Stackoverflow = "2040160/nirgn"
+    Email = "nir@galon.io"
+    RSS = true
+
   # Page config
   [params.page]
     # whether to hide a page from home page
@@ -196,10 +224,14 @@ googleAnalytics = "UA-87725724-1"
     fontawesome = true
     # whether to show link to Raw Markdown content of the content
     linkToMarkdown = true
+    # whether to show the full text content in RSS
+    rssFullText = false
     # Table of the contents config
     [params.page.toc]
       # whether to enable the table of the contents
       enable = true
+      # whether to keep the static table of the contents in front of the post
+      keepStatic = false
       # whether to make the table of the contents automatically collapsed
       auto = false
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
@@ -227,9 +259,9 @@ googleAnalytics = "UA-87725724-1"
       # Mapbox GL JS 的 access token
       accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
       # style for the light theme
-      lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
+      lightStyle = "mapbox://styles/mapbox/light-v9"
       # style for the dark theme
-      darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
+      darkStyle = "mapbox://styles/mapbox/dark-v9"
       # whether to add NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
       navigation = true
       # whether to add GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
@@ -246,31 +278,45 @@ googleAnalytics = "UA-87725724-1"
       Linkedin = true
       Whatsapp = true
       Reddit = true
+      Pocket = true
+      Evernote = true
     # Comment config
     [params.page.comment]
       enable = true
       # Commento comments config (https://commento.io/)
       [params.page.comment.commento]
         enable = true
-    # SEO config
+    # LoveIt NEW | 0.2.7 Third-party library config
+    [params.page.library]
+      [params.page.library.css]
+        # someCSS = "some.css"
+        # located in "assets/"
+        # Or
+        # someCSS = "https://cdn.example.com/some.css"
+      [params.page.library.js]
+        # someJavascript = "some.js"
+        # located in "assets/"
+        # Or
+        # someJavascript = "https://cdn.example.com/some.js"
+    # Page SEO config
     [params.page.seo]
+      # image URL
+      images = ["images/logo.png"]
       # Publisher info
       [params.page.seo.publisher]
         name = "Nir Galon"
-        [params.page.seo.publisher.logo]
-          url = "publishers/nir-galon.webp"
-          width = 127
-          height = 40
-      # Logo info
-      [params.page.seo.logo]
-        url = "logo.webp"
-        width = 127
-        height = 40
-      # Image info
-      [params.page.seo.image]
-        url = "logo.webp"
-        width = 800
-        height = 600
+        logoUrl = "publishers/nir-galon.webp"
+
+  # TypeIt config
+  [params.typeit]
+    # typing speed between each step (measured in milliseconds)
+    speed = 100
+    # blinking speed of the cursor (measured in milliseconds)
+    cursorSpeed = 1000
+    # character used for the cursor (HTML format is supported)
+    cursorChar = "|"
+    # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
+    duration = -1
 
   # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
@@ -279,6 +325,13 @@ googleAnalytics = "UA-87725724-1"
     yandex = ""
     pinterest = ""
     baidu = ""
+
+  # Site SEO config
+  [params.seo]
+   # image URL
+   image = "images/logo.png"
+   # thumbnail URL
+   thumbnailUrl = ""
 
   # Analytics config
   [params.analytics]
@@ -296,58 +349,30 @@ googleAnalytics = "UA-87725724-1"
       # server url for your tracker if you're self hosting
       server = ""
 
-  # CSS and JS Files CDN
+  # Cookie consent config
+  [params.cookieconsent]
+    enable = false
+    # text strings used for Cookie consent banner
+    [params.cookieconsent.content]
+      message = ""
+      dismiss = ""
+      link = ""
+
+  # CDN config for third-party library files
   [params.cdn]
-    # normalize.css@8.0.1 https://github.com/necolas/normalize.css
-    normalizeCSS = 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css'
-    # fontawesome-free@5.13.0 https://fontawesome.com/
-    # fontawesomeFreeCSS = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'
-    # simple-icons@2.9.0 https://github.com/simple-icons/simple-icons
-    # ('https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/')
-    simpleIconsPrefix = 'https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/'
-    # animate.css@3.7.2 https://github.com/daneden/animate.css
-    animateCSS = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'
-    # smooth-scroll@16.1.3 https://github.com/cferdinandi/smooth-scroll
-    smoothScrollJS = 'https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16.1.3/dist/smooth-scroll.min.js'
-    # autocomplete.js@0.37.1 https://github.com/algolia/autocomplete.js
-    autocompleteJS = 'https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.37.1/autocomplete.min.js'
-    # lunr.js@2.3.8 https://lunrjs.com/
-    lunrJS = 'https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js'
-    # algoliasearch@4.2.0 https://github.com/algolia/algoliasearch-client-javascript
-    algoliasearchJS = 'https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.2.0/algoliasearch.umd.js'
-    # lazysizes@5.2.0 https://github.com/aFarkas/lazysizes
-    lazysizesJS = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js'
-    # lightgallery.js@1.1.3 lg-thumbnail@1.1.0 lg-zoom@1.1.0 https://github.com/sachinchoolur/lightgallery.js
-    lightgalleryCSS = 'https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/css/lightgallery.min.css'
-    lightgalleryJS = 'https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js'
-    lightgalleryThumbnailJS = 'https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.1.0/dist/lg-thumbnail.min.js'
-    lightgalleryZoomJS = 'https://cdn.jsdelivr.net/npm/lg-zoom.js@1.0.1/dist/lg-zoom.min.js'
-    # clipboard.js@2.0.6 https://github.com/zenorocha/clipboard.js
-    clipboardJS = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js'
-    # sharer.js@0.4.0 https://github.com/ellisonleao/sharer.js
-    sharerJS = 'https://cdnjs.cloudflare.com/ajax/libs/sharer.js/0.4.0/sharer.min.js'
-    # typeit@7.0.3 https://github.com/alexmacarthur/typeit
-    typeitJS = 'https://cdnjs.cloudflare.com/ajax/libs/typeit/7.0.3/typeit.min.js'
-    # katex@0.11.1 https://katex.org/
-    katexCSS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css'
-    katexJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js'
-    katexAutoRenderJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/auto-render.min.js'
-    katexCopyTexCSS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/copy-tex.min.css'
-    katexCopyTexJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/copy-tex.min.js'
-    katexMhchemJS = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/mhchem.min.js'
-    # mermaid@8.5.0 https://github.com/knsv/mermaid
-    mermaidJS = 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.0/mermaid.js'
-    # echarts@4.7.0 https://echarts.apache.org/
-    echartsJS = 'https://cdnjs.cloudflare.com/ajax/libs/echarts/4.7.0/echarts.min.js'
-    echartsMacaronsJS = ''
-    # mapbox-gl@1.9.1 https://docs.mapbox.com/mapbox-gl-js
-    mapboxGLCSS = 'https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.9.1/mapbox-gl.css'
-    mapboxGLJS = 'https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.9.1/mapbox-gl.js'
-    # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
-    aplayerCSS = 'https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css'
-    aplayerJS = 'https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js'
-    # meting@2.0.1 https://github.com/metowolf/MetingJS
-    metingJS = 'https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js'
+    # CDN data file name, disabled by default
+    # ("jsdelivr.yml")
+    # located in "themes/LoveIt/assets/data/cdn/" directory
+    # you can store your own data files in the same path under your project:
+    # "assets/data/cdn/"
+    data = ""
+
+# Compatibility config
+[params.compatibility]
+  # whether to use Polyfill.io to be compatible with older browsers
+  polyfill = false
+  # whether to use object-fit-images to be compatible with older browsers
+  objectFit = false
 
 # Markup related configuration in Hugo
 [markup]

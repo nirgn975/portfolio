@@ -3,7 +3,7 @@ title: "Simple Twitter - Chapter 3: Start Coding"
 subtitle: ""
 date: 2020-08-01T10:00:00+03:00
 lastmod: 2020-08-01T10:00:00+03:00
-draft: true
+draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
@@ -22,6 +22,7 @@ toc:
 math:
   enable: true
 lightgallery: true
+diagram: true
 license: ""
 ---
 
