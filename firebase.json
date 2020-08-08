@@ -5,16 +5,13 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
-  },
-  "headers": [{
-    "source" : "index.xml",
-    "headers" : [{
-      "key" : "Access-Control-Allow-Origin",
-      "value" : "https://nir-resume.web.app"
-    }, {
-      "key": "Access-Control-Allow-Origin",
-      "value": "https://nir-resume.firebaseapp.com"
+    ],
+    "headers": [{
+      "source" : "index.xml",
+      "headers" : [{
+        "key" : "Access-Control-Allow-Origin",
+        "value" : "*"
+      }]
     }]
-  }]
+  }
 }
