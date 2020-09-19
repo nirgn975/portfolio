@@ -1,8 +1,8 @@
 ---
 title: "Jekyll Starter Kit generator 3.x.x"
 subtitle: ""
-date: 2020-08-01T09:00:00+03:00
-lastmod: 2020-08-01T09:00:00+03:00
+date: 2020-09-01T09:00:00+03:00
+lastmod: 2020-09-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp"
 
 toc:
   enable: true

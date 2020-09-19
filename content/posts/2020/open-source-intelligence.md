@@ -1,8 +1,8 @@
 ---
 title: "Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!"
 subtitle: ""
-date: 2020-06-01T10:00:00+03:00
-lastmod: 2020-06-01T10:00:00+03:00
+date: 2020-06-01T09:00:00+03:00
+lastmod: 2020-06-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/open-source-intelligence/osint-cover.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2020/open-source-intelligence/osint-cover.webp"
 
 toc:
   enable: true

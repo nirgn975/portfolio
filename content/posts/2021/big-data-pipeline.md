@@ -1,8 +1,13 @@
 ---
 title: "Big Data Pipeline"
 subtitle: ""
+<<<<<<< HEAD
 date: 2021-02-01T10:00:00+03:00
 lastmod: 2021-02-01T10:00:00+03:00
+=======
+date: 2021-02-01T09:00:00+03:00
+lastmod: 2021-02-01T09:00:00+03:00
+>>>>>>> master
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -15,7 +20,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2021/big-data-pipeline/big-data.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/posts/2021/big-data-pipeline/big-data.webp"
 
 toc:
   enable: true

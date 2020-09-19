@@ -15,7 +15,7 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/images/logo.webp"
-featuredImagePreview: ""
+featuredImagePreview: "/images/logo.webp"
 
 toc:
   enable: true
