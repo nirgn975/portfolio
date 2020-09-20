@@ -1,13 +1,8 @@
 ---
 title: "Big Data Pipeline"
 subtitle: ""
-<<<<<<< HEAD
-date: 2021-02-01T10:00:00+03:00
-lastmod: 2021-02-01T10:00:00+03:00
-=======
-date: 2021-02-01T09:00:00+03:00
+date: 2020-09-01T09:00:00+03:00
 lastmod: 2021-02-01T09:00:00+03:00
->>>>>>> master
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
