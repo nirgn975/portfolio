@@ -241,13 +241,13 @@ A medium to long videos about a specific topic related to computer science deliv
 
 [Channel Link](https://www.youtube.com/user/Computerphile)
 
-### 3.12. Gopher Academy
+### 3.11. Gopher Academy
 
 If you want to learn Go (the programming language) this is the place.
 
 [Channel Link](https://www.youtube.com/c/GopherAcademy)
 
-### 3.13. The Shadow Brokers
+### 3.12. The Shadow Brokers
 
 A channel about specific tools. Each video is on a different tool, you'll hear what the tool is good for and see an example of how to use it.
 
