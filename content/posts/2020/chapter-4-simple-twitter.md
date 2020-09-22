@@ -34,7 +34,7 @@ So, let's head over to our [server repo](https://github.com/nirgn975/simple-twit
 ```markdown
 - [ ] User model.
 - [ ] User routes.
-- [ ] User endpoints.
+- [ ] User controllers.
 - [ ] User dummy data.
 - [ ] User tests for controllers.
 - [ ] Auth endpoints.
@@ -175,15 +175,100 @@ $ git push origin 5
 
 (This is the last time I'll use the `git` command and open the GitHub PR manually. From now I'll use the [GitHub CLI](https://github.com/cli/cli) since it now officially on version `1.x.x`, so if you want to follow a long and do exactly what I do install the new GitHub CLI).
 
+Now that we have a commit in the new branch, I can open a new Pull Request and you can follow my commits [here](https://github.com/nirgn975/simple-twitter-server/pull/6).
+
 &nbsp;
 
 ## 2. Create a user routes
 
-something..
+Our Model is ready, but we don't do nothing with it yet. It's time to create some new routes for our `user` entity, and _"register"_ them in the main `app` routes. And as before, we can check our [section 4.1](/2020/07/chapter-2-simple-twitter/#41-users) on chapter 2 to see what routes we need to create.
+
+First thing we need to do is to `import` the express `Router` and create a `Router`. Then, at the end of the file, let's `export` that `Router` so we can `import` it later in the `app` routes - to register that router (with it's routes).
+
+```typescript
+import { Router } from "express";
+
+const router: Router = Router();
+
+export default router;
+```
+
+Now, we don't have the controllers yet (the function that will run when we hit each of the endpoints - routes), but let's pretend we already created them and write the controllers names in the right endpoint. We'll add them between the `router` variable to the `export`.
+
+```typescript
+router.param("username", usernameParam);
+
+router.route("/followers/:username")
+  .get(getFollowersList);
+
+router.route("/following/:username")
+  .get(getFollowingList);
+
+router.route("/follow/:username")
+  .post(followUser);
+
+router.route("/unfollow/:username")
+  .post(unfollowUser);
+
+router.route("/:username")
+  .get(getUserInfo);
+
+router.route("/feed")
+  .get(getOwnFeed);
+
+router.route("/reset-password")
+  .post(resetOwnPassword);
+
+router.route("/password")
+  .put(changeOwnPassword);
+
+router.route("/settings")
+  .put(changeOwnSettings);
+
+router.route("/")
+  .post(createUser)
+  .put(editMyInfo)
+  .delete(deleteMe);
+```
+
+The first one is a little different from the rest, it's a `param` route. You can see in the other `route`s we have a url param named `username` (you can see it have a `:` before the actual param name, this is the way we do [url parameters in express](http://expressjs.com/en/api.html#router.route)). So the first one (named `param`) is a way to create a middleware that will run first, in each of the endpoints that have this url parameter (named `username`).
+
+This way, when we get to the actual controller (in `getUserInfo` for example), we **know** that `usernameParam` middleware (just a function) already run. In this middleware we'll get the `user` by it's `username` and attach it to the request, so when we'll be in `getUserInfo` controller (again, also, just a function), we just need to get the user from `request.user` to get the user.
+
+Every other route is just an endpoint, where the HTTP method is the method of the route and we chains them one after the other in the same path. For example the last one (`/`) will be the `/user`, and it'll have a POST endpoint, a PUT endpoint, and a DELETE endpoint (all of them on the same `/user` path).
+
+Notice the way we write the endpoints, from the very detailed one to the least detailed one (without any more words in the URL path or parameters). This is because the express router is a lazy one, it doesn't check all of the routes, it check the routes until one of them can answer the requested one and run it's controller.
+
+So if we'll put the `/` at the top, even if we send request to `user/foo` (_"foo"_ here is the `username` param), we'll run the `/user` controller if we have a GET method (in our case it will not going to happen because we don't have a `/user` GET route, and also we prevent that by order the routes correctly).
+
+Now that we have all the routes in place, we need to import the controllers from `userController` (although we don't have any of them yet, and don't even the file itself, let's pretend there is).
+
+```typescript
+import {
+  usernameParam, getOwnFeed, getUserInfo, getFollowersList, getFollowingList, followUser, unfollowUser, resetOwnPassword,
+  changeOwnPassword, changeOwnSettings, createUser, editMyInfo, deleteMe,
+} from "./userController";
+```
+
+The final thing in this section is to import the route at the `app.ts` file.
+
+```typescript
+import * as userRoutes from "./api/user/userRoutes";
+```
+
+And before the root (`/`) route, in the `configureRoutes` function, let's register the `user` router.
+
+```typescript
+this.app.use("/user", userRoutes.default);
+```
+
+{{< admonition type=warning title="Warning" open=true >}}
+Don't forget to commit the code and push it to GitHub.
+{{< /admonition >}}
 
 &nbsp;
 
-## 3. Create user endpoints
+## 3. Create user controllers
 
 something..
 
