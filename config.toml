@@ -14,8 +14,6 @@ enableGitInfo = true
 # whether to use emoji code
 enableEmoji = true
 
-googleAnalytics = "UA-87725724-1"
-
 [menu]
   [[menu.main]]
     identifier = "posts"
@@ -338,7 +336,7 @@ googleAnalytics = "UA-87725724-1"
     enable = true
     # Google Analytics
     [params.analytics.google]
-      id = "UA-87725724-1"
+      id = ""
       # whether to anonymize IP
       anonymizeIP = true
       # whether to use cookie
@@ -348,6 +346,9 @@ googleAnalytics = "UA-87725724-1"
       id = ""
       # server url for your tracker if you're self hosting
       server = ""
+    # Plausible Analytics
+    [params.analytics.plausible]
+      domain = "lifelongstudent.io"
 
   # Cookie consent config
   [params.cookieconsent]
