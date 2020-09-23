@@ -8,7 +8,7 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["twitter", "development", "github", "node.js", "expressjs", "angular", "ngrx", "modules", "jwt", "token", "controller", "model", "router", "mongodb"]
+tags: ["twitter", "development", "github", "node.js", "expressjs", "ngrx", "jwt", "token", "controller", "model", "router", "mongodb", "seed", "auth", "tests"]
 categories: ["development"]
 
 hiddenFromHomePage: false
@@ -36,16 +36,17 @@ So, let's head over to our [server repo](https://github.com/nirgn975/simple-twit
 - [ ] User routes.
 - [ ] User controllers.
 - [ ] User dummy data.
-- [ ] User tests for controllers.
 - [ ] Auth endpoints.
 - [ ] Auth middleware.
+- [ ] User tests for controllers.
+- [ ] Run GitHub action CI
 ```
 
 If you want to follow along with me, it's [issue #5 in my repo](https://github.com/nirgn975/simple-twitter-server/issues/5).
 
 &nbsp;
 
-## 1. Create a user model
+## 1. Create user model
 
 First thing first we're in Typescript, and we want to have an interface to the `user` model (interfaces help us enforce certain properties on an object).
 
@@ -179,11 +180,17 @@ Now that we have a commit in the new branch, I can open a new Pull Request and y
 
 &nbsp;
 
-## 2. Create a user routes
+## 2. Create user routes
 
 Our Model is ready, but we don't do nothing with it yet. It's time to create some new routes for our `user` entity, and _"register"_ them in the main `app` routes. And as before, we can check our [section 4.1](/2020/07/chapter-2-simple-twitter/#41-users) on chapter 2 to see what routes we need to create.
 
-First thing we need to do is to `import` the express `Router` and create a `Router`. Then, at the end of the file, let's `export` that `Router` so we can `import` it later in the `app` routes - to register that router (with it's routes).
+Like always we need to create the file first
+
+```bash
+touch src/api/user/userRoutes.ts
+```
+
+And then we need to do is to `import` the express `Router` and create a `Router`. Then, at the end of the file, let's `export` that `Router` so we can `import` it later in the `app` routes - to register that router (with it's routes).
 
 ```typescript
 import { Router } from "express";
@@ -219,10 +226,10 @@ router.route("/feed")
 router.route("/reset-password")
   .post(resetOwnPassword);
 
-router.route("/password")
+router.route("/change-password")
   .put(changeOwnPassword);
 
-router.route("/settings")
+router.route("/change-settings")
   .put(changeOwnSettings);
 
 router.route("/")
@@ -270,7 +277,120 @@ Don't forget to commit the code and push it to GitHub.
 
 ## 3. Create user controllers
 
-something..
+To start this section let's first create the `userController.ts` file.
+
+```bash
+$ touch src/api/user/userController.ts
+```
+
+Inside it we need to `import` the relevant express stuff, and the `User` and `IUserModel` (user model interface).
+
+```typescript
+import { User, IUserModel } from "./userModel";
+import { Request, Response, NextFunction } from "express";
+```
+
+Let's just create all the controllers function we route earlier in the `userRoutes` file, and leave them empty. Just so we can have all the placeholders to not get errors and run the project.
+
+```typescript
+/**
+ * PARAM /:username
+ * A middleware that find a user by username and attach it to the request.
+ */
+export let usernameParam = async (req: Request, res: Response, next: NextFunction, username: String) => {
+};
+
+/**
+ * GET /user/followers/:username
+ * Get a user followers list.
+ */
+export let getFollowersList = async (req: Request, res: Response) => {
+};
+
+/**
+ * GET /user/following/:username
+ * Get a user following list
+ */
+export let getFollowingList = async (req: Request, res: Response) => {
+};
+
+/**
+ * POST /user/follow/:username
+ * Start to follow on a specific user.
+ */
+export let followUser = async (req: Request, res: Response) => {
+};
+
+/**
+ * POST /user/unfollow/:username
+ * Stop to follow on a specific user.
+ */
+export let unfollowUser = async (req: Request, res: Response) => {
+};
+
+/**
+ * GET /user/:username
+ * Get a user general information.
+ */
+export let getUserInfo = async (req: Request, res: Response) => {
+};
+
+/**
+ * GET /user/feed
+ * Get the own user tweets feed.
+ */
+export let getOwnFeed = async (req: Request, res: Response) => {
+};
+
+/**
+ * POST /user/reset-password
+ * Send a reset password email request to reset own password.
+ */
+export let resetOwnPassword = async (req: Request, res: Response) => {
+};
+
+/**
+ * PUT /user/change-password
+ * Chage user own password.
+ */
+export let changeOwnPassword = async (req: Request, res: Response) => {
+};
+
+/**
+ * PUT /user/change-settings
+ * Chage user own settings.
+ */
+export let changeOwnSettings = async (req: Request, res: Response) => {
+};
+
+/**
+ * POST /user
+ * Create a new user.
+ */
+export let createUser = async (req: Request, res: Response) => {
+};
+
+/**
+ * PUT /user
+ * Edit user own general info.
+ */
+export let editMyInfo = async (req: Request, res: Response) => {
+};
+
+
+/**
+ * DELETE /user
+ * Delete user own account.
+ */
+export let deleteMe = async (req: Request, res: Response) => {
+};
+```
+
+Now we can run our project
+
+```bash
+$ npm start
+```
 
 &nbsp;
 
@@ -286,19 +406,19 @@ something..
 
 &nbsp;
 
-## 6. Test the user endpoints
+## 6. Create auth endpoints
 
 something..
 
 &nbsp;
 
-## 7. Create auth endpoints
+## 7. Middleware of auth for relevant endpoints
 
 something..
 
 &nbsp;
 
-## 8. Middleware of auth for relevant endpoints
+## 8. Test the user endpoints
 
 something..
 
