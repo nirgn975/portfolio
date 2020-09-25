@@ -149,7 +149,7 @@ Also, we'll not save the password as plain text in the database, this is not saf
 /**
  * Password hash middleware.
  */
-schema.pre("save", function(next: NextFunction) {
+schema.pre<IUserModel>("save", function(next: NextFunction) {
   if (!this.isModified("password")) return next();
   const salt = bcrypt.genSaltSync(10);
   this.password = bcrypt.hashSync(this.password, salt);
@@ -163,6 +163,12 @@ The last thing we have to do is to create a `comparePassword` method, so we can 
 schema.methods.comparePassword = async (candidatePassword: string, userPassword: string): Promise<boolean> => {
   return await bcrypt.compare(candidatePassword, userPassword);
 };
+```
+
+And let's not forget to add the method to the `IUserModel` interface, so we can call the `comparePassword` and not get a typescript error.
+
+```typescript
+comparePassword: (candidatePassword: string) => boolean;
 ```
 
 That's it, we have all we need for the user model. Let's commit the code to a new branch and open a PR.
@@ -205,18 +211,6 @@ Now, we don't have the controllers yet (the function that will run when we hit e
 ```typescript
 router.param("username", usernameParam);
 
-router.route("/followers/:username")
-  .get(getFollowersList);
-
-router.route("/following/:username")
-  .get(getFollowingList);
-
-router.route("/follow/:username")
-  .post(followUser);
-
-router.route("/unfollow/:username")
-  .post(unfollowUser);
-
 router.route("/:username")
   .get(getUserInfo);
 
@@ -228,6 +222,9 @@ router.route("/reset-password")
 
 router.route("/change-password")
   .put(changeOwnPassword);
+
+router.route("/settings")
+  .get(getOwnSettings);
 
 router.route("/change-settings")
   .put(changeOwnSettings);
@@ -252,8 +249,8 @@ Now that we have all the routes in place, we need to import the controllers from
 
 ```typescript
 import {
-  usernameParam, getOwnFeed, getUserInfo, getFollowersList, getFollowingList, followUser, unfollowUser, resetOwnPassword,
-  changeOwnPassword, changeOwnSettings, createUser, editMyInfo, deleteMe,
+  usernameParam, getUserInfo, getOwnFeed, resetOwnPassword, changeOwnPassword, getOwnSettings,
+  changeOwnSettings, createUser, editMyInfo, deleteMe,
 } from "./userController";
 ```
 
@@ -297,92 +294,70 @@ Let's just create all the controllers function we route earlier in the `userRout
  * PARAM /:username
  * A middleware that find a user by username and attach it to the request.
  */
-export let usernameParam = async (req: Request, res: Response, next: NextFunction, username: String) => {
-};
-
-/**
- * GET /user/followers/:username
- * Get a user followers list.
- */
-export let getFollowersList = async (req: Request, res: Response) => {
-};
-
-/**
- * GET /user/following/:username
- * Get a user following list
- */
-export let getFollowingList = async (req: Request, res: Response) => {
-};
-
-/**
- * POST /user/follow/:username
- * Start to follow on a specific user.
- */
-export let followUser = async (req: Request, res: Response) => {
-};
-
-/**
- * POST /user/unfollow/:username
- * Stop to follow on a specific user.
- */
-export let unfollowUser = async (req: Request, res: Response) => {
+export let usernameParam = async (request: NewRequest, response: Response, next: NextFunction, username: String) => {
 };
 
 /**
  * GET /user/:username
  * Get a user general information.
  */
-export let getUserInfo = async (req: Request, res: Response) => {
+export let getUserInfo = async (request: Request, response: Response) => {
 };
 
 /**
  * GET /user/feed
  * Get the own user tweets feed.
  */
-export let getOwnFeed = async (req: Request, res: Response) => {
+export let getOwnFeed = async (request: Request, response: Response) => {
 };
 
 /**
  * POST /user/reset-password
  * Send a reset password email request to reset own password.
  */
-export let resetOwnPassword = async (req: Request, res: Response) => {
+export let resetOwnPassword = async (request: Request, response: Response) => {
 };
 
 /**
  * PUT /user/change-password
- * Chage user own password.
+ * Change user own password.
  */
-export let changeOwnPassword = async (req: Request, res: Response) => {
+export let changeOwnPassword = async (request: Request, response: Response) => {
+};
+
+/**
+ * GET /user/settings
+ * Get user own settings.
+ */
+export let getOwnSettings = async (request: NewRequest, response: Response) => {
 };
 
 /**
  * PUT /user/change-settings
- * Chage user own settings.
+ * Change user own settings.
  */
-export let changeOwnSettings = async (req: Request, res: Response) => {
+export let changeOwnSettings = async (request: Request, response: Response) => {
 };
 
 /**
  * POST /user
  * Create a new user.
  */
-export let createUser = async (req: Request, res: Response) => {
+export let createUser = async (request: Request, response: Response) => {
 };
 
 /**
  * PUT /user
  * Edit user own general info.
  */
-export let editMyInfo = async (req: Request, res: Response) => {
+export let editMyInfo = async (request: Request, response: Response) => {
 };
-
 
 /**
  * DELETE /user
  * Delete user own account.
  */
-export let deleteMe = async (req: Request, res: Response) => {
+export let deleteMe = async (request: Request, response: Response) => {
 };
 ```
 
@@ -392,38 +367,250 @@ Now we can run our project
 $ npm start
 ```
 
+![The project is running again](/posts/2020/chapter-4-simple-twitter/project-is-running-again.webp "The project is running again")
+
+Now we can just keep it running in the background while we develop our controllers one by one. Let's start with `usernameParam` because it's a middleware for a lot of the other controllers, so we need to nail it first.
+
+What we need to do in `usernameParam` is to search a user with the given username, and attach it to the `request` object. If there is no user with this `username` we should return an `404` error.
+
+To attach the user to the request we first need to create a new request interface (with the `user` field). We'll do it right after the `import`s.
+
+```typescript
+export interface NewRequest extends Request {
+   user: IUserModel;
+}
+```
+
+Now, we'll change the `request` type to use the `newRequest`, and write the code to add the user to the `request` and then call `next` to finish the middleware function and move on to the next controller function.
+
+```typescript
+/**
+ * PARAM /:username
+ * A middleware that find a user by username and attach it to the request.
+ */
+export let usernameParam = async (request: NewRequest, response: Response, next: NextFunction, username: string) => {
+  const user = await User.findOne({ username });
+  if (!user) {
+    return response.status(404).json({
+      _message: `No user with the given username: ${username}`,
+      user: user,
+    });
+  }
+
+  request.user = user;
+  next();
+};
+```
+
+After we finish with that middleware we can start tackle the controller that use that middleware, the `getUserInfo` function. This controller should get all the user information, based on the given `username`, and just return it. And we already have the `user` in the `request` (which we should change to `newRequest` type), so it's easy - we just need to return it.
+
+```typescript
+/**
+ * GET /user/:username
+ * Get a user general information.
+ */
+export let getUserInfo = async (request: NewRequest, response: Response) => {
+  return response.json(request.user);
+};
+```
+
+We don't even need to handle any errors, because we already did it in the middleware. Next, we'll skip `getOwnFeed` and `resetOwnPassword` controllers, because they require couple more packages and a bit more complicated, so we'll tackle them later.
+
+So, we can do the `changeOwnPassword` controller. Again, we already have the `user` on the `request`, because this endpoint will be protected with `token` (it's means that the user will have to authenticate first, get a `token` from our server, and send it with the request to that endpoint, with this `token` we can identify the `user` and attach it to the `request`, like we did in the `usernameParam`).
+
+Our frontend will have 2 input fields to confirm the password (the user will have to write it twice), so we need to check that they're match (although we're going to check it on the frontend we need to check it on the backend too, because there are way to change the frontend and send us other requests, so we always need to check all the things again in the server, for security reasons).
+
+After that, we're going to check that the password has a minimum length of 8 and maximum of 30, this is just something we want to enforce on our users, this is some best practices (to make the password long), so if we'll have a breach in the future and our database will be dumped, our users passwords not only encrypted, they're long enough so it will be hard to brute force them.
+
+And those checks are passed we can update the password and return some success message with the new user information.
+
+```typescript
+/**
+ * PUT /user/change-password
+ * Change user own password.
+ */
+export let changeOwnPassword = async (request: NewRequest, response: Response) => {
+  const user =  await User.findById(request.user._id).select("+password");
+
+  // Check that the password and confirmPassword are match.
+  if (request.body.password !== request.body.confirmPassword) {
+    return response.status(400).json({
+      _message: "Cannot update password. Passwords are not matched.",
+      user: {},
+    });
+  }
+
+  // Check that they are in the right length.
+  if (request.body.password.length < 8 || request.body.password.length > 30) {
+    return response.status(400).json({
+      _message: "Password should be more then 8 characters and less the 30.",
+      user: {},
+    });
+  }
+
+  // Update and save the new password.
+  user.password = request.body.password;
+  const savedCustomer = await user.save();
+
+  return response.json({
+    _message: "User password successfully updated!",
+    user: savedCustomer,
+  });
+};
+```
+
+The next controllers are the `getOwnSettings` and `changeOwnSettings`, we don't have yet any settings fields, so we'll skip them for the time being. And we get to the `createUser` one. In this endpoint we just create a new `user` entity from the request body data (if we're missing a field that is required `mongoose` schema will take care of that and will throw appropriate error message, we just need to return it).
+
+```typescript
+/**
+ * POST /user
+ * Create a new user.
+ */
+export let createUser = async (request: Request, response: Response) => {
+  const newUser = new User(request.body);
+
+  try {
+    const savedUser = await newUser.save();
+    return response.json({
+      _message: "User successfully created!",
+      user: savedUser,
+    });
+  } catch (error) {
+    return response.status(400).json({
+      _message: error.message,
+      user: {},
+    });
+  }
+};
+```
+
+For the `editMyInfo` controller we first need to `import` the `lodash` package (we already installed it in an earlier chapter).
+
+```typescript
+import * as _ from "lodash";
+```
+
+Before we'll merge the new fields from the `request` `body` we want to check that the `_id` we received in the `body` is the same as the `user` we got from the `token` (so the user don't try to edit some other users data). After that we can use the [merge function from the lodash library](https://lodash.com/docs/4.17.15#merge) to merge the new fields to the `user` ones.
+
+All is left to do is to save the `user` (with it's new fields), and return it with a success message.
+
+```typescript
+/**
+ * PUT /user
+ * Edit user own general info.
+ */
+export let editMyInfo = async (request: NewRequest, response: Response) => {
+  const user = request.user;
+  const update = request.body;
+
+  if (request.body._id && request.body._id != request.user._id) {
+    return response.status(400).json({
+      _message: "User can not updated! id is not matched.",
+      user: {},
+    });
+  }
+
+  _.merge(user, update);
+
+  const savedCustomer = await user.save();
+  response.json({
+    _message: "User successfully updated!",
+    user: savedCustomer,
+  });
+};
+```
+
+To delete the user, we just need to use mongoose `remove` document on the `user` attached to the request (because a user only delete it's own account so we identify his account by the token attached to the request).
+
+```typescript
+/**
+ * DELETE /user
+ * Delete user own account.
+ */
+export let deleteMe = async (request: NewRequest, response: Response) => {
+  const deleteUser = await request.user.remove();
+  return response.json({
+    _message: "User successfully deleted!",
+    user: deleteUser,
+  });
+};
+```
+
+And that's it, for now, we're done with all the user controllers we can code with the current code (we only have the `userModel` for now).
+
 &nbsp;
 
-## 4. Create user dummy data file
+## 4. Create user dummy data file & load dummy data in seed script
+
+The next thing we need to do is to add some dummy data to the user collection and load it in the `seed` script. So, let's create a `users.ts` file in a new `dummyData` directory in `util` path.
+
+```bash
+$ mkdir -p "src/util/dummyData" && touch "src/util/dummyData/users.ts"
+```
+
+Now all we need is an array with couple of users with some diversification in the fields and to export that array so we can later import it in the `seed.ts` file.
+
+```typescript
+const users = [
+  { firstName: "Nir", lastName: "Galon", username: "nirgn", email: "nir@example.com",  active: true, password: "12345", country: "israel", website: "https://nir.galon.io" },
+  { firstName: "Adi", username: "adi", email: "adi@example.com", active: false, password: "123456", birthday: new Date(Date.now() - (24 * 60 * 60 * 1000)) },
+];
+
+export default users;
+```
+
+In the `seed` file, we first need to import the `User` model and the `users` variable from the `dummyData/users.ts` file.
+
+```typescript
+import users from "./dummyData/users";
+import { User } from "../api/user/userModel";
+```
+
+We already have a `createUsers` method in the `Seed` class, all we need to do is to loop over the `users` array and create a `User` entity from each and every one of them, and then save it. Then we wrap the `map` with a `Promise.all` so we'll return the actual users documents that mongoose created and return just after all of them was created.
+
+```typescript
+/**
+ * Create fixtures for users.
+ *
+ * @class Seed
+ * @method createUsers
+ * @return void
+ */
+private createUsers() {
+  return Promise.all(users.map(user => {
+    return new User(user).save();
+  }));
+}
+```
+
+And the last thing we want to do is to add the number of users that was created to the `console.log`, so we can keep track on how much data was seed to the database (and what was seeded).
+
+```typescript
+console.log(chalk.yellow(`Seeded DB with ${users.length} users`));
+```
+
+Finally lets not forget to commit and push everything.
+
+&nbsp;
+
+## 5. Create auth endpoints
 
 something..
 
 &nbsp;
 
-## 5. Load dummy data in seed script
+## 6. Middleware of auth for relevant endpoints
 
 something..
 
 &nbsp;
 
-## 6. Create auth endpoints
+## 7. Test the user endpoints
 
 something..
 
 &nbsp;
 
-## 7. Middleware of auth for relevant endpoints
-
-something..
-
-&nbsp;
-
-## 8. Test the user endpoints
-
-something..
-
-&nbsp;
-
-## 9. Summary
+## 8. Summary
 
 something..
