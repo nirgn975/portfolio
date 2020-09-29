@@ -8,7 +8,7 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["", "", "screen crab", "key croc", "cloud c2", "hacking", "hak5", "white hat"]
+tags: ["spy", "screen crab", "key croc", "cloud c2", "hacking", "hak5", "white hat", "digital ocean"]
 categories: ["hacking"]
 
 hiddenFromHomePage: false
@@ -97,16 +97,104 @@ Now, when we head over to [https://cloud-c2.dev](https://cloud-c2.dev) we can se
 
 ## 2. Screen Crab
 
-Something..
+> A stealthy video man-in-the-middle that captures screenshots or videos to disk and streams live to the Internet for remote viewing.
+
+The Screen Crab is by default save photos every couple of seconds to the SD card that you plug in the back of the device. But to get the most out of this device you need to connect it to the Cloud C2 dashboard, then you'll be able to to remotely view configure and manage the device.
+
+It quit simple to do this, let's go to the `devices` tab, and then (if you don't have any device enrolled yet), you'll see a big blue button says _"Add Device"_.
+
+![Add a new device](/posts/2020/like-a-spy-with-hak5-toys/c2-add-device.webp "Add a new device")
+
+Then, call the device what ever you want, and choose the type, in our case right now it's _"Screen Carb"_, and click _"Add Device"_. After you did it, you'll see it in the list at the same `devices` page, click on it to configure the device.
+
+At the left side a menu will be opened, click on the _"Setup"_ button and then _"Download"_, a file named `device.config` will start to be downloaded, copy this file to the root of the Screen Carb SD card.
+
+![Screen Carb setup](/posts/2020/like-a-spy-with-hak5-toys/screen-carb-setup.webp "Screen Carb setup")
+
+Also, create a file named `config.txt` and in it add the wifi configuration. The first parameter is the network name (SSID), and the second one is the network password. Note that if your network or password contains spaces or special characters you'll need to add a back slash (`\`) at the start of each and every one of them.
+
+1. WIFI_SSID – the network name
+2. WIFI_PASS – the WPA-PSK password
+
+For example:
+
+```txt
+WIFI_SSID This network
+WIFI_PASS The P@$$word!!
+```
+
+Will be:
+
+```txt
+WIFI_SSID This\ network
+WIFI_PASS The\ P\@\$\$word\!\!
+```
+
+After you created this file, add it to the root of the SD card that goes into the Screen Carb (together with `device.config`). In my case I just add the configuration of my home wifi, but in a real environment I would add a simple old android device in the bathroom floor and create an AP from him, or a simple raspberry pi with an expansion card, or even crack the wifi password of that office in advanced.
 
 &nbsp;
 
 ## 3. Key Croc
 
-Something..
+> A keylogger armed with pentest tools, remote access and payloads that trigger multi-vector attacks when chosen keywords are typed.
 
 &nbsp;
 
-## 4. Summary
+## 4. Cleanup
+
+Everything is connected and working, but soon as we'll leave our Digital Ocean server, our C2 will stop. We need a way to keep it going without connecting to the server and run it manually (it also will stop if we'll get an error or something similar) - and the right way to accomplish it is with [systemd](https://en.wikipedia.org/wiki/Systemd).
+
+> `systemd` is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system.
+
+First we're going to move the c2 file to `/usr/local/bin`. Why this directory? Because this is the directory in linux for programs that normal user may run. _"usr"_ - **U**NIX **S**ystem **R**esources, the location that system programs and libraries are stored. _"local"_ - for resources that were not shipped with the standard distribution. _"bin"_ - binary compiled executables.
+
+```bash
+$ sudo mv c2_community-linux-64 /usr/local/bin
+```
+
+and then to create a new directly (in `/var`) for our database (the `c2.db` file that was automatically created). Why in `/var`? Because according to linux it's abbreviation is _"variable"_, and it should contains things that are prone to changes (such as websites, temporary files (`/var/tmp`) and databases).
+
+```bash
+$ sudo mkdir /var/c2
+$ sudo mv c2.db /var/c2
+```
+
+Now we need to create a new `systemd` service. This is the "right way" to keep the process alive once we leave the ssh connection, because this way (with `systemd`) if it crash the `systemd` will automatically reboot it and also we can capture the process logs to check what happened.
+
+```bash
+$ sudo touch /etc/systemd/system/c2.service
+$ nano /etc/systemd/system/c2.service
+```
+
+And paste the text below (change the `cloud-c2.dev` to your domain name), save and exit nano.
+
+```txt
+[Unit]
+Description=Cloud C2
+After=c2.service
+[Service]
+Type=idle
+ExecStart=/usr/local/bin/c2_community-linux-64 -hostname cloud-c2.dev -https -db /var/c2/c2.db
+[Install]
+WantedBy=multi-user.target
+```
+
+All we have left to do is to reload the `systemd` daemon, enable the new service we just created (if it's not enabled the service will start and stop only when you write the commands to start and stop it, if it's enabled it'll automatically start when the server is back up), and finally start it.
+
+```bash
+$ sudo systemctl daemon-reload && systemctl enable c2.service && systemctl start c2.service
+```
+
+You can check the status of the service we created with the `status` command of `systemctl`.
+
+```bash
+$ sudo systemctl status c2.service
+```
+
+![systemd service runs our c2 successfully](/posts/2020/like-a-spy-with-hak5-toys/systemd-service-running.webp "systemd service runs our c2 successfully")
+
+&nbsp;
+
+## 5. Summary
 
 something..
