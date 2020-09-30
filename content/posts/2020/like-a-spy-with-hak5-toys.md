@@ -1,8 +1,8 @@
 ---
 title: "Like A Spy With Hak5 Toys"
 subtitle: ""
-date: 2020-09-01T09:00:00+03:00
-lastmod: 2020-09-01T09:00:00+03:00
+date: 2020-10-01T09:00:00+03:00
+lastmod: 2020-10-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -99,7 +99,7 @@ Now, when we head over to [https://cloud-c2.dev](https://cloud-c2.dev) we can se
 
 > A stealthy video man-in-the-middle that captures screenshots or videos to disk and streams live to the Internet for remote viewing.
 
-The Screen Crab is by default save photos every couple of seconds to the SD card that you plug in the back of the device. But to get the most out of this device you need to connect it to the Cloud C2 dashboard, then you'll be able to to remotely view configure and manage the device.
+The Screen Crab is, by default, save photos every couple of seconds to the SD card that you plug in the back of the device. But to get the most out of this device you need to connect it to the Cloud C2 dashboard, then you'll be able to to remotely view configure and manage the device.
 
 It quit simple to do this, let's go to the `devices` tab, and then (if you don't have any device enrolled yet), you'll see a big blue button says _"Add Device"_.
 
@@ -132,11 +132,53 @@ WIFI_PASS The\ P\@\$\$word\!\!
 
 After you created this file, add it to the root of the SD card that goes into the Screen Carb (together with `device.config`). In my case I just add the configuration of my home wifi, but in a real environment I would add a simple old android device in the bathroom floor and create an AP from him, or a simple raspberry pi with an expansion card, or even crack the wifi password of that office in advanced.
 
+Now we're ready to connect our device to any HDMI (computer screen, projector, a conference room tv, chromecast, etc). We need to connect the input HDMI to the port in the antenna (and the button) side, and the output (to the screen/tv/projector) to the port on the other side (where the usb-c port located). And finally the usb-c port to a power source.
+
+After all is connected, we'll see a green light from the LED of the device for about 30 seconds. Then, a cyan color when it's connecting to the wifi, and finally a solid blue color when it have input from the HDMI port. And couple of seconds after that we can see our Screen Crab is online and connected to our C2.
+
+![Screen Carb is online](/posts/2020/like-a-spy-with-hak5-toys/screen-crab-is-online.webp "Screen Carb is online")
+
+When we toggle the `streaming` button we'll get the screenshots in live and can see everything right as it's happen. And if we want to download one of the images to our local machine we have all of them in the _"Loot"_ tab in the left menu.
+
+![Screen Carb configuration](/posts/2020/like-a-spy-with-hak5-toys/screen-crab-configuration.webp "Screen Carb configuration")
+
+{{< admonition type=bug title="Debugging" open=true >}}
+If you encounter some problems, you can add `DEBUG_LOG ON` as a third line in the `config.txt` file and the Screen Crab will save the the logs to a `crab.log` file so you can see what going on.
+
+Another way is to just reset everything by delete all of the files the Screen Crab will create on the SD card (except from the `config.txt` and the `device.config` that we add earlier).
+{{< /admonition >}}
+
 &nbsp;
 
 ## 3. Key Croc
 
 > A keylogger armed with pentest tools, remote access and payloads that trigger multi-vector attacks when chosen keywords are typed.
+
+The Key Croc is the second part of our spy tool, because we don't want to get just the screen, we want the keystrokes too. And with the Key Croc we can even trigger stuff with it and inject keystrokes to the target computer, but this is out of scope for this post.
+
+Plug your Key Croc to the computer and click on the hidden key at the back of the device with a sim tool or a paper clip, then the light of the LED will turn off and then turn on with a blue color. This means the device is in arming mode - the device will emulate both a serial device and USB flash disk, so it's easy to just see a new look inside the drive.
+
+![The Key Croc drive](/posts/2020/like-a-spy-with-hak5-toys/key-croc-drive.webp "The Key Croc drive")
+
+Let's connect our Key Croc to our C2. Go to the C2 dashboard and add a new device in _"Devices"_ page, choose the _"Key Croc"_ as the device type, and then enter to the device configuration page. From there just hit the _"Setup"_ button at the left menu and a `device.config` file will be downloaded, as with the Screen Crab, this file should go to the root directory in the Key Croc.
+
+And let's add our wifi configuration so it would be able to connect to our C2 server. Like with the Screen Crab we need to edit the `config.txt` file (we already have the file in this case, and there're quit a few comments in there), we'll uncomment the `WIFI_SSID` and `WIFI_PASS` lines and add our wifi configuration there, in the same exact way we did with the Screen Crab, but in this case we have a new option to play with, an ssh one, so we can connect to the Key Croc via ssh and program it on the fly!
+
+```txt
+WIFI_SSID This\ network
+WIFI_PASS The\ P\@\$\$word\!\!
+SSH ENABLE
+```
+
+We're ready to connect the device to a test keyboard. When we plug the device in, the LED is white, and once we connect the keyboard dongle to the usb of the Key Croc, the LED is turned off - which says that we're in business. Couple of minutes later and we have a connection to our C2.
+
+![Key Croc is connected to our C2](/posts/2020/like-a-spy-with-hak5-toys/c2-key-croc-online.webp "The Key Croc is connected to our C2")
+
+In the Key Croc configuration we can see live keystrokes (and the history), enable `QUACK` mode - which enable us to inject keystrokes using the Hak5 Ducky Script, view the payloads on the device and create new ones (Hak5 have a [repo with all the open source payloads](https://github.com/hak5/keycroc-payloads) people created for the Key Croc with the Ducky Script), and even open an ssh to the device.
+
+![Key Croc configuration](/posts/2020/like-a-spy-with-hak5-toys/key-croc-configuration.webp "Key Croc configuration")
+
+The Key Croc can literally be programmed to `match` keystrokes so every time the user type something we save the next `n` number of keystrokes or even the last `n` number of keystrokes (before the user typed that `match` string/regex). This is so powerful because now we don't have to filter from so much garbage like we usually need to with keyloggers.
 
 &nbsp;
 
@@ -197,4 +239,6 @@ $ sudo systemctl status c2.service
 
 ## 5. Summary
 
-something..
+That's it, we are spies now :joy: . Everywhere will go we can implant those devices and see and read what's going on, even insert some keystrokes and cause a mayhem. In the right time and the right place, it can be very valuable. But we're just playing around here and learn new stuff, because it's fun and cool.
+
+I don't know what about you, but I had really fun playing Q (from James Bond) for a day.
