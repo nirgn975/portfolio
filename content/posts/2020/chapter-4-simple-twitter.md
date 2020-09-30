@@ -1,8 +1,8 @@
 ---
 title: "Simple Twitter - Chapter 4: Login!"
 subtitle: ""
-date: 2020-10-01T09:00:00+03:00
-lastmod: 2020-10-01T09:00:00+03:00
+date: 2020-11-01T09:00:00+03:00
+lastmod: 2020-11-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
