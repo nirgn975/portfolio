@@ -8,7 +8,7 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["hugo", "design", "blog", "github"]
+tags: ["hugo", "design", "blog", "github", "commento.io", "plausible analytics"]
 categories: ["miscellaneous"]
 
 hiddenFromHomePage: false
@@ -88,9 +88,9 @@ So after a while I implement [disqus](https://disqus.com/) but it was out of nec
 
 &nbsp;
 
-A new design make a new opportunity to change all of that! I searched for days for the best commenting system for static websites that will keep the user privacy, let the user make an anonymous comment, and will be beautiful and easy to use. And I think i found it! [commento](https://www.commento.io/) is (in my research) the best there is out there right now, it fulfills all my requirements and more.
+A new design make a new opportunity to change all of that! I searched for days for the best commenting system for static websites that will keep the user privacy, let the user make an anonymous comment, and will be beautiful and easy to use. And I think i found it! [commento](https://www.commento.io) is (in my research) the best there is out there right now, it fulfills all my requirements and more.
 
-![commento.io Platform](/posts/2020/new-design-for-the-blog/commento-io-platform.webp "commento.io Platform")
+![commento.io platform](/posts/2020/new-design-for-the-blog/commento-io-platform.webp "commento.io platform")
 
 &nbsp;
 
@@ -102,7 +102,19 @@ English is not my native language (Hebrew is) so don't expect perfect. But I thi
 
 &nbsp;
 
-## 3. Summary
+## 3. Analytics
+
+One of the things I highly value is the user privacy, as I said before. But I need to know some stats about blog (from where my readers are, views count, stats over time, etc). So, naturally I goes to Google Analytics, but Google add ad tracks to their script to keep tab on my readers across the web, and that's something I can't accept. So, I search for an alternative.
+
+![Plausible Analytics elevator pitch](/posts/2020/new-design-for-the-blog/plausible-analytics-elevator-pitch.webp "Plausible Analytics elevator pitch")
+
+And I found it, [Plausible Analytics](https://plausible.io) is simple and privacy focus, exactly  what I was searching for. And to check they're true to their words I use [blacklight](https://themarkup.org/blacklight/?url=lifelongstudent.io) - A real-time website privacy inspector.
+
+![Blacklight search results](/posts/2020/new-design-for-the-blog/blacklight-search-results.webp "Blacklight search results")
+
+&nbsp;
+
+## 4. Summary
 
 So the new design of the blog is beautiful, useful, and I'm very excited to move to writing posts in English.
 
