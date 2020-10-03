@@ -79,22 +79,174 @@ Now we have a local repository (not on any server, local to your computer).
 
 ## 3. Workflow
 
-Something
+Before we continue diving with the tool, I would like to take couple of minutes to go over the workflow with `git`. For convince I would borrow some names from the cryptography world: Alice and Bob. Let's suppose Alice created a file `README.md` and when a new file is created, it's start his life as an untracked file (that's means that the `git` system doesn't know about it), to make `git` track this file we need to add it to the _staging area_, and finally we make a `commit` - that's a `git` command to take a snapshot of all the files in the _staging area_.
+
+Now let's assume Alice working some more on the `README.md` file, doing some changes and even add a new file `LICENSE`, when she done, she need to add both of those files to the _staging area_, again, and `commit` those changes. This is pretty much will be our workflow at the moment. We'll making some work -> add the work that we done to the _staging area_ -> and commit it (taking the snapshot).
 
 &nbsp;
 
 ## 4. More Commands
 
-Something
+Once we understand the workflow in theory, we need to practice it.
+
+Maybe the most important command in `git` (in my opinion) is `status` - it allow us to check the changes that were made from the last `commit` (snapshot). Let's see what the result of this command will be after we initiate (with `git init`) the repo, and created a `README.md` file (didn't nothing like adding it to the _staging area_ or `commit` it).
+
+```bash
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+We can see we got couple of pieces of information back:
+- We are on branch `master` (we'll take about branches later)
+- There is no commits yet in this repo.
+- We have a new file (file that `git` doesn't track) in the name of `README.md`
+- Nothing was added to the _staging area_, and `git` knows that there're files that it doesn't track yet (so we have something to give him, to adding to the _staging area_).
+
+So let's give `git` what it wants, let's start tracking this `README.md` file (with the `add` command and right after it the file itself), and then do another `status` command to see the output now.
+
+```bash
+$ git add README.md
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   README.md
+```
+
+We see almost the same pieces of information, but now `git` have a file in his _staging area_ (a file ready to be `commit`ed). So, it's time to do our first `commit`. To do this we'll use the `commit` command. A flag that the `commit` command have is `m` which means _"message"_, with this flag we can add a message to the `commit` to describe the changes this `commit` is do.
+
+When we do the `commit` we basically take a snapshot of our file system in this exact time. Even a space means a change. This commit is added to the repo (project) timeline (it's accepted to draw it and imagine it as a timeline, because every `commit` has a timestamp, so we can place them all on a big timeline from the start of the project until now).  
+
+```bash
+$ git commit -m "Created an empty README file"
+[master (root-commit) de7c8db] Created an empty README file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+```
+
+if we write the `status` command again, we'll see there is no changes to be added to the _staging area_ or no changes in the _staging area_ to be `commit`ed. We also can see in the first line that we on branch `master`, for now everything you need to know on branches is that we have a timeline (branch) in the name of `master`, and we `commit` things to that branch (timeline).
+
+```bash
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+Now let's make some changes in `README.md` and create a new file named `LICENSE` (like we said Alice did in the [workflow section](#3-workflow)), and run the `status` command again.
+
+```bash
+$ echo "first change" > README.md
+$ touch LICENSE
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        LICENSE
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+`git` knows that the `README.md` file has changed! and those changes are not staged (not in the _staging area_, not ready to be `commit`ed). `git` also noticed we created a new file that it doesn't track (`LICENSE`).
+
+To commit those files we need to add them to the _staging area_ first, we can do it like we did it earlier with the `add` command and the two files (with a space between them), but we can do it more efficiently with the `all` flag - which will add all of the changes and untracked files to the _staging area_ (be careful with this flag because something you).
+
+After we add them, we can use the `status` command again to see what have changed. We can see we have two files in the _staging area_, ready to be `commit`ed, one (`LICENSE`) is a new file, and the other (`README.md`) is a tracked file that just changed (modified).
+
+```bash
+$ git add --all
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   LICENSE
+        modified:   README.md
+```
+
+Now let's do a new `commit` (take a second snapshot) and then explore it a little bit.
+
+```bash
+$ git commit -m "Add a new LICENSE file and finish README"
+[master 380c1e1] Add a new LICENSE file and finish README
+ 2 files changed, 1 insertion(+)
+ create mode 100644 LICENSE
+```
+
+To look at the history, the log, of the current timeline we can use the `log` command. We see there're two `commit`s in the branch (timeline) we're currently at. And also much more information:
+- We're in the `master` branch (timeline).
+- The `commit`s hash, which is a unique string of number and letters to represent that `commit`. It's basically the name of the `commit`, with it we can reference that `commit`.
+- The author and the exact time and date of the `commit`.
+- The message of the commit (this is why the message is important. It should be understandable, concise and describe exactly what the changes are. It also accepted to write in present time and not history or future).
+
+```bash
+$ git log
+commit 380c1e1346008245c8268ccb039538df3e314b87 (HEAD -> master)
+Author: Nir Galon <nir@galon.io>
+Date:   Sat Oct 3 12:51:23 2020 +0300
+
+    Add a new LICENSE file and finish README
+
+commit de7c8db1ce767a3a757d760cb7200abe9d847c65
+Author: Nir Galon <nir@galon.io>
+Date:   Sat Oct 3 02:03:24 2020 +0300
+
+    Created an empty README file
+```
+
+Like the drawing below, we can imagine it as two dots, where each dot is a `commit` (snapshot), and a line (timeline, the `branch`) is connected them. Going from the first (oldest) one at the left, to the newest one at the right. Where the most newest `commit`, the dot to the most right, is our current `commit` (`HEAD`).
+
+{{< mermaid >}}
+gitGraph:
+options
+{ "nodeSpacing": 150, "nodeRadius": 10 }
+end
+    commit
+    commit
+{{< /mermaid >}}
 
 &nbsp;
 
 ## 5. Q & A
 
-Something
+Let's practice a little bit by going over the things we learned.
+
+### **Questions**
+
+1. You want to initiate a new repo. You're already in a directory with a file, what command do you write to do it?
+2. You created some files, made a few `commit`s, you updated some files and the day is over, you want to do your last `commit` for the day and go home. But you don't remember what files you have changed from the last `commit`, what command can help you see the changes from the last `commit`?
+3. You found out with the last command that you have only one file changed (`index.html`), make him ready to be `commit`ed.
+4. Make a `commit`.
+5. You created a new directory (`css`), with couple of files, add the entire directory (with all of it's files) to the _staging area_.
+6. A colleague goes by your desk and ask you what have you been `commit`ed today, what command do you write to show him?
+
+### **Answers**
+
+1. The `git init` command.
+2. The `git status` command.
+3. The `git add` command: `git add index.html`.
+4. The `git commit` command: `git commit -m "Add index.html"`.
+5. To add an entire directory we'll just write it: `git add css`.
+6. The `git log` command.
 
 &nbsp;
 
 ## 6. Summary
 
-Something
+So, we learn a bit about the history of `git`, why do we need it and how [GitHub](https://github.com) is related. From there we move on the learn some basic commands, the git workflow, and then to some of the most used commands in `git`.
+
+I recommend to learn through your fingers - to write all the commands yourself and see the output in your terminal. This is the best way to learn! Don't copy and paste answers to your terminal, write them yourself, slowly it'll get through and you'll remember and understand it all in no time.
