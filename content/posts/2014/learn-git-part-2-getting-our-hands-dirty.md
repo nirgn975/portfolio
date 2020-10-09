@@ -181,27 +181,82 @@ In this case, our local repo is already up to date with the `remote` one (of cou
 
 ## 4. Rap collaboration
 
-Somethings..
+A collaboration is an important thing, not just for open source projects where a lot of different people (maybe even from different countries with different time zones and languages) will work on the same project, but also at work, even if it's not a big company with a lot of teams, chances are you're not develop the software alone.
+
+So, let's say Bob is working with Alice on the same team. It's his first day, and they want him to work on a new feature of the product. He need a local copy of the repo, so he `clone` the repo to his local machine. If you're on [GitHub](https://github.com) just go to the project repo and choose the _"Code"_ tab, at the bottom (above the _"Download ZIP"_) there is a section with the text _"HTTP clone URL"_ - this is the URL of the repo, copy it, and then go to your terminal to `clone` the repo.
+
+![GitHub repo clone URL](/posts/2014/learn-git-part-2-getting-our-hands-dirty/github-repo-clone-url.webp "GitHub repo clone URL")
+
+```bash
+$ git clone https://github.com/nirgn975/test.git
+```
+
+The repo will be cloned on your local machine, in the directory that you were at in the terminal, to a new directory with the name of the of the repo. When you `clone` the repo to your local machine, the `git` system does 3 things:
+
+1. Download the repo to your local machine in a directory with the name of the repo.
+2. Add a `remote` with the `origin` name that alias to the repo URL.
+3. `git` will configure a branch named `master` and point the `HEAD` to be the last `commit` from the `master` branch in the `origin`.
 
 &nbsp;
 
 ## 5. Merge the branches
 
-Somethings..
+Bob is ready now to work on the new feature, but to do this it's better to create a new `branch` (timeline) and not to work on the same main `branch` of the project (`master`). This is because while he work on his own feature, other people working on theirs features or bugs too, and if everyone will work on the same branch and `commit` frequently, it'll create a mess, and everyone will _"resolve conflicts"_ all of the time instead of working.
+
+To create a new `branch` out (or splits if you want) of the main `master` branch (the current branch we're in right now) can be done using the `branch` command.
+
+```bash
+$ git branch home-page
+```
+
+After we created the new branch, let's check on which branch we're in right now.
+
+```bash
+$ git branch
+home-page
+* master
+```
+
+We're still on `master`. So to move to the `home-page` branch, we'll use the `checkout` command.
+
+```bash
+$ git checkout home-page
+Switched to branch 'home-page'
+```
+
+Now we're in a different timeline (`branch`), we can do whatever we want and it'll just do it just in the `home-page` branch, and nothing will infect our `master` branch. Any time we want to can go back to `master` branch, and see the repo from `master` branch point of view (timeline).
+
+In the meantime, while we work on our feature, if other members of the project finish their own work and merge it to `master`, we can always `checkout` back to `master`, and `pull` the new `commit`s in `master`, to see our coworkers job.
 
 &nbsp;
 
 ## 6. Q & A
 
-Let's practice a little bit by going over the things we learned.
+It's time to practice. Remember that the best practice is through your fingertips. If you don't have a project you want to upload and share, just create an empty directory and put a simple text file in there. If you can't figure out something, it's okay to look at the answers, but don't just look at it, write it in the terminal (don't copy-paste, write it on your own).
 
 ### **Questions**
 
-1. You want to initiate a new repo. You're already in a directory with a file, what command do you write to do it?
+1. A new file was added to the project, write a command to show you the changes from the last `commit`.
+2. Add the `index.html` file to the _staging area_.
+3. Wait a second, a colleague walks by your desk and ask to see what is different from the last `commit`, show him.
+4. The colleague updates you that this `index.html` is no longer relevant, delete it from the _staging area_.
+5. Do some changes to the `README.md` file, and because `git` already tracks that file, `add` and `commit` in one command.
+6. Oops! I forget to tell you to add another file to that `commit`, you need to create a new file named `map.index` and `commit` it with the `README.md` file from the last commit.
+7. Wait I didn't tell you what content to add to the `map.index` file, return it to the _staging area_.
+8. A colleague send you in an email the new repo URL, add it to your local repo configuration (it's: `https://github.com/example/importantProject.git`).
+9. You're done for today, let's push everything to the remote repo. Use a special flag so you'll not need to write the `origin` alias next time.
 
 ### **Answers**
 
-1. The `git init` command.
+1. The `git diff` command.
+2. `git add index.html`.
+3. Use the `git diff --staged` command and flag to show the changes that were also added to the _staging area_.
+4. The `git reset HEAD index.html` command.
+5. Use the `-a` flag like so: `git commit -a -m "Modify README.md file"`.
+6. Because `git` doesn't track the new page let's first add it `git add map.index`, no we can use the `-amend` flag to add it to the last commit: `git commit -amend -m "Modify README.md file and add map.index"`.
+7. Use the `git reset -soft HEAD^` command.
+8. Use the `remote add` command like so: `git remote add origin https://github.com/example/importantProject.git`.
+9. You need the `push` command with the `-u` flag: `git push -u origin master`.
 
 &nbsp;
 
