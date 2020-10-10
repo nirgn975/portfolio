@@ -143,7 +143,7 @@ When we toggle the `streaming` button we'll get the screenshots in live and can 
 ![Screen Carb configuration](/posts/2020/like-a-spy-with-hak5-toys/screen-crab-configuration.webp "Screen Carb configuration")
 
 {{< admonition type=bug title="Debugging" open=true >}}
-If you encounter some problems, you can add `DEBUG_LOG ON` as a third line in the `config.txt` file and the Screen Crab will save the the logs to a `crab.log` file so you can see what going on.
+If you encounter with some problems, you can add `DEBUG_LOG ON` as a third line in the `config.txt` file and the Screen Crab will save the the logs to a `crab.log` file so you can see what going on.
 
 Another way is to just reset everything by delete all of the files the Screen Crab will create on the SD card (except from the `config.txt` and the `device.config` that we add earlier).
 {{< /admonition >}}

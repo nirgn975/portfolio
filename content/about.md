@@ -4,13 +4,13 @@ My name is Nir Galon, I'm a geek who always want to learn new things. I work as 
 
 ![Nir Galon](/images/publishers/nir-galon.webp "Nir Galon")
 
-To learn more about me you can visit my resume website at [nir.galon.io](https://nir.galon.io) or just follow me on [twitter](https://twitter.com/nirgn975), [github](https://github.com/nirgn975) or one of the other social networks I am on. If you wish to contact me just send me an email to nirgn[at]protonmail[dot]com.
+To learn more about me you can visit my resume website at [nir.galon.io](https://nir.galon.io) or just follow me on [twitter](https://twitter.com/nirgn975), [github](https://github.com/nirgn975) or one of the other social networks I am on. If you wish to contact me just send me an email from the _"Contact"_ section at [nir.galon.io](https://nir.galon.io).
 
 &nbsp;
 
-This blog is in it's fifth iteration. I stared back in 2012 on blogger, the blog was in Hebrew and it was the beginning of my journey in tech, I moved on from there, now the blog is in English (sorry if you spot any typos and grammar mistakes, it's obviously not my native language) and it's on a lot more subjects (mainly computers, software development, hacking, and related stuff that are interested me).
+This blog is in it's fifth iteration. I started back in 2012 on blogger, the blog was in Hebrew and it was the beginning of my journey in tech, I moved on from there, now the blog is in English (sorry if you spot any typos and grammar mistakes, it's obviously not my native language) and it's on a lot more subjects (mainly computers, software development, hacking, and related stuff that are interested me).
 
-I also evolve from the technical side of it, the source code of the blog is on [GitHub](https://github.com/nirgn975/stories-of-a-lifelong-student) (open sourced) and I write the posts in [markdown](https://en.wikipedia.org/wiki/Markdown) and use [Hugo](https://gohugo.io/) to build and generate the website.
+I also evolve from the technical side of it, the source code of the blog is on [GitHub](https://github.com/nirgn975/stories-of-a-lifelong-student) (open sourced), I write the posts in [markdown](https://en.wikipedia.org/wiki/Markdown), use [Hugo](https://gohugo.io) to build and generate the website, and host it on [Firebase](https://firebase.google.com).
 
 &nbsp;
 
