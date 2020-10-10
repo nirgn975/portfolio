@@ -365,6 +365,27 @@ After the `merge` command a VI editor will open up on you terminal. With this, `
 
 Because we merge two branches with changes in each of them, `git` is doing a _"recursive"_ merge - `git` create a new `commit` right where we `merge` them, we can see it with the `git log` command.
 
+Let's imagine how to whole process looks like visually.
+
+{{< mermaid >}}
+gitGraph:
+options
+{ "nodeSpacing": 100, "nodeRadius": 10 }
+end
+    commit
+    commit
+    branch basicmain
+    checkout basicmain
+    commit
+    commit
+    checkout master
+    commit
+    checkout basicmain
+    commit
+    checkout master
+    merge basicmain
+{{< /mermaid >}}
+
 &nbsp;
 
 ## 6. Q & A
@@ -405,4 +426,8 @@ It's time to practice. Remember that the best practice is through your fingertip
 
 ## 7. Summary
 
-So, we
+We now know how to see the changes that were made from the last `commit`, how to go back if we regret something we did in a `commit` or the commit message, or even forget to add something to the `commit`.
+
+We upload the project to a remote repository (GitHub in this case), we created new branches, worked with other team members, and merge our code to the `master` branch (we go over a `merge` with no changes in `master` and with one **with** changes in  `master`, but not in the same file - we'll talk about it in future chapter).
+
+We definitely learned a lot in this chapter! Don't forget to practice it through your fingers, it's the best way to learn something new. And don't hesitate to ask questions in the comments if something is not clear - I'll do my best to help.
