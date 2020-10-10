@@ -263,6 +263,108 @@ $ git branch -d home-page
 Deleted branch home-page (was bfb8f2b).
 ```
 
+Now let's create a new `branch` to work on a new task, the branch will be called `basic-main` (because we'll add some basic code to the main website page - `index.html`). We can create the branch and then move to it in two separate commands like we did before, but there is a simpler way! We can use the `checkout` command with a flag (`b`) that tells to create the branch if doesn't exist yet, so this way, in one command we create the branch and then move (`checkout`) to it.
+
+```bash
+$ git checkout -b basic-main
+Switched to a new branch 'basic-main'
+```
+Then we'll add the `<a href="detailed.html">Go to detailed page!</a>` line right after `content of website ..`.
+
+```html
+<html>
+  <head>
+    <title>website title</title>
+  </head>
+  <body>
+    content of website ...
+    <a href="detailed.html">Go to detailed page!</a>
+  </body>
+</html>
+```
+
+Now we can `commit` the change in `index.html` and create a new page, `detailed.html` that the link will redirect us to (when we click it).
+
+```bash
+$ git commit -a -m "Add a link to detailed page"
+[basic-main e979b01] Add a link to detailed page
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+$ touch detailed.html
+$ echo "<html>\n\t<head>\n\t\t<title>website title</title>\n\t</head>\n\t<body>\n\t\t<h1>This is the detailed page<br><form><input type='button' value='Go back!' onclick='history.back()'></form></h1>\n\t</body>\n</html>" >> detailed.html
+$ git add detailed.html
+$ git commit -a -m "Finish detailed page"
+[basic-main af3853e] Finish detailed page
+ 1 file changed, 8 insertions(+)
+ create mode 100644 detailed.html
+```
+
+Let's imagine how our repo branches (timelines) is looking right now.
+
+{{< mermaid >}}
+gitGraph:
+options
+{ "nodeSpacing": 100, "nodeRadius": 10 }
+end
+    commit
+    commit
+    branch basicmain
+    checkout basicmain
+    commit
+    commit
+{{< /mermaid >}}
+
+Right in the middle of our work on the `basic-main` branch, we get an email from our boss that there are bugs in `master` and we need to take care of it immediately. So let's head over to `master` (you can run `git branch` after you `checkout` to `master` just to make sure you're on `master`).
+
+```bash
+$ git checkout master
+Switched to branch 'master'
+```
+
+We don't know if anyone of our team members done with their work and `merge` it to `master` while we worked on our feature branch, so let's make sure we have an updated `master` by `pull`ing any new `commit`s from `origin`. Let's fix what we need to fix, and `commit` and `push` it to `origin`.
+
+```bash
+$ git pull origin master
+From github.com:nirgn975/test
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+$ echo "# Awesome Website\n\nThis is the repo for the awesome website" >> README.md
+$ git commit -a -m "Add a description for the repo"
+[master c247760] Add a description for the repo
+ 1 file changed, 3 insertions(+)
+$ git push origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 679 bytes | 679.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To github.com:nirgn975/test.git
+   de7c8db..0baa97a  master -> master
+```
+
+Now that we put out the fire, let's head over to our `basic-main` branch, finish the work, `commit` it, and head back to `master` to merge it.
+
+```bash
+$ git checkout basic-main
+Switched to branch 'basic-main'
+$ sed -i '' "s/content of website .../Welcome to the new website/g" index.html
+$ git commit -a -m "Change welcome message"
+[basic-main a0ff187] Change welcome message
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git checkout master
+Switched to branch 'master'
+$ git merge basic-main
+Merge made by the 'recursive' strategy.
+ detailed.html |  8 ++++++++
+ index.html    | 13 +++++++------
+ 2 files changed, 15 insertions(+), 6 deletions(-)
+ create mode 100644 detailed.html
+```
+
+After the `merge` command a VI editor will open up on you terminal. With this, `git` is basically telling us I made the merge `commit` for you, but if you'll need to be more specific with the `commit` message edit it (and there is a default `commit` message in the Vi editor). To exist the VI editor we'll `write` and `quit` (`:wq`).
+
+Because we merge two branches with changes in each of them, `git` is doing a _"recursive"_ merge - `git` create a new `commit` right where we `merge` them, we can see it with the `git log` command.
+
 &nbsp;
 
 ## 6. Q & A
@@ -280,6 +382,9 @@ It's time to practice. Remember that the best practice is through your fingertip
 7. Wait I didn't tell you what content to add to the `map.index` file, return it to the _staging area_.
 8. A colleague send you in an email the new repo URL, add it to your local repo configuration (it's: `https://github.com/example/importantProject.git`).
 9. You're done for today, let's push everything to the remote repo. Use a special flag so you'll not need to write the `origin` alias next time.
+10. The IT team has wipe out your hard disk by mistake, clone the repository to your local machine from the address https://github.com/nirgn975/test.git
+11. We need to create a new branch (with the name `fix457`) to fix some code, create it a move to it in one command.
+12. Merge the `fix457` branch to the current branch you're in right now.
 
 ### **Answers**
 
@@ -292,6 +397,9 @@ It's time to practice. Remember that the best practice is through your fingertip
 7. Use the `git reset -soft HEAD^` command.
 8. Use the `remote add` command like so: `git remote add origin https://github.com/example/importantProject.git`.
 9. You need the `push` command with the `-u` flag: `git push -u origin master`.
+10. Use the `clone` command like so: `git clone https://github.com/nirgn975/test.git`.
+11. Use the `checkout` command with the `b` flag, like so: `git checkout  -b fix457`.
+12. `git merge fix457`.
 
 &nbsp;
 
