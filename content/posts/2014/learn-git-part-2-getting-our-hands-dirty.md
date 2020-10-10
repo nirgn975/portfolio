@@ -228,6 +228,41 @@ Now we're in a different timeline (`branch`), we can do whatever we want and it'
 
 In the meantime, while we work on our feature, if other members of the project finish their own work and merge it to `master`, we can always `checkout` back to `master`, and `pull` the new `commit`s in `master`, to see our coworkers job.
 
+Now that we're on a new branch (`home-page`), let's create a new file called `index.html`, inside of it we'll add the basic html code we need for a simple web page, `add` it to the _staging area_, and commit the file.
+
+```bash
+$ touch index.html
+$ echo "<html>\n\t<head>\n\t\t<title>website title</title>\n\t</head>\n\t<body>\n\t\tcontent of website ...\n\t</body>\n</html>" >> index.html
+$ git add index.html
+$ git commit -m "Add basic html code"
+```
+
+The `commit` we just did, will be added to the current (`home-page`) timeline (`branch`), and will not be seen in any other `branch`. If we write the `ls` command in the terminal (in the current directory) we'll see all of our project files (`README.md` and `index.html`), but if we'll `checkout` to the `master` branch we'll not see the `index.html` file, even if we write the `git log` command, we'll not see our latest `commit` in there.
+
+Let's just check we aren't crazy and `checkout` back to the `home-page` branch, and then with the `ls` command makes sure we see our `index.html` file.
+
+So, let's say we're done with this task, we did all of the things we had to do here and we're ready to `merge` this `home-page` branch to the `master` branch. To do this we're first need to go to the branch we want to `merge` things to (in our case `master`), and then use the `merge` command to actually merge the code from the other branch to the branch we are at right now.
+
+```bash
+$ git checkout master
+Switched to branch 'master'
+$ git merge home-page
+Updating de7c8db..bfb8f2b
+Fast-forward
+ index.html | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+ create mode 100644 index.html
+```
+
+We can see that `git` tells us it's update the branch by _"Fast forward"_, but what is it means? it's when we try to merge one commit with a commit that can be reached by following the first commit’s history, `git` simplifies things by moving the pointer forward because there is no divergent work to merge together, so it's called _"fast-forward"_.
+
+When we finished `merge`ing the `branch`, we don't need it anymore, so we can just delete it. We'll use the `branch` command with the `d` flag to do it.
+
+```bash
+$ git branch -d home-page
+Deleted branch home-page (was bfb8f2b).
+```
+
 &nbsp;
 
 ## 6. Q & A
