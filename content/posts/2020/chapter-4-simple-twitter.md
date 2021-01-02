@@ -1,8 +1,8 @@
 ---
 title: "Simple Twitter - Chapter 4: Login (Server Side)"
 subtitle: ""
-date: 2020-12-01T09:00:00+03:00
-lastmod: 2020-12-01T09:00:00+03:00
+date: 2020-11-11T09:00:00+03:00
+lastmod: 2020-11-11T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
@@ -27,7 +27,7 @@ license: ""
 
 From here on out the posts will be shorter, we'll focus on a single topic in each post and it will probably be on the server or the client and not both of them in the same post.
 
-In this chapter we'll build all of the user related stuff including the auth endpoint so we can login, and the auth middleware so we can protect our endpoint we don't want to make public (only to logged in users). When we create a new model in our server, you'll see we'll also create a dummy data for it - to populate the database with some data so we can use it for tests and also to see some data in the client (in the next chapter).
+In this chapter we'll build all of the user related stuff including the auth endpoint so we can login, and the auth middleware so we can protect our endpoints we don't want to make public (only to logged in users). When we create a new model in our server, you'll see we'll also create a dummy data for it - to populate the database with some data so we can use it for tests and also to see some data in the client (in the next chapter).
 
 So, let's head over to our [server repo](https://github.com/nirgn975/simple-twitter-server) and create a new issue named _"User entity"_. This issue will layout all of our tasks:
 
@@ -196,7 +196,7 @@ Like always we need to create the file first
 touch src/api/user/userRoutes.ts
 ```
 
-And then we need to do is to `import` the express `Router` and create a `Router`. Then, at the end of the file, let's `export` that `Router` so we can `import` it later in the `app` routes - to register that router (with it's routes).
+And then what we need to do is to `import` the express `Router` and create a `Router`. Then, at the end of the file, let's `export` that `Router` so we can `import` it later in the `app` routes - to register that router (with it's routes).
 
 ```typescript
 import { Router } from "express";
@@ -243,7 +243,7 @@ Every other route is just an endpoint, where the HTTP method is the method of th
 
 Notice the way we write the endpoints, from the very detailed one to the least detailed one (without any more words in the URL path or parameters). This is because the express router is a lazy one, it doesn't check all of the routes, it check the routes until one of them can answer the requested one and run it's controller.
 
-So if we'll put the `/` at the top, even if we send request to `user/foo` (_"foo"_ here is the `username` param), we'll run the `/user` controller if we have a GET method (in our case it will not going to happen because we don't have a `/user` GET route, and also we prevent that by order the routes correctly).
+So if we'll put the `/` at the top, even if we send request to `user/foo` (_"foo"_ here is the `username` param), we'll run the `/user` controller if we had a GET method (in our case it will not going to happen because we don't have a `/user` GET route, and also we prevent that by order the routes correctly).
 
 Now that we have all the routes in place, we need to import the controllers from `userController` (although we don't have any of them yet, and don't even the file itself, let's pretend there is).
 
@@ -422,7 +422,7 @@ Our frontend will have 2 input fields to confirm the password (the user will hav
 
 After that, we're going to check that the password has a minimum length of 8 and maximum of 30, this is just something we want to enforce on our users, this is some best practices (to make the password long), so if we'll have a breach in the future and our database will be dumped, our users passwords not only encrypted, they're long enough so it will be hard to brute force them.
 
-And those checks are passed we can update the password and return some success message with the new user information.
+When those checks are passed we can update the password and return some success message with the new user information.
 
 ```typescript
 /**
@@ -490,7 +490,7 @@ For the `editMyInfo` controller we first need to `import` the `lodash` package (
 import * as _ from "lodash";
 ```
 
-Before we'll merge the new fields from the `request` `body` we want to check that the `_id` we received in the `body` is the same as the `user` we got from the `token` (so the user don't try to edit some other users data). After that we can use the [merge function from the lodash library](https://lodash.com/docs/4.17.15#merge) to merge the new fields to the `user` ones.
+Before we'll merge the new fields from the `request body` we want to check that the `_id` we received in the `body` is the same as the `user` we got from the `token` (so the user don't try to edit some other users data). After that we can use the [merge function from the lodash library](https://lodash.com/docs/4.17.15#merge) to merge the new fields to the `user` ones.
 
 All is left to do is to save the `user` (with it's new fields), and return it with a success message.
 
@@ -503,6 +503,7 @@ export let editMyInfo = async (request: NewRequest, response: Response) => {
   const user = request.user;
   const update = request.body;
 
+  // Check that the _id are matched.
   if (request.body._id && request.body._id != request.user._id) {
     return response.status(400).json({
       _message: "User can not updated! id is not matched.",
@@ -511,8 +512,8 @@ export let editMyInfo = async (request: NewRequest, response: Response) => {
   }
 
   _.merge(user, update);
-
   const savedCustomer = await user.save();
+
   response.json({
     _message: "User successfully updated!",
     user: savedCustomer,
