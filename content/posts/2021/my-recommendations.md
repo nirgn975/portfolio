@@ -3,7 +3,7 @@ title: "My Recommendations"
 subtitle: ""
 date: 2021-01-01T09:00:00+03:00
 lastmod: 2021-01-01T09:00:00+03:00
-draft: false
+draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
