@@ -1,8 +1,8 @@
 ---
 title: "My Recommendations"
 subtitle: ""
-date: 2021-01-01T09:00:00+03:00
-lastmod: 2021-01-01T09:00:00+03:00
+date: 2021-02-01T09:00:00+03:00
+lastmod: 2021-02-01T09:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
