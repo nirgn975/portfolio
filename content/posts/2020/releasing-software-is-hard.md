@@ -1,5 +1,5 @@
 ---
-title: "Releasing Software Is Hard!"
+title: "Releasing Software Is Hard! Is it?"
 subtitle: ""
 date: 2020-12-01T09:00:00+03:00
 lastmod: 2020-12-01T09:00:00+03:00
@@ -9,7 +9,7 @@ authorLink: "https://nir.galon.io"
 description: ""
 
 tags: ["semver", "conventional commits", "github actions", "commitizen", "releases", "automation"]
-categories: ["tools"]
+categories: ["development"]
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
