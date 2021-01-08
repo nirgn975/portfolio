@@ -154,7 +154,7 @@ The last thing we need to do is to create a milestone in GitHub, then look at th
 
 ![GitHub Actions When Milestone Is Open](/posts/2020/releasing-software-is-hard/github-actions-when-milestone-is-open.webp "GitHub Actions When Milestone Is Open")
 
-Then let's the milestone (just hit the `close` button), and refresh the __Action__ tab.
+Then let's close the milestone (just hit the `close` button), and refresh the __Action__ tab.
 
 ![GitHub Actions After Milestone Closed](/posts/2020/releasing-software-is-hard/github-actions-after-milestone-closed.webp "GitHub Actions After Milestone Closed")
 
