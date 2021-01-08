@@ -3,7 +3,7 @@ title: "Hugo Theme With Developer Focus In Mind"
 subtitle: ""
 date: 2021-01-01T09:00:00+03:00
 lastmod: 2021-01-01T09:00:00+03:00
-draft: true
+draft: false
 author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
