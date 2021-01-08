@@ -9,7 +9,7 @@ authorLink: "https://nir.galon.io"
 description: ""
 
 tags: ["development", "contribution", "docker", "haproxy", "load balance", "cloud", "devops", "nginx"]
-categories: ["contribution"]
+categories: ["tutorials"]
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
