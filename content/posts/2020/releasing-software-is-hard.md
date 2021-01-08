@@ -9,7 +9,7 @@ authorLink: "https://nir.galon.io"
 description: ""
 
 tags: ["semver", "conventional commits", "github actions", "commitizen", "releases", "automation"]
-categories: ["development"]
+categories: ["tutorials"]
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
