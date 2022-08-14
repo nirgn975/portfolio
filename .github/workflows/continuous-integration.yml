@@ -11,14 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true # Fetch Hugo themes
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           extended: true
 
       - name: Build
         run: hugo --minify
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          expires: 30d
+          projectId: stories-of-a-lifelong-student

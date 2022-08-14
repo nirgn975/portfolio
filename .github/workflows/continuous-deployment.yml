@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron:  '0 7 1 * *' # Every first day on every month at 7:00 AM UTC (10:00 AM Israel time).
+    - cron: "0 7 1 * *" # Every first day on every month at 7:00 AM UTC (10:00 AM Israel time).
 
 jobs:
   deploy:
@@ -13,24 +13,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true # Fetch Hugo themes
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           extended: true
 
       - name: Build
         run: hugo --minify -e production
 
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: deploy
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          channelId: live
+          projectId: stories-of-a-lifelong-student
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_CLI_PREVIEWS: hostingchannels
 
       - name: Update index.json To Algolia
         run: |
