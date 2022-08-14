@@ -37,7 +37,6 @@ So, I spent the weekend and did it. I was very pleased wit the results. So much 
 
 It took me some time to really sit down and do it, but I finally did it. I convert my own resume website to a Hugo theme and I [eating me own dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) - My own resume website uses it, you can check the [source code](https://github.com/nirgn975/resume).
 
-
 I call the theme **[devRes](https://github.com/nirgn975/devRes)**.
 
 ![devRes Mockups](/posts/2021/hugo-theme-with-developer-focus-in-mind/devres-mockups.webp "devRes Mockups")
@@ -93,6 +92,8 @@ For local development just start [hugo](https://gohugo.io) with `exampleSite` as
 ```bash
 $ hugo server --source=exampleSite -v --gc
 ```
+
+&nbsp;
 
 ## 3. Summary
 
