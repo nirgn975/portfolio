@@ -31,12 +31,12 @@ How it's going to look? What features it will have? Wha a user can or cannot do?
 
 A lot of questions to answer in one post, but we'll do our best!
 
-
 ## 1. Planning Our MVP
 
-What is even mean MVP? MVP is an acronyms of *minimum viable product*. It's a development technique in which a new product is developed with sufficient features to satisfy early adopters. The final, complete set of features is only designed and developed after considering feedback from the product's initial users.
+What is even mean MVP? MVP is an acronyms of _minimum viable product_. It's a development technique in which a new product is developed with sufficient features to satisfy early adopters. The final, complete set of features is only designed and developed after considering feedback from the product's initial users.
 
 An MVP has three key characteristics:
+
 1. It has enough value that people are willing to use it or buy it initially.
 2. It demonstrates enough future benefit to retain early adopters.
 3. It provides a feedback loop to guide future development.
@@ -142,11 +142,11 @@ Then the browser will probably request some images (from the static bucket) and 
 
 Some of the endpoint will be protected, the user will have to sign in before they use them and will get a `token`, with that token he'll send a request to the backend and if the token is valid he'll get the data he need or post a new data (tweet), etc.
 
-The backend has couple of instances and have an `nginx` in front of them for reverse proxy and load balancing. Every request will first hit the `nginx` (represented as *Cloud Load Balancing* on our schema) and then will get to one of them backend instances. When the backend code will need the database to make a query it'll call it using `mongoose` in a regular fashion. In our environment variables we'll make a distinction between `dev` and `prod` environments and will call our MongoDB Atlas Cloud cluster.
+The backend has couple of instances and have an `nginx` in front of them for reverse proxy and load balancing. Every request will first hit the `nginx` (represented as _Cloud Load Balancing_ on our schema) and then will get to one of them backend instances. When the backend code will need the database to make a query it'll call it using `mongoose` in a regular fashion. In our environment variables we'll make a distinction between `dev` and `prod` environments and will call our MongoDB Atlas Cloud cluster.
 
 Every request or error will be logged to `stdout`. And other services in GCP (that we'll setup) will be able to collect and analyze our logs to give us a pictures of what is happening on our product. That will also help us to monitor it, and catch and fix bugs.
 
-### 2.4. CI / CD  Pipleline
+### 2.4. CI / CD Pipleline
 
 The way we'll deploy new code to the cloud will use GitHub actions, and GCP Cloud Build triggers.
 
@@ -168,21 +168,22 @@ In order to be on the same page I took a bunch of screenshots of Tweeter and cle
 
 ![Home Page](/posts/2020/chapter-2-simple-twitter/twitter-home-page.webp "Home Page")
 
-After we hit the Home Page we can *Sign up* or *Log in*, in twitter the *Sign-up* button will bring a popup and the *Log in* will move us to a new page. We'll not do data, the *Sign up* will bring a popup with couple of `input`s to fill to sign up, and the *Log in* will just try to login the user using the `username` and `password` `input`s above.
+After we hit the Home Page we can _Sign up_ or _Log in_, in twitter the _Sign-up_ button will bring a popup and the _Log in_ will move us to a new page. We'll not do data, the _Sign up_ will bring a popup with couple of `input`s to fill to sign up, and the _Log in_ will just try to login the user using the `username` and `password` `input`s above.
 
 ![Feed Page](/posts/2020/chapter-2-simple-twitter/twitter-feed-page.webp "Feed Page")
 
 When the user logged in, or sign up and activate his account via the email confirmation he will get to the Feed Page. This is a list of tweets from the users that he follows, ordered by time (the most recent is at the top).
 
-This is the main page of the website. From this page he can post a new tweet (at the top of the feed there is a `textarea`), and at the left side there is the navigation of the website. In the navigation there are links to: *Notifications* Page, *Profile* Page, and *Settings* page.
+This is the main page of the website. From this page he can post a new tweet (at the top of the feed there is a `textarea`), and at the left side there is the navigation of the website. In the navigation there are links to: _Notifications_ Page, _Profile_ Page, and _Settings_ page.
 
 ![Profile Page](/posts/2020/chapter-2-simple-twitter/twitter-profile-page.webp "Profile Page")
 
 The Profile page (or timeline) has the same navigation in the left side, but in the right side of the page, instead of the feed, we see at the top the general user information, and under that a tab to see the user tweets by:
-- *Tweets* (or timeline): this is all the user tweets in order (recent at the top).
-- *Tweets & replies*: this will show all of the user tweets include the tweets that are replies to other users tweets.
-- *Media*: Tweets that include some media type (in our case it can include only images).
-- *Likes*: Tweets of other users that this users liked.
+
+- _Tweets_ (or timeline): this is all the user tweets in order (recent at the top).
+- _Tweets & replies_: this will show all of the user tweets include the tweets that are replies to other users tweets.
+- _Media_: Tweets that include some media type (in our case it can include only images).
+- _Likes_: Tweets of other users that this users liked.
 
 ![Followers & Following Page](/posts/2020/chapter-2-simple-twitter/twitter-followers-and-following-page.webp "Followers & Following Page")
 
@@ -202,42 +203,42 @@ Let's plan all the routes that will be in our backend service. Every route is ba
 
 ### 4.1 Users
 
-| Method | Path                       | Auth   | Description               |
-|--------|----------------------------|--------|---------------------------|
-| POST   | /user                      | None   | Create a new user         |
-| PUT    | /user                      | Token  | Edit own info             |
-| DELETE | /user                      | Token  | Delete own user           |
-| GET    | /user/feed                 | Token  | Get own feed              |
-| GET    | /user/:username            | None   | Get a user info           |
-| GET    | /user/followers/:username  | Token  | Get a user followers list |
-| GET    | /user/following/:username  | Token  | Get a user following list |
-| POST   | /user/follow/:username     | Token  | Start following a user    |
-| POST   | /user/unfollow/:username   | Token  | Stop following a user     |
-| POST   | /user/reset-password       | None   | Reset own password        |
-| PUT    | /user/password             | Token  | Edit own password         |
-| PUT    | /user/settings             | Token  | Edit own settings         |
+| Method | Path                      | Auth  | Description               |
+| ------ | ------------------------- | ----- | ------------------------- |
+| POST   | /user                     | None  | Create a new user         |
+| PUT    | /user                     | Token | Edit own info             |
+| DELETE | /user                     | Token | Delete own user           |
+| GET    | /user/feed                | Token | Get own feed              |
+| GET    | /user/:username           | None  | Get a user info           |
+| GET    | /user/followers/:username | Token | Get a user followers list |
+| GET    | /user/following/:username | Token | Get a user following list |
+| POST   | /user/follow/:username    | Token | Start following a user    |
+| POST   | /user/unfollow/:username  | Token | Stop following a user     |
+| POST   | /user/reset-password      | None  | Reset own password        |
+| PUT    | /user/password            | Token | Edit own password         |
+| PUT    | /user/settings            | Token | Edit own settings         |
 
 ### 4.2 Notifications
 
-| Method | Path                      | Auth   | Description                                   |
-|--------|---------------------------|--------|-----------------------------------------------|
-| GET    | /notifications/:username  | Token  | Get all the notifications for a specific user |
-| PUT    | /notifications/:username  | Token  | Mark notification as read / unread            |
+| Method | Path                     | Auth  | Description                                   |
+| ------ | ------------------------ | ----- | --------------------------------------------- |
+| GET    | /notifications/:username | Token | Get all the notifications for a specific user |
+| PUT    | /notifications/:username | Token | Mark notification as read / unread            |
 
 ### 4.3 Tweets
 
-| Method | Path               | Auth   | Description                        |
-|--------|--------------------|--------|------------------------------------|
-| GET    | /tweets/:username  | None   | Get all the user tweets (timeline) |
-| POST   | /tweet             | Token  | Create a new tweet                 |
-| PUT    | /tweets/:tweet_id  | Token  | Edit a tweet                       |
-| DELETE | /tweets/:tweet_id  | Token  | Delete a tweet                     |
+| Method | Path              | Auth  | Description                        |
+| ------ | ----------------- | ----- | ---------------------------------- |
+| GET    | /tweets/:username | None  | Get all the user tweets (timeline) |
+| POST   | /tweet            | Token | Create a new tweet                 |
+| PUT    | /tweets/:tweet_id | Token | Edit a tweet                       |
+| DELETE | /tweets/:tweet_id | Token | Delete a tweet                     |
 
 ### 4.4 Media
 
-| Method | Path      | Auth   | Description          |
-|--------|-----------|--------|----------------------|
-| POST   | /media    | Token  | Upload a new image   |
+| Method | Path   | Auth  | Description        |
+| ------ | ------ | ----- | ------------------ |
+| POST   | /media | Token | Upload a new image |
 
 &nbsp;
 
@@ -245,54 +246,54 @@ Let's plan all the routes that will be in our backend service. Every route is ba
 
 ### 5.1. Users Collection
 
-| Field Name    | Type      | required | unique | Description                        |
-|---------------|-----------|----------|--------|------------------------------------|
-| firstName     | `string`  | false    | false  | User first name                    |
-| lastName      | `string`  | false    | false  | User last name                     |
-| username      | `string`  | true     | true   | User username                      |
-| email         | `string`  | true     | true   | User email                         |
-| profileImage  | `string`  | false    | false  | URL to the user profile image      |
-| active        | `boolean` | true     | false  | User confirm his account via email |
-| password      | `string`  | true     | false  | User hashed password               |
-| createdAt     | `date`    | true     | false  | User account created date          |
-| country       | `string`  | false    | false  | User country                       |
-| website       | `string`  | false    | false  | User website                       |
-| birthday      | `date`    | false    | false  | User birthday dat                  |
+| Field Name   | Type      | required | unique | Description                        |
+| ------------ | --------- | -------- | ------ | ---------------------------------- |
+| firstName    | `string`  | false    | false  | User first name                    |
+| lastName     | `string`  | false    | false  | User last name                     |
+| username     | `string`  | true     | true   | User username                      |
+| email        | `string`  | true     | true   | User email                         |
+| profileImage | `string`  | false    | false  | URL to the user profile image      |
+| active       | `boolean` | true     | false  | User confirm his account via email |
+| password     | `string`  | true     | false  | User hashed password               |
+| createdAt    | `date`    | true     | false  | User account created date          |
+| country      | `string`  | false    | false  | User country                       |
+| website      | `string`  | false    | false  | User website                       |
+| birthday     | `date`    | false    | false  | User birthday dat                  |
 
 ### 5.2. Followers Collection
 
-| Field Name  | Type        | required | unique | Description                |
-|-------------|-------------|----------|--------|----------------------------|
-| user        | `ref<user>` | true     | false  | The unique user `_id`      |
-| follower    | `ref<user>` | true     | false  | Unique follower user `_id` |
+| Field Name | Type        | required | unique | Description                |
+| ---------- | ----------- | -------- | ------ | -------------------------- |
+| user       | `ref<user>` | true     | false  | The unique user `_id`      |
+| follower   | `ref<user>` | true     | false  | Unique follower user `_id` |
 
 ### 5.3. Following Collection
 
-| Field Name  | Type        | required | unique | Description                 |
-|-------------|-------------|----------|--------|-----------------------------|
-| user        | `ref<user>` | true     | false  | The unique user `_id`       |
-| following   | `ref<user>` | true     | false  | Unique following user `_id` |
+| Field Name | Type        | required | unique | Description                 |
+| ---------- | ----------- | -------- | ------ | --------------------------- |
+| user       | `ref<user>` | true     | false  | The unique user `_id`       |
+| following  | `ref<user>` | true     | false  | Unique following user `_id` |
 
 ### 5.4. Tweets Collection
 
-| Field Name   | Type            | required | unique | Description                                    |
-|--------------|-----------------|----------|--------|------------------------------------------------|
-| author       | `ref<user>`     | true     | false  | The unique user `_id`                          |
-| text         | `string`        | false    | false  | Tweet text                                     |
-| image        | `array<string>` | false    | false  | Array of URLs for tweet images                 |
-| replay       | `ref<tweet>`    | false    | false  | The tweet `_id` this tweet replays to (if any) |
+| Field Name | Type            | required | unique | Description                                    |
+| ---------- | --------------- | -------- | ------ | ---------------------------------------------- |
+| author     | `ref<user>`     | true     | false  | The unique user `_id`                          |
+| text       | `string`        | false    | false  | Tweet text                                     |
+| image      | `array<string>` | false    | false  | Array of URLs for tweet images                 |
+| replay     | `ref<tweet>`    | false    | false  | The tweet `_id` this tweet replays to (if any) |
 
 ### 5.5. Likes Collection
 
-| Field Name  | Type         | required | unique | Description                    |
-|-------------|--------------|----------|--------|--------------------------------|
-| user        | `ref<user>`  | true     | false  | The unique user `_id`          |
-| tweet       | `ref<tweet>` | true     | false  | The tweet `_id` the user liked |
+| Field Name | Type         | required | unique | Description                    |
+| ---------- | ------------ | -------- | ------ | ------------------------------ |
+| user       | `ref<user>`  | true     | false  | The unique user `_id`          |
+| tweet      | `ref<tweet>` | true     | false  | The tweet `_id` the user liked |
 
 ### 5.6. Notifications Collection
 
 | Field Name | Type                       | required | unique | Description                  |
-|------------|----------------------------|----------|--------|------------------------------|
+| ---------- | -------------------------- | -------- | ------ | ---------------------------- |
 | user       | `ref<user>`                | true     | false  | The unique user `_id`        |
 | userAction | `ref<user>`                | true     | false  | The user who make the action |
 | type       | `enum<like,follow,replay>` | true     | false  | Get an image                 |

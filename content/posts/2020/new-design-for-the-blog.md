@@ -24,6 +24,7 @@ math:
 lightgallery: true
 license: ""
 ---
+
 I'm really excited for this! Don't ask me why because I can't explain it. This is not the first time I make a new design for this blog, it's actually the fifth time! and yet, I feel this is the best one yet. It have everything I ever wanted in my blog.
 
 &nbsp;
@@ -108,7 +109,7 @@ One of the things I highly value is the user privacy, as I said before. But I ne
 
 ![Plausible Analytics elevator pitch](/posts/2020/new-design-for-the-blog/plausible-analytics-elevator-pitch.webp "Plausible Analytics elevator pitch")
 
-And I found it, [Plausible Analytics](https://plausible.io) is simple and privacy focus, exactly  what I was searching for. And to check they're true to their words I use [blacklight](https://themarkup.org/blacklight/?url=lifelongstudent.io) - A real-time website privacy inspector.
+And I found it, [Plausible Analytics](https://plausible.io) is simple and privacy focus, exactly what I was searching for. And to check they're true to their words I use [blacklight](https://themarkup.org/blacklight/?url=lifelongstudent.io) - A real-time website privacy inspector.
 
 ![Blacklight search results](/posts/2020/new-design-for-the-blog/blacklight-search-results.webp "Blacklight search results")
 

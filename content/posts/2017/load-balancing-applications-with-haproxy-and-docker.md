@@ -24,6 +24,7 @@ math:
 lightgallery: true
 license: ""
 ---
+
 A tutorial for a real world docker use case.
 
 Recently I read a lot of articles about load balancing applications with Docker, Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.
@@ -43,12 +44,14 @@ For that reason I decided to write this post and present the way we use. It’s 
 Let’s start by creating our simple Node.js application. Create a file named `index.js` with the following code:
 
 ```javascript
-var http = require('http');
-var os = require('os');
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
+var http = require("http");
+var os = require("os");
+http
+  .createServer(function (req, res) {
+    res.writeHead(200, { "Content-Type": "text/html" });
     res.end(`<h1>I'm ${os.hostname()}</h1>`);
-}).listen(8080);
+  })
+  .listen(8080);
 ```
 
 Now we need to dockerize the app, so we’ll create a file named `Dockerfile` with the following code:
@@ -72,26 +75,26 @@ Now we have a docker image of our simple (and awesome) Node.js app, and we can c
 For our HTTP server we’ll use HAProxy, that means we need to create a container with HAProxy that will listen to port 80 and load balance the requests to the different Node.js containers on port 8080. To create our containers (Node.js apps and HAProxy) we’ll use Docker Compose, let’s write our `docker-compose.yml` file:
 
 ```yaml
-version: '3'
+version: "3"
 
 services:
   awesome:
-   image: awesome
-   ports:
-     - 8080
-   environment:
-     - SERVICE_PORTS=8080
-   deploy:
-     replicas: 20
-     update_config:
-       parallelism: 5
-       delay: 10s
-     restart_policy:
-       condition: on-failure
-       max_attempts: 3
-       window: 120s
-   networks:
-     - web
+    image: awesome
+    ports:
+      - 8080
+    environment:
+      - SERVICE_PORTS=8080
+    deploy:
+      replicas: 20
+      update_config:
+        parallelism: 5
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        window: 120s
+    networks:
+      - web
 
   proxy:
     image: dockercloud/haproxy
@@ -145,12 +148,14 @@ Now let’s look at our services by writing `docker service ls` and we’ll see 
 We can also create a second version of our `awesome` app. Let’s change the code a little bit (let’s add some exclamation marks at the end):
 
 ```javascript
-var http = require('http');
-var os = require('os');
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
+var http = require("http");
+var os = require("os");
+http
+  .createServer(function (req, res) {
+    res.writeHead(200, { "Content-Type": "text/html" });
     res.end(`<h1>I'm ${os.hostname()}!!!</h1>`);
-}).listen(8080);
+  })
+  .listen(8080);
 ```
 
 So we need to build the image again, but this time it’s the second version of the app so we’ll write `docker build -t awesome:v2 .` and we’ll create an image called `awesome` but with a `v2` tag. To update our containers in the `awesome` service to use the `v2` version of our app (without stop the service) we’ll write `docker service update --image awesome:v2 prod_awesome` and our service called `awesome`, in `prod` stack, will update it’s containers five by five to use the second version of our app (why 5 containers at a time? because we wrote `parallelism: 5` in our `docker-compose.yml` file.

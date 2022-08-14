@@ -55,7 +55,7 @@ That's it, now if you'll write `git` on your command line of choice you'll get a
 
 ### 1.2. Open a GitHub account
 
-GitHub is a web based git with some extra features. We don't need to install anything to use GitHub, just open an account and configure some stuff. So let's do it! Let's go to https://github.com and pick a `username`, `email`, and `password` and click on the big green button says *Sign up for GitHub*.
+GitHub is a web based git with some extra features. We don't need to install anything to use GitHub, just open an account and configure some stuff. So let's do it! Let's go to https://github.com and pick a `username`, `email`, and `password` and click on the big green button says _Sign up for GitHub_.
 
 ![GitHub Sign Up Page](/posts/2020/chapter-1-simple-twitter/github_sign_up_page.webp "GitHub Sign Up Page")
 

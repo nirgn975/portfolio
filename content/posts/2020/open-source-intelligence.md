@@ -27,7 +27,7 @@ license: ""
 
 Every operation need good intel, and good intel is hard to find. Or is it?
 
-[OSINT (or Open Source Intelligence)](https://en.wikipedia.org/wiki/Open-source_intelligence) is the operation of collecting and analyzing information about a target from various sources. A lot of times you'll see the terms "public" or "open" sources but let's be honest here, this is false and that's why I wrote *various sources*.
+[OSINT (or Open Source Intelligence)](https://en.wikipedia.org/wiki/Open-source_intelligence) is the operation of collecting and analyzing information about a target from various sources. A lot of times you'll see the terms "public" or "open" sources but let's be honest here, this is false and that's why I wrote _various sources_.
 
 This is not to say that hacking to someone and steal his data is OSINT, because it's not. But not all the sources we'll use are public and open to everyone, and their data isn't collected by those services in an open way (innocently and / or with user consent).
 
@@ -47,9 +47,8 @@ So, naturally, I put some more security on that service. One of them was to log 
 
 Everything was quiet for a long time, but we know it's not going to be like that forever. Lo and behold about a month ago it happened for the first time! Someone tried to penetrate the system with a non existent username and password. I got 4 attempts, because I don't even let you have a third strike - I put your IP in a blacklist. So as you see in the table below we basically have 2 real attempts (2 IPs) with 4 different credentials.
 
-
-| Email                    | Password   | IP             | Time                     | Accept Language | User Agent              |
-|--------------------------|------------|----------------|--------------------------|-----------------|-------------------------|
+| Email                    | Password   | IP             | Time                     | Accept Language | User Agent                                                                                                         |
+| ------------------------ | ---------- | -------------- | ------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------ |
 | deion_kihn@bocah.team    | Harry1982! | 84.17.46.157   | 2020-05-27T09:16:44.044Z | en-US           | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36 |
 | deion_kihn@bocah.team    | Harry1945  | 84.17.46.157   | 2020-05-27T09:17:08.923Z | en-US           | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36 |
 | zena.durgan91@bocah.team | Isaac2007  | 154.127.57.238 | 2020-05-27T11:26:31.250Z | en-US           | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36 |
@@ -58,6 +57,7 @@ Everything was quiet for a long time, but we know it's not going to be like that
 &nbsp;
 
 We notice a bunch of things:
+
 - We have only 2 IPs.
 - The email address don't change in every attempt, only the password is changing in each attempt.
 - The two emails are with the same domain.
@@ -72,417 +72,418 @@ The easiest thing to look up first are the IPs and the domain. The first IP (`84
 
 ```json
 {
-  "ip":"84.17.46.157",
-  "type":"ipv4",
-  "continent_code":"EU",
-  "continent_name":"Europe",
-  "country_code":"NL",
-  "country_name":"Netherlands",
-  "region_code":"NH",
-  "region_name":"North Holland",
-  "city":"Diemen",
-  "zip":"1101",
-  "latitude":52.309051513671875,
-  "longitude":4.940189838409424,
-  "location":{
-    "geoname_id":2756888,
-    "capital":"Amsterdam",
-    "languages":[
+  "ip": "84.17.46.157",
+  "type": "ipv4",
+  "continent_code": "EU",
+  "continent_name": "Europe",
+  "country_code": "NL",
+  "country_name": "Netherlands",
+  "region_code": "NH",
+  "region_name": "North Holland",
+  "city": "Diemen",
+  "zip": "1101",
+  "latitude": 52.309051513671875,
+  "longitude": 4.940189838409424,
+  "location": {
+    "geoname_id": 2756888,
+    "capital": "Amsterdam",
+    "languages": [
       {
-        "code":"nl",
-        "name":"Dutch",
-        "native":"Nederlands"
+        "code": "nl",
+        "name": "Dutch",
+        "native": "Nederlands"
       }
     ],
-    "country_flag":"http://assets.ipstack.com/flags/nl.svg",
-    "country_flag_emoji":"\ud83c\uddf3\ud83c\uddf1",
-    "country_flag_emoji_unicode":"U+1F1F3 U+1F1F1",
-    "calling_code":"31",
-    "is_eu":true
+    "country_flag": "http://assets.ipstack.com/flags/nl.svg",
+    "country_flag_emoji": "\ud83c\uddf3\ud83c\uddf1",
+    "country_flag_emoji_unicode": "U+1F1F3 U+1F1F1",
+    "calling_code": "31",
+    "is_eu": true
   },
-  "time_zone":{
-    "id":"Europe/Amsterdam",
-    "current_time":"2020-05-02T15:15:21+02:00",
-    "gmt_offset":7200,
-    "code":"CEST",
-    "is_daylight_saving":true
+  "time_zone": {
+    "id": "Europe/Amsterdam",
+    "current_time": "2020-05-02T15:15:21+02:00",
+    "gmt_offset": 7200,
+    "code": "CEST",
+    "is_daylight_saving": true
   },
-  "currency":{
-    "code":"EUR",
-    "name":"Euro",
-    "plural":"euros",
-    "symbol":"\u20ac",
-    "symbol_native":"\u20ac"
+  "currency": {
+    "code": "EUR",
+    "name": "Euro",
+    "plural": "euros",
+    "symbol": "\u20ac",
+    "symbol_native": "\u20ac"
   },
-  "connection":{
-    "asn":60068,
-    "isp":"Datacamp Limited"
+  "connection": {
+    "asn": 60068,
+    "isp": "Datacamp Limited"
   }
 }
 ```
 
 ```json
 {
-  "ip":"154.127.57.238",
-  "type":"ipv4",
-  "continent_code":"AF",
-  "continent_name":"Africa",
-  "country_code":"ZA",
-  "country_name":"South Africa",
-  "region_code":"GT",
-  "region_name":"Gauteng",
-  "city":"Johannesburg",
-  "zip":"2000",
-  "latitude":-26.199169158935547,
-  "longitude":28.0563907623291,
-  "location":{
-    "geoname_id":993800,
-    "capital":"Pretoria",
-    "languages":[
+  "ip": "154.127.57.238",
+  "type": "ipv4",
+  "continent_code": "AF",
+  "continent_name": "Africa",
+  "country_code": "ZA",
+  "country_name": "South Africa",
+  "region_code": "GT",
+  "region_name": "Gauteng",
+  "city": "Johannesburg",
+  "zip": "2000",
+  "latitude": -26.199169158935547,
+  "longitude": 28.0563907623291,
+  "location": {
+    "geoname_id": 993800,
+    "capital": "Pretoria",
+    "languages": [
       {
-        "code":"af",
-        "name":"Afrikaans",
-        "native":"Afrikaans"
+        "code": "af",
+        "name": "Afrikaans",
+        "native": "Afrikaans"
       },
       {
-        "code":"en",
-        "name":"English",
-        "native":"English"
+        "code": "en",
+        "name": "English",
+        "native": "English"
       },
       {
-        "code":"nr",
-        "name":"South Ndebele",
-        "native":"isiNdebele"
+        "code": "nr",
+        "name": "South Ndebele",
+        "native": "isiNdebele"
       },
       {
-        "code":"st",
-        "name":"Southern Sotho",
-        "native":"Sesotho"
+        "code": "st",
+        "name": "Southern Sotho",
+        "native": "Sesotho"
       },
       {
-        "code":"ss",
-        "name":"Swati",
-        "native":"SiSwati"
+        "code": "ss",
+        "name": "Swati",
+        "native": "SiSwati"
       },
       {
-        "code":"tn",
-        "name":"Tswana",
-        "native":"Setswana"
+        "code": "tn",
+        "name": "Tswana",
+        "native": "Setswana"
       },
       {
-        "code":"ts",
-        "name":"Tsonga",
-        "native":"Xitsonga"
+        "code": "ts",
+        "name": "Tsonga",
+        "native": "Xitsonga"
       },
       {
-        "code":"ve",
-        "name":"Venda",
-        "native":"Tshiven\u1e13a"
+        "code": "ve",
+        "name": "Venda",
+        "native": "Tshiven\u1e13a"
       },
       {
-        "code":"xh",
-        "name":"Xhosa",
-        "native":"isiXhosa"
+        "code": "xh",
+        "name": "Xhosa",
+        "native": "isiXhosa"
       },
       {
-        "code":"zu",
-        "name":"Zulu",
-        "native":"isiZulu"
+        "code": "zu",
+        "name": "Zulu",
+        "native": "isiZulu"
       }
     ],
-    "country_flag":"http://assets.ipstack.com/flags/za.svg",
-    "country_flag_emoji":"\ud83c\uddff\ud83c\udde6",
-    "country_flag_emoji_unicode":"U+1F1FF U+1F1E6",
-    "calling_code":"27",
-    "is_eu":false
+    "country_flag": "http://assets.ipstack.com/flags/za.svg",
+    "country_flag_emoji": "\ud83c\uddff\ud83c\udde6",
+    "country_flag_emoji_unicode": "U+1F1FF U+1F1E6",
+    "calling_code": "27",
+    "is_eu": false
   },
-  "time_zone":{
-    "id":"Africa/Johannesburg",
-    "current_time":"2020-05-02T15:20:17+02:00",
-    "gmt_offset":7200,
-    "code":"SAST",
-    "is_daylight_saving":false
+  "time_zone": {
+    "id": "Africa/Johannesburg",
+    "current_time": "2020-05-02T15:20:17+02:00",
+    "gmt_offset": 7200,
+    "code": "SAST",
+    "is_daylight_saving": false
   },
-  "currency":{
-    "code":"ZAR",
-    "name":"South African Rand",
-    "plural":"South African rand",
-    "symbol":"R",
-    "symbol_native":"R"
+  "currency": {
+    "code": "ZAR",
+    "name": "South African Rand",
+    "plural": "South African rand",
+    "symbol": "R",
+    "symbol_native": "R"
   },
-  "connection":{
-    "asn":61317,
-    "isp":"Digital Energy Technologies Ltd."
+  "connection": {
+    "asn": 61317,
+    "isp": "Digital Energy Technologies Ltd."
   }
 }
 ```
 
 This looks like a dead end for now, let's check the domain. For that I use [DomainTools](http://domaintools.com), they have a pretty nice and free service for Whois lookup. So when I searched `bocah.team` I didn't get much, it looks like the domain have a privacy protection, this means we cannot see who bought it.
 
-But we can see a lot of other stuff, like it's registered by [NameCheap](https://www.namecheap.com) and protected by [WhoisGuard](http://www.whoisguard.com/). It created on 2018-07-13. The server the domain points to is a [DigitalOcean](https://www.digitalocean.com) one in the United Kingdom and his IP is `188.166.152.221`. They got `200` status code back from an [Apache Web Server](https://www.apache.org), and it tells us there are *257 other sites hosted on this server*! So it's time to do a reverse IP lookup for this server IP.
+But we can see a lot of other stuff, like it's registered by [NameCheap](https://www.namecheap.com) and protected by [WhoisGuard](http://www.whoisguard.com/). It created on 2018-07-13. The server the domain points to is a [DigitalOcean](https://www.digitalocean.com) one in the United Kingdom and his IP is `188.166.152.221`. They got `200` status code back from an [Apache Web Server](https://www.apache.org), and it tells us there are _257 other sites hosted on this server_! So it's time to do a reverse IP lookup for this server IP.
 
 ![DomainTools Whois Report](/posts/2020/open-source-intelligence/domain-tools-whois-report.webp "DomainTools Whois Report")
 
 DomainTools don't let you do a reverse IP lookup for free, they'll show you couple of results and if you want to see more you need to buy a membership. We're amateurs here, I don't intend to throw away $99 per month for one reverse IP lookup, let's find another service.
 
-Actually there are quite a few that does that for free, like [Hacker Target](https://hackertarget.com), and [ViewDNS](https://viewdns.info/). I especially love ViewDNS because it's give you the dates of *Last Resolved* for every domain, and give you a total number at the top (so you can match his findings with other services).
+Actually there are quite a few that does that for free, like [Hacker Target](https://hackertarget.com), and [ViewDNS](https://viewdns.info/). I especially love ViewDNS because it's give you the dates of _Last Resolved_ for every domain, and give you a total number at the top (so you can match his findings with other services).
 
 ViewDNS found 242 domains, almost everyone that DomainsTools said there are, and it's quite the list.
 
 <details>
   <summary>Click here to see the 242 domains table.</summary>
 
-| Domain                                    | Last Resolved Date |
-|-------------------------------------------|--------------------|
-| 1st-euro.net	                            | 2020-04-27         |
-| 2hard4you.com	                            | 2020-04-29         |
-| 32399753810sb.com	                        | 2019-10-29         |
-| 39832302670sb.com	                        | 2019-10-29         |
-| 404fizzy.com                            	| 2020-04-29         |
-| 53nn0r4x.org                            	| 2020-05-02         |
-| ablegod.net	                              | 2020-04-27         |
-| adobe-results.net	                        | 2020-04-27         |
-| adobepdf.org	                            | 2020-05-02         |
-| adobexx.com	                              | 2020-04-29         |
-| akangs.com                              	| 2020-04-29         |
-| alli7f9651a12362cec298fe16c1574dcead.com	| 2019-10-29         |
-| amaslim.com	                              | 2020-04-29         |
-| ap13rc3.com	                              | 2019-10-03         |
-| apelngentots.com                         	| 2020-04-29         |
-| aplasitecomcom.com                       	| 2020-04-29         |
-| approject.net	                            | 2020-04-27         |
-| armcokeresulter.com                     	| 2020-04-29         |
-| asdhfkjds.com                            	| 2020-04-29         |
-| asdsadsa.com                            	| 2020-04-29         |
-| astsmtp.org	                              | 2019-10-11         |
-| balusaz.com	                              | 2020-03-29         |
-| banglemail.com                          	| 2020-04-29         |
-| baonlineintl.com                         	| 2020-04-29         |
-| bdcimail.com                            	| 2020-04-29         |
-| blckman.com	                              | 2020-04-29         |
-| blowjoob.com	                            | 2020-04-29         |
-| blurdybloop.com	                          | 2020-04-29         |
-| boarsw1.com	                              | 2020-04-29         |
-| boarsw11.com	                            | 2020-04-29         |
-| boarsw2.com	                              | 2020-04-29         |
-| bocah.team	                              | 2020-05-03         |
-| btemailsupport.com	                      | 2020-04-29         |
-| c0x1.com	                                | 2020-04-29         |
-| c1onet.com	                              | 2019-10-19         |
-| cc-result.com	                            | 2020-04-29         |
-| ch3rsw2.com	                              | 2020-04-29         |
-| charles-robinson.com	                    | 2020-04-29         |
-| chasemelom.com                            |	2020-04-29         |
-| chsw11.com                                |	2020-04-29         |
-| chsww4.com                                |	2020-04-29         |
-| cielo2012.com	                            | 2020-04-29         |
-| clientcaf.info                            |	2020-04-28         |
-| cnutzdtrk.com	                            | 2020-04-29         |
-| coin-c.pro                                |	2020-01-30         |
-| ctrhackschool.com                         |	2020-04-29         |
-| d1berkati.net                             |	2020-05-03         |
-| d3sxsrw.com	                              | 2019-11-12         |
-| darego.org	                              | 2020-05-02         |
-| dav1nc1.com	                              | 2019-08-07         |
-| denate-djf88.com                          |	2020-04-29         |
-| devexoxfamjackpot.org                     |	2019-08-07         |
-| docusign1.com                             |	2020-04-29         |
-| donking.net                               |	2020-04-27         |
-| dpvmx.com	                                | 2020-04-29         |
-| dullandstupidfolks.com	                  | 2019-10-26         |
-| eaglesmail.net	                          | 2020-04-27         |
-| eentertainment.site	                      | 2019-09-13         |
-| esqhackschool.com	                        | 2020-04-29         |
-| expertgz.com	                            | 2020-03-22         |
-| familytreetmatter.com	                    | 2019-11-13         |
-| fcwbanking.com	                          | 2020-04-29         |
-| forcadesempre.com	                        | 2020-04-29         |
-| fortiittechnology.com	                    | 2019-08-21         |
-| freakzbrothers.team	                      | 2019-10-25         |
-| frreer.com	                              | 2020-04-29         |
-| garutc0de.com	                            | 2020-04-29         |
-| gcrele.com	                              | 2020-04-29         |
-| ggledocblessing.com	                      | 2020-04-29         |
-| ggledocs.com	                            | 2020-04-29         |
-| globizsolution.com	                      | 2020-05-03         |
-| gmailphish.com	                          | 2020-04-29         |
-| gmdddail.com	                            | 2020-04-29         |
-| goldenboyplanet.net	                      | 2020-04-27         |
-| goldenmarine.net	                        | 2020-04-27         |
-| goodpostman.com	                          | 2020-04-29         |
-| googdocs.org	                            | 2020-05-02         |
-| groovypigthing.com	                      | 2019-12-13         |
-| h4l1f4x.com	                              | 2020-04-29         |
-| humaxgifts.net	                          | 2020-04-27         |
-| hyzeek.com	                              | 2020-04-29         |
-| idbte4m.com	                              | 2020-04-29         |
-| idyat.com	                                | 2020-04-29         |
-| iestoreakeup.com	                        | 2020-04-29         |
-| ifastnet1.com	                            | 2020-04-29         |
-| ilekunanu.com	                            | 2020-05-03         |
-| iln-mc.net	                              | 2020-04-27         |
-| immaculatelord.com	                      | 2020-04-29         |
-| inforezult.com	                          | 2020-04-29         |
-| infulz.org	                              | 2020-05-02         |
-| inv3st3c.com	                            | 2019-10-29         |
-| j4nn1ck.com	                              | 2020-04-29         |
-| jephy-webmail.com	                        | 2020-04-29         |
-| jquery-cloud.org	                        | 2019-11-15         |
-| kanbghik.com	                            | 2020-04-29         |
-| killdemall.com	                          | 2020-04-29         |
-| kind1.org	                                | 2019-09-26         |
-| kindly2014.com	                          | 2020-04-29         |
-| kksdfs.com	                              | 2020-04-29         |
-| kod3r.com	                                | 2020-04-29         |
-| kucinghitam.team	                        | 2019-07-12         |
-| kuhlcomputer.com	                        | 2020-04-29         |
-| lagoshacker.com	                          | 2020-04-29         |
-| lbox1.com	                                | 2020-04-29         |
-| lbox2.com	                                | 2020-04-29         |
-| lbox3.com	                                | 2020-04-29         |
-| legitz-solutions.com	                    | 2020-04-29         |
-| linksandmail.com	                        | 2020-04-29         |
-| llgss.com	                                | 2020-04-29         |
-| magentoscure.com	                        | 2020-04-29         |
-| mailfahad.com	                            | 2020-04-29         |
-| mailrez.com	                              | 2020-04-29         |
-| malancellc.com	                          | 2020-04-29         |
-| mdhmx.com	                                | 2020-04-29         |
-| mefffdo.com	                              | 2019-10-10         |
-| menemoney.com	                            | 2020-04-29         |
-| mimecastphish.com	                        | 2020-04-29         |
-| minioncc.com	                            | 2020-04-29         |
-| minionlogin.com	                          | 2020-04-29         |
-| minionresult.com	                        | 2020-04-29         |
-| moneysquad.org	                          | 2020-05-02         |
-| moxxxx.com	                              | 2020-04-29         |
-| mrspybotv3.com	                          | 2020-04-29         |
-| mrspybotv4.com	                          | 2020-04-29         |
-| mteen.net	                                | 2020-04-27         |
-| mylinklog.com	                            | 2020-04-29         |
-| mymailgin.com	                            | 2020-04-29         |
-| mystshop.org	                            | 2020-05-02         |
-| nationwidez.com	                          | 2020-04-29         |
-| neids.net	                                | 2020-04-27         |
-| netzrxflix.com	                          | 2020-04-29         |
-| newbieking.biz	                          | 2020-05-02         |
-| newcpanel.com	                            | 2020-04-29         |
-| notforsal.org	                            | 2020-05-02         |
-| notinforreal.org	                        | 2020-05-02         |
-| oluxshopservice.com	                      | 2019-11-12         |
-| one-sender.com	                          | 2020-04-29         |
-| oneskilet.team	                          | 2020-03-22         |
-| oonlo.com	                                | 2020-04-29         |
-| orimi.co	                                | 2020-05-02         |
-| otherphish.com	                          | 2020-04-29         |
-| ourtimesupport.com	                      | 2020-04-29         |
-| ourtimewhorers.com	                      | 2020-05-03         |
-| outlookphish.com	                        | 2020-04-29         |
-| p-delivr.com	                            | 2020-04-29         |
-| pant8.com	                                | 2020-04-29         |
-| perpeleran.com	                          | 2020-04-29         |
-| pollarda.com	                            | 2020-04-29         |
-| ppaypl.com	                              | 2020-04-29         |
-| priv8scam.com	                            | 2020-02-09         |
-| priv8scamccforu.com	                      | 2020-02-09         |
-| private-relay.com	                        | 2020-04-29         |
-| projectmy.net	                            | 2020-04-27         |
-| pvscamccsscom.com	                        | 2019-09-28         |
-| pvscamyasscom.com	                        | 2020-04-29         |
-| pvscamyavscom.com	                        | 2019-09-28         |
-| qqrez.com	                                | 2020-04-29         |
-| r36yc.com	                                | 2020-04-29         |
-| raflipedia.com	                          | 2020-04-29         |
-| recodz.com	                              | 2020-04-29         |
-| resulttidaklancar.com	                    | 2020-04-29         |
-| rezlt.org	                                | 2020-05-02         |
-| rezltboa.com	                            | 2020-04-29         |
-| rezult.org	                              | 2020-05-03         |
-| rezultbossing.com	                        | 2020-04-29         |
-| rsjkingdomxpp.pro	                        | 2019-06-11         |
-| salkah.com	                              | 2020-04-29         |
-| saydie.com	                              | 2020-04-29         |
-| se-holldings.com	                        | 2020-04-29         |
-| sendmsexcel.com	                          | 2020-04-29         |
-| serverstrato.net	                        | 2020-04-27         |
-| serviceadobe.com	                        | 2020-04-29         |
-| servicedropbox.com	                      | 2019-08-24         |
-| servicesoutlook.com	                      | 2020-04-29         |
-| servisdocusign.com	                      | 2020-04-29         |
-| servisdropbox.com	                        | 2020-04-29         |
-| sidshell.com	                            | 2020-03-22         |
-| skilet.team	                              | 2020-03-22         |
-| slackerc0de.com	                          | 2020-04-29         |
-| slclogin.com	                            | 2020-05-03         |
-| sn7ak.com	                                | 2020-04-29         |
-| soutaz.com	                              | 2020-04-29         |
-| spammerindo.com	                          | 2020-04-29         |
-| spammerindo.pro	                          | 2019-06-11         |
-| spirititus.com	                          | 2020-04-29         |
-| spmers.net	                              | 2020-04-27         |
-| spyu.org	                                | 2020-05-02         |
-| srv-app.club	                            | 2019-07-02         |
-| stationlinux.org	                        | 2020-05-02         |
-| support-itrueserver.xyz	                  | 2020-03-22         |
-| sureboi.com	                              | 2020-04-29         |
-| svoooo.com	                              | 2020-04-29         |
-| sydoppe.com	                              | 2020-04-29         |
-| synichix.pro	                            | 2019-06-11         |
-| system42l.net	                            | 2020-04-27         |
-| t3chsss.net	                              | 2020-04-27         |
-| teeniecamp4free.com	                      | 2020-04-29         |
-| teluz.org	                                | 2019-10-10         |
-| tf-info.com	                              | 2020-04-29         |
-| tgboi.com	                                | 2020-04-29         |
-| tgiftoday.biz	                            | 2019-08-20         |
-| thanksforreal.org	                        | 2019-12-12         |
-| theaccessuk.org	                          | 2020-05-02         |
-| tool4spam.com	                            | 2020-04-29         |
-| tooolz.com	                              | 2020-04-29         |
-| tooxlz-db.com	                            | 2020-04-29         |
-| trowey.com	                              | 2020-04-29         |
-| tsbdumbs.com	                            | 2020-04-29         |
-| tt-door.biz	                              | 2020-05-02         |
-| ttcpanel.com	                            | 2020-04-29         |
-| twinbash.co	                              | 2020-05-02         |
-| usaaresults.com	                          | 2020-04-29         |
-| usaaxa.com	                              | 2020-05-03         |
-| vgnnb.com	                                | 2020-04-29         |
-| virus-ma.com	                            | 2019-08-09         |
-| webmai.co	                                | 2020-05-02         |
-| webmailupdate.com	                        | 2020-04-29         |
-| willyfucker.com	                          | 2019-11-27         |
-| windowsswebs.com	                        | 2019-10-29         |
-| wiregang.com	                            | 2019-08-09         |
-| wirethings.net	                          | 2020-05-03         |
-| wls1.com	                                | 2020-04-29         |
-| worldpc2000.com	                          | 2020-04-29         |
-| xellef-id.com	                            | 2020-04-29         |
-| xhades.com	                              | 2020-04-29         |
-| xindex.org	                              | 2020-05-02         |
-| xsendersecurity.com	                      | 2020-04-29         |
-| xvbvx.com	                                | 2020-04-29         |
-| xxsender.com	                            | 2020-04-29         |
-| xxxsender.com	                            | 2020-04-29         |
-| yah5oo.com	                              | 2020-04-29         |
-| yandew.com	                              | 2020-04-29         |
-| yatdew.com	                              | 2020-04-29         |
-| youphei.com	                              | 2019-12-13         |
-| yourzcoolsite.com	                        | 2019-12-12         |
-| yyuuoo.com	                              | 2020-04-29         |
-| z1t0ng404.com	                            | 2020-04-29         |
-| z3ran.com	                                | 2020-04-29         |
-| zebyinbox.com	                            | 2020-04-29         |
-| zenquel.com	                              | 2020-04-29         |
-| zephyrsc.shop	                            | 2019-10-23         |
-| zwirgel.net	                              | 2020-04-27         |
-</details>  
+| Domain                                   | Last Resolved Date |
+| ---------------------------------------- | ------------------ |
+| 1st-euro.net                             | 2020-04-27         |
+| 2hard4you.com                            | 2020-04-29         |
+| 32399753810sb.com                        | 2019-10-29         |
+| 39832302670sb.com                        | 2019-10-29         |
+| 404fizzy.com                             | 2020-04-29         |
+| 53nn0r4x.org                             | 2020-05-02         |
+| ablegod.net                              | 2020-04-27         |
+| adobe-results.net                        | 2020-04-27         |
+| adobepdf.org                             | 2020-05-02         |
+| adobexx.com                              | 2020-04-29         |
+| akangs.com                               | 2020-04-29         |
+| alli7f9651a12362cec298fe16c1574dcead.com | 2019-10-29         |
+| amaslim.com                              | 2020-04-29         |
+| ap13rc3.com                              | 2019-10-03         |
+| apelngentots.com                         | 2020-04-29         |
+| aplasitecomcom.com                       | 2020-04-29         |
+| approject.net                            | 2020-04-27         |
+| armcokeresulter.com                      | 2020-04-29         |
+| asdhfkjds.com                            | 2020-04-29         |
+| asdsadsa.com                             | 2020-04-29         |
+| astsmtp.org                              | 2019-10-11         |
+| balusaz.com                              | 2020-03-29         |
+| banglemail.com                           | 2020-04-29         |
+| baonlineintl.com                         | 2020-04-29         |
+| bdcimail.com                             | 2020-04-29         |
+| blckman.com                              | 2020-04-29         |
+| blowjoob.com                             | 2020-04-29         |
+| blurdybloop.com                          | 2020-04-29         |
+| boarsw1.com                              | 2020-04-29         |
+| boarsw11.com                             | 2020-04-29         |
+| boarsw2.com                              | 2020-04-29         |
+| bocah.team                               | 2020-05-03         |
+| btemailsupport.com                       | 2020-04-29         |
+| c0x1.com                                 | 2020-04-29         |
+| c1onet.com                               | 2019-10-19         |
+| cc-result.com                            | 2020-04-29         |
+| ch3rsw2.com                              | 2020-04-29         |
+| charles-robinson.com                     | 2020-04-29         |
+| chasemelom.com                           | 2020-04-29         |
+| chsw11.com                               | 2020-04-29         |
+| chsww4.com                               | 2020-04-29         |
+| cielo2012.com                            | 2020-04-29         |
+| clientcaf.info                           | 2020-04-28         |
+| cnutzdtrk.com                            | 2020-04-29         |
+| coin-c.pro                               | 2020-01-30         |
+| ctrhackschool.com                        | 2020-04-29         |
+| d1berkati.net                            | 2020-05-03         |
+| d3sxsrw.com                              | 2019-11-12         |
+| darego.org                               | 2020-05-02         |
+| dav1nc1.com                              | 2019-08-07         |
+| denate-djf88.com                         | 2020-04-29         |
+| devexoxfamjackpot.org                    | 2019-08-07         |
+| docusign1.com                            | 2020-04-29         |
+| donking.net                              | 2020-04-27         |
+| dpvmx.com                                | 2020-04-29         |
+| dullandstupidfolks.com                   | 2019-10-26         |
+| eaglesmail.net                           | 2020-04-27         |
+| eentertainment.site                      | 2019-09-13         |
+| esqhackschool.com                        | 2020-04-29         |
+| expertgz.com                             | 2020-03-22         |
+| familytreetmatter.com                    | 2019-11-13         |
+| fcwbanking.com                           | 2020-04-29         |
+| forcadesempre.com                        | 2020-04-29         |
+| fortiittechnology.com                    | 2019-08-21         |
+| freakzbrothers.team                      | 2019-10-25         |
+| frreer.com                               | 2020-04-29         |
+| garutc0de.com                            | 2020-04-29         |
+| gcrele.com                               | 2020-04-29         |
+| ggledocblessing.com                      | 2020-04-29         |
+| ggledocs.com                             | 2020-04-29         |
+| globizsolution.com                       | 2020-05-03         |
+| gmailphish.com                           | 2020-04-29         |
+| gmdddail.com                             | 2020-04-29         |
+| goldenboyplanet.net                      | 2020-04-27         |
+| goldenmarine.net                         | 2020-04-27         |
+| goodpostman.com                          | 2020-04-29         |
+| googdocs.org                             | 2020-05-02         |
+| groovypigthing.com                       | 2019-12-13         |
+| h4l1f4x.com                              | 2020-04-29         |
+| humaxgifts.net                           | 2020-04-27         |
+| hyzeek.com                               | 2020-04-29         |
+| idbte4m.com                              | 2020-04-29         |
+| idyat.com                                | 2020-04-29         |
+| iestoreakeup.com                         | 2020-04-29         |
+| ifastnet1.com                            | 2020-04-29         |
+| ilekunanu.com                            | 2020-05-03         |
+| iln-mc.net                               | 2020-04-27         |
+| immaculatelord.com                       | 2020-04-29         |
+| inforezult.com                           | 2020-04-29         |
+| infulz.org                               | 2020-05-02         |
+| inv3st3c.com                             | 2019-10-29         |
+| j4nn1ck.com                              | 2020-04-29         |
+| jephy-webmail.com                        | 2020-04-29         |
+| jquery-cloud.org                         | 2019-11-15         |
+| kanbghik.com                             | 2020-04-29         |
+| killdemall.com                           | 2020-04-29         |
+| kind1.org                                | 2019-09-26         |
+| kindly2014.com                           | 2020-04-29         |
+| kksdfs.com                               | 2020-04-29         |
+| kod3r.com                                | 2020-04-29         |
+| kucinghitam.team                         | 2019-07-12         |
+| kuhlcomputer.com                         | 2020-04-29         |
+| lagoshacker.com                          | 2020-04-29         |
+| lbox1.com                                | 2020-04-29         |
+| lbox2.com                                | 2020-04-29         |
+| lbox3.com                                | 2020-04-29         |
+| legitz-solutions.com                     | 2020-04-29         |
+| linksandmail.com                         | 2020-04-29         |
+| llgss.com                                | 2020-04-29         |
+| magentoscure.com                         | 2020-04-29         |
+| mailfahad.com                            | 2020-04-29         |
+| mailrez.com                              | 2020-04-29         |
+| malancellc.com                           | 2020-04-29         |
+| mdhmx.com                                | 2020-04-29         |
+| mefffdo.com                              | 2019-10-10         |
+| menemoney.com                            | 2020-04-29         |
+| mimecastphish.com                        | 2020-04-29         |
+| minioncc.com                             | 2020-04-29         |
+| minionlogin.com                          | 2020-04-29         |
+| minionresult.com                         | 2020-04-29         |
+| moneysquad.org                           | 2020-05-02         |
+| moxxxx.com                               | 2020-04-29         |
+| mrspybotv3.com                           | 2020-04-29         |
+| mrspybotv4.com                           | 2020-04-29         |
+| mteen.net                                | 2020-04-27         |
+| mylinklog.com                            | 2020-04-29         |
+| mymailgin.com                            | 2020-04-29         |
+| mystshop.org                             | 2020-05-02         |
+| nationwidez.com                          | 2020-04-29         |
+| neids.net                                | 2020-04-27         |
+| netzrxflix.com                           | 2020-04-29         |
+| newbieking.biz                           | 2020-05-02         |
+| newcpanel.com                            | 2020-04-29         |
+| notforsal.org                            | 2020-05-02         |
+| notinforreal.org                         | 2020-05-02         |
+| oluxshopservice.com                      | 2019-11-12         |
+| one-sender.com                           | 2020-04-29         |
+| oneskilet.team                           | 2020-03-22         |
+| oonlo.com                                | 2020-04-29         |
+| orimi.co                                 | 2020-05-02         |
+| otherphish.com                           | 2020-04-29         |
+| ourtimesupport.com                       | 2020-04-29         |
+| ourtimewhorers.com                       | 2020-05-03         |
+| outlookphish.com                         | 2020-04-29         |
+| p-delivr.com                             | 2020-04-29         |
+| pant8.com                                | 2020-04-29         |
+| perpeleran.com                           | 2020-04-29         |
+| pollarda.com                             | 2020-04-29         |
+| ppaypl.com                               | 2020-04-29         |
+| priv8scam.com                            | 2020-02-09         |
+| priv8scamccforu.com                      | 2020-02-09         |
+| private-relay.com                        | 2020-04-29         |
+| projectmy.net                            | 2020-04-27         |
+| pvscamccsscom.com                        | 2019-09-28         |
+| pvscamyasscom.com                        | 2020-04-29         |
+| pvscamyavscom.com                        | 2019-09-28         |
+| qqrez.com                                | 2020-04-29         |
+| r36yc.com                                | 2020-04-29         |
+| raflipedia.com                           | 2020-04-29         |
+| recodz.com                               | 2020-04-29         |
+| resulttidaklancar.com                    | 2020-04-29         |
+| rezlt.org                                | 2020-05-02         |
+| rezltboa.com                             | 2020-04-29         |
+| rezult.org                               | 2020-05-03         |
+| rezultbossing.com                        | 2020-04-29         |
+| rsjkingdomxpp.pro                        | 2019-06-11         |
+| salkah.com                               | 2020-04-29         |
+| saydie.com                               | 2020-04-29         |
+| se-holldings.com                         | 2020-04-29         |
+| sendmsexcel.com                          | 2020-04-29         |
+| serverstrato.net                         | 2020-04-27         |
+| serviceadobe.com                         | 2020-04-29         |
+| servicedropbox.com                       | 2019-08-24         |
+| servicesoutlook.com                      | 2020-04-29         |
+| servisdocusign.com                       | 2020-04-29         |
+| servisdropbox.com                        | 2020-04-29         |
+| sidshell.com                             | 2020-03-22         |
+| skilet.team                              | 2020-03-22         |
+| slackerc0de.com                          | 2020-04-29         |
+| slclogin.com                             | 2020-05-03         |
+| sn7ak.com                                | 2020-04-29         |
+| soutaz.com                               | 2020-04-29         |
+| spammerindo.com                          | 2020-04-29         |
+| spammerindo.pro                          | 2019-06-11         |
+| spirititus.com                           | 2020-04-29         |
+| spmers.net                               | 2020-04-27         |
+| spyu.org                                 | 2020-05-02         |
+| srv-app.club                             | 2019-07-02         |
+| stationlinux.org                         | 2020-05-02         |
+| support-itrueserver.xyz                  | 2020-03-22         |
+| sureboi.com                              | 2020-04-29         |
+| svoooo.com                               | 2020-04-29         |
+| sydoppe.com                              | 2020-04-29         |
+| synichix.pro                             | 2019-06-11         |
+| system42l.net                            | 2020-04-27         |
+| t3chsss.net                              | 2020-04-27         |
+| teeniecamp4free.com                      | 2020-04-29         |
+| teluz.org                                | 2019-10-10         |
+| tf-info.com                              | 2020-04-29         |
+| tgboi.com                                | 2020-04-29         |
+| tgiftoday.biz                            | 2019-08-20         |
+| thanksforreal.org                        | 2019-12-12         |
+| theaccessuk.org                          | 2020-05-02         |
+| tool4spam.com                            | 2020-04-29         |
+| tooolz.com                               | 2020-04-29         |
+| tooxlz-db.com                            | 2020-04-29         |
+| trowey.com                               | 2020-04-29         |
+| tsbdumbs.com                             | 2020-04-29         |
+| tt-door.biz                              | 2020-05-02         |
+| ttcpanel.com                             | 2020-04-29         |
+| twinbash.co                              | 2020-05-02         |
+| usaaresults.com                          | 2020-04-29         |
+| usaaxa.com                               | 2020-05-03         |
+| vgnnb.com                                | 2020-04-29         |
+| virus-ma.com                             | 2019-08-09         |
+| webmai.co                                | 2020-05-02         |
+| webmailupdate.com                        | 2020-04-29         |
+| willyfucker.com                          | 2019-11-27         |
+| windowsswebs.com                         | 2019-10-29         |
+| wiregang.com                             | 2019-08-09         |
+| wirethings.net                           | 2020-05-03         |
+| wls1.com                                 | 2020-04-29         |
+| worldpc2000.com                          | 2020-04-29         |
+| xellef-id.com                            | 2020-04-29         |
+| xhades.com                               | 2020-04-29         |
+| xindex.org                               | 2020-05-02         |
+| xsendersecurity.com                      | 2020-04-29         |
+| xvbvx.com                                | 2020-04-29         |
+| xxsender.com                             | 2020-04-29         |
+| xxxsender.com                            | 2020-04-29         |
+| yah5oo.com                               | 2020-04-29         |
+| yandew.com                               | 2020-04-29         |
+| yatdew.com                               | 2020-04-29         |
+| youphei.com                              | 2019-12-13         |
+| yourzcoolsite.com                        | 2019-12-12         |
+| yyuuoo.com                               | 2020-04-29         |
+| z1t0ng404.com                            | 2020-04-29         |
+| z3ran.com                                | 2020-04-29         |
+| zebyinbox.com                            | 2020-04-29         |
+| zenquel.com                              | 2020-04-29         |
+| zephyrsc.shop                            | 2019-10-23         |
+| zwirgel.net                              | 2020-04-27         |
+
+</details>
 
 When we go over it, we can see there are a lot of them who probably use to create websites for phishing attacks (domains that are close to other big service domain / name), and others for spam and a likes. So that gives us a lot of leads to check, we can Google them all and see what comes up, but I don't have the patience to go over results for 242 searches right now. So let's keep it for later, if we'll need to.
 
 Let's check the website itself. It looks like just a blank page. I did a quick check for the body / headers that return for the request (as well as for other requests that the web browser did) and I didn't see anything suspicious (like a header on the response that not supposed to be there, I got there by thinking it'll probably will be a [C2](https://en.wikipedia.org/wiki/Command_and_control)).
 
-The next question that pops to my head is *"is it always was a blank page?"*. We have a way to check it, maybe, sort of. We'll use the [WayBack Machine](https://web.archive.org/) and we got some results! We can see it saves 3 snapshots, but all of them are the same blank pages.
+The next question that pops to my head is _"is it always was a blank page?"_. We have a way to check it, maybe, sort of. We'll use the [WayBack Machine](https://web.archive.org/) and we got some results! We can see it saves 3 snapshots, but all of them are the same blank pages.
 
 ![WayBack Machine](/posts/2020/open-source-intelligence/wayback-machine.webp "WayBack Machine")
 
@@ -504,7 +505,7 @@ The nice thing we find is the organisation that was purchased the domain back in
 
 So that's interesting, let's keep our focus on domain / website / server.
 
-More scanning with Netcartf and [build with](https://builtwith.com) find it's probably a Linux server (maybe Ubuntu, based on *"build with"*), and it uses [Apache](https://www.apache.org). It used Apache 2.4, for sometime it also had [Nginx](https://www.nginx.com/) but now we only got "Apache". And this domain is active since the end of 2017 (based on *"build with"* and *netcarft*).
+More scanning with Netcartf and [build with](https://builtwith.com) find it's probably a Linux server (maybe Ubuntu, based on _"build with"_), and it uses [Apache](https://www.apache.org). It used Apache 2.4, for sometime it also had [Nginx](https://www.nginx.com/) but now we only got "Apache". And this domain is active since the end of 2017 (based on _"build with"_ and _netcarft_).
 
 ![Build With](/posts/2020/open-source-intelligence/built-with.webp "Build With")
 
@@ -556,7 +557,7 @@ This user have more pastes in his profile (his profile name is `Inboxplis`), but
 
 In his Facebook photos there is [a photo](https://www.facebook.com/photo.php?fbid=718884434960573&set=pb.100005170683150.-2207520000..&type=3) about some Hacking / Script Kiddies book in Indonesian back in April 2017. Also from his photos I can notice he have an Asus laptop with a Windows 10 on it, and that he do a lot of small money transfers.
 
-When I go back to the organisation I found earlier, the report from Netcarft when they registered `bocah.team` in 2017, the one we found earlier (`Jalanin aja dulu mhanxx, hax0r, 50701, United States`) and put the part "Jalanin aja dulu mhanxx" in Google Translate (on *detect language*) it comes as Indonesian and it's means "Just do it first mhanxx".
+When I go back to the organisation I found earlier, the report from Netcarft when they registered `bocah.team` in 2017, the one we found earlier (`Jalanin aja dulu mhanxx, hax0r, 50701, United States`) and put the part "Jalanin aja dulu mhanxx" in Google Translate (on _detect language_) it comes as Indonesian and it's means "Just do it first mhanxx".
 
 The guy on the Facebook profile page I found is from Indonesia (he wrote it there and the language he write in his posts is Indonesian). So this is a big clue that it's probably our guy. Or is it? The big question now is: **Is this our person?** I think we need to find more evidence.
 
@@ -598,11 +599,11 @@ Let's check his email in [have i been pwned](https://haveibeenpwned.com/), and w
 
 ![Have I Been Pwned Search](/posts/2020/open-source-intelligence/haveibeenpwned.webp "Have I Been Pwned Search")
 
-His email is on the Canva database leak, so I started to search this database leak on the internet, and it wasn't that hard to find. I found two types of files, the first is a single file that appears to be the whole info of the users, but it says *"cleaned"* in the file name, and some fields are not there, for example the `password` is obviously a basic and it's not there.
+His email is on the Canva database leak, so I started to search this database leak on the internet, and it wasn't that hard to find. I found two types of files, the first is a single file that appears to be the whole info of the users, but it says _"cleaned"_ in the file name, and some fields are not there, for example the `password` is obviously a basic and it's not there.
 
-| ID | ID_HASH | CREATE_DATE | MAIL | PHONE | MAIL_STATUS | USERNAME | DISPLAY_NAME | NAME1 | NAME2 | TEMPORARY | ROLES | DEACTIVATED | UI_INFO | HOMEPAGE | CITY | COUNTRY_CODE | LOCALE | PERSONAL_BRAND | PERSONAL_BRAND_ID | AVATAR | HASH |
-|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
-| 48222628 | UAClrvf92U8 | 2017-11-03 06:25:39 | slikeye1711@gmail.com | | C | slikeye1711 | Dian Wahyudi |  |  | 0 | U | 0 | {contextTipRoyaltyFreePaymentOption:true;hasSeenPublishPaymentLicensesOnboarding:true} | | | | en | 48163206 | BAClrn9xkI4 | |
+| ID       | ID_HASH     | CREATE_DATE         | MAIL                  | PHONE | MAIL_STATUS | USERNAME    | DISPLAY_NAME | NAME1 | NAME2 | TEMPORARY | ROLES | DEACTIVATED | UI_INFO                                                                                | HOMEPAGE | CITY | COUNTRY_CODE | LOCALE | PERSONAL_BRAND | PERSONAL_BRAND_ID | AVATAR | HASH |
+| -------- | ----------- | ------------------- | --------------------- | ----- | ----------- | ----------- | ------------ | ----- | ----- | --------- | ----- | ----------- | -------------------------------------------------------------------------------------- | -------- | ---- | ------------ | ------ | -------------- | ----------------- | ------ | ---- |
+| 48222628 | UAClrvf92U8 | 2017-11-03 06:25:39 | slikeye1711@gmail.com |       | C           | slikeye1711 | Dian Wahyudi |       |       | 0         | U     | 0           | {contextTipRoyaltyFreePaymentOption:true;hasSeenPublishPaymentLicensesOnboarding:true} |          |      |              | en     | 48163206       | BAClrn9xkI4       |        |
 
 The second type of files that I found is couple of small files with a list of `emails:pass`, but unfortunately his email wasn't in any one of them.
 
@@ -674,11 +675,11 @@ We can see words in Indonesian, his name (Dian Wahyudi), and his phone number th
 
 Before we continue digging with our new findings, let's keep looking in our Google search for `slikeye.com`. There was nothing more in there expect from the fourth result, it was his [Twitter profile](https://twitter.com/dianwhyd). It doesn't look like much, he upload more photos and talk more in his Facebook profile (he also abandoned Twitter in 2017). But a quick scroll through his tweets with pictures shows a tweet from 2014 with a Facebook login that says "fb maintenance", and the start of his email is the `input` field. It says `slikeye` so it's probably `slikeye1711@gmail.com`.
 
-It's time to do a *"Forget Password"* on Facebook with his email. It's got us his last 2 digits in his phone number, and they're the same as the phone number in his Facebook profile and his 2017 WHOIS record for `slikeye.com`, so we know it's probably his real and private phone number (also, a *"Forget Password"* in Twitter, for the same email, get us the same 2 last digits).
+It's time to do a _"Forget Password"_ on Facebook with his email. It's got us his last 2 digits in his phone number, and they're the same as the phone number in his Facebook profile and his 2017 WHOIS record for `slikeye.com`, so we know it's probably his real and private phone number (also, a _"Forget Password"_ in Twitter, for the same email, get us the same 2 last digits).
 
 ![Facebook Forget Password](/posts/2020/open-source-intelligence/facebook-forget-password.webp "Facebook Forget Password")
 
-Unfortunately we didn't get new phone numbers or email addresses, but *"Forget Password"* is a good method and a lot of times revel different phone numbers and email addresses that are the private ones of the target.
+Unfortunately we didn't get new phone numbers or email addresses, but _"Forget Password"_ is a good method and a lot of times revel different phone numbers and email addresses that are the private ones of the target.
 
 &nbsp;
 
@@ -725,10 +726,7 @@ The new email address and phone number don't get us any result on Pipl, that's a
           "type": "internetAddress"
         }
       ],
-      "badges": [
-        "verified",
-        "user"
-      ],
+      "badges": ["verified", "user"],
       "tags": [],
       "profileEditHistory": {},
       "spamInfo": {},
@@ -747,11 +745,11 @@ A [Spokeo](https://www.spokeo.com) search for his email (`diansoft1711@gmail.com
 
 I think we need to search for more Social Networks profiles for his usernames. There're tools to help us do it, like [userrecon](https://github.com/thelinuxchoice/userrecon).
 
-* `diansoft1711` username it didn't found any new profiles (it found only Pinterest).
-* `Slikeye` username got us [BitBucket profile](https://bitbucket.org/Slikeye) (without any repos, or all of them are private).
-* `dianwhyd` username provide us with a different [Pinterest profile](https://www.pinterest.com/dianwhyd), a [Flipboard profile](https://flipboard.com/@DianWhy), and a [Tripadvisor profile](https://www.tripadvisor.com/Profile/Dianwhyd).
+- `diansoft1711` username it didn't found any new profiles (it found only Pinterest).
+- `Slikeye` username got us [BitBucket profile](https://bitbucket.org/Slikeye) (without any repos, or all of them are private).
+- `dianwhyd` username provide us with a different [Pinterest profile](https://www.pinterest.com/dianwhyd), a [Flipboard profile](https://flipboard.com/@DianWhy), and a [Tripadvisor profile](https://www.tripadvisor.com/Profile/Dianwhyd).
 
-If we're already here, let's search for his username in the Canva database leak (`slikeye1711`) with our new tool. This search gives us interesting results - a different [Facebook profile](https://www.facebook.com/slikeye1711), it's looks like someone else, but he's also from *"Bogor, Indonesia"*. He says on his profile he works at Apple (and it takes me straight in to the Pastebin account with the Apple's scam page), but he have an Apple advertisement photo on the cover page. The thing is, when I open it up to see it in full size you can actually see it's a screenshot of apple website!
+If we're already here, let's search for his username in the Canva database leak (`slikeye1711`) with our new tool. This search gives us interesting results - a different [Facebook profile](https://www.facebook.com/slikeye1711), it's looks like someone else, but he's also from _"Bogor, Indonesia"_. He says on his profile he works at Apple (and it takes me straight in to the Pastebin account with the Apple's scam page), but he have an Apple advertisement photo on the cover page. The thing is, when I open it up to see it in full size you can actually see it's a screenshot of apple website!
 
 ![Agustinus Rivaldo Facebook Cover Image](/posts/2020/open-source-intelligence/agustinus-rivaldo-facebook-cover.webp "Agustinus Rivaldo Facebook Cover Image")
 
@@ -762,6 +760,7 @@ This doesn't look good for our guy, this is probably a fake account for an apple
 &nbsp;
 
 The next step is to search for more information about those phishing sites. The search for `*.bocah.team` on Google results in couple of new emails and websites, but we have enough of that, let's search specific for Pastebin, because that's where we find the apple scam page with his email and Facebook profile URL. So when I searched `*.bocah.team site:pastebin.com` I found 4 different pastes:
+
 - The [first](https://pastebin.com/T6bnuqze) from profile named [ARIDHO](https://pastebin.com/u/aridho), that have a lot of phishing pastes in his profile.
 - The [second](https://pastebin.com/XmEBg6vF) from a profile named [RIZKYIBENG](https://pastebin.com/u/rizkyibeng) and all of his pastes are Apple scam page, except of one, when he has a gmail address `ibengrizky01@gmail.com`.
 - The [third](https://pastebin.com/3MZySMy1) is a guest, and there is nothing interesting in the paste.
@@ -775,7 +774,6 @@ But the stuff I started to notice is that all of those scam / phishing pages are
 
 ![Aridho Panel](/posts/2020/open-source-intelligence/aridho-panel.webp "Aridho Panel")
 
-
 I think we got enough of this, this is for sure a scam / phishing operation and our target is one of this group. So, the last thing I want to do is to search for the new email we found (`diansoft1711@gmail.com`) let's see if this email have been in a leak.
 
 ![Have I Been Pwned Report](/posts/2020/open-source-intelligence/haveibeenpwned-second-report.webp "Have I Been Pwned Report")
@@ -783,8 +781,8 @@ I think we got enough of this, this is for sure a scam / phishing operation and 
 It's have been, so it's time to search for Bukalapak leaked database. This one was not so easy like the `Canva`. But I manage to find it. And our new email target is in there.
 
 | Uid      | Email                  | Full Name | Password                                                     | Salt                 | Username     | Birthday |
-|----------|------------------------|-----------|--------------------------------------------------------------|----------------------|--------------|----------|
-| 47241282 | diansoft1711@gmail.com	| Andi      | $2a$10$T12OFkTmziUovvADLb7koeAd4VODsOkjEECOftIb5fy4UIaE3f7C2 | C1LyhB6B52CIjwEv3AMR | diansoft1711 |          |
+| -------- | ---------------------- | --------- | ------------------------------------------------------------ | -------------------- | ------------ | -------- |
+| 47241282 | diansoft1711@gmail.com | Andi      | $2a$10$T12OFkTmziUovvADLb7koeAd4VODsOkjEECOftIb5fy4UIaE3f7C2 | C1LyhB6B52CIjwEv3AMR | diansoft1711 |          |
 
 We can see he have a different `fullname` here (`Andi`). And we manage to get his `password` and `salt`. We don't even need to use tools to identify the hash type, from the news out there we know it's a `bcrypt`, and we see in the database we have a `salt`. We can use [hashcat](https://hashcat.net/hashcat) and try to crack it, but this is my red line, I don't think the guy tried to hack my service.
 

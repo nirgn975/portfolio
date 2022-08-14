@@ -14,8 +14,8 @@ categories: ["hacking"]
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "/posts/2020/getting-to-know-my-neighbors/blue-wireless-connection.webp"
-featuredImagePreview: "/posts/2020/getting-to-know-my-neighbors/blue-wireless-connection.webp"
+featuredImage: "/posts/2021/getting-to-know-my-neighbors/blue-wireless-connection.webp"
+featuredImagePreview: "/posts/2021/getting-to-know-my-neighbors/blue-wireless-connection.webp"
 
 toc:
   enable: true
@@ -35,7 +35,7 @@ It's don't that I have something against getting to know my neighbors in person,
 
 Let's set it up. First thing we need to do is to connect it to a power source, I choose to connect it to my computer usb-c port, then we need to wait for the top (and single) LED to be a solid blue - that's mean it's ready (from blinking blue when it's starting up).
 
-![The WiFi Pineapple is ready](/posts/2020/getting-to-know-my-neighbors/wifi-pineapple-ready-to-go.webp "The WiFi Pineapple is ready")
+![The WiFi Pineapple is ready](/posts/2021/getting-to-know-my-neighbors/wifi-pineapple-ready-to-go.webp "The WiFi Pineapple is ready")
 
 Now, according to the [setup guide from Hak5](https://docs.hak5.org/hc/en-us/articles/360053346334-Setup-Basics), if you connected it to the usb-c port, you can connect to the WiFi Pineapple via the usb instead of connecting into the WiFi Pineapple wifi. Which is more secure, so I let's do this that way.
 
@@ -49,7 +49,7 @@ The second thing is to checks for updates, in my case it needed to download one.
 
 Now we can start the _"General Setup"_ of the device. Let's give it a password, confirm it again, and choose our timezone. Next let's do the _"Networking Setup"_ (you can see in the screenshot below what I choose). At the _"Filters Setups"_ screen I choose _"Allow connections for only the listed devices..."_ and _"Allow associations for only the listed SSIDs..."_ so not everyone will be able to connect to the WiFi Pineapple, just the ones I'll target. And at the last screen, the _"Look and Feel"_, I choose the dark theme (did you expect anything else from me?).
 
-![My Networking Setup](/posts/2020/getting-to-know-my-neighbors/wifi-pineapple-networking-setup.webp "My Networking Setup")
+![My Networking Setup](/posts/2021/getting-to-know-my-neighbors/wifi-pineapple-networking-setup.webp "My Networking Setup")
 
 Finally we're at the WiFi Pineapple dashboard. Now, let's head over to the `Settings` (at the bottom left corner) -> `Networking` -> and `Wireless Client Mode`, from there scan your area and connect to your own wifi, so that the Pineapple will have internet connection.
 
