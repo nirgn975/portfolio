@@ -24,6 +24,7 @@ math:
 lightgallery: true
 license: ""
 ---
+
 This part is a direct continuation of [Learn Git - Part 1: introduction](https://lifelongstudent.io/2014/06/learn-git-part-1-introduction/), so if you haven't read it, go and read it first. We based on the things we learned and do there, so make sure you don't delete the repo we created in the part 1.
 
 &nbsp;
@@ -166,7 +167,7 @@ To github.com:nirgn975/test.git
 
 If we refresh the GitHub repo page we'll see the `README` file there, and a new _"Network"_ button (at the right menu, next to the _"Settings"_) where we can see all the `branch`s and all the `commit`s, with their messages, who're their author, when they `commit`ed, and more (basically like writing the `log` command on our terminal).
 
-So, we `push`ed our repo to a `remote` source on GitHub (or any other `git` hosting), but how can Bob take this code to his local machine? Like we said before, with the `pull` command (we'll also use the  `pull` command to sync our local repo with the `remote` one, so get changes other team members did and `push`).
+So, we `push`ed our repo to a `remote` source on GitHub (or any other `git` hosting), but how can Bob take this code to his local machine? Like we said before, with the `pull` command (we'll also use the `pull` command to sync our local repo with the `remote` one, so get changes other team members did and `push`).
 
 ```bash
 $ git pull origin master
@@ -269,6 +270,7 @@ Now let's create a new `branch` to work on a new task, the branch will be called
 $ git checkout -b basic-main
 Switched to a new branch 'basic-main'
 ```
+
 Then we'll add the `<a href="detailed.html">Go to detailed page!</a>` line right after `content of website ..`.
 
 ```html
@@ -305,12 +307,12 @@ gitGraph:
 options
 { "nodeSpacing": 100, "nodeRadius": 10 }
 end
-    commit
-    commit
-    branch basicmain
-    checkout basicmain
-    commit
-    commit
+commit
+commit
+branch basicmain
+checkout basicmain
+commit
+commit
 {{< /mermaid >}}
 
 Right in the middle of our work on the `basic-main` branch, we get an email from our boss that there are bugs in `master` and we need to take care of it immediately. So let's head over to `master` (you can run `git branch` after you `checkout` to `master` just to make sure you're on `master`).
@@ -372,18 +374,18 @@ gitGraph:
 options
 { "nodeSpacing": 100, "nodeRadius": 10 }
 end
-    commit
-    commit
-    branch basicmain
-    checkout basicmain
-    commit
-    commit
-    checkout master
-    commit
-    checkout basicmain
-    commit
-    checkout master
-    merge basicmain
+commit
+commit
+branch basicmain
+checkout basicmain
+commit
+commit
+checkout master
+commit
+checkout basicmain
+commit
+checkout master
+merge basicmain
 {{< /mermaid >}}
 
 &nbsp;
@@ -419,7 +421,7 @@ It's time to practice. Remember that the best practice is through your fingertip
 8. Use the `remote add` command like so: `git remote add origin https://github.com/example/importantProject.git`.
 9. You need the `push` command with the `-u` flag: `git push -u origin master`.
 10. Use the `clone` command like so: `git clone https://github.com/nirgn975/test.git`.
-11. Use the `checkout` command with the `b` flag, like so: `git checkout  -b fix457`.
+11. Use the `checkout` command with the `b` flag, like so: `git checkout -b fix457`.
 12. `git merge fix457`.
 
 &nbsp;
@@ -428,6 +430,6 @@ It's time to practice. Remember that the best practice is through your fingertip
 
 We now know how to see the changes that were made from the last `commit`, how to go back if we regret something we did in a `commit` or the commit message, or even forget to add something to the `commit`.
 
-We upload the project to a remote repository (GitHub in this case), we created new branches, worked with other team members, and merge our code to the `master` branch (we go over a `merge` with no changes in `master` and with one **with** changes in  `master`, but not in the same file - we'll talk about it in future chapter).
+We upload the project to a remote repository (GitHub in this case), we created new branches, worked with other team members, and merge our code to the `master` branch (we go over a `merge` with no changes in `master` and with one **with** changes in `master`, but not in the same file - we'll talk about it in future chapter).
 
 We definitely learned a lot in this chapter! Don't forget to practice it through your fingers, it's the best way to learn something new. And don't hesitate to ask questions in the comments if something is not clear - I'll do my best to help.

@@ -24,6 +24,7 @@ math:
 lightgallery: true
 license: ""
 ---
+
 Creating Jekyll progressive web apps has never been easier!
 
 &nbsp;
@@ -36,16 +37,16 @@ It’ll create for you the default Jekyll website template, with all the best pr
 
 What more cool stuff? Here are couple of examples.
 
-* You can write [pug](https://github.com/pugjs/pug) instead of HTML.
-* You can use CSS or SASS or SCSS.
-* Automagically minifies HTML, and automagically autoprefixing CSS.
-* You can choose to write ES2015 with [babel](https://github.com/babel/babel).
-* Concatenate and minify JavaScript.
-* Built-in preview and auto update with BrowserSync.
-* Automagically generates a service worker for your website for offline support.
-* Test the website against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI if the score is below 80.
-* Automagically optimizes image before deploy.
-* Deploy the website to gh-pages or firebase with only one command.
+- You can write [pug](https://github.com/pugjs/pug) instead of HTML.
+- You can use CSS or SASS or SCSS.
+- Automagically minifies HTML, and automagically autoprefixing CSS.
+- You can choose to write ES2015 with [babel](https://github.com/babel/babel).
+- Concatenate and minify JavaScript.
+- Built-in preview and auto update with BrowserSync.
+- Automagically generates a service worker for your website for offline support.
+- Test the website against [lighthouse](https://github.com/GoogleChrome/lighthouse) and fail Travis-CI if the score is below 80.
+- Automagically optimizes image before deploy.
+- Deploy the website to gh-pages or firebase with only one command.
 
 ![The generator in action](/posts/2017/jekyll-starter-kit-generator-2.1.0-is-out/the-generator-in-action.webp "The generator in action")
 

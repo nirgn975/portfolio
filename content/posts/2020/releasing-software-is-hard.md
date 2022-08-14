@@ -91,7 +91,7 @@ Here are my configurations.
 
 ![Init The Project](/posts/2020/releasing-software-is-hard/init-the-project.webp "Init The Project")
 
-Now we need to install [commitizen](https://github.com/commitizen/cz-cli) and make our repo __commitizen friendly__
+Now we need to install [commitizen](https://github.com/commitizen/cz-cli) and make our repo **commitizen friendly**
 
 ```bash
 $ npm install commitizen -g
@@ -137,7 +137,7 @@ jobs:
       - name: Create Release 🚀
         uses: ridedott/release-me-action@master
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           release-branches: '["main"]'
 ```
@@ -150,11 +150,11 @@ $ git cz
 $ git push origin main
 ```
 
-The last thing we need to do is to create a milestone in GitHub, then look at the __Actions__ section and see our workflow, but we notice it doesn't run yet.
+The last thing we need to do is to create a milestone in GitHub, then look at the **Actions** section and see our workflow, but we notice it doesn't run yet.
 
 ![GitHub Actions When Milestone Is Open](/posts/2020/releasing-software-is-hard/github-actions-when-milestone-is-open.webp "GitHub Actions When Milestone Is Open")
 
-Then let's close the milestone (just hit the `close` button), and refresh the __Action__ tab.
+Then let's close the milestone (just hit the `close` button), and refresh the **Action** tab.
 
 ![GitHub Actions After Milestone Closed](/posts/2020/releasing-software-is-hard/github-actions-after-milestone-closed.webp "GitHub Actions After Milestone Closed")
 

@@ -24,6 +24,7 @@ math:
 lightgallery: true
 license: ""
 ---
+
 I think everybody here at least heard about [GitHub](https://github.com) and maybe even about the file management system called [git](https://git-scm.com) which is everywhere in the development world those days. So, as a computer science student I choose to learn it, and what batter way to learn something then to write about it.
 
 So in this series of posts I'll document my journey to learn git (which is the base of GitHub as the only version control you can use on the platform). I hope more people can use it as a learning document or even to deepen their knowledge in the tool.
@@ -105,6 +106,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 We can see we got couple of pieces of information back:
+
 - We are on branch `master` (we'll take about branches later)
 - There is no commits yet in this repo.
 - We have a new file (file that `git` doesn't track) in the name of `README.md`
@@ -126,7 +128,7 @@ Changes to be committed:
 
 We see almost the same pieces of information, but now `git` have a file in his _staging area_ (a file ready to be `commit`ed). So, it's time to do our first `commit`. To do this we'll use the `commit` command. A flag that the `commit` command have is `m` which means _"message"_, with this flag we can add a message to the `commit` to describe the changes this `commit` is do.
 
-When we do the `commit` we basically take a snapshot of our file system in this exact time. Even a space means a change. This commit is added to the repo (project) timeline (it's accepted to draw it and imagine it as a timeline, because every `commit` has a timestamp, so we can place them all on a big timeline from the start of the project until now).  
+When we do the `commit` we basically take a snapshot of our file system in this exact time. Even a space means a change. This commit is added to the repo (project) timeline (it's accepted to draw it and imagine it as a timeline, because every `commit` has a timestamp, so we can place them all on a big timeline from the start of the project until now).
 
 ```bash
 $ git commit -m "Created an empty README file"
@@ -188,6 +190,7 @@ $ git commit -m "Add a new LICENSE file and finish README"
 ```
 
 To look at the history, the log, of the current timeline we can use the `log` command. We see there're two `commit`s in the branch (timeline) we're currently at. And also much more information:
+
 - We're in the `master` branch (timeline).
 - The `commit`s hash, which is a unique string of number and letters to represent that `commit`. It's basically the name of the `commit`, with it we can reference that `commit`.
 - The author and the exact time and date of the `commit`.
@@ -215,8 +218,8 @@ gitGraph:
 options
 { "nodeSpacing": 150, "nodeRadius": 10 }
 end
-    commit
-    commit
+commit
+commit
 {{< /mermaid >}}
 
 &nbsp;

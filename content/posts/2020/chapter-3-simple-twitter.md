@@ -8,7 +8,24 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["twitter", "development", "angular", "angular cli", "node.js", "express", "git", "workflow", "github", "github actions", "nodemon", "lint", "unit tests", "coverage", "codecov"]
+tags:
+  [
+    "twitter",
+    "development",
+    "angular",
+    "angular cli",
+    "node.js",
+    "express",
+    "git",
+    "workflow",
+    "github",
+    "github actions",
+    "nodemon",
+    "lint",
+    "unit tests",
+    "coverage",
+    "codecov",
+  ]
 categories: ["development"]
 
 hiddenFromHomePage: false
@@ -58,9 +75,9 @@ Pull Requests initiate discussion about our commits. We can open a Pull Request 
 
 In our case, we're going to open a new Pull Request (PR) right after the first new commit in our new branch (all we need to open a PR is just one change, so right after the first commit we have a change and we can open it). This is a good practice, it let others see the direction and progress we are making.
 
-In a real world environment we'll probably have a CI/CD that will deploy our branch to a test environment so we can test our changes before merge them to `master`, in our case we'll settle just for passing the tests. Every commit we'll push on our branch will trigger a GitHub action *workflow* that will build our project, run tests and check the coverage of our tests. This is another good reason to push commits as early and as often as possible.
+In a real world environment we'll probably have a CI/CD that will deploy our branch to a test environment so we can test our changes before merge them to `master`, in our case we'll settle just for passing the tests. Every commit we'll push on our branch will trigger a GitHub action _workflow_ that will build our project, run tests and check the coverage of our tests. This is another good reason to push commits as early and as often as possible.
 
-When we'll finish the feature, bug, etc another team member will probably review our code (assuming our tests pass and everything is green). In our case we'll do it to ourselves. Once we're sure everything is good we'll *squash and merge* our branch to `master` branch, this will close our PR and our issue (that's good because we no longer have a need for them).
+When we'll finish the feature, bug, etc another team member will probably review our code (assuming our tests pass and everything is green). In our case we'll do it to ourselves. Once we're sure everything is good we'll _squash and merge_ our branch to `master` branch, this will close our PR and our issue (that's good because we no longer have a need for them).
 
 And then in our local machine we'll `checkout` to `master` branch, and `pull` the changes we just merge to the remote (GitHub) `master` (usually called `origin`), and the cycle will start all over again with a new issue (feature, bug, etc).
 
@@ -79,33 +96,33 @@ gitGraph:
 options
 { "nodeSpacing": 150, "nodeRadius": 10 }
 end
-    commit
-    branch feature
-    checkout feature
-    commit
-    commit
-    checkout master
-    commit
-    merge feature
+commit
+branch feature
+checkout feature
+commit
+commit
+checkout master
+commit
+merge feature
 {{< /mermaid >}}
 
 &nbsp;
 
 ## 2. Scaffolding Basic Client
 
-Now that we know how to work with git and GitHub are going to open our client repository and scaffold our frontend project. The first commit will be on `master` (without an issue and a pull request), because when we are open a PR it need a *base* branch to merge it to, and when we first open a repository we don't have and branch.
+Now that we know how to work with git and GitHub are going to open our client repository and scaffold our frontend project. The first commit will be on `master` (without an issue and a pull request), because when we are open a PR it need a _base_ branch to merge it to, and when we first open a repository we don't have and branch.
 
 ### 2.1. Create A Repository
 
-So let's start by open a new repository on GitHub, we can do it by pressing on the `+` sign in next to our profile picture, and then choose *New repository*
+So let's start by open a new repository on GitHub, we can do it by pressing on the `+` sign in next to our profile picture, and then choose _New repository_
 
 ![Open a New Repository](/posts/2020/chapter-3-simple-twitter/new-repository.webp "Open a New Repository")
 
-After that we'll be redirect to a new page when we need to fill some basic information about our repo. The name I choose for the repo is `simple-twitter-client` and it'll be a `public` repo, other then those you can leave everything as is and press on the big green button that says *Create Repository*.
+After that we'll be redirect to a new page when we need to fill some basic information about our repo. The name I choose for the repo is `simple-twitter-client` and it'll be a `public` repo, other then those you can leave everything as is and press on the big green button that says _Create Repository_.
 
 ### 2.2. Scaffold an Angular Project
 
-In *Simple Twitter - Chapter 1: Setup* we installed the [Angular CLI](https://cli.angular.io), now we're going to use it. Let's open our terminal on our local machine, I'm using [Hyper](https://hyper.is/) but you can use which ever terminal you used to, and navigate to the directory we want our project to be in (in my case it'll be a `web` directory in home).
+In _Simple Twitter - Chapter 1: Setup_ we installed the [Angular CLI](https://cli.angular.io), now we're going to use it. Let's open our terminal on our local machine, I'm using [Hyper](https://hyper.is/) but you can use which ever terminal you used to, and navigate to the directory we want our project to be in (in my case it'll be a `web` directory in home).
 
 ```shell
 $ cd ~/web
@@ -119,12 +136,11 @@ $ ng new simple-twitter-client
 
 ![Create a new project](/posts/2020/chapter-3-simple-twitter/ng-create-a-new-project.webp "Create a new project")
 
-
 Once the cli stop working we can see (with the `ls` command) that he created a new directory for us (with the name we gave it earlier). Let's navigate inside it (with the `cd` command), and, again, list the files inside the directory we're in (with `ls` command, but now let's use the `-a` flag to also see all of the hidden files - files and directories that start with `.` and by that not listed = hidden, in our file explorer).
 
 ![List all the files and directories](/posts/2020/chapter-3-simple-twitter/list-files-ng-directory.webp "List all the files and directories")
 
-We can see there is a git directory called `.git`. This directory hold all of the git stuff for our project, it's like a mini database with a log of all the commits and changes we do. Angular CLI created it for us, but it doesn't know our GitHub repository, we need to manually let our git know about it. So let's head back to the GitHub repo, and there we can see couple of instructions, we'll use the *…or push an existing repository from the command line* one.
+We can see there is a git directory called `.git`. This directory hold all of the git stuff for our project, it's like a mini database with a log of all the commits and changes we do. Angular CLI created it for us, but it doesn't know our GitHub repository, we need to manually let our git know about it. So let's head back to the GitHub repo, and there we can see couple of instructions, we'll use the _…or push an existing repository from the command line_ one.
 
 ![Our Newly Created Repo](/posts/2020/chapter-3-simple-twitter/empty-repo.webp "Our Newly Created Repo")
 
@@ -145,7 +161,7 @@ If you didn't get any git errors, you can see on your terminal it `push` your lo
 
 ### 2.3. Install additional modules
 
-Now that we have a `master` branch with basic Angular project in it, let's create our first issue. I'll give it the title *Configuration*, and will add some TODOs to it so we don't need to remember our tasks.
+Now that we have a `master` branch with basic Angular project in it, let's create our first issue. I'll give it the title _Configuration_, and will add some TODOs to it so we don't need to remember our tasks.
 
 ```markdown
 - [ ] Install and configure the [ngrx](https://ngrx.io) package.
@@ -220,44 +236,37 @@ $ ng g module modules/material
 Now we have a new module, but it's not a _"shard"_ one yet, we need to add an `exports` array to the `NgModule` object, so every module we add to the `imports` array should also be added to the `exports` array.
 
 ```typescript
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-  ],
-  exports: [
-  ],
+  imports: [CommonModule],
+  exports: [],
 })
-export class MaterialModule { }
+export class MaterialModule {}
 ```
 
 After we created our new shard module we need to import it in the main module, e.g. `AppModule`. So we'll add the line `import { MaterialModule } from './modules/material/material.module';` with the other imports in the `app.module.ts` file, and add `MaterialModule` to the `imports` array. Your `app.module.ts` file should look like this:
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { environment } from '../environments/environment';
+import { environment } from "../environments/environment";
 
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { EffectsModule } from "@ngrx/effects";
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './modules/material/material.module';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MaterialModule } from "./modules/material/material.module";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -265,12 +274,12 @@ import { AppComponent } from './app.component';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 To check if material is working we can `import` some angular material component (for example the button component) and add it to the `app.component.html`, then when we start our app we'll see the button rendered in the browser.
@@ -278,7 +287,7 @@ To check if material is working we can `import` some angular material component 
 We'll add the below line to the `material.module.ts` file and add `MatButtonModule` to the `imports` array and the `exports` array.
 
 ```typescript
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from "@angular/material/button";
 ```
 
 Next, we'll delete all of the content in the `app.component.html` file add add the below line instead.
@@ -295,7 +304,7 @@ Now we should `commit` our changes, push it to GitHub, and we can mark another t
 
 ### 2.4. Some basic stuff
 
-The next 2 tasks in our issue is to create a `core` module and add  some `scss` basic styling. The `core` module should be a shard module, like the `material` one, and it should contain all of the stuff we'll `import` in the different modules (like `HttpClientModule`, `RouterModule`, `FormsModule`, etc). It also will contain some shard code, like `guards`, `models`, `services`, and `components` (but it's not relevant now, we'll talk about it when we need to).
+The next 2 tasks in our issue is to create a `core` module and add some `scss` basic styling. The `core` module should be a shard module, like the `material` one, and it should contain all of the stuff we'll `import` in the different modules (like `HttpClientModule`, `RouterModule`, `FormsModule`, etc). It also will contain some shard code, like `guards`, `models`, `services`, and `components` (but it's not relevant now, we'll talk about it when we need to).
 
 For now, let's create it and `import` and `export` some basic modules (that we know we're going to use). We'll create the module with ng cli
 
@@ -306,28 +315,18 @@ $ ng g module modules/core
 And then `imports` and `exports` some basic stuff in it. Let's import the `HttpClientModule`, `FormsModule` and `ReactiveFormsModule`. The `core.module.ts` file should look like
 
 ```typescript
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  exports: [
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+  imports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule],
+  exports: [HttpClientModule, FormsModule, ReactiveFormsModule],
 })
-export class CoreModule { }
+export class CoreModule {}
 ```
 
 Then, all that left to do is to import the `CoreModule` in the `AppModule`, like we did with the `MaterialModule`, and `commit` and `push` the new changes.
@@ -335,7 +334,8 @@ Then, all that left to do is to import the `CoreModule` in the `AppModule`, like
 The last item on our issue's to-do list is the basic `scss` styling. This is just some css rules that we need to write in the `style.scss` located in the `src` directory.
 
 ```scss
-html, body {
+html,
+body {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -405,11 +405,11 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 ```
 
 From here, we'll add a command to install all the project dependencies, then run the lint, and then the tests, just like we run them on our local machine. So our final file should look like the one below.
@@ -427,20 +427,20 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: install dependencies
-      run: npm install
+      - name: install dependencies
+        run: npm install
 
-    - name: check lint errors
-      run: npm run lint
+      - name: check lint errors
+        run: npm run lint
 
-    - name: run tests
-      run: npm run test
+      - name: run tests
+        run: npm run test
 ```
 
 Now we can commit the changes and push the new branch. After that, we'll create a new PR for this new branch and we can notice that our GitHub action is start right away, with us doing anything. If you'll wait a little bit and let the workflow run, you'll see that it will fail, specifically the the `run tests` step, because it'll fail to start chrome to run the tests.
@@ -542,39 +542,13 @@ Now that we know what every script do, we understand that we just need to create
 {
   "rules": {
     "class-name": true,
-    "comment-format": [
-      true,
-      "check-space"
-    ],
-    "indent": [
-      true,
-      "spaces"
-    ],
-    "one-line": [
-      true,
-      "check-open-brace",
-      "check-whitespace"
-    ],
+    "comment-format": [true, "check-space"],
+    "indent": [true, "spaces"],
+    "one-line": [true, "check-open-brace", "check-whitespace"],
     "no-var-keyword": true,
-    "quotemark": [
-      true,
-      "double",
-      "avoid-escape"
-    ],
-    "semicolon": [
-      true,
-      "always",
-      "ignore-bound-class-methods"
-    ],
-    "whitespace": [
-      true,
-      "check-branch",
-      "check-decl",
-      "check-operator",
-      "check-module",
-      "check-separator",
-      "check-type"
-    ],
+    "quotemark": [true, "double", "avoid-escape"],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-type"],
     "typedef-whitespace": [
       true,
       {
@@ -615,19 +589,14 @@ And then write the basic configuration for `tsconfig.json` file:
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ]
+      "*": ["node_modules/*", "src/types/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }
 ```
 
-Those configuration and rules are basic templates you can find on the documentation sites of typescript and tslint packages, so we'll not go over them. Now, we just need the `server.ts` file, so the `tsc` will compile it to `server.js` and and npm `serve` script will have something to run. The default path the compiler looks for this file is under a directory named `src`, so we'll create  it there.
+Those configuration and rules are basic templates you can find on the documentation sites of typescript and tslint packages, so we'll not go over them. Now, we just need the `server.ts` file, so the `tsc` will compile it to `server.js` and and npm `serve` script will have something to run. The default path the compiler looks for this file is under a directory named `src`, so we'll create it there.
 
 ```bash
 $ touch src/server.ts
@@ -766,32 +735,36 @@ dist/
 
 Before we commit we'll create a `README.md` file (`$ touch README.md`) with some instructions.
 
-``````markdown
+````markdown
 # Simple Twitter Server
 
 This is the backend of Simple Twitter project. This project is for educational purpose only.
 
 ## Our Stack
-  * [Express](http://expressjs.com)
-  * [Node.js](https://nodejs.org)
-  * [MongoDB](https://www.mongodb.com)
+
+- [Express](http://expressjs.com)
+- [Node.js](https://nodejs.org)
+- [MongoDB](https://www.mongodb.com)
 
 ## Pre Requirements
-  1. [NodeJS](https://nodejs.org).
-  2. [TypeScript](https://www.typescriptlang.org).
-  3. [MongoDB](https://www.mongodb.com).
+
+1. [NodeJS](https://nodejs.org).
+2. [TypeScript](https://www.typescriptlang.org).
+3. [MongoDB](https://www.mongodb.com).
 
 ## Installation
-  1. Install nodemon globally `npm i -g nodemon`.
-  1. Install requirements with `npm install`.
-  2. Run the server with `npm start`.
-  3. Open your http client at [http://localhost:8080](http://localhost:8080).
+
+1. Install nodemon globally `npm i -g nodemon`.
+1. Install requirements with `npm install`.
+1. Run the server with `npm start`.
+1. Open your http client at [http://localhost:8080](http://localhost:8080).
 
 **Configurations**
 
 Create a `.env` file at the root directory (this file should not be commit).
 
 Here is an example of the `.env` file:
+
 ```
 DATABASE_URI=mongodb://localhost/simpletwitter
 JWT=SIMTWITT
@@ -802,9 +775,10 @@ NODE_ENV=dev
 ```
 
 ## Tests
-  * Run `npm run tslint` to check for ESLint mistakes.
-  * Run `npm test` to run the integration tests.
-``````
+
+- Run `npm run tslint` to check for ESLint mistakes.
+- Run `npm test` to run the integration tests.
+````
 
 And now we have a basic npm project and we're ready to commit everything on `master` branch (because it's our first commit, we cannot open a PR because we don't have a default branch to compare it to it, yet), and push it to GitHub.
 
@@ -899,7 +873,6 @@ const router: express.Router = express.Router();
 
 We'll not use it yet, but we want to create it now because we know we're going to need it in the future. For now let's create a new method with the name `configureRoutes` and there we'll create a new endpoint in the root (`/`) path that we'll return us a simple text that our express app is working.
 
-
 ```typescript
 /**
  * Registr routes.
@@ -930,7 +903,6 @@ import { App } from "./app";
 ```
 
 Now we'll create a `server` class and in the `constructor` we'll handle some Node.js errors and create an instance of that `App`.
-
 
 ```typescript
 /**
@@ -963,7 +935,7 @@ And at the end of the file we'll export an instance of the `Server` for testing 
 
 ```typescript
 // Export for testing
-export default new Server;
+export default new Server();
 ```
 
 So everything is good, we create our `App` instance, but we need to `listen` to some port with this API. So let's add a new method with the name `configurExpress` in the `Server` class and set the express port and start listen on that port.
@@ -1215,7 +1187,6 @@ this.app.set("port", this.config.config.port);
 
 Now, the last thing we need to do is to create our seed script, so we can load, in the future, some dummy data to our database, so it'll be easier to "play" with our endpoints and to write tests. So, let's create a `seed.ts` file.
 
-
 ```bash
 $ touch src/util/seed.ts
 ```
@@ -1231,7 +1202,6 @@ import * as mongoose from "mongoose";
  * @class Seed
  */
 export default class Seed {
-
   /**
    * @class Seed
    * @constructor
