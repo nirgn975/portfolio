@@ -1,5 +1,5 @@
 ---
-title: "Getting my feet wet with NestJS and GraphQL - part 1"
+title: "Getting my feet wet with NestJS and GraphQL"
 subtitle: ""
 date: 2021-03-01T09:00:00+03:00
 lastmod: 2021-03-01T09:00:00+03:00
@@ -25,7 +25,7 @@ lightgallery: true
 license: ""
 ---
 
-For the longest time I wanted to start learning [GraphQL](https://graphql.org) and incorporate it into a project. I also started to hear about [NestJS](https://nestjs.com) a few months ago and wanted to play with it as well. So I thought to myself why not doing both?
+For the longest time I wanted to start learning [GraphQL](https://graphql.org) and incorporate it into a project. I also started to hear a lot about [NestJS](https://nestjs.com) a few months ago and wanted to play with it as well. So I thought to myself why not doing both?
 
 ![Why Not Doing Both?](/posts/2021/nestjs-graphql-mongodb/why-not-both.gif "Why Not Doing Both?")
 
@@ -41,7 +41,7 @@ But before we're getting started why even choose NestJS? And what is GraphQL?
 
 NestJS is a progressive [Node.js](https://nodejs.org) framework for building efficient, reliable and scalable server-side applications. It uses [TypeScript](https://www.typescriptlang.org) out of the box, and provides more structure, which helps large teams build complex backends more consistently than when using Express or other minimalistic frameworks and as a current user of [Express.js](https://expressjs.com) right now, I feel like it's a welcome change.
 
-Also, it have similar architectures to Angular applications - which I already know and love, and it take a lot of their philosophy (like the battery included, the great CLI, the awesome docs, etc) which is excellent.
+Also, it have similar architectures to Angular applications - which I already know, and it take a lot of their philosophy (like the battery included, the great CLI, the awesome docs, etc) which is excellent.
 
 ### 1.2 GraphQL
 
@@ -61,7 +61,7 @@ $ nest new server
 $ cd server
 ```
 
-Once we created the project, our project directory will look like this
+Once we created the project, our project directory tree will look like this
 
 ```
 .
@@ -123,12 +123,12 @@ $ nest g module tweets
 
 It's time to incorporate some GraphQL stuff into our Nest app. If you'll read the [Nest docs about GraphQL](https://docs.nestjs.com/graphql/quick-start) you'll see we have two different ways to do it: _code first_ and _schema first_.
 
-My dream is to create a single model (as a typescript classes) and let Nest generate the GraphQL schema, and the MongoDB schemas. This can be done in the **code first** approach, so we'll choose this.
+My dream is to create a single model (as a typescript classes) and let Nest generate the GraphQL schema, and the MongoDB schemas. This can be done in the **code first** approach, so we'll choose that way.
 
 The first thing we need to do is to install some required packages.
 
 ```bash
-$ npm install @nestjs/graphql graphql-tools graphql apollo-server-express
+$ npm install @nestjs/graphql @nestjs/apollo graphql apollo-server-express
 ```
 
 Once the packages are installed, we can import the `GraphQLModule` and configure it with the `forRoot()` static method, and then we'll use `autoSchemaFile` to tell Nest where to auto create the the GraphQL schema file.
@@ -138,13 +138,15 @@ Once the packages are installed, we can import the `GraphQLModule` and configure
 import { join } from "path";
 import { Module } from "@nestjs/common";
 import { GraphQLModule } from "@nestjs/graphql";
+import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 
 import { UsersModule } from "./users/users.module";
 import { TweetsModule } from "./tweets/tweets.module";
 
 @Module({
   imports: [
-    GraphQLModule.forRoot({
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), "src/schema.gql"),
     }),
     UsersModule,
@@ -188,7 +190,7 @@ export class Tweet {
 }
 ```
 
-The nest step is to generate a service that handle all of the data stuff, because for now we'll not save it in the database, we'll just have an array to save data to and retrieve it from.
+The next step is to generate a service that handle all of the data stuff, because for now we'll not save it in the database, we'll just have an array to save data to and retrieve it from.
 
 ```bash
 $ nest generate service users

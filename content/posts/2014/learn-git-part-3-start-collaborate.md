@@ -1,5 +1,5 @@
 ---
-title: "Learn Git - Part 3: introduction"
+title: "Learn Git - Part 3: start collaborate"
 subtitle: ""
 date: 2014-08-03T09:00:00+03:00
 lastmod: 2014-08-03T09:00:00+03:00
@@ -8,14 +8,14 @@ author: "Nir Galon"
 authorLink: "https://nir.galon.io"
 description: ""
 
-tags: ["git", "learn", "github", "cli", "command line", "workflow", "linus torvalds"]
+tags: ["git", "learn", "github"]
 categories: ["tools"]
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "/posts/2014/learn-git-part-1-introduction/cover.webp"
-featuredImagePreview: "/posts/2014/learn-git-part-1-introduction/cover.webp"
+featuredImage: "/posts/2014/learn-git-part-3-start-collaborate/cover.webp"
+featuredImagePreview: "/posts/2014/learn-git-part-3-start-collaborate/cover.webp"
 
 toc:
   enable: true
