@@ -1,0 +1,37 @@
+<div class="flex w-full items-center justify-between py-6 px-4 sm:px-6 lg:px-8">
+  <a href="/">
+    <span class="sr-only">Nir Galon</span>
+    <i class="h-10 w-10 fa-solid fa-user-astronaut"></i>
+  </a>
+  <div class="ml-10 space-x-8 lg:block">
+    <a href="/blog" class="text-base font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 hover:dark:text-zinc-300">Blog</a>
+
+    <a href="/categories" class="text-base font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 hover:dark:text-zinc-300">Categories</a>
+
+    <a href="/about" class="text-base font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 hover:dark:text-zinc-300">About</a>
+
+    <a href="/contact" class="text-base font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 hover:dark:text-zinc-300">Contact</a>
+
+    <button id="theme-button" onclick="handleClick()"></button>
+  </div>
+
+  <script is:inline>
+    if (localStorage.getItem("theme") == "dark") {
+      document.getElementById("theme-button").innerHTML = "<i class='fa-solid fa-sun'></<i>";
+    } else {
+      document.getElementById("theme-button").innerHTML = "<i class='fa-solid fa-moon'></<i>";
+    }
+
+    const handleClick = () => {
+      if (localStorage.getItem("theme") == "dark") {
+        document.documentElement.classList.remove("dark");
+        localStorage.theme = "light";
+        document.getElementById("theme-button").innerHTML = "<i class='fa-solid fa-moon'></<i>";
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.theme = "dark";
+        document.getElementById("theme-button").innerHTML = "<i class='fa-solid fa-sun'></<i>";
+      }
+    };
+  </script>
+</div>

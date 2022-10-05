@@ -1,0 +1,126 @@
+---
+import Layout from "./Layout.astro";
+
+export interface Props {
+  content: {
+    title: string;
+    date: string;
+    author: string;
+    authorLink: string;
+    category: string;
+    featuredImage: string;
+  };
+}
+
+const {
+  content: { title, date, author, authorLink, category, featuredImage },
+} = Astro.props;
+---
+
+<Layout title={`Blog | ${title}`}>
+  <article>
+    <h2 class="my-2 text-3xl font-bold">{title}</h2>
+
+    <div class="flex mb-1">
+      <span>
+        <a href={authorLink} target="_blank" class="hover:text-zinc-800 dark:hover:text-zinc-300">
+          <i class="fa-solid fa-user"></i>
+          {author}
+        </a>
+      </span>
+
+      <span class="ml-1 text-sm text-zinc-400 dark:text-zinc-600 flex self-end">
+        included in
+        <a href={`/categories/${category}`} class="text-zinc-700 dark:text-zinc-400 ml-1 hover:text-zinc-800 dark:hover:text-zinc-300">
+          <i class="fa-regular fa-folder"></i>
+          {category}
+        </a>
+      </span>
+    </div>
+
+    <div class="flex">
+      <span class="text-sm text-zinc-400 dark:text-zinc-600 flex self-end">
+        <i class="fa-regular fa-calendar-days"></i>
+        <time datetime={date} class="ml-1">
+          {
+            new Date(date).toLocaleDateString("en-us", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })
+          }
+        </time>
+      </span>
+
+      <span class="ml-3 text-sm text-zinc-400 dark:text-zinc-600">
+        <i class="fa-regular fa-pencil"></i>
+        1425 words
+      </span>
+
+      <span class="ml-3 text-sm text-zinc-400 dark:text-zinc-600">
+        <i class="fa-regular fa-clock"></i>
+        7 minutes
+      </span>
+    </div>
+
+    <div class="flex">
+      <div class="w-3/4">
+        <img src={featuredImage} class="object-cover my-2 w-full max-h-96" />
+        <div class="content">
+          <slot />
+        </div>
+      </div>
+
+      <div class="w-1/4 sticky top-0 h-fit mt-2 ml-4 pl-4 border-l-4 border-zinc-300 dark:border-zinc-700">
+        <p class="text-lg font-semibold mb-2">CONTENTS</p>
+        <p>1. Request a Quota</p>
+        <p>2. Create the VM</p>
+        <p>3. Install CUDA and Hashcat</p>
+        <p>4. Let's get down to business</p>
+        <p>5. Summary</p>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+  .content img {
+    margin: 0.5rem auto;
+  }
+
+  .content p {
+    margin: 0.5rem 0;
+  }
+
+  .content h2 {
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+    font-weight: bolder;
+  }
+
+  .content code > p {
+    color: #e74c3c;
+    background: #f5f5f5;
+    padding: 0 0.4rem;
+  }
+
+  .dark .content p > code {
+    color: #e5bf78;
+    background: #272c34;
+    padding: 0 0.4rem;
+  }
+
+  .content a {
+    color: #0ea5e9;
+  }
+
+  .content a:hover {
+    color: #38bdf8;
+  }
+
+  .content pre {
+    background: #272c34 !important;
+    padding: 0.5rem 0;
+  }
+</style>
