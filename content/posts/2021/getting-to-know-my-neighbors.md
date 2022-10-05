@@ -1,5 +1,5 @@
 ---
-title: "Moving House And Getting To Know My Neighbors"
+title: "Getting to know my new neighbors"
 subtitle: ""
 date: 2021-02-01T09:00:00+03:00
 lastmod: 2021-02-01T09:00:00+03:00
