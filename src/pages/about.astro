@@ -9,6 +9,7 @@ let repos: Array<{ code: string; title: string; name?: string; description?: str
   { code: "angular-sanic-seed-project", title: "Angular Sanic Seed Project" },
   { code: "awesome-cyber-awesome", title: "Awesome Cyber Awesome" },
   { code: "google-keep-api", title: "Google Keep API" },
+  { code: "elmctron", title: "Elmctron" },
 ];
 
 for await (const [index, repo] of repos.entries()) {
@@ -432,7 +433,7 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
               </a>
 
               <a href={repo.url} target="_blank">
-                <img src={`/projects/${repo.code}.webp`} />
+                <img src={`/about/projects/${repo.code}.webp`} />
               </a>
 
               <p class="p-4 flex-1">{repo.description}</p>
