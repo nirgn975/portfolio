@@ -26,6 +26,20 @@ jobs:
         # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
         # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
+  publish-release:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Publish a release to GitHub
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create Release 🚀
+        uses: ridedott/release-me-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release-branches: '["main"]'
+
   deploy:
     needs: build
     runs-on: ubuntu-latest

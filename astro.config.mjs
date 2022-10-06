@@ -8,7 +8,6 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://nir.galons.io",
-  base: "/portfolio",
+  site: "https://nir.galons.io/portfolio",
   integrations: [sitemap(), tailwind(), astroImageTools, partytown(), mdx()],
 });
