@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/nirgn975/portfolio/compare/v1.0.0...v1.0.1) (2022-10-06)
+
+### Bug Fixes
+
+- add new project to about/projects section ([add0d5d](https://github.com/nirgn975/portfolio/commit/add0d5dfa7e2f2d1e7d404b4ca6e5a7b94bddc4b))
+
+### Other
+
+- Merge branch 'main' of github.com:nirgn975/portfolio ([b9f52df](https://github.com/nirgn975/portfolio/commit/b9f52dfad893d3b92950a80b7e073605f25f1913))
+
 # 1.0.0 (2022-10-06)
 
 ### Bug Fixes
