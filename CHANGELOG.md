@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/nirgn975/portfolio/compare/v1.0.1...v1.0.2) (2022-10-06)
+
+### Bug Fixes
+
+- project image file ([f9f01f3](https://github.com/nirgn975/portfolio/commit/f9f01f3270012ef9f3e306a7b149da998707b2ec))
+
 ## [1.0.1](https://github.com/nirgn975/portfolio/compare/v1.0.0...v1.0.1) (2022-10-06)
 
 ### Bug Fixes
