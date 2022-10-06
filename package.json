@@ -23,12 +23,9 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "astro": "^1.2.6",
-    "astro-imagetools": "^0.6.11",
     "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/git": "^10.0.1",
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0"
   },
