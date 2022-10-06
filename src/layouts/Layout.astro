@@ -1,0 +1,81 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+export interface Props {
+  title: string;
+}
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Primary Meta Tags -->
+    <title>{title || SITE_TITLE}</title>
+    <meta name="title" content={SITE_TITLE} />
+    <meta name="description" content={SITE_DESCRIPTION} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={SITE_TITLE} />
+    <meta property="og:description" content={SITE_DESCRIPTION} />
+    <!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={SITE_TITLE} />
+    <meta property="twitter:description" content={SITE_DESCRIPTION} />
+    <!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
+
+    <script type="text/partytown" src="https://kit.fontawesome.com/01f4dda7dc.js" crossorigin="anonymous"></script>
+    <script type="text/partytown" defer data-domain="nir.galons.io" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+  <body class="flex flex-col bg-zinc-50 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-400">
+    <header class="bg-zinc-100 dark:bg-zinc-900">
+      <nav class="mx-auto max-w-7xl">
+        <Header />
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <section class="mx-auto max-w-7xl">
+        <slot />
+      </section>
+    </main>
+
+    <footer>
+      <section class="mx-auto max-w-7xl">
+        <Footer />
+      </section>
+    </footer>
+
+    <script is:inline>
+      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  html {
+    font-family: "Helvetica Neue", sans-serif !important;
+    @apply h-full;
+  }
+  body {
+    @apply h-full;
+  }
+</style>
