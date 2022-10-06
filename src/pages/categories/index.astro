@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 
 const allPosts = (await Astro.glob("../blog/**/*.{md,mdx}"))
   .filter((post) => import.meta.env.MODE == "development" || !post.frontmatter.draft)
-  .sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+  .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 
 const categories: Record<string, any> = { tools: [] };
 allPosts.map((post: Record<string, any>) => {

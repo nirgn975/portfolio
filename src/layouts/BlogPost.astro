@@ -4,7 +4,7 @@ import Layout from "./Layout.astro";
 export interface Props {
   content: {
     title: string;
-    date: string;
+    pubDate: string;
     author: string;
     authorLink: string;
     category: string;
@@ -13,7 +13,7 @@ export interface Props {
 }
 
 const {
-  content: { title, date, author, authorLink, category, featuredImage },
+  content: { title, pubDate, author, authorLink, category, featuredImage },
 } = Astro.props;
 ---
 
@@ -41,9 +41,9 @@ const {
     <div class="flex">
       <span class="text-sm text-zinc-400 dark:text-zinc-600 flex self-end">
         <i class="fa-regular fa-calendar-days"></i>
-        <time datetime={date} class="ml-1">
+        <time datetime={pubDate} class="ml-1">
           {
-            new Date(date).toLocaleDateString("en-us", {
+            new Date(pubDate).toLocaleDateString("en-us", {
               year: "numeric",
               month: "short",
               day: "numeric",

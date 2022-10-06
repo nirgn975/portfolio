@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Simple Twitter - Chapter 2: Planning"
-date: 2020-07-01T09:00:00+03:00
+pubDate: 2020-07-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/chapter-2-simple-twitter/simple-twitter-cover.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 First thing we need to do, before we even start writing a single line of code, is to plan. Plan our MVP.

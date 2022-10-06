@@ -1,7 +1,108 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const posts = (await Astro.glob("./**/*.{md,mdx}"))
+  .filter((post) => import.meta.env.MODE == "development" || !post.frontmatter.draft)
+  .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf())
+  .slice(0, 3);
 ---
 
 <Layout title="Homepage">
-  <p>welcome!</p>
+  <p id="typeit" class="text-center mt-4 text-lg"></p>
+
+  <!-- Recent posts -->
+  <section class="py-6">
+    <div class="flex items-center my-2">
+      <i class="fa-thin fa-pencil h-8 w-8"></i>
+      <h2 class="ml-2 font-medium text-3xl">Recent Posts</h2>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4">
+      {
+        posts.map((post) => (
+          <div class="flex flex-col bg-zinc-200 dark:bg-zinc-700 rounded-sm">
+            <a href={post.url} class="flex-1">
+              <h3 class="p-2 text-xl">{post.frontmatter.title}</h3>
+            </a>
+
+            <a href={post.url}>
+              <img src={post.frontmatter.featuredImage} class="object-cover my-2 w-full h-60" />
+            </a>
+
+            <p class="line-clamp-3 m-2">
+              {post
+                .compiledContent()
+                .replace(/<[^>]*>?/gm, "")
+                .substring(0, 250)}
+            </p>
+
+            <div class="flex justify-between p-2 text-zinc-600 dark:text-zinc-500">
+              <span class="ml-1 text-sm flex self-end">
+                published on
+                <time datetime={post.frontmatter.pubDate} class="ml-1">
+                  {new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+              </span>
+
+              <span class="ml-1 text-sm flex self-end">
+                <a href={`/categories/${post.frontmatter.category}`} class="ml-1 hover:text-zinc-700 dark:hover:text-zinc-400">
+                  <i class="fa-regular fa-folder" />
+                  {post.frontmatter.category}
+                </a>
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="py-6">
+    <div class="flex items-center my-2">
+      <i class="fa-light fa-presentation-screen h-8 w-8"></i>
+      <h2 class="ml-2 font-medium text-3xl">Upcoming & Recent Talks</h2>
+    </div>
+
+    <div class="flex">
+      <div class="flex">
+        <img src="about/talks/pipenv-the-future-of-python-dependency-management.webp" alt="Talk Thumbnail" class="my-2" />
+        <div class="p-4">
+          <h3 class="text-2xl">Pipenv: The future of Python dependency management</h3>
+          <p class="pt-2">
+            <time>4/12/17</time> |
+            <span>
+              <a href="https://www.meetup.com/PyWeb-IL/events/245071494" target="_blank" rel="noreferrer" class="text-sky-500 hover:text-sky-400">
+                Meetpup Page</a
+              > |
+            </span>
+            <span>
+              <a
+                href="about/talks/pipenv-the-future-of-python-dependency-management.pptx"
+                target="_blank"
+                rel="noreferrer"
+                class="text-sky-500 hover:text-sky-400"
+              >
+                Download</a
+              >
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+  <script is:inline>
+    new TypeIt("#typeit", {
+      strings: "Hi! My name is Nir Galon, I'm a geek who always want to learn new things. I work as a software engineer and I love what I do!",
+      lifeLike: true,
+      cursor: true,
+      cursorChar: "<span class='text-zinc-400 ml-1'>|</span>",
+      waitUntilVisible: true,
+    }).go();
+  </script>
 </Layout>

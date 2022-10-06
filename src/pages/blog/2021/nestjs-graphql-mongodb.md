@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
-title: "Getting my feet wet with NestJS and GraphQL"
-date: 2021-03-01T09:00:00+03:00
+title: "Getting my feet wet with NestJS and GraphQL - part 1"
+pubDate: 2021-03-01T09:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2021/nestjs-graphql-mongodb/nestjs-graphql-mongodb.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 For the longest time I wanted to start learning [GraphQL](https://graphql.org) and incorporate it into a project. I also started to hear a lot about [NestJS](https://nestjs.com) a few months ago and wanted to play with it as well. So I thought to myself why not doing both?

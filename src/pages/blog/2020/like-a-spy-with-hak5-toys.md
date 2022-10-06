@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Like A Spy With Hak5 Toys"
-date: 2020-10-01T09:00:00+03:00
+pubDate: 2020-10-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/like-a-spy-with-hak5-toys/spy-cover.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 One of the things you always see in spy movies is how the main character plant a covert device to monitor the user computer (screen and keystrokes). As a kid I thought "This is very cool!", and I always wanted be able to do this. [Hak5](https://hak5.org) making it very easy to accomplish with a combination of couple of their ~~toys~~ tools.

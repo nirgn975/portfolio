@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Jekyll Starter Kit generator 3.x.x"
-date: 2020-09-01T09:00:00+03:00
+pubDate: 2020-09-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 First thing first, I want to send virtual thanks, gratitudes and hugs to all the people that star, download, use, and contribute the project! This is huge for me, you don't know how much it's affect and keep me going. Thank you!!

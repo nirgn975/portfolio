@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!"
-date: 2020-06-01T09:00:00+03:00
+pubDate: 2020-06-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/open-source-intelligence/osint-cover.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 Every operation need good intel, and good intel is hard to find. Or is it?

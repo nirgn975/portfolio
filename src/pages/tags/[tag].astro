@@ -8,7 +8,7 @@ export async function getStaticPaths() {
       post.frontmatter.tags.map((tag: any) => allTags.add(tag.toLowerCase()));
       return import.meta.env.MODE == "development" || !post.frontmatter.draft;
     })
-    .sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+    .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 
   return Array.from(allTags).map((tag) => {
     const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
@@ -26,7 +26,7 @@ const { tag } = Astro.params;
 
 <Layout title={String(tag)}>
   <div class="flex items-center my-6">
-    <i class="fa-solid fa-tag h-10 w-10"></i>
+    <i class="fa-solid fa-tag h-8 w-8"></i>
     <h2 class="ml-2 font-medium text-3xl">{tag}</h2>
   </div>
 
@@ -37,8 +37,8 @@ const { tag } = Astro.params;
           <a href={post.url} class="py-1 block hover:text-zinc-800 dark:hover:text-zinc-300">
             {post.frontmatter.title}
           </a>
-          <time datetime={post.frontmatter.date} class="ml-1">
-            {new Date(post.frontmatter.date).toLocaleDateString("en-us", {
+          <time datetime={post.frontmatter.pubDate} class="ml-1">
+            {new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
               year: "numeric",
               month: "short",
               day: "numeric",

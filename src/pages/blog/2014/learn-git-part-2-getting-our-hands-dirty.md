@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Learn Git - Part 2: getting our hands dirty"
-date: 2014-07-06T09:00:00+03:00
+pubDate: 2014-07-06T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2014/learn-git-part-2-getting-our-hands-dirty/cover.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 This part is a direct continuation of [Learn Git - Part 1: introduction](https://lifelongstudent.io/2014/06/learn-git-part-1-introduction/), so if you haven't read it, go and read it first. We based on the things we learned and do there, so make sure you don't delete the repo we created in the part 1.

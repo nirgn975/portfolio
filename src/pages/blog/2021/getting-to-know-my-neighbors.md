@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Getting to know my new neighbors"
-date: 2021-02-01T09:00:00+03:00
+pubDate: 2021-02-01T09:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2021/getting-to-know-my-neighbors/blue-wireless-connection.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 Lately I was moving to a new house, and the first thing that I do after getting comfortable in the new house is to getting to know my neighbors, like any other person on the planet will do, right? wrong!

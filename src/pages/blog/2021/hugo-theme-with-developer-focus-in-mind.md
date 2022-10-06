@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Hugo Theme With Developer Focus In Mind"
-date: 2021-01-01T09:00:00+03:00
+pubDate: 2021-01-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2021/hugo-theme-with-developer-focus-in-mind/hugo-logo-wide.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 Lately I was redesign [my own resume website](http://nir.galon.io). I consider it version 4 of the website, because it's the fourth major change I did to it. This website is running for quite a few years now, and every now and then I want to change the underline technology that I use or redesign it, so I spend a weekend and do it.

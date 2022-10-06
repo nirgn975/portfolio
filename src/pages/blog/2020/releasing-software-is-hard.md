@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Releasing Software Is Hard! Is it?"
-date: 2020-12-01T09:00:00+03:00
+pubDate: 2020-12-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/releasing-software-is-hard/software-development.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 One of the things I always got frustrated with is software releases and versioning.

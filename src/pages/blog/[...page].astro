@@ -5,7 +5,7 @@ export async function getStaticPaths({ paginate }) {
   // Use Astro.glob() to fetch all posts, and then sort them by date.
   const posts = (await Astro.glob("./**/*.{md,mdx}"))
     .filter((post) => import.meta.env.MODE == "development" || !post.frontmatter.draft)
-    .sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+    .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 
   // Generate pages from our array of astronauts, with 2 to a page
   return paginate(posts, { pageSize: 5 });
@@ -46,8 +46,8 @@ const { page } = Astro.props;
               </span>
               <span class="ml-1 text-sm text-zinc-400 dark:text-zinc-600 flex self-end">
                 published on
-                <time datetime={post.frontmatter.date} class="ml-1">
-                  {new Date(post.frontmatter.date).toLocaleDateString("en-us", {
+                <time datetime={post.frontmatter.pubDate} class="ml-1">
+                  {new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
                     year: "numeric",
                     month: "short",
                     day: "numeric",

@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Raspberry Pi"
-date: 2022-08-01T09:00:00+03:00
+pubDate: 2022-08-01T09:00:00+03:00
 draft: true
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2022/raspberry-pi/raspberry-pi-hero.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 raspberry pi

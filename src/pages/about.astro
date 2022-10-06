@@ -25,7 +25,7 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
     <!-- About Me -->
     <div class="py-6">
       <div class="flex items-center my-2">
-        <i class="fa-solid fa-user h-10 w-10"></i>
+        <i class="fa-solid fa-user h-8 w-8"></i>
         <h2 class="ml-2 font-medium text-3xl">About Me</h2>
       </div>
       <p class="mb-4">I'm a dedicated, quality-focused professional with a strong sense of responsibility, team spirit and good human skills.</p>
@@ -39,7 +39,7 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
     <!-- Work -->
     <div class="py-6">
       <div class="flex items-center my-2">
-        <i class="fas fa-briefcase h-10 w-10"></i>
+        <i class="fas fa-briefcase h-8 w-8"></i>
         <h2 class="ml-2 font-medium text-3xl">Work</h2>
       </div>
 
@@ -212,7 +212,7 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
     <!-- Education -->
     <div class="py-6">
       <div class="flex items-center my-2">
-        <i class="fas fa-graduation-cap h-10 w-10"></i>
+        <i class="fas fa-graduation-cap h-8 w-8"></i>
         <h2 class="ml-2 font-medium text-3xl">Education</h2>
       </div>
 
@@ -317,7 +317,7 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
     <!-- Skills -->
     <div class="py-6">
       <div class="flex items-center my-2">
-        <i class="fal fa-code h-10 w-10"></i>
+        <i class="fal fa-code h-8 w-8"></i>
         <h2 class="ml-2 font-medium text-3xl">Skills</h2>
       </div>
 
@@ -419,14 +419,14 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
     <!-- Projects -->
     <div class="py-6">
       <div class="flex items-center my-2">
-        <i class="fal fa-code-branch h-10 w-10"></i>
+        <i class="fal fa-code-branch h-8 w-8"></i>
         <h2 class="ml-2 font-medium text-3xl">Some of my Projects</h2>
       </div>
 
       <div class="mt-6 grid grid-cols-4 gap-4">
         {
           repos.map((repo) => (
-            <div class="flex flex-col bg-zinc-200 dark:bg-zinc-700">
+            <div class="flex flex-col bg-zinc-200 dark:bg-zinc-700 rounded-sm">
               <a href={repo.url} target="_blank" class="p-4">
                 <h3 class="text-lg font-medium">{repo.name}</h3>
               </a>
@@ -456,7 +456,7 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
     <!-- Talks -->
     <div class="py-6">
       <div class="flex items-center my-2">
-        <i class="fal fa-bullhorn h-10 w-10"></i>
+        <i class="fa-light fa-presentation-screen h-8 w-8"></i>
         <h2 class="ml-2 font-medium text-3xl">Talks</h2>
       </div>
 

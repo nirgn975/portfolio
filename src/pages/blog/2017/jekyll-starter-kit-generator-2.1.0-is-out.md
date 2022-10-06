@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Jekyll Starter Kit generator 2.1.0 is out!"
-date: 2017-08-03T18:19:10+03:00
+pubDate: 2017-08-03T18:19:10+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2017/jekyll-starter-kit-generator-2.1.0-is-out/jekyll-starter-kit.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 Creating Jekyll progressive web apps has never been easier!

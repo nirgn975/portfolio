@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Load Balancing Applications with HAProxy and Docker"
-date: 2017-07-11T12:53:47+03:00
+pubDate: 2017-07-11T12:53:47+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 A tutorial for a real world docker use case.

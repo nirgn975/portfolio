@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Simple Twitter - Chapter 3: Start Coding"
-date: 2020-08-01T09:00:00+03:00
+pubDate: 2020-08-01T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -30,12 +30,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2020/chapter-3-simple-twitter/simple-twitter-cover.webp"
-
-toc:
-  enable: true
-math:
-  enable: true
-diagram: true
 ---
 
 In this chapter we're going to open a new repository on GitHub and commit everything to it. We will learn about issues, pull requests (PR), branches, etc. And talk about the way we're going to work with GitHub for the rest of the series. We'll also start a new [Angular](https://angular.io/) application with [Angular CLI](https://cli.angular.io/), create the backend project with [Node.js](https://nodejs.org) and the [express](https://expressjs.com/) framework, and install all the packages we'll need for the client and backend.

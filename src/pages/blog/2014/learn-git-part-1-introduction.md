@@ -1,7 +1,7 @@
 ---
 layout: "../../../layouts/BlogPost.astro"
 title: "Learn Git - Part 1: introduction"
-date: 2014-06-15T09:00:00+03:00
+pubDate: 2014-06-15T09:00:00+03:00
 draft: false
 author: "Nir Galon"
 authorLink: "/about"
@@ -13,11 +13,6 @@ hiddenFromHomePage: false
 hiddenFromSearch: false
 
 featuredImage: "/posts/2014/learn-git-part-1-introduction/cover.webp"
-
-toc:
-  enable: true
-math:
-  enable: false
 ---
 
 I think everybody here at least heard about [GitHub](https://github.com) and maybe even about the file management system called [git](https://git-scm.com) which is everywhere in the development world those days. So, as a computer science student I choose to learn it, and what batter way to learn something then to write about it.
