@@ -1,21 +1,21 @@
-# Welcome to [Astro](https://astro.build)
+# Nir Galon Blog & portfolio
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](http://creativecommons.org/licenses/by/4.0/) ![Continuous Deployment](https://github.com/nirgn975/stories-of-a-lifelong-student/workflows/Continuous%20Deployment/badge.svg?branch=main) [![Donate](https://img.shields.io/badge/PayPal-Donate-lightgrey.svg)](https://www.paypal.me/nirgn/2)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> Stories of a Lifelong Student is the fourth interaction of my private blog. I always wanted to open source as much as I can in my blog, and when I decided to rebuilt and design it, it was the perfect chance to move to GitHub and open source the code, the images, the posts themselves, and especially my process.
+>
+> All of the posts are written by me, but I'm more then happy to receive some PRs to correct my grammar, a misleading information, an update to something, or basically everything!
+>
+> All the things I write in this post are my own thoughts and personal experiments. I'm not responsible for anything you might try to do, and not encourages anything that is not within the law. All the info in the posts are for learning and expanding horizons only!
+>
+> The posts are usually about computer science (data structures, algorithms, computer networks, operating system, and machine learning), open source (linux, git, code contribution), software development (programming, programming languages, frameworks, design patterns, and architecture), security information (pen testing and whitehat hacking), android and reverse engineering.
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+## 🚀 Getting Started
 
-Features:
+1. [Nodejs & npm](https://nodejs.org)
+2. [Astro](https://astro.build)
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
+## Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
@@ -52,6 +52,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
 | `npm run astro --help` | Get help using the Astro CLI                       |
 
-## 👀 Want to learn more?
+## 👀 Want to help?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
