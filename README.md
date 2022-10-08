@@ -15,7 +15,7 @@
 1. [Nodejs & npm](https://nodejs.org)
 2. [Astro](https://astro.build)
 
-## Project Structure
+## 🏗️ Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
