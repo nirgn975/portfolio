@@ -14,12 +14,13 @@ for (const postPath of postsPath) {
       const slug = postPath.replace(".md", "").replace("src/pages/", "");
 
       objects.push({
+        objectID: `/${slug}/`,
         title: data.title,
         author: data.author,
         tags: data.tags,
         category: data.category,
         date: data.pubDate,
-        slug: slug,
+        slug: `/${slug}/`,
         content: content,
       });
     }
