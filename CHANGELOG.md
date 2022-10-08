@@ -1,3 +1,9 @@
+## [1.0.10](https://github.com/nirgn975/portfolio/compare/v1.0.9...v1.0.10) (2022-10-08)
+
+### Continuous Integration
+
+- build index script ([718979f](https://github.com/nirgn975/portfolio/commit/718979fd046fd3bf72b13b49202625f18ac22b93))
+
 ## [1.0.9](https://github.com/nirgn975/portfolio/compare/v1.0.8...v1.0.9) (2022-10-08)
 
 ### Continuous Integration
