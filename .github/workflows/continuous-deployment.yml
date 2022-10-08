@@ -55,15 +55,13 @@ jobs:
         uses: actions/deploy-pages@v1
 
       - name: one
-        run: pwd
+        run: ls -l ../../
 
-      - name: two
-        run: ls
+      - name: Create index file
+        run: node ../../index-posts.js
 
       - name: Update index.json To Algolia
-        run: |
-          node ../index-posts.js
-          npx atomic-algolia
+        run: npx atomic-algolia
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
