@@ -1,3 +1,9 @@
+## [1.0.8](https://github.com/nirgn975/portfolio/compare/v1.0.7...v1.0.8) (2022-10-08)
+
+### Continuous Integration
+
+- build index after deploying site ([e4a2e81](https://github.com/nirgn975/portfolio/commit/e4a2e81402ccea44f4008dc217aaed852b4cedc3))
+
 ## [1.0.7](https://github.com/nirgn975/portfolio/compare/v1.0.6...v1.0.7) (2022-10-08)
 
 ### Continuous Integration
