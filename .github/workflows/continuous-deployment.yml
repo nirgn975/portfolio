@@ -61,11 +61,8 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
 
-      - name: one
-        run: ls -l .
-
-      - name: two
-        run: ls -l ../
+      - name: Install dependencies
+        run: npm install
 
       - name: Create index file
         run: node index-posts.js
