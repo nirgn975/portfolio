@@ -54,14 +54,21 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
+  build_index:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v2
+
       - name: one
-        run: ls -l ../
+        run: ls -l .
 
       - name: two
-        run: ls -l ../../portfolio
+        run: ls -l ../
 
       - name: Create index file
-        run: node ../../index-posts.js
+        run: node index-posts.js
 
       - name: Update index.json To Algolia
         run: npx atomic-algolia
