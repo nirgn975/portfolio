@@ -1,3 +1,9 @@
+## [1.0.6](https://github.com/nirgn975/portfolio/compare/v1.0.5...v1.0.6) (2022-10-08)
+
+### Continuous Integration
+
+- index posts script ([7913f18](https://github.com/nirgn975/portfolio/commit/7913f184e302e1d76f094cfd0b7f100f0e71cc40))
+
 ## [1.0.5](https://github.com/nirgn975/portfolio/compare/v1.0.4...v1.0.5) (2022-10-08)
 
 ### Bug Fixes
