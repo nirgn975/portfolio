@@ -4,15 +4,16 @@ import matter from "gray-matter";
 
 const postsPath = await globby(["src/pages/blog"]);
 
-const objects = postsPath.map((postPath) => {
+const objects = [];
+for (const postPath of postsPath) {
   if (postPath.endsWith(".md")) {
     const fileContents = fs.readFileSync(postPath, "utf8");
     const { data, content } = matter(fileContents);
 
-    if (Boolean(data.draft) == false) {
+    if (!(data.draft && Boolean(data.draft))) {
       const slug = postPath.replace(".md", "").replace("src/pages/", "");
 
-      return {
+      objects.push({
         title: data.title,
         author: data.author,
         tags: data.tags,
@@ -20,9 +21,10 @@ const objects = postsPath.map((postPath) => {
         date: data.pubDate,
         slug: slug,
         content: content,
-      };
+      });
     }
   }
-});
+}
 
-fs.writeFileSync("dist/index.json", objects);
+fs.mkdirSync("dist", { recursive: true });
+fs.writeFileSync("dist/index.json", JSON.stringify(objects), "utf8");
