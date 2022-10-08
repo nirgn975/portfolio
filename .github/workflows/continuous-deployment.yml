@@ -55,7 +55,10 @@ jobs:
         uses: actions/deploy-pages@v1
 
       - name: one
-        run: ls -l ../../
+        run: ls -l ../
+
+      - name: two
+        run: ls -l ../../portfolio
 
       - name: Create index file
         run: node ../../index-posts.js
