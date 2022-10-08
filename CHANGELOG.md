@@ -1,3 +1,9 @@
+## [1.0.9](https://github.com/nirgn975/portfolio/compare/v1.0.8...v1.0.9) (2022-10-08)
+
+### Continuous Integration
+
+- install dependencies in index step ([60e13be](https://github.com/nirgn975/portfolio/commit/60e13befc195382c578dca79686378e8d76482e0))
+
 ## [1.0.8](https://github.com/nirgn975/portfolio/compare/v1.0.7...v1.0.8) (2022-10-08)
 
 ### Continuous Integration
