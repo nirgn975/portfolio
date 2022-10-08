@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/nirgn975/portfolio/compare/v1.0.2...v1.0.3) (2022-10-08)
+
+### Bug Fixes
+
+- index markdown posts and upload to algolia ([358059d](https://github.com/nirgn975/portfolio/commit/358059dade5e8ac46243dd5d67c8eacca3c9370f))
+
 ## [1.0.2](https://github.com/nirgn975/portfolio/compare/v1.0.1...v1.0.2) (2022-10-06)
 
 ### Bug Fixes
