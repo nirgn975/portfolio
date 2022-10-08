@@ -1,3 +1,13 @@
+## [1.0.4](https://github.com/nirgn975/portfolio/compare/v1.0.3...v1.0.4) (2022-10-08)
+
+### Bug Fixes
+
+- log path and files in action ([609f934](https://github.com/nirgn975/portfolio/commit/609f934144b67e119c2bc586548a5849688b19e7))
+
+### Other
+
+- Merge branch 'main' of github.com:nirgn975/portfolio ([79d3cc1](https://github.com/nirgn975/portfolio/commit/79d3cc11a9e6ffc39b6cbf43126d890f9638222c))
+
 ## [1.0.3](https://github.com/nirgn975/portfolio/compare/v1.0.2...v1.0.3) (2022-10-08)
 
 ### Bug Fixes
