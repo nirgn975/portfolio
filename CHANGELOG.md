@@ -1,3 +1,9 @@
+## [1.0.5](https://github.com/nirgn975/portfolio/compare/v1.0.4...v1.0.5) (2022-10-08)
+
+### Bug Fixes
+
+- ci commands ([023741b](https://github.com/nirgn975/portfolio/commit/023741bd4cf37eda396f0bb215885f1991c8fea6))
+
 ## [1.0.4](https://github.com/nirgn975/portfolio/compare/v1.0.3...v1.0.4) (2022-10-08)
 
 ### Bug Fixes
