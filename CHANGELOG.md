@@ -1,3 +1,9 @@
+## [1.0.11](https://github.com/nirgn975/portfolio/compare/v1.0.10...v1.0.11) (2022-10-09)
+
+### Continuous Integration
+
+- add ObjectId to algolia objects ([ab6258a](https://github.com/nirgn975/portfolio/commit/ab6258a7b249c1ecb0ee75c7e8daba301ecbcd73))
+
 ## [1.0.10](https://github.com/nirgn975/portfolio/compare/v1.0.9...v1.0.10) (2022-10-08)
 
 ### Continuous Integration
