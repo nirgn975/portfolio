@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/nirgn975/portfolio/compare/v1.1.0...v1.1.1) (2022-10-25)
+
+### Bug Fixes
+
+- try netlify form ([a41a3fc](https://github.com/nirgn975/portfolio/commit/a41a3fcef9b0fff594fc7bf3821e1fc3863144e3))
+
 # [1.1.0](https://github.com/nirgn975/portfolio/compare/v1.0.11...v1.1.0) (2022-10-25)
 
 ### Features
