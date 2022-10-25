@@ -1,3 +1,13 @@
+# [1.2.0](https://github.com/nirgn975/portfolio/compare/v1.1.1...v1.2.0) (2022-10-25)
+
+### Features
+
+- try to deploy to netlify using github action, with a new contact form ([33770ee](https://github.com/nirgn975/portfolio/commit/33770eed61b2273b2913ccc7283e42450df64bb9))
+
+### Other
+
+- Merge branch 'main' of github.com:nirgn975/portfolio ([9a948f2](https://github.com/nirgn975/portfolio/commit/9a948f2c8c5ee7514e20249a2c67f0e6d9c3a832))
+
 ## [1.1.1](https://github.com/nirgn975/portfolio/compare/v1.1.0...v1.1.1) (2022-10-25)
 
 ### Bug Fixes
