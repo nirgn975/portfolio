@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/nirgn975/portfolio/compare/v1.2.0...v1.2.1) (2022-10-25)
+
+### Bug Fixes
+
+- netlify build command ([1e8bf88](https://github.com/nirgn975/portfolio/commit/1e8bf88c95358b78551cff50c7cd759bbf387f46))
+
 # [1.2.0](https://github.com/nirgn975/portfolio/compare/v1.1.1...v1.2.0) (2022-10-25)
 
 ### Features
