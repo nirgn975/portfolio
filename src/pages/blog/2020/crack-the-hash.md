@@ -105,7 +105,7 @@ To crack a password you first need to know the hash type of that password - whic
 
 For testing I encrypt some text with [Bcrypt hash function](https://en.wikipedia.org/wiki/Bcrypt), here are the result:
 
-```txt
+```
 $2b$04$jysbNjr164hK4E7tqk2B.OJoj4qAg9xHF4gLqain2m9pGb1bcsRf6
 $2b$04$T.E6VXlAlt/K/gfVBBrs8eULxwBTDGVZ1CNsE.yJX5Yt9LjqH5bDO
 $2b$04$XMOmhaV4EM.8fDCVEk3GYOmSbHvVoSx1cDyxhSeebBmCZyGisq7sG

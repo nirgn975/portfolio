@@ -603,7 +603,7 @@ So let's think of something different, in his profile page there was a new domai
 
 The third result is really interesting, it's from [cutestat website](https://www.cutestat.com), which is a website to provides various statistical reports like website valuation, traffic reports, social engagement, host information, domain WHOIS, etc. and it's perfect because it has a WHOIS record from `2017-06-14T17:05:39Z` with new data (probably before he had privacy protection on the domain).
 
-```txt
+```
 Domain Name: SLIKEYE.COM
 Registry Domain ID: 2132972393_DOMAIN_COM-VRSN
 Registrar WHOIS Server: whois.resellercamp.com

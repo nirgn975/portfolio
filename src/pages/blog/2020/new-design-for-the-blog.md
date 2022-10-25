@@ -12,7 +12,7 @@ category: "miscellaneous"
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "/images/logo.webp"
+featuredImage: "/blog-hero.webp"
 ---
 
 I'm really excited for this! Don't ask me why because I can't explain it. This is not the first time I make a new design for this blog, it's actually the fifth time! and yet, I feel this is the best one yet. It have everything I ever wanted in my blog.

@@ -108,14 +108,14 @@ Also, create a file named `config.txt` and in it add the wifi configuration. The
 
 For example:
 
-```txt
+```
 WIFI_SSID This network
 WIFI_PASS The P@$$word!!
 ```
 
 Will be:
 
-```txt
+```
 WIFI_SSID This\ network
 WIFI_PASS The\ P\@\$\$word\!\!
 ```
@@ -154,7 +154,7 @@ Let's connect our Key Croc to our C2. Go to the C2 dashboard and add a new devic
 
 And let's add our wifi configuration so it would be able to connect to our C2 server. Like with the Screen Crab we need to edit the `config.txt` file (we already have the file in this case, and there're quit a few comments in there), we'll uncomment the `WIFI_SSID` and `WIFI_PASS` lines and add our wifi configuration there, in the same exact way we did with the Screen Crab, but in this case we have a new option to play with, an ssh one, so we can connect to the Key Croc via ssh and program it on the fly!
 
-```txt
+```
 WIFI_SSID This\ network
 WIFI_PASS The\ P\@\$\$word\!\!
 SSH ENABLE
@@ -200,7 +200,7 @@ $ nano /etc/systemd/system/c2.service
 
 And paste the text below (change the `cloud-c2.dev` to your domain name), save and exit nano.
 
-```txt
+```
 [Unit]
 Description=Cloud C2
 After=c2.service
