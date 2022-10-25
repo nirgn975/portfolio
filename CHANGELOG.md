@@ -1,3 +1,9 @@
+## [1.2.3](https://github.com/nirgn975/portfolio/compare/v1.2.2...v1.2.3) (2022-10-25)
+
+### Bug Fixes
+
+- add a step to build the website before deployment ([4c33cae](https://github.com/nirgn975/portfolio/commit/4c33cae052ce4bf7ab2a0a11f4bf28f7b1b1d909))
+
 ## [1.2.2](https://github.com/nirgn975/portfolio/compare/v1.2.1...v1.2.2) (2022-10-25)
 
 ### Bug Fixes
