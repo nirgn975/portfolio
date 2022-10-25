@@ -46,6 +46,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    name: Deploy to GitHub pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -54,9 +55,10 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
-  build_index:
+  build-index:
     needs: deploy
     runs-on: ubuntu-latest
+    name: Build search index and push it to Algolia
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
