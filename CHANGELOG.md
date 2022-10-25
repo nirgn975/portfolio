@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/nirgn975/portfolio/compare/v1.2.1...v1.2.2) (2022-10-25)
+
+### Bug Fixes
+
+- use new github action ([9833109](https://github.com/nirgn975/portfolio/commit/98331098db0f1f26ac5062346a764e5c14487f1a))
+
 ## [1.2.1](https://github.com/nirgn975/portfolio/compare/v1.2.0...v1.2.1) (2022-10-25)
 
 ### Bug Fixes
