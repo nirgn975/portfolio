@@ -1,3 +1,9 @@
+# [1.1.0](https://github.com/nirgn975/portfolio/compare/v1.0.11...v1.1.0) (2022-10-25)
+
+### Features
+
+- add new desgin-system post and fix algolia indexing ([aa509be](https://github.com/nirgn975/portfolio/commit/aa509be34de995e70880cb3125fd21a36ee36501))
+
 ## [1.0.11](https://github.com/nirgn975/portfolio/compare/v1.0.10...v1.0.11) (2022-10-09)
 
 ### Continuous Integration
