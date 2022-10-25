@@ -21,12 +21,12 @@ const posts = (await Astro.glob("./**/*.{md,mdx}"))
       {
         posts.map((post) => (
           <div class="flex flex-col bg-zinc-200 dark:bg-zinc-700 rounded-sm">
-            <a href={post.url} class="flex-1">
+            <a href={post.url} class="flex-1" aria-label="Title goes to post">
               <h3 class="p-2 text-xl">{post.frontmatter.title}</h3>
             </a>
 
-            <a href={post.url}>
-              <img src={post.frontmatter.featuredImage} class="object-cover my-2 w-full h-60" />
+            <a href={post.url} aria-label="hero image goes to post">
+              <img src={post.frontmatter.featuredImage} class="object-cover my-2 w-full h-60" alt={`${post.frontmatter.title} post hero image`} />
             </a>
 
             <p class="line-clamp-3 m-2">
@@ -49,7 +49,11 @@ const posts = (await Astro.glob("./**/*.{md,mdx}"))
               </span>
 
               <span class="ml-1 text-sm flex self-end">
-                <a href={`/categories/${post.frontmatter.category}`} class="ml-1 hover:text-zinc-700 dark:hover:text-zinc-400">
+                <a
+                  href={`/categories/${post.frontmatter.category}`}
+                  class="ml-1 hover:text-zinc-700 dark:hover:text-zinc-400"
+                  aria-label={`go to ${post.frontmatter.category} category`}
+                >
                   <i class="fa-regular fa-folder" />
                   {post.frontmatter.category}
                 </a>
