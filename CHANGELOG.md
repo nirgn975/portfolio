@@ -1,3 +1,9 @@
+## [1.2.4](https://github.com/nirgn975/portfolio/compare/v1.2.3...v1.2.4) (2022-10-26)
+
+### Bug Fixes
+
+- deploy back to github pages with the contact form ([d8f8d0f](https://github.com/nirgn975/portfolio/commit/d8f8d0f4ed83e9a22ba6b7ff31b8abf67eccad4b))
+
 ## [1.2.3](https://github.com/nirgn975/portfolio/compare/v1.2.2...v1.2.3) (2022-10-25)
 
 ### Bug Fixes
