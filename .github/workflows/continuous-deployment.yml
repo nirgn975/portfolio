@@ -38,6 +38,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           release-branches: '["main"]'
+          node-module: true
 
   deploy:
     needs: build
