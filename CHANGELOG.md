@@ -1,3 +1,13 @@
+# [1.3.0](https://github.com/nirgn975/portfolio/compare/v1.2.4...v1.3.0) (2022-10-26)
+
+### Features
+
+- bump package.json version and add giscus comments ([c0cc4b2](https://github.com/nirgn975/portfolio/commit/c0cc4b20e1fa86617239c3bd95aa10091c2b0f8d))
+
+### Other
+
+- Merge branch 'main' of github.com:nirgn975/portfolio ([12b9c16](https://github.com/nirgn975/portfolio/commit/12b9c16286756c225a75166e04e9aa957c8b607b))
+
 ## [1.2.4](https://github.com/nirgn975/portfolio/compare/v1.2.3...v1.2.4) (2022-10-26)
 
 ### Bug Fixes
