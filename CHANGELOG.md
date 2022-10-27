@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/nirgn975/portfolio/compare/v1.3.0...v1.3.1) (2022-10-27)
+
+### Bug Fixes
+
+- add new blog post for Oct, change terminal style, fix toc ([a391928](https://github.com/nirgn975/portfolio/commit/a3919288686b66ef360bfffa69cb17a82b9890ca))
+
 # [1.3.0](https://github.com/nirgn975/portfolio/compare/v1.2.4...v1.3.0) (2022-10-26)
 
 ### Features
