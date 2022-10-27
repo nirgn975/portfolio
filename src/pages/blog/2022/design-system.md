@@ -7,7 +7,7 @@ author: "Nir Galon"
 authorLink: "/about"
 
 tags: ["design system", "component library", "vuejs", "storybook", "typescript", "tailwind", "sfc", "composition", "vite"]
-category: "tutorials"
+category: "development"
 
 hiddenFromHomePage: false
 hiddenFromSearch: false

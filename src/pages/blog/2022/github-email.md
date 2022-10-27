@@ -6,7 +6,7 @@ draft: false
 author: "Nir Galon"
 authorLink: "/about"
 
-tags: ["raspberry pi"]
+tags: ["github", "private email", "domain"]
 category: "tutorials"
 
 hiddenFromHomePage: false

@@ -80,9 +80,9 @@ const { page } = Astro.props;
                 </a>
                 <div class="max-w-md">
                   <i class="fa-solid fa-tags inline-block" />
-                  {post.frontmatter.tags.map((tag: string) => (
+                  {post.frontmatter.tags.map((tag: string, index: number) => (
                     <a href={`/tags/${tag}`} class="ml-1 text-sm inline-block hover:text-zinc-800 dark:hover:text-zinc-300">
-                      {tag}
+                      {index == post.frontmatter.tags.length - 1 ? tag : `${tag},`}
                     </a>
                   ))}
                 </div>
