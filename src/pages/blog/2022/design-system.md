@@ -29,8 +29,8 @@ But first, what is a "Design System"? It's a little different if you ask a desig
 
 The first thing we need to do is actually create a regular [Vue.js](https://vuejs.org) project
 
-```bash
-$ npm init vue@latest
+```bash showLineNumbers title=" "
+npm init vue@latest
 ```
 
 You'll be presented with prompts for a number of optional features, choose whatever you want, it's not importent for the rest of the tutorial. But, if you want to see my choices - they're in the screenshot below.
@@ -43,14 +43,14 @@ After we have an empty vue.js project (I called mine `daisy` because Daisy the D
 
 The next setp is to install [Storybook](https://storybook.js.org). The current version is 6.x, but I choose to install the beta (7.x) version because it's close enough to release and there are a lot of changes that integrate well with our setup (like vite and typescript support out of the box).
 
-```bash
-$ npx sb@next init --builder=vite
+```bash showLineNumbers title=" "
+npx sb@next init --builder=vite
 ```
 
 And once the Storybook CLI done running and doing it's thing, we can run it and see our storybook default components and documentation in action
 
-```bash
-$ npm run storybook
+```bash showLineNumbers title=" "
+npm run storybook
 ```
 
 ![Storybook](/posts/2022/design-system/storybook.webp "Storybook")
@@ -59,14 +59,14 @@ $ npm run storybook
 
 The last thing we need to do is to add [Tailwind CSS](https://tailwindcss.com) support to our Vue.js components and as well as our Storybook UI. Adding it to the vuejs project is really easy
 
-```bash
-$ npm install -D tailwindcss postcss autoprefixer
-$ npx tailwindcss init -p
+```bash showLineNumbers title=" "
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
 ```
 
 And all you have left to do is to edit your `content` section (in `tailwind.config.js` file) to include the vuejs files
 
-```js
+```js showLineNumbers title="tailwind.js" {3}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{vue,js,ts,jsx,tsx}"],
@@ -79,7 +79,7 @@ module.exports = {
 
 Lastly, include the Tailwind directives to our CSS by creating a new `style.css` file inside the `src` directory and add to it the @tailwind directives:
 
-```css
+```css showLineNumbers title="style.css"
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -91,13 +91,13 @@ Now if you'll lunch your Vue.js app (`npm run dev`) Tailwind class will work, bu
 
 To fix this we'll use a [Storybook addon](https://storybook.js.org/addons/@storybook/addon-postcss) to run the PostCSS preprocessor against our stories
 
-```bash
-$ npm install -D @storybook/addon-postcss
+```bash showLineNumbers title=" "
+npm install -D @storybook/addon-postcss
 ```
 
-then add it to the `.storybook/main.js` file
+then add it
 
-```js
+```js showLineNumbers title=".storybook/main.js" {8-15}
 const path = require("path");
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -121,9 +121,9 @@ module.exports = {
 };
 ```
 
-and also import the `style.css` file in `.storybook/preview.js`
+and also import the `style.css` file
 
-```js
+```js showLineNumbers title=".storybook/preview.js" {1}
 import "../src/style.css";
 
 export const parameters = {
@@ -145,14 +145,14 @@ Building our first component is just like building a regular Vue.js component, e
 
 I'll call my component `Foo` and create a directory with that name in the `components` directory (I'll actually call it `DyFoo` because [ESlint require component names to always be multi-word](https://eslint.vuejs.org/rules/multi-word-component-names.html), and `D` is the first letter of our Design System name, and `Y` is the last), and I'll also create a `.vue` and a `.stories.js` files with the same component name.
 
-```bash
-$ touch src/components/DyFoo/DyFoo.vue
-$ touch src/components/DyFoo/DyFoo.stories.js
+```bash showLineNumbers title=" "
+touch src/components/DyFoo/DyFoo.vue
+touch src/components/DyFoo/DyFoo.stories.js
 ```
 
 My `DyFoo.vue` component will be fairly easy, it'll take `variant` prop with `primary` or `secondary` options and give the text `foo` some color based on them.
 
-```vue
+```vue showLineNumbers title="DyFoo.vue"
 <script setup lang="ts">
 defineProps({
   variant: {
@@ -170,9 +170,9 @@ defineProps({
 </template>
 ```
 
-Now let's create couple of stories to demo those 2 options for the `DyFoo` component (inside `DyFoo.stories.js`)
+Now let's create couple of stories to demo those 2 options for the `DyFoo` component
 
-```js
+```js showLineNumbers title="DyFoo.stories.js"
 import DyFoo from "./DyFoo.vue";
 
 export default {
@@ -206,7 +206,7 @@ Secondary.args = {
 };
 ```
 
-And if you'll fire Storybook now, you'll see your `Foo` component, and you can play with the color of the text by selecting the different options
+If you'll fire Storybook now, you'll see your `Foo` component and you can play with the color of the text by selecting the different options
 
 ![DyFoo component in Storybook](/posts/2022/design-system/DyFoo.webp "DyFoo component in Storybook")
 
@@ -216,9 +216,9 @@ And if you'll fire Storybook now, you'll see your `Foo` component, and you can p
 
 Now that we have a Vue.js project with Storybook and our first component (`DyFoo`), we want to distribute it. So the first thing we need to do is to tell [Vite](https://vitejs.dev) to build a **component library** and not a **project**. And we can do so by set it up to [library mode](https://vitejs.dev/guide/build.html#library-mode).
 
-To package the vite project as a library we need to change some configuration settings in the `vite.config.ts` file
+To package the vite project as a library we need to change some configuration settings
 
-```ts
+```ts showLineNumbers title="vite.config.ts" {1,10-28}
 import { resolve } from "path";
 import { fileURLToPath, URL } from "node:url";
 
@@ -255,9 +255,9 @@ export default defineConfig({
 });
 ```
 
-The next thing is to edit the `package.json` file and tell it where our main entry file to the package (`main.ts` in our case), so add those sections right after the `"script"`
+The next thing is to set the main entry file to the package (`main.ts` in our case), so add those sections right after the `"script"`
 
-```json
+```json title="package.json"
 "files": [
   "dist"
 ],
@@ -273,9 +273,9 @@ The next thing is to edit the `package.json` file and tell it where our main ent
 },
 ```
 
-And last but not least is to export our `DyFoo` component in our entry file (`main.ts`)
+And last but not least is to export our `DyFoo` component in our entry file
 
-```ts
+```ts showLineNumbers title="main.ts"
 export { default as DyFoo } from "./components/DyFoo/DyFoo.vue";
 ```
 
@@ -283,15 +283,15 @@ export { default as DyFoo } from "./components/DyFoo/DyFoo.vue";
 
 You can now run a build (`npm run build`) and see that a `dist` directory is created, with it there are our `style.css` file and 2 new files `daisy.cjs.js` and `daisy.es.js`. Basically that's it, we're all good. But if you want to add typing for Typescript support you'll want to add couple more things.
 
-First, edit the `build-only` npm script (in `package.json` file) to emit types declarations with `vue-tsc --emitDeclarationOnly`, like this
+First, edit the `build-only` npm script to emit types declarations with `vue-tsc --emitDeclarationOnly`, like this
 
-```json
+```json title="package.json"
 "build-only": "vite build && vue-tsc --emitDeclarationOnly",
 ```
 
-and then add `compilerOptions` and the files to `include` in the `tsconfig.json` file (right after the `references` array)
+and then add `compilerOptions` and the files to `include` (right after the `references` array)
 
-```json
+```json title="tsconfig.json"
 "compilerOptions": {
   "lib": ["ESNext", "DOM"],
   "skipLibCheck": true,
@@ -310,8 +310,8 @@ Now that you can build your vite library locally on your machine, it's time to b
 
 So let's create a GitHub action workflow
 
-```bash
-$ touch .github/workflows/cd.yaml
+```bash showLineNumbers title=" "
+touch .github/workflows/cd.yaml
 ```
 
 And put there 3 steps:
@@ -320,7 +320,7 @@ And put there 3 steps:
 2. Publish a release to GitHub (using [semantic-release](https://github.com/semantic-release/semantic-release)).
 3. Publish the packge to GitHub registry.
 
-```yaml
+```yaml showLineNumbers title=".github/workflows/cd.yaml"
 name: Continuous Deployment
 
 on:
@@ -390,9 +390,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-We also need to change a few things in our `package.json` file. First the `"name"` should start with your organization name (or username). Second, you should add a `repository` section
+We also need to change a few things in our `package.json`. First the `"name"` should start with your organization name (or username). Second, you should add a `repository` section
 
-```json
+```json title="package.json"
 "repository": {
   "type": "git",
   "url": "git://github.com/nirgn975/daisy.git"
@@ -419,9 +419,9 @@ If it's your first time on [Chromatic](https://www.chromatic.com), go to **"proj
 
 ![Chromatic API Key](/posts/2022/design-system/chromatic-key.webp "Chromatic API Key")
 
-We can use that `token` to push our Storybook directly to Chromatic (with Chromatic npm package), but it's more convenient to just use [their GitHub action step](https://github.com/chromaui/action) and add it to our workflow, so at the end of the `.github/workflows/cd.yaml` file add
+We can use that `token` to push our Storybook directly to Chromatic (with Chromatic npm package), but it's more convenient to just use [their GitHub action step](https://github.com/chromaui/action) and add it to our workflow at the end of the file
 
-```yaml
+```yaml title=".github/workflows/cd.yaml"
 deploy_chromatic:
   needs: [publish-release]
   name: Deploy Design System to Chromatic

@@ -20,7 +20,7 @@ const posts = (await Astro.glob("./**/*.{md,mdx}"))
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {
         posts.map((post) => (
-          <div class="flex flex-col bg-zinc-200 dark:bg-zinc-700 rounded-sm">
+          <div class="flex flex-col bg-zinc-200 dark:bg-zinc-700 rounded-md">
             <a href={post.url} class="flex-1" aria-label="Title goes to post">
               <h3 class="p-2 text-xl">{post.frontmatter.title}</h3>
             </a>
@@ -73,7 +73,7 @@ const posts = (await Astro.glob("./**/*.{md,mdx}"))
 
     <div class="flex">
       <div class="flex flex-col md:flex-row">
-        <img src="about/talks/pipenv-the-future-of-python-dependency-management.webp" alt="Talk Thumbnail" class="my-2" />
+        <img src="about/talks/pipenv-the-future-of-python-dependency-management.webp" alt="Talk Thumbnail" class="my-2 w-full md:w-1/3 h-full" />
         <div class="p-4">
           <h3 class="text-2xl">Pipenv: The future of Python dependency management</h3>
           <p class="pt-2">

@@ -14,6 +14,7 @@ export interface Props {
 
 const {
   content: { title, pubDate, author, authorLink, category, featuredImage },
+  headings,
 } = Astro.props;
 
 const WORDS_PER_MINUTE = 200;
@@ -69,13 +70,13 @@ const readTime = Math.ceil(numberOfWords / WORDS_PER_MINUTE);
     </div>
 
     <div class="flex">
-      <div class="w-3/4">
+      <div class="w-3/4 content">
         <img src={featuredImage} class="object-cover my-2 w-full max-h-96" />
         <div class="content mb-8">
           <slot />
         </div>
 
-        <script
+        <!-- <script
           is:inline
           src="https://giscus.app/client.js"
           data-repo="nirgn975/portfolio"
@@ -92,16 +93,18 @@ const readTime = Math.ceil(numberOfWords / WORDS_PER_MINUTE);
           data-loading="lazy"
           crossorigin="anonymous"
           async
-        ></script>
+        ></script> -->
       </div>
 
       <div class="w-1/4 sticky top-0 h-fit mt-2 ml-4 pl-4 border-l-4 border-zinc-300 dark:border-zinc-700">
         <p class="text-lg font-semibold mb-2">CONTENTS</p>
-        <p>1. Request a Quota</p>
-        <p>2. Create the VM</p>
-        <p>3. Install CUDA and Hashcat</p>
-        <p>4. Let's get down to business</p>
-        <p>5. Summary</p>
+        {
+          headings.map((header: Record<"depth" | "slug" | "text", string>) => (
+            <a href={`#${header.slug}`} class="block my-1 hover:text-sky-500" style={`padding-left: ${(Number(header.depth) - 2) * 1.25}rem`}>
+              {header.text}
+            </a>
+          ))
+        }
       </div>
     </div>
   </article>
@@ -109,57 +112,84 @@ const readTime = Math.ceil(numberOfWords / WORDS_PER_MINUTE);
 
 <style is:global>
   .content img {
-    margin: 0.5rem auto;
+    @apply m-2 mx-auto;
   }
 
   .content p {
-    margin: 0.5rem 0;
+    @apply my-2;
   }
 
   .content h2 {
-    font-size: 1.5rem;
-    margin-top: 1.2rem;
-    margin-bottom: 0.6rem;
-    font-weight: bolder;
+    @apply text-2xl mt-5 mb-3 font-bold;
   }
 
-  .content p > code {
-    color: #e74c3c;
-    background: #f5f5f5;
-    padding: 0 0.4rem;
+  .content h3 {
+    @apply text-xl mt-3 mb-2 font-bold;
   }
 
-  .dark .content p > code {
-    color: #e5bf78;
-    background: #272c34;
-    padding: 0 0.4rem;
+  .content :not(pre) > code {
+    @apply bg-[#f5f5f5] text-[#e74c3c] px-2;
+  }
+
+  .dark .content :not(pre) > code {
+    @apply bg-[#272c34] text-[#e5bf78] px-2;
   }
 
   .content a {
-    color: #0ea5e9;
+    @apply text-[#0ea5e9];
   }
 
   .content a:hover {
-    color: #38bdf8;
-  }
-
-  .content pre {
-    padding: 0.75rem;
-    margin: 0.75rem 0;
+    @apply text-[#38bdf8];
   }
 
   code {
-    counter-reset: step;
-    counter-increment: step 0;
+    counter-reset: line;
+    /* counter-reset: line 100; */
   }
 
-  code .line::before {
-    content: counter(step);
-    counter-increment: step;
-    width: 1rem;
-    margin-right: 1.5rem;
-    display: inline-block;
-    text-align: right;
-    color: rgba(115, 138, 148, 0.4);
+  code[data-line-numbers] > .line::before {
+    content: counter(line);
+    counter-increment: line;
+    @apply inline-block text-right w-4 mr-5 text-zinc-600;
+  }
+
+  /* code[data-line-numbers] > .line:first-of-type::before {
+    counter-set: line 100;
+  } */
+
+  code[data-line-numbers][data-language="bash"] > .line::before {
+    content: "$";
+  }
+
+  div[data-rehype-pretty-code-title] {
+    @apply h-10 rounded-t-md pl-4 text-zinc-800 dark:text-zinc-300 flex items-center font-semibold bg-[#c8c8ff0d];
+  }
+
+  div[data-rehype-pretty-code-title]::before {
+    content: url("/terminal-dots.svg");
+    @apply mr-8 pt-2;
+  }
+
+  div[data-rehype-pretty-code-fragment] pre {
+    @apply relative rounded-b-md m-0 bg-[#c8c8ff0d];
+  }
+
+  div[data-rehype-pretty-code-fragment] .line {
+    @apply pl-2;
+  }
+
+  div[data-rehype-pretty-code-fragment] code {
+    @apply flex flex-col overflow-x-scroll pb-2;
+  }
+
+  div[data-rehype-pretty-code-fragment] .highlighted {
+    @apply bg-[#c8c8ff1a] border-l-[#60a5fa];
+  }
+
+  pre[data-language]:after {
+    /* @apply absolute right-3 bottom-2 text-zinc-600; */
+    @apply absolute right-3 -top-8 text-zinc-600;
+    content: attr(data-language);
   }
 </style>
