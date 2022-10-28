@@ -1,3 +1,13 @@
+# [1.4.0](https://github.com/nirgn975/portfolio/compare/v1.3.2...v1.4.0) (2022-10-28)
+
+### Features
+
+- fix code block for old posts, and add might like section ([011df9b](https://github.com/nirgn975/portfolio/commit/011df9bf7fcc8d092a601b2043e3c52f98e69aff))
+
+### Other
+
+- Merge branch 'main' of github.com:nirgn975/portfolio ([ddc7412](https://github.com/nirgn975/portfolio/commit/ddc7412c49e9d4ce22753af1dd60d59a1662c7a6))
+
 ## [1.3.2](https://github.com/nirgn975/portfolio/compare/v1.3.1...v1.3.2) (2022-10-27)
 
 ### Bug Fixes
