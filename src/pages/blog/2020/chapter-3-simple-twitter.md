@@ -26,9 +26,6 @@ tags:
   ]
 category: "development"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2020/chapter-3-simple-twitter/simple-twitter-cover.webp"
 ---
 

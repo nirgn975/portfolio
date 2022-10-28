@@ -42,13 +42,13 @@ const { title } = Astro.props as Props;
     <script type="text/partytown" defer data-domain="nir.galons.io" src="https://plausible.io/js/plausible.js"></script>
   </head>
   <body class="flex flex-col bg-zinc-50 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-400">
-    <header class="bg-zinc-100 dark:bg-zinc-900">
+    <header class="bg-zinc-100 dark:bg-zinc-900 fixed w-full z-10">
       <nav class="mx-auto max-w-7xl">
         <Header />
       </nav>
     </header>
 
-    <main class="flex-1 px-4">
+    <main class="flex-1 px-4 mt-20">
       <section class="mx-auto max-w-7xl">
         <slot />
       </section>

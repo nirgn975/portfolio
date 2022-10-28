@@ -1,0 +1,127 @@
+[
+  {
+    "title": "Lead Software Engineer (Team Leader)",
+    "startDate": "01/2020",
+    "endDate": "Present",
+    "company": {
+      "name": "Cognyte (formerly a Verint company)",
+      "url": "https://www.linkedin.com/company/cognyte"
+    },
+    "body": "",
+    "items": [
+      "WebintPro LTD was acquired by Cognyte (formerly a Verint company).",
+      "Write a compelete data pipeline using RabbitMQ message broker.",
+      "Rewrite the backend microservices from Express.js to NestJS.",
+      "Build a CI/CD for an Electron desktop application using GitHub actions and GCP."
+    ]
+  },
+  {
+    "title": "Lead Software Engineer (Team Leader)",
+    "startDate": "02/2017",
+    "endDate": "12/2019",
+    "company": {
+      "name": "WebintPro Ltd",
+      "url": "https://www.linkedin.com/company/3296384"
+    },
+    "body": "",
+    "items": [
+      "Formed a team (4 full stack developers) to develop and maintains a system to fetch, analyze, and save big data from social networks.",
+      "The backend services was written in Python with Sanic framework and Node.js with Express.js framework.",
+      "The frontend dashboard was written in Angular using ngrx, material, and D3.js.",
+      "Using Docker & Kubernetes for deployment on Google Cloud Platform, with a compelete CI/CD (tests, code reviews, dev environment, etc).",
+      "Implements a Microservices architecture with Pub/Sub.",
+      "Using Deep Learning methodologies to extract and analyze data. And save it in MongoDB, and Redis Databases.",
+      "Created the project from scratch, build the team, manage it, doing code reviews, etc."
+    ]
+  },
+  {
+    "title": "Senior Full Stack Software Engineer",
+    "startDate": "12/2015",
+    "endDate": "01/2017",
+    "company": {
+      "name": "Gizra - Internet Solutions",
+      "url": "https://www.linkedin.com/company/1776824"
+    },
+    "body": "",
+    "items": [
+      "Developing a system to connect between companies on varies projects, tracking, and managing them, for the European Union.",
+      "The Frontend is build with HTML5, CSS3, Bootstrap, JS, and jQuery. Backend written with Drupal in PHP and MySQL Database.",
+      "Working with Git on GitHub, doing code reviews, and writing tests with Behat (runs on Travis-CI).",
+      "Builds a Docker image for the system, and integrate continuous deployment methods."
+    ]
+  },
+  {
+    "title": "Lead Software Engineer, Volunteer",
+    "startDate": "10/2015",
+    "endDate": "01/2019",
+    "company": {
+      "name": "The Public Knowledge Workshop",
+      "url": "https://www.linkedin.com/company/2471778"
+    },
+    "body": "",
+    "items": [
+      "Take part in Hackita02 program and one of the founders of \"Ways Of Time\" project that enable the National Library of Israel to upload and geotag their geographic maps collection, and open them to the public (Python, Django, Leaflet, PostGIS, MDL).",
+      "Lead developer of version 2.x of the \"Open Pension\" project. The project mission is to reveal what happens behind the Israeli pension market, while enabling the public to trace the money and expose corruption (Python, Django, Scrapy, PostgreSQL, Angular, ngrx, d3.js).",
+      "<a href=\"https://github.com/nirgn975/WaysOfTime\" target=\"_blank\" class=\"text-sky-500 hover:text-sky-400\">Ways Of Time Repo</a> | <a href=\"https://github.com/hasadna/open_pension\" target=\"_blank\" class=\"text-sky-500 hover:text-sky-400\">Open Pension Website Repo</a> | <a href=\"https://github.com/hasadna/open_pension_scraper\" target=\"_blank\" class=\"text-sky-500 hover:text-sky-400\">Open Pension Crawler Repo</a>"
+    ]
+  },
+  {
+    "title": "Full Stack Software Engineer",
+    "startDate": "07/2015",
+    "endDate": "11/2015",
+    "company": {
+      "name": "Restart Group - IT | WEB | Mobile | People",
+      "url": "https://www.linkedin.com/company/2484049"
+    },
+    "body": "",
+    "items": [
+      "Part of a team that develops and maintains a financial system, from end to end, that handles thousands of transactions to offshore bank accounts.",
+      "Implement a new Front-end design built with HTML5, CSS3, Bootstrap, JS and jQuery.",
+      "Back-end written in PHP, and DB in MySQL.",
+      "Implement new banks APIs."
+    ]
+  },
+  {
+    "title": "Internet Expert",
+    "startDate": "03/2011",
+    "endDate": "12/2012",
+    "company": {
+      "name": "Cellcom Israel, Ltd",
+      "url": "https://www.linkedin.com/company/162949"
+    },
+    "body": "",
+    "items": [
+      "Tier 2 customer Support Expert Team.",
+      "Knowledge focal point for representatives at specialized Call centers.",
+      "Handling top level customer escalations and Gold customers support.",
+      "Experience working on UNIX-based switches with HP-UX, And with SAP & Amdocs systems.",
+      "Responsible for converting two call centers (Haifa and Beer Sheva) to specialized centers (provide training, and supervision throughout the beginning of the activity until go-live operation)."
+    ]
+  },
+  {
+    "title": "Internet Service Representitive",
+    "startDate": "11/2009",
+    "endDate": "02/2011",
+    "company": {
+      "name": "Cellcom Israel, Ltd",
+      "url": "https://www.linkedin.com/company/162949"
+    },
+    "body": "",
+    "items": [
+      "Tier 1 customer Support Team.",
+      "Handling customer requirements and providing solutions on Internet, data and technical problems.",
+      "Rated at the 10% of the Company's outstanding employees in 2010 and a leader in service in the internet and technical Customer Service Center in 2011."
+    ]
+  },
+  {
+    "title": "Military service (shortened for health reasons)",
+    "startDate": "03/2009",
+    "endDate": "10/2009",
+    "company": {
+      "name": "IDF (Israel Defense Forces)",
+      "url": "https://www.linkedin.com/company/israeldefenseforces"
+    },
+    "body": "Administrative role in the logistics department at Sde Dov Air Force base.",
+    "items": []
+  }
+]

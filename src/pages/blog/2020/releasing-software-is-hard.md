@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["semver", "conventional commits", "github actions", "commitizen", "releases", "automation"]
 category: "tutorials"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2020/releasing-software-is-hard/software-development.webp"
 ---
 
@@ -69,12 +66,12 @@ So, let's recap all the tools so far. If we'll use [commitizen](https://github.c
 
 Let's start by creating a simple `package.json` file with npm in our project directory (let's call it `deweb` because that's what the [namelix](https://namelix.com) generator generate for us).
 
-```bash
-$ mkdir deweb
-$ cd deweb
-$ git init
-$ npm init
-$ echo node_modules >> .gitignore
+```bash showLineNumbers title=" "
+mkdir deweb
+cd deweb
+git init
+npm init
+echo node_modules >> .gitignore
 ```
 
 Here are my configurations.
@@ -83,15 +80,15 @@ Here are my configurations.
 
 Now we need to install [commitizen](https://github.com/commitizen/cz-cli) and make our repo **commitizen friendly**
 
-```bash
-$ npm install commitizen -g
-$ commitizen init cz-conventional-changelog --save-dev --save-exact
+```bash showLineNumbers title=" "
+npm install commitizen -g
+commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
 
 This just tells commitizen which adapter we actually want our contributors to use when they try to commit to this repo. And now you can use `git cz` command instead of `git commit` and the commitizen prompt will guide your through the commit message and `commit` all the files.
 
-```bash
-$ git cz
+```bash showLineNumbers title=" "
+git cz
 ```
 
 ![Commit With Commitizen](/posts/2020/releasing-software-is-hard/commit-with-commitizen.webp "Commit With Commitizen")
@@ -104,14 +101,14 @@ Now, we can use [semantic-release](https://github.com/semantic-release/semantic-
 
 So, let's create a GitHub action that uses the [Release me!](https://github.com/marketplace/actions/release-me#create-a-release) action and run every time there is a milestones event on GitHub.
 
-```bash
-$ mkdir -p .github/workflows
-$ touch .github/workflows/cd.yml
+```bash showLineNumbers title=" "
+mkdir -p .github/workflows
+touch .github/workflows/cd.yml
 ```
 
 In this file you should copy the default template of a [GitHub action](https://docs.github.com/en/free-pro-team@latest/actions), and use the [release-me-action](https://github.com/marketplace/actions/release-me#create-a-release). Then you need to change the `on` key on the top of the file `milestone` and just when a milestone closed.
 
-```yaml
+```yaml showLineNumbers title=".github/workflows/cd.yml"
 name: Continuous Deployment
 
 on:
@@ -134,10 +131,10 @@ jobs:
 
 Now let's commit the new file and push it to GitHub.
 
-```bash
-$ git add .
-$ git cz
-$ git push origin main
+```bash showLineNumbers title=" "
+git add .
+git cz
+git push origin main
 ```
 
 The last thing we need to do is to create a milestone in GitHub, then look at the **Actions** section and see our workflow, but we notice it doesn't run yet.

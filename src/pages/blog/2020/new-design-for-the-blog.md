@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["hugo", "design", "blog", "github", "commento.io", "plausible analytics"]
 category: "miscellaneous"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/blog-hero.webp"
 ---
 

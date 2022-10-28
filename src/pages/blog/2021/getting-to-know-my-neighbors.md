@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["wifi pineapple", "man in the middle", "wifi attack", "hacking", "white hat", "hak5"]
 category: "hacking"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2021/getting-to-know-my-neighbors/blue-wireless-connection.webp"
 ---
 

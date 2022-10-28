@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["design system", "component library", "vuejs", "storybook", "typescript", "tailwind", "sfc", "composition", "vite"]
 category: "development"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2022/design-system/hero.webp"
 ---
 

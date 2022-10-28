@@ -6,11 +6,8 @@ draft: false
 author: "Nir Galon"
 authorLink: "/about"
 
-tags: ["twitter", "development", "git", "github", "atom", "angular", "node.js", "monogodb", "robo 3t", "gcloud", "kubectl", "brew"]
+tags: ["twitter", "development", "git", "github", "atom", "vuejs", "node.js", "monogodb", "robo 3t", "gcloud", "docker", "brew"]
 category: "development"
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 
 featuredImage: "/posts/2020/chapter-1-simple-twitter/simple-twitter-cover.webp"
 ---
@@ -35,8 +32,8 @@ While I'm using Mac and I'll show how to install everything on a Mac, it should 
 
 I recommend to use a package manager to install everything on your machine, on mac it's `brew`. Once you have [brew](https://brew.sh/) installed on your machine all you need to do to install `git` is:
 
-```shell
-$ brew install git
+```bash showLineNumbers title=" "
+brew install git
 ```
 
 That's it, now if you'll write `git` on your command line of choice you'll get as an output all the git commands you can use.
@@ -51,9 +48,9 @@ GitHub is a web based git with some extra features. We don't need to install any
 
 After you sign up you'll need to confirm your account, so check your email. Now we need to config our local `git` with our `email` and `username`. We can do it by typing those command:
 
-```shell
-$ git config --global user.name "Nir Galon"
-$ git config --global user.email nir@galon.io
+```bash showLineNumbers title=" "
+git config --global user.name "Nir Galon"
+git config --global user.email nir@galon.io
 ```
 
 That's it for now. Once we'll have some code, we'll open a new repository, commit the code to GitHub and talk about issues and pull requests.
@@ -64,15 +61,15 @@ My code editor of choice is [Atom](https://atom.io/). But you have plenty of cho
 
 To install Atom with `brew` we need to add [cask](https://github.com/Homebrew/homebrew-cask), cask extends brew (Homebrew) and let us install macOS applications with brew. So let's add `cask`:
 
-```shell
-$ brew update
-$ brew tap caskroom/cask
+```bash showLineNumbers title=" "
+brew update
+brew tap caskroom/cask
 ```
 
 And now we can install Atom
 
-```shell
-$ brew cask install atom
+```bash showLineNumbers title=" "
+brew cask install atom
 ```
 
 &nbsp;
@@ -87,10 +84,10 @@ MongoDB has it's advantages and disadvantages, but for our use case it fits the 
 
 To install MongoDB we'll head over to the [MongoDB documentation](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x) and go through the instructions. First we'll add their tap to `brew`, then we'll install the mongodb community edition, and finally start the database through [brew services](https://github.com/Homebrew/homebrew-services).
 
-```shell
-$ brew tap mongodb/brew
-$ brew install mongodb-community
-$ brew services start mongodb-community
+```bash showLineNumbers title=" "
+brew tap mongodb/brew
+brew install mongodb-community
+brew services start mongodb-community
 ```
 
 Now we have MongoDB installed and running on our local machine. But how can we see and run stuff?
@@ -103,8 +100,8 @@ Robo 3T is a free and open-source cross-platform MongoDB GUI. With it we can see
 
 Success! so let's install it with `brew cask`
 
-```shell
-$ brew cask install robo-3t
+```bash showLineNumbers title=" "
+brew cask install robo-3t
 ```
 
 &nbsp;
@@ -117,8 +114,8 @@ To build our backend we'll use [Typescript](https://www.typescriptlang.org/). Ty
 
 I want to believe you already understand how useful is a package manager by now, but if you haven't let's use it again and install Node.js.
 
-```shell
-$ brew install node
+```bash showLineNumbers title=" "
+brew install node
 ```
 
 ### 3.2. NPM
@@ -131,33 +128,50 @@ When we'll build our backend we'll want to make requests to it and tests our cod
 
 [Insomnia](https://insomnia.rest) is one of the most popular ones out there, it's free and has a lot more features, so let's install it
 
-```shell
-$ brew cask install insomnia
+```bash showLineNumbers title=" "
+brew cask install insomnia
 ```
 
 &nbsp;
 
 ## 4. Frontend Setup
 
-To build our Frontend we'll use [Angular](https://angular.io/). Angular is a typeScript based open source web application framework led by Google. Okay, this is a lot of words, we know what is a web application (a user interface and logic that runs in a web browser), but what is a framework?
+To build our Frontend we'll use [Vue.js](https://vuejs.org/). Vue is a JavaScript framework for building user interfaces. Okay, this is a lot of words, we know what is a web application (a user interface and logic that runs in a web browser), but what is a framework?
 
 A framework is an abstraction layer that may include support programs, compilers, code libraries, tool sets, and more. it's aim to facilitate software developments by allowing us to devote our time to meeting software requirements rather than dealing with the more standard low-level details of providing a working system.
 
-### 4.1 Angular CLI
+### 4.1 The official Vue scaffolding tool
 
-Angular has a [CLI (Command Line Interface)](https://en.wikipedia.org/wiki/Command-line_interface) (surprisingly called [Angular CLI](https://cli.angular.io/)) to help us create a new project and components in the Angular way. It saves us time and guide us in the "right" direction.
+[`create-vue`](https://github.com/vuejs/create-vue) is the official Vue.js project scaffolding tool. It'll present to you some prompts for a number of optional features such as TypeScript and testing support, and will help us create a new project with everyting already configured.
 
-Angular is a JavaScript framework, so we'll use the JavaScript package manager, `npm`, to install it.
+it help us create a new project and components in the way. It saves us time and guide us in the "right" direction.
 
-```shell
-$ npm install -g @angular/cli
+```bash showLineNumbers title=" "
+npm init vue@latest
+```
+
+example output:
+
+```txt title=" "
+✔ Project name: … <your-project-name>
+✔ Add TypeScript? … No / Yes
+✔ Add JSX Support? … No / Yes
+✔ Add Vue Router for Single Page Application development? … No / Yes
+✔ Add Pinia for state management? … No / Yes
+✔ Add Vitest for Unit testing? … No / Yes
+✔ Add Cypress for both Unit and End-to-End testing? … No / Yes
+✔ Add ESLint for code quality? … No / Yes
+✔ Add Prettier for code formatting? … No / Yes
+
+Scaffolding project in ./<your-project-name>...
+Done.
 ```
 
 &nbsp;
 
 ## 5. Cloud / Devops Setup
 
-When it'll be time to upload our project to the cloud (it'll be sooner then you might think), we'll use couple of tools to connect to our cloud provider and setup our infrastructure. The first will be `gcloud` because we'll use [GCP](https://cloud.google.com/) as our cloud provider (we'll talk about it more in the next chapter), the second will be `kubectl` because we'll use [Kubernetes](https://kubernetes.io/) as part of our infrastructure.
+When it'll be time to upload our project to the cloud (it'll be sooner then you might think), we'll use couple of tools to connect to our cloud provider and setup our infrastructure. The first will be `gcloud` because we'll use [GCP](https://cloud.google.com) as our cloud provider (we'll talk about it more in the next chapter), the second will be `Docker` because we'll use [Docker](https://www.docker.com) as part of our infrastructure to build isolated images and we'll run them on [Cloud Run](https://cloud.google.com/run).
 
 ### 5.1 Google Cloud
 
@@ -165,16 +179,16 @@ To use [GCP (Google Cloud Platform)](https://cloud.google.com/) from the command
 
 To install it, we just use `brew cask` command. This is a cli tool, so it probably should be just `brew`, but brew doesn't have a formulae for `gcloud` (don't ask me why, but I'm sure the internet has an answer for that somewhere), so lucky for us, `cask` has us cover.
 
-```shell
-$ brew cask install google-cloud-sdk
+```bash showLineNumbers title=" "
+brew cask install google-cloud-sdk
 ```
 
-### 5.2 Kubernetes
+### 5.2 Docker
 
-[Kubernetes](https://kubernetes.io/) is an open source container orchestration system for automating application deployment, scaling, and management. This is a lot of buzz words, I know. But Kubernetes is worth it. We'll use it to deploy and manage our backend on top of GCP. And to interact with it we need it's CLI (do you see a pattern here yet?). Kubernetes CLI called [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and we can install it like any other CLI tool, with `brew`.
+[Docker](https://www.docker.com) is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. This is a lot of buzz words, I know. But Docker is worth it. We'll use it to build and deploy our backend on top of GCP (Cloud Run service). And to interact with it we need it's CLI (do you see a pattern here yet?), and we can install it like any other CLI tool, with `brew`.
 
-```shell
-$ brew install kubectl
+```bash showLineNumbers title=" "
+brew install --cask docker
 ```
 
 &nbsp;

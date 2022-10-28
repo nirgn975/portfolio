@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["nestjs", "graphql", "mongodb", "expressjs", "node.js", "javascript", "typescript", "mongodb", "mongoose"]
 category: "development"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2021/nestjs-graphql-mongodb/nestjs-graphql-mongodb.webp"
 ---
 
@@ -45,15 +42,15 @@ The NestJS GraphQL module we'll use ([`@nestjs/graphql`](https://github.com/nest
 
 So, the first thing we need to do is to install the Nest CLI tool globally and then create a project on our local machine. I'll call my project `server`, because I have such an active imagination.
 
-```bash
-$ npm i -g @nestjs/cli
-$ nest new server
-$ cd server
+```bash showLineNumbers title=" "
+npm i -g @nestjs/cli
+nest new server
+cd server
 ```
 
 Once we created the project, our project directory tree will look like this
 
-```
+```txt title=" "
 .
 ├── README.md
 ├── nest-cli.json
@@ -83,13 +80,13 @@ Let's go over the files on the `src` directory:
 
 So, we don't need the controllers and the service files for the root module, let's just delete them.
 
-```bash
-$ rm src/app.controller.spec.ts src/app.controller.ts src/app.service.ts
+```bash showLineNumbers title=" "
+rm src/app.controller.spec.ts src/app.controller.ts src/app.service.ts
 ```
 
 And then delete the `import` statements with their corresponding codes from the `controllers` and `providers` array, at the `app.module.ts` file. So at the end it'll look like this
 
-```typescript
+```typescript showLineNumbers title="app.module.ts" {5-6}
 import { Module } from "@nestjs/common";
 
 @Module({
@@ -102,9 +99,9 @@ export class AppModule {}
 
 We'll create an API for a simple twitter clone, one with just users and tweets. So, let's create those two new modules with the Nest CLI.
 
-```bash
-$ nest g module users
-$ nest g module tweets
+```bash showLineNumbers title=""
+nest g module users
+nest g module tweets
 ```
 
 &nbsp;
@@ -117,14 +114,13 @@ My dream is to create a single model (as a typescript classes) and let Nest gene
 
 The first thing we need to do is to install some required packages.
 
-```bash
-$ npm install @nestjs/graphql @nestjs/apollo graphql apollo-server-express
+```bash showLineNumbers title=""
+npm install @nestjs/graphql @nestjs/apollo graphql apollo-server-express
 ```
 
 Once the packages are installed, we can import the `GraphQLModule` and configure it with the `forRoot()` static method, and then we'll use `autoSchemaFile` to tell Nest where to auto create the the GraphQL schema file.
 
-```typescript
-// app.module.transform
+```typescript showLineNumbers title="app.module.ts" {1,3-4,6-7,10-17}
 import { join } from "path";
 import { Module } from "@nestjs/common";
 import { GraphQLModule } from "@nestjs/graphql";
@@ -150,15 +146,14 @@ export class AppModule {}
 
 Now, we'll create a two classes, the first for our `User` model, in the `users` module (directory). And the second for the `Tweet` model, in the `tweets` module.
 
-```bash
-$ nest g class users/models/user.model
-$ nest g class tweets/models/tweet.model
+```bash showLineNumbers title=" "
+nest g class users/models/user.model
+nest g class tweets/models/tweet.model
 ```
 
 The `user.model` would be with those fields:
 
-```typescript
-// user.model.ts
+```typescript showLineNumbers title="user.model.ts"
 export class User {
   _id: string;
   username: string;
@@ -170,8 +165,7 @@ export class User {
 
 And the `tweet.model` will look like:
 
-```typescript
-// tweet.model.ts
+```typescript showLineNumbers title="tweet.model.ts"
 export class Tweet {
   _id: string;
   text: String;
@@ -182,16 +176,16 @@ export class Tweet {
 
 The next step is to generate a service that handle all of the data stuff, because for now we'll not save it in the database, we'll just have an array to save data to and retrieve it from.
 
-```bash
-$ nest generate service users
-$ nest generate service tweets
+```bash showLineNumbers title=" "
+nest generate service users
+nest generate service tweets
 ```
 
 Now we can create the resolvers which are basically the controllers in GraphQL world.
 
-```bash
-$ nest generate resolver users
-$ nest generate resolver tweets
+```bash showLineNumbers title=" "
+nest generate resolver users
+nest generate resolver tweets
 ```
 
 &nbsp;

@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["raspberry pi"]
 category: "tutorials"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2022/raspberry-pi/raspberry-pi-hero.webp"
 ---
 

@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["jekyll", "contribution", "github", "generator", "starter kit", "yeoman", "pwa", "npm"]
 category: "contribution"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2017/jekyll-starter-kit-generator-2.1.0-is-out/jekyll-starter-kit.webp"
 ---
 

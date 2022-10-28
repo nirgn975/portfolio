@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["jekyll", "contribution", "github", "generator", "starter kit", "yeoman", "pwa", "npm"]
 category: "contribution"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp"
 ---
 

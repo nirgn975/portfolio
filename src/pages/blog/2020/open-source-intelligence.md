@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["osint", "reconnaissance", "hacking", "white hat", "intelligence", "open source", "data leaks", "arjun", "hunter.io", "theHarvester", "sublist3r"]
 category: "hacking"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2020/open-source-intelligence/osint-cover.webp"
 ---
 
@@ -60,7 +57,7 @@ We notice a bunch of things:
 
 The easiest thing to look up first are the IPs and the domain. The first IP (`84.17.46.157`) is from Netherlands, and the second (`154.127.57.238`) is from the South Africa, here are the full `JSON`s files I got from [ipstack](https://ipstack.com). I got the paid version of their API, but there is a free one and that's enough for our case here.
 
-```json
+```json showLineNumbers title=" "
 {
   "ip": "84.17.46.157",
   "type": "ipv4",
@@ -111,7 +108,9 @@ The easiest thing to look up first are the IPs and the domain. The first IP (`84
 }
 ```
 
-```json
+and
+
+```json showLineNumbers title=" "
 {
   "ip": "154.127.57.238",
   "type": "ipv4",
@@ -566,7 +565,7 @@ It looks like our guy, but this is not enough! we need more.
 
 Let's search his gmail (`slikeye1711@gmail.com`) on [Pipl](https://pipl.com), unfortunately we got nothing.
 
-```json
+```json showLineNumbers title=" "
 {
   "@http_status_code": 200,
   "@visible_sources": 0,
@@ -603,7 +602,7 @@ So let's think of something different, in his profile page there was a new domai
 
 The third result is really interesting, it's from [cutestat website](https://www.cutestat.com), which is a website to provides various statistical reports like website valuation, traffic reports, social engagement, host information, domain WHOIS, etc. and it's perfect because it has a WHOIS record from `2017-06-14T17:05:39Z` with new data (probably before he had privacy protection on the domain).
 
-```
+```txt title=" "
 Domain Name: SLIKEYE.COM
 Registry Domain ID: 2132972393_DOMAIN_COM-VRSN
 Registrar WHOIS Server: whois.resellercamp.com
@@ -677,7 +676,7 @@ Unfortunately we didn't get new phone numbers or email addresses, but _"Forget P
 
 The new email address and phone number don't get us any result on Pipl, that's a bummer. Pipl is consistently failing us in this recon investigation. On the other hand a TrueCaller search for the phone number confirms the new email address we already found in the 2017 WHOIS record, and tell us his `carrier` and that he is verified by [TrueCaller](https://www.truecaller.com).
 
-```json
+```json showLineNumbers title=" "
 {
   "data": [
     {

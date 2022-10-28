@@ -3,10 +3,20 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Homepage">
-  <div class="mt-12 mx-auto max-w-4xl">
+  <div class="mt-8 mx-auto max-w-4xl">
+    <p class="pb-2">
+      Hi!<br />My name is Nir Galon, I'm a geek who always want to learn new things. I work as a software engineer and I love what I do!
+    </p>
+    <p class="pb-2">
+      To learn more about me you can visit my <a href="/about" class="text-sky-500 hover:text-sky-400">about page</a> or just follow me on
+      <a href="https://twitter.com/nirgn975" target="_blank" class="text-sky-500 hover:text-sky-400">twitter</a> or
+      <a href="https://github.com/nirgn975" target="_blank" class="text-sky-500 hover:text-sky-400">github</a>. If you wish to contact me, the best way is to
+      just drop a message below.
+    </p>
+
     <form
       name="contact"
-      class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+      class="mt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
       action="https://getform.io/f/75c12049-9fa0-4eff-a3e7-78a02f36cbff"
       method="POST"
     >

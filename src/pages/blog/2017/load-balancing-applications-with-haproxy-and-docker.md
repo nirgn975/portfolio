@@ -9,15 +9,12 @@ authorLink: "/about"
 tags: ["development", "contribution", "docker", "haproxy", "load balance", "cloud", "devops", "nginx"]
 category: "tutorials"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.webp"
 ---
 
 A tutorial for a real world docker use case.
 
-Recently I read a lot of articles about load balancing applications with Docker, Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.
+Recently I read a lot of articles about load balancing applications with [Docker](https://www.docker.com), Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.
 
 There are a lot of articles about this topic, but sadly the use case they present is quit simple and because of that they really don’t help. Here is a couple of examples to what I mean:
 
@@ -33,7 +30,7 @@ For that reason I decided to write this post and present the way we use. It’s 
 
 Let’s start by creating our simple Node.js application. Create a file named `index.js` with the following code:
 
-```javascript
+```javascript showLineNumbers title="index.js"
 var http = require("http");
 var os = require("os");
 http
@@ -46,7 +43,7 @@ http
 
 Now we need to dockerize the app, so we’ll create a file named `Dockerfile` with the following code:
 
-```yaml
+```yaml showLineNumbers title="Dockerfile"
 FROM node
 RUN mkdir -p /usr/src/app
 COPY index.js /usr/src/app
@@ -62,9 +59,9 @@ Now we have a docker image of our simple (and awesome) Node.js app, and we can c
 
 ## 2. Enter Docker Compose
 
-For our HTTP server we’ll use HAProxy, that means we need to create a container with HAProxy that will listen to port 80 and load balance the requests to the different Node.js containers on port 8080. To create our containers (Node.js apps and HAProxy) we’ll use Docker Compose, let’s write our `docker-compose.yml` file:
+For our HTTP server we’ll use [HAProxy](http://www.haproxy.org), that means we need to create a container with HAProxy that will listen to port 80 and load balance the requests to the different Node.js containers on port 8080. To create our containers (Node.js apps and HAProxy) we’ll use [Docker Compose](https://docs.docker.com/compose), let’s write our `docker-compose.yml` file:
 
-```yaml
+```yaml showLineNumbers title="docker-compose.yml"
 version: "3"
 
 services:
@@ -137,7 +134,7 @@ Now let’s look at our services by writing `docker service ls` and we’ll see 
 
 We can also create a second version of our `awesome` app. Let’s change the code a little bit (let’s add some exclamation marks at the end):
 
-```javascript
+```javascript showLineNumbers title="index.js"
 var http = require("http");
 var os = require("os");
 http

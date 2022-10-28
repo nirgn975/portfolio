@@ -1,0 +1,48 @@
+---
+const { post } = Astro.props;
+---
+
+<div class="flex flex-col bg-zinc-200 dark:bg-zinc-700 rounded-md">
+  <a href={post.url} class="flex-1" aria-label="Title goes to post">
+    <h3 class="p-2 text-xl">{post.frontmatter.title}</h3>
+  </a>
+
+  <a href={post.url} aria-label="hero image goes to post">
+    <img src={post.frontmatter.featuredImage} class="object-cover my-2 w-full h-60" alt={`${post.frontmatter.title} post hero image`} />
+  </a>
+
+  <p class="line-clamp-3 m-2">
+    {
+      post
+        .compiledContent()
+        .replace(/<[^>]*>?/gm, "")
+        .substring(0, 250)
+    }
+  </p>
+
+  <div class="flex justify-between p-2 text-zinc-600 dark:text-zinc-500">
+    <span class="ml-1 text-sm flex self-end">
+      published on
+      <time datetime={post.frontmatter.pubDate} class="ml-1">
+        {
+          new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })
+        }
+      </time>
+    </span>
+
+    <span class="ml-1 text-sm flex self-end">
+      <a
+        href={`/categories/${post.frontmatter.category}`}
+        class="ml-1 hover:text-zinc-700 dark:hover:text-zinc-400"
+        aria-label={`go to ${post.frontmatter.category} category`}
+      >
+        <i class="fa-regular fa-folder"></i>
+        {post.frontmatter.category}
+      </a>
+    </span>
+  </div>
+</div>

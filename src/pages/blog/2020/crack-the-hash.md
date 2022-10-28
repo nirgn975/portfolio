@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["crack", "password", "hash", "hashcat", "gcp", "google cloud platform", "white hat", "pen test", "hacking"]
 category: "hacking"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2020/crack-the-hash/crack-passwords.webp"
 ---
 
@@ -63,26 +60,26 @@ First we need to SSH into the machine, the easiest way to do it is to click on t
 
 After that the terminal is open, go to the [CUDA Toolkit download page](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=debnetwork) and chose the platform you want to install it to, it'll give you all the commands - just paste them in the terminal. In my case here they are:
 
-```bash
-$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-$ sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-$ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
-$ sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
-$ sudo apt-get update
-$ sudo apt-get -y install cuda
+```bash showLineNumbers title=" "
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+sudo apt-get update
+sudo apt-get -y install cuda
 ```
 
 After everything is installed successfully it's time to install [Hashcat](https://hashcat.net).
 
-```bash
-$ wget https://hashcat.net/files/hashcat-6.1.1.7z
-$ sudo apt install p7zip
-$ p7zip -d hashcat-6.1.1.7z
-$ sudo cp hashcat-6.1.1/hashcat64.bin /usr/bin/
-$ sudo ln -s /usr/bin/hashcat64.bin /usr/bin/hashcat
-$ sudo cp -Rv hashcat-6.1.1/OpenCL/ /usr/bin/
-$ sudo cp hashcat-6.1.1/hashcat.hcstat2 /usr/bin/
-$ sudo cp hashcat-6.1.1/hashcat.hctune /usr/bin/
+```bash showLineNumbers title=" "
+wget https://hashcat.net/files/hashcat-6.1.1.7z
+sudo apt install p7zip
+p7zip -d hashcat-6.1.1.7z
+sudo cp hashcat-6.1.1/hashcat64.bin /usr/bin/
+sudo ln -s /usr/bin/hashcat64.bin /usr/bin/hashcat
+sudo cp -Rv hashcat-6.1.1/OpenCL/ /usr/bin/
+sudo cp hashcat-6.1.1/hashcat.hcstat2 /usr/bin/
+sudo cp hashcat-6.1.1/hashcat.hctune /usr/bin/
 ```
 
 And now let's test that Hashcat is installed properly and recognize our GPU by running `sudo hashcat --benchmark`.
@@ -97,15 +94,15 @@ The first thing we need is a password list. You can make your own password (word
 
 The best place to get some of it is the [SecList on GitHub](https://github.com/danielmiessler/SecLists/tree/master/Passwords), and one of the most popular list is the [rockyou](https://en.wikipedia.org/wiki/RockYou) one. So let's download it to our VM and use that list to crack some passwords.
 
-```bash
-$ wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+```bash showLineNumbers title=" "
+wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
 ```
 
 To crack a password you first need to know the hash type of that password - which hashing algorithm they use to encrypt the password (there are multiple ways to discover it, and also a lot of projects that are trying to do that automatically, but this is not the purpose of this post, so Google it).
 
 For testing I encrypt some text with [Bcrypt hash function](https://en.wikipedia.org/wiki/Bcrypt), here are the result:
 
-```
+```txt title=" "
 $2b$04$jysbNjr164hK4E7tqk2B.OJoj4qAg9xHF4gLqain2m9pGb1bcsRf6
 $2b$04$T.E6VXlAlt/K/gfVBBrs8eULxwBTDGVZ1CNsE.yJX5Yt9LjqH5bDO
 $2b$04$XMOmhaV4EM.8fDCVEk3GYOmSbHvVoSx1cDyxhSeebBmCZyGisq7sG
@@ -116,8 +113,8 @@ Now, go to the [documentation of Hashcat](https://hashcat.net/wiki/doku.php?id=e
 
 A basic running is just to use the `m` flag with the mode 3200, the `o` flag to point Hashcat where to put all of the cracked passwords, and then just the file with the hashs (I put them in `test.txt` on the VM) and the file with the cleartext passwords list (the `rockyou.txt` we downloaded earlier).
 
-```bash
-$ sudo hashcat -m 3200 -o cracked.txt test.txt rockyou.txt
+```bash showLineNumbers title=" "
+sudo hashcat -m 3200 -o cracked.txt test.txt rockyou.txt
 ```
 
 ![Basic Hash Cracking](/posts/2020/crack-the-hash/basic-hash-cracking.webp "Basic Hash Cracking")
@@ -132,16 +129,16 @@ Using a ruleset we can change our wordlist to contain more variations of the exi
 
 So let's use those rules, first download the repo, next we need to `unzip` the zip file, and finally change the directory name.
 
-```bash
-$ wget https://github.com/praetorian-inc/Hob0Rules/archive/master.zip
-$ unzip master.zip
-$ mv Hob0Rules-master/ Hob0Rules
+```bash showLineNumbers title=" "
+wget https://github.com/praetorian-inc/Hob0Rules/archive/master.zip
+unzip master.zip
+mv Hob0Rules-master/ Hob0Rules
 ```
 
 To run Hashcat again, but now with the rules we downloaded all we need to do is to use the `r` flag and point it to the path of the rule file.
 
-```bash
-$ sudo hashcat -m 3200 -o cracked.txt -r Hob0Rules/hob064.rule test.txt rockyou.txt
+```bash showLineNumbers title=" "
+sudo hashcat -m 3200 -o cracked.txt -r Hob0Rules/hob064.rule test.txt rockyou.txt
 ```
 
 Now if you write `s` in the terminal to check the status progress of the cracking process you can see that instead of 57,377,536 passwords combinations that the `rockyou.txt` file contains, Hashcat checks 3,672,162,304 passwords combinations, because it uses uppercase and lowercase combinations of the same text that the `rockyou.txt` file contains.

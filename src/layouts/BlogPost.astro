@@ -1,5 +1,6 @@
 ---
 import Layout from "./Layout.astro";
+import ArticleCard from "../components/ArticleCard.astro";
 
 export interface Props {
   content: {
@@ -9,18 +10,33 @@ export interface Props {
     authorLink: string;
     category: string;
     featuredImage: string;
+    tags: Array<string>;
   };
 }
 
 const {
-  content: { title, pubDate, author, authorLink, category, featuredImage },
+  content: { title, pubDate, author, authorLink, category, featuredImage, tags },
   headings,
+  url,
 } = Astro.props;
 
 const WORDS_PER_MINUTE = 200;
 const content = Astro.props.rawContent();
-const numberOfWords = content.split(/\s/g).length;
+const numberOfWords = Math.floor(content.split(/\s/g).length * 0.95);
 const readTime = Math.ceil(numberOfWords / WORDS_PER_MINUTE);
+
+const mightLikePosts = (await Astro.glob("/src/pages/blog/**/*.{md,mdx}"))
+  .filter((post) => import.meta.env.MODE == "development" || !post.frontmatter.draft)
+  .filter((post) => post.url !== url)
+  .map((post) => {
+    const filteredArray = post.frontmatter.tags.filter((value: string) => tags.includes(value));
+    const dupwPost = Object.assign({}, post);
+    dupwPost["match"] = filteredArray.length;
+    return dupwPost;
+  })
+  .sort((a, b) => b.match - a.match)
+  .slice(0, 10)
+  .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 ---
 
 <Layout title={`Blog | ${title}`}>
@@ -96,7 +112,7 @@ const readTime = Math.ceil(numberOfWords / WORDS_PER_MINUTE);
         ></script>
       </div>
 
-      <div class="w-1/4 sticky top-0 h-fit mt-2 ml-4 pl-4 border-l-4 border-zinc-300 dark:border-zinc-700">
+      <div class="w-1/4 sticky top-24 h-fit mt-2 ml-4 pl-4 border-l-4 border-zinc-300 dark:border-zinc-700">
         <p class="text-lg font-semibold mb-2">CONTENTS</p>
         {
           headings.map((header: Record<"depth" | "slug" | "text", string>) => (
@@ -105,6 +121,16 @@ const readTime = Math.ceil(numberOfWords / WORDS_PER_MINUTE);
             </a>
           ))
         }
+      </div>
+    </div>
+
+    <hr class="my-12 w-3/4 border-2 border-zinc-300 dark:border-zinc-700" />
+
+    <div class="w-3/4">
+      <h3 class="mb-2 text-xl font-bold">📖 You might also like</h3>
+      <div class="flex gap-4">
+        <ArticleCard post={mightLikePosts[0]} />
+        <ArticleCard post={mightLikePosts[1]} />
       </div>
     </div>
   </article>
@@ -127,6 +153,10 @@ const readTime = Math.ceil(numberOfWords / WORDS_PER_MINUTE);
     @apply text-xl mt-3 mb-2 font-bold;
   }
 
+  .content h4 {
+    @apply text-lg mt-3 mb-2 font-bold;
+  }
+
   .content :not(pre) > code {
     @apply bg-[#f5f5f5] text-[#e74c3c] px-2;
   }
@@ -143,53 +173,92 @@ const readTime = Math.ceil(numberOfWords / WORDS_PER_MINUTE);
     @apply text-[#38bdf8];
   }
 
-  code {
+  .content code {
     counter-reset: line;
     /* counter-reset: line 100; */
   }
 
-  code[data-line-numbers] > .line::before {
+  .content code[data-line-numbers] > .line::before {
     content: counter(line);
     counter-increment: line;
     @apply inline-block text-right w-4 mr-5 text-zinc-600;
   }
 
-  /* code[data-line-numbers] > .line:first-of-type::before {
+  /* .content code[data-line-numbers] > .line:first-of-type::before {
     counter-set: line 100;
   } */
 
-  code[data-line-numbers][data-language="bash"] > .line::before {
+  .content code[data-line-numbers][data-language="bash"] > .line::before {
     content: "$";
   }
 
-  div[data-rehype-pretty-code-title] {
+  .content div[data-rehype-pretty-code-title] {
     @apply h-10 rounded-t-md pl-4 text-zinc-800 dark:text-zinc-300 flex items-center font-semibold bg-[#c8c8ff0d];
   }
 
-  div[data-rehype-pretty-code-title]::before {
+  .content div[data-rehype-pretty-code-title]::before {
     content: url("/terminal-dots.svg");
     @apply mr-8 pt-2;
   }
 
-  div[data-rehype-pretty-code-fragment] pre {
+  .content div[data-rehype-pretty-code-fragment] pre {
     @apply relative rounded-b-md m-0 bg-[#c8c8ff0d];
   }
 
-  div[data-rehype-pretty-code-fragment] .line {
+  .content div[data-rehype-pretty-code-fragment] .line {
     @apply pl-2;
   }
 
-  div[data-rehype-pretty-code-fragment] code {
+  .content div[data-rehype-pretty-code-fragment] code {
     @apply flex flex-col overflow-x-scroll pb-2;
   }
 
-  div[data-rehype-pretty-code-fragment] .highlighted {
+  .content div[data-rehype-pretty-code-fragment] .highlighted {
     @apply bg-[#c8c8ff1a] border-l-[#60a5fa];
   }
 
-  pre[data-language]:after {
-    /* @apply absolute right-3 bottom-2 text-zinc-600; */
+  .content pre[data-language]:after {
     @apply absolute right-3 -top-8 text-zinc-600;
     content: attr(data-language);
+  }
+
+  .content table {
+    @apply block overflow-x-scroll;
+  }
+
+  .content table th {
+    @apply border border-gray-300 p-2;
+  }
+
+  .dark .content table th {
+    @apply border-neutral-900;
+  }
+
+  .content table td {
+    @apply border border-gray-300 p-2;
+  }
+
+  .dark .content table td {
+    @apply border-neutral-900;
+  }
+
+  .content table > thead {
+    @apply bg-gray-200;
+  }
+
+  .dark .content table > thead {
+    @apply bg-gray-900;
+  }
+
+  .content table > tbody {
+    @apply bg-gray-100;
+  }
+
+  .dark .content table > tbody {
+    @apply bg-gray-800;
+  }
+
+  .content svg {
+    margin: 0 auto;
   }
 </style>

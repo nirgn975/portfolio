@@ -1,0 +1,96 @@
+[
+  {
+    "category": "Architecture",
+    "items": [
+      { "name": "Microservices", "code": "fas fa-code" },
+      { "name": "RESTful APIs", "code": "fas fa-code" },
+      { "name": "GraphQL", "code": "fas fa-code" },
+      { "name": "Data Structures & Algorithms", "code": "fas fa-code" },
+      { "name": "SasS / PasS", "code": "fas fa-code" },
+      { "name": "Microservices", "code": "fas fa-code" },
+      { "name": "TDD (Test Driven Development)", "code": "fas fa-code" }
+    ]
+  },
+  {
+    "category": "FrontEnd",
+    "items": [
+      { "name": "HTML", "code": "fa-brands fa-html5" },
+      { "name": "CSS / SCSS (Bootstrap, UIkit, Tailwind CSS, Material Design)", "code": "fa-brands fa-css3-alt" },
+      { "name": "JavaScript (jQuery, Ajax)", "code": "fa-brands fa-js" },
+      { "name": "Angular (cli, ngrx, material)", "code": "fa-brands fa-angular" },
+      { "name": "Vue (vue router, pinia)", "code": "fa-brands fa-vuejs" }
+    ]
+  },
+  {
+    "category": "BackEnd",
+    "items": [
+      { "name": "Java (Spring)", "code": "fa-brands fa-java" },
+      { "name": "Node.js (TypeScript, Express.js, NestJS)", "code": "fa-brands fa-node-js" },
+      { "name": "Python (Django, Flask, Sanic)", "code": "fa-brands fa-python" },
+      { "name": "Golang", "code": "fa-brands fa-golang" }
+    ]
+  },
+  {
+    "category": "Tests",
+    "items": [
+      { "name": "Mocha", "code": "fa-duotone fa-mug-hot" },
+      { "name": "Jest", "code": "fa-duotone fa-crown" },
+      { "name": "Vitest", "code": "fa-duotone fa-cloud-bolt" }
+    ]
+  },
+  {
+    "category": "Platforms",
+    "items": [
+      { "name": "Linux", "code": "fa-brands fa-linux" },
+      { "name": "Git", "code": "fa-brands fa-git-alt" },
+      { "name": "GitHub", "code": "fa-brands fa-github" }
+    ]
+  },
+  {
+    "category": "Tools",
+    "items": [
+      { "name": "Bash", "code": "fa-solid fa-rectangle-terminal" },
+      { "name": "Jekyll", "code": "fa-solid fa-pencil" },
+      { "name": "Hugo", "code": "fa-brands fa-markdown" },
+      { "name": "Electron", "code": "fa-regular fa-atom-simple" },
+      { "name": "Gulp", "code": "fa-brands fa-gulp" },
+      { "name": "Ionic", "code": "fa-light fa-solar-system" },
+      { "name": "Yeoman", "code": "fa-solid fa-user-ninja" },
+      { "name": "Astro", "code": "fa-duotone fa-user-astronaut" },
+      { "name": "Vite", "code": "fa-solid fa-bolt-lightning" },
+      { "name": "RabbitMQ", "code": "fa-solid fa-rabbit-running" }
+    ]
+  },
+  {
+    "category": "Databases",
+    "items": [
+      { "name": "PostgreSQL", "code": "fa-solid fa-elephant" },
+      { "name": "MongoDB", "code": "fa-brands fa-envira" },
+      { "name": "RethinkDB", "code": "fas fa-database" },
+      { "name": "Redis", "code": "fa-regular fa-file-binary" }
+    ]
+  },
+  {
+    "category": "Clouds & Devops",
+    "items": [
+      { "name": "AWS", "code": "fa-brands fa-aws" },
+      { "name": "Docker", "code": "fa-brands fa-docker" },
+      { "name": "Kubernetes", "code": "fa-light fa-ship" },
+      { "name": "fa-brands fa-digital-ocean", "code": "Digital Ocean" },
+      { "name": "fa-brands fa-google", "code": "Google Cloud Platform" },
+      { "name": "fas fa-project-diagram", "code": "CI / CD" },
+      { "name": "fas fa-server", "code": "Load Balancing" },
+      { "name": "fa-solid fa-router", "code": "NGINX" }
+    ]
+  },
+  {
+    "category": "Others",
+    "items": [
+      { "name": "Doing Pen Testing By Night", "code": "fas fa-lock-open-alt" },
+      { "name": "Coffee Drinker", "code": "fas fa-coffee" },
+      { "name": "Open Source Contributer", "code": "fas fa-bug" },
+      { "name": "Unix (Linux & Mac) User", "code": "fas fa-laptop" },
+      { "name": "Love To Play With Arduino & Raspberry Pi", "code": "fad fa-microchip" }
+    ]
+  }
+]

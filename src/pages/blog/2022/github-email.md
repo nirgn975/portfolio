@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["github", "private email", "domain"]
 category: "tutorials"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2022/github-email/google-email.webp"
 ---
 

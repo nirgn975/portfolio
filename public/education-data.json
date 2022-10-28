@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Deep Learning Foundations",
+    "startDate": "01/2017",
+    "endDate": "08/2017",
+    "school": {
+      "name": "Udacity",
+      "url": "https://www.udacity.com"
+    },
+    "body": "A nanodegree program at Udacity",
+    "items": [
+      "The <a href=\"https://www.udacity.com/course/deep-learning-nanodegree-foundation--nd101\" target=\"_blank\" class=\"text-sky-500 hover:text-sky-400\">program syllabus</a> include: Neural Networks, Convolutional Neural Networks, Recurrent Neural Networks, Generative Adversarial Networks",
+      "The 5 projects I built during the program - <a href=\"https://github.com/nirgn975/DLND\" target=\"_blank\" class=\"text-sky-500 hover:text-sky-400\">GitHub</a>",
+      "<a href=\"education/nd101.pdf\" class=\"text-sky-500 hover:text-sky-400\" download>Completion certificate</a>"
+    ]
+  },
+  {
+    "title": "Bachelor's degree in Computer Science and Business Administration",
+    "startDate": " 06/2011",
+    "endDate": "06/2016",
+    "school": {
+      "name": "The Open University of Israel",
+      "url": "https://www.linkedin.com/edu/school?id=162040&trk=edu-cp-title"
+    },
+    "body": "",
+    "items": [
+      "Seminar paper in Business Ethics course (grade: 85)",
+      "Final project was in Java: <a href=\"https://github.com/nirgn975/Book4You\" target=\"_blank\" class=\"text-sky-500 hover:text-sky-400\">GitHub Repo</a> (grade: 95)",
+      "GPA: 76"
+    ]
+  },
+  {
+    "title": "High School diploma",
+    "startDate": "01/2004",
+    "endDate": "01/2008",
+    "school": {
+      "name": "Ora Modi'im High School",
+      "url": "https://oramodiim.tik-tak.net"
+    },
+    "body": "Majoring in computer science at Ora Modi'im High School",
+    "items": ["GPA: 82"]
+  }
+]

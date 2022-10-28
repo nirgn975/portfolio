@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["twitter", "development", "mvp", "database", "collection", "architecture", "api", "schema"]
 category: "development"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2020/chapter-2-simple-twitter/simple-twitter-cover.webp"
 ---
 

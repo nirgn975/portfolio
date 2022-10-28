@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import workData from "../../public/work-data.json";
+import talksData from "../../public/talks-data.json";
+import skillsData from "../../public/skills-data.json";
+import educationData from "../../public/education-data.json";
 
 let repos: Array<{ code: string; title: string; name?: string; description?: string; url?: string; stars?: string; forks?: string }> = [
   { code: "generator-jekyll-starter-kit", title: "Jekyll Starter Kit Generator" },
@@ -45,168 +49,27 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
       </div>
 
       <div class="pt-4 pl-6">
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            01/2020 - Present
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Lead Software Engineer (Team Leader) @
-            <a href="https://www.linkedin.com/company/cognyte" target="_blank" class="text-sky-500 hover:text-sky-400">Cognyte (formerly a Verint company)</a>
-          </h3>
-          <ul class="list-disc pl-6">
-            <li>WebintPro LTD was acquired by Cognyte (formerly a Verint company).</li>
-            <li>Write a compelete data pipeline using RabbitMQ message broker.</li>
-            <li>Rewrite the backend microservices from Express.js to NestJS.</li>
-            <li>Build a CI/CD for an Electron desktop application using GitHub actions and GCP.</li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            02/2017 - 12/2019
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Lead Software Engineer (Team Leader) @
-            <a href="https://www.linkedin.com/company/3296384" target="_blank" class="text-sky-500 hover:text-sky-400">WebintPro Ltd</a>
-          </h3>
-          <ul class="list-disc pl-6">
-            <li>Formed a team (4 full stack developers) to develop and maintains a system to fetch, analyze, and save big data from social networks.</li>
-            <li>The backend services was written in Python with Sanic framework and Node.js with Express.js framework.</li>
-            <li>The frontend dashboard was written in Angular using ngrx, material, and D3.js.</li>
-            <li>Using Docker & Kubernetes for deployment on Google Cloud Platform, with a compelete CI/CD (tests, code reviews, dev environment, etc).</li>
-            <li>Implements a Microservices architecture with Pub/Sub.</li>
-            <li>Using Deep Learning methodologies to extract and analyze data. And save it in MongoDB, and Redis Databases.</li>
-            <li>Created the project from scratch, build the team, manage it, doing code reviews, etc.</li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            12/2015 - 01/2017
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Senior Full Stack Software Engineer @
-            <a href="https://www.linkedin.com/company/1776824" target="_blank" class="text-sky-500 hover:text-sky-400">Gizra - Internet Solutions</a>
-          </h3>
-          <ul class="list-disc pl-6">
-            <li>Developing a system to connect between companies on varies projects, tracking, and managing them, for the European Union.</li>
-            <li>The Frontend is build with HTML5, CSS3, Bootstrap, JS, and jQuery. Backend written with Drupal in PHP and MySQL Database.</li>
-            <li>Working with Git on GitHub, doing code reviews, and writing tests with Behat (runs on Travis-CI).</li>
-            <li>Builds a Docker image for the system, and integrate continuous deployment methods.</li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            10/2015 - 01/2019
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Lead Software Engineer, Volunteer @
-            <a href="https://www.linkedin.com/company/2471778" target="_blank" class="text-sky-500 hover:text-sky-400">The Public Knowledge Workshop</a>
-          </h3>
-          <ul class="list-disc pl-6">
-            <li>
-              Take part in Hackita02 program and one of the founders of "Ways Of Time" project that enable the National Library of Israel to upload and geotag
-              their geographic maps collection, and open them to the public (Python, Django, Leaflet, PostGIS, MDL).
-            </li>
-            <li>
-              Lead developer of version 2.x of the "Open Pension" project. The project mission is to reveal what happens behind the Israeli pension market,
-              while enabling the public to trace the money and expose corruption (Python, Django, Scrapy, PostgreSQL, Angular, ngrx, d3.js).
-            </li>
-            <li>
-              <a href="https://github.com/nirgn975/WaysOfTime" target="_blank">Ways Of Time Repo</a> |
-              <a href="https://github.com/hasadna/open_pension" target="_blank">Open Pension Website Repo</a> |
-              <a href="https://github.com/hasadna/open_pension_scraper" target="_blank">Open Pension Crawler Repo</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            07/2015 - 11/2015
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Full Stack Software Engineer @
-            <a href="https://www.linkedin.com/company/2484049" target="_blank" class="text-sky-500 hover:text-sky-400"
-              >Restart Group - IT | WEB | Mobile | People</a
-            >
-          </h3>
-          <ul class="list-disc pl-6">
-            <li>
-              Part of a team that develops and maintains a financial system, from end to end, that handles thousands of transactions to offshore bank accounts.
-            </li>
-            <li>Implement a new Front-end design built with HTML5, CSS3, Bootstrap, JS and jQuery.</li>
-            <li>Back-end written in PHP, and DB in MySQL.</li>
-            <li>Implement new banks APIs.</li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            03/2011 - 12/2012
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Internet Expert @
-            <a href="https://www.linkedin.com/company/162949" target="_blank" class="text-sky-500 hover:text-sky-400">Cellcom Israel, Ltd</a>
-          </h3>
-          <ul class="list-disc pl-6">
-            <li>Tier 2 customer Support Expert Team.</li>
-            <li>Knowledge focal point for representatives at specialized Call centers.</li>
-            <li>Handling top level customer escalations and Gold customers support.</li>
-            <li>Experience working on UNIX-based switches with HP-UX, And with SAP & Amdocs systems.</li>
-            <li>
-              Responsible for converting two call centers (Haifa and Beer Sheva) to specialized centers (provide training, and supervision throughout the
-              beginning of the activity until go-live operation).
-            </li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            11/2009 - 02/2011
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Internet Service Representitive @
-            <a href="https://www.linkedin.com/company/162949" target="_blank" class="text-sky-500 hover:text-sky-400">Cellcom Israel, Ltd</a>
-          </h3>
-          <ul class="list-disc pl-6">
-            <li>Tier 1 customer Support Team.</li>
-            <li>Handling customer requirements and providing solutions on Internet, data and technical problems.</li>
-            <li>
-              Rated at the 10% of the Company's outstanding employees in 2010 and a leader in service in the internet and technical Customer Service Center in
-              2011.
-            </li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            03/2009 - 10/2009
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Military service (shortened for health reasons) @
-            <a href="https://www.linkedin.com/company/israeldefenseforces" target="_blank" class="text-sky-500 hover:text-sky-400"
-              >IDF (Israel Defense Forces)</a
-            >
-          </h3>
-          <p>Administrative role in the logistics department at Sde Dov Air Force base.</p>
-        </div>
+        {
+          workData.map((work) => (
+            <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
+              <time class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']">
+                {work.startDate} - {work.endDate}
+              </time>
+              <h3 class="text-xl mt-2 mb-4">
+                {work.title} @
+                <a href={work.company.url} target="_blank" class="text-sky-500 hover:text-sky-400">
+                  {work.company.name}
+                </a>
+              </h3>
+              <p>{work.body}</p>
+              <ul class="list-disc pl-6">
+                {work.items.map((item) => (
+                  <li set:html={item} />
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
 
@@ -248,70 +111,27 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
           </div>
         </div>
 
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            01/2017 - 08/2017
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Deep Learning Foundations @
-            <a href="https://www.udacity.com" target="_blank" class="text-sky-500 hover:text-sky-400">Udacity</a>
-          </h3>
-          <p>A nanodegree program at Udacity</p>
-          <ul class="list-disc pl-6">
-            <li>
-              The <a href="https://www.udacity.com/course/deep-learning-nanodegree-foundation--nd101" target="_blank" class="text-sky-500 hover:text-sky-400"
-                >program syllabus</a
-              > include: Neural Networks, Convolutional Neural Networks, Recurrent Neural Networks, Generative Adversarial Networks
-            </li>
-            <li>
-              The 5 projects I built during the program - <a href="https://github.com/nirgn975/DLND" target="_blank" class="text-sky-500 hover:text-sky-400"
-                >GitHub</a
-              >
-            </li>
-            <li><a href="education/nd101.pdf" class="text-sky-500 hover:text-sky-400" download>Completion certificate</a></li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            06/2011 - 06/2016
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            Bachelor's degree in Computer Science and Business Administration @
-            <a href="https://www.linkedin.com/edu/school?id=162040&trk=edu-cp-title" target="_blank" class="text-sky-500 hover:text-sky-400"
-              >The Open University of Israel</a
-            >
-          </h3>
-          <p>A nanodegree program at Udacity</p>
-          <ul class="list-disc pl-6">
-            <li>Seminar paper in Business Ethics course (grade: 85)</li>
-            <li>
-              Final project was in Java: <a href="https://github.com/nirgn975/Book4You" target="_blank" class="text-sky-500 hover:text-sky-400">GitHub Repo</a> (grade:
-              95)
-            </li>
-            <li>GPA: 76</li>
-          </ul>
-        </div>
-
-        <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
-          <time
-            class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']"
-          >
-            01/2004 - 01/2008
-          </time>
-          <h3 class="text-xl mt-2 mb-4">
-            High School diploma @
-            <a href="https://oramodiim.tik-tak.net" target="_blank" class="text-sky-500 hover:text-sky-400">Ora Modi'im High School</a>
-          </h3>
-          <p>Majoring in computer science at Ora Modi'im High School</p>
-          <ul class="list-disc pl-6">
-            <li>GPA: 82</li>
-          </ul>
-        </div>
+        {
+          educationData.map((education) => (
+            <div class="pt-4 pb-8 px-6 border-l-2 border-zinc-700 dark:border-zinc-400">
+              <time class="relative before:h-5 before:w-5 before:absolute before:rounded-full before:border-2 before:border-zinc-700 dark:before:border-zinc-400 before:bg-zinc-50 dark:before:bg-zinc-800 before:-left-9 before:content-['']">
+                {education.startDate} - {education.endDate}
+              </time>
+              <h3 class="text-xl mt-2 mb-4">
+                {education.title} @
+                <a href={education.school.url} target="_blank" class="text-sky-500 hover:text-sky-400">
+                  {education.school.name}
+                </a>
+              </h3>
+              <p>{education.body}</p>
+              <ul class="list-disc pl-6">
+                {education.items.map((item) => (
+                  <li set:html={item} />
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
 
@@ -322,97 +142,21 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
         <h2 class="ml-2 font-medium text-3xl">Skills</h2>
       </div>
 
-      <div class="mt-6">
-        <h3 class="text-xl my-2">Architecture</h3>
-        <div class="ml-4">
-          <span class="ml-4 inline-block"><i class="fas fa-code h-5 w-5 mr-1"></i>Microservices</span>
-          <span class="ml-4 inline-block"><i class="fas fa-code h-5 w-5 mr-1"></i>RESTful APIs</span>
-          <span class="ml-4 inline-block"><i class="fas fa-code h-5 w-5 mr-1"></i>GraphQL</span>
-          <span class="ml-4 inline-block"><i class="fas fa-code h-5 w-5 mr-1"></i>Data Structures & Algorithms</span>
-          <span class="ml-4 inline-block"><i class="fas fa-code h-5 w-5 mr-1"></i>SasS / PasS</span>
-          <span class="ml-4 inline-block"><i class="fas fa-code h-5 w-5 mr-1"></i>TDD (Test Driven Development)</span>
-        </div>
-      </div>
-
-      <div class="mt-6">
-        <h3 class="text-xl my-2">FrontEnd</h3>
-        <div class="ml-4">
-          <span class="ml-4 inline-block"><i class="fa-brands fa-html5 h-5 w-5 mr-1"></i>HTML</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-css3-alt h-5 w-5 mr-1"></i>CSS / SCSS (Bootstrap, UIkit, Tailwind CSS, Material Design)</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-js h-5 w-5 mr-1"></i>JavaScript (jQuery, Ajax)</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-angular h-5 w-5 mr-1"></i>Angular (cli, ngrx, material)</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-vuejs h-5 w-5 mr-1"></i>Vue (vue router, pinia)</span>
-        </div>
-      </div>
-
-      <div class="mt-6">
-        <h3 class="text-xl my-2">BackEnd</h3>
-        <div class="ml-4">
-          <span class="ml-4 inline-block"><i class="fa-brands fa-java h-5 w-5 mr-1"></i>Java (Spring)</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-node-js h-5 w-5 mr-1"></i>Node.js (TypeScript, Express.js, NestJS, Mocha, Jest)</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-python h-5 w-5 mr-1"></i>Python (Django, Flask, Sanic)</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-golang h-5 w-5 mr-1"></i>Golang</span>
-        </div>
-      </div>
-
-      <div class="mt-6">
-        <h3 class="text-xl my-2">Platforms</h3>
-        <div class="ml-4">
-          <span class="ml-4 inline-block"><i class="fa-brands fa-linux h-5 w-5 mr-1"></i>Linux</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-git-alt h-5 w-5 mr-1"></i>Git</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-github h-5 w-5 mr-1"></i>GitHub</span>
-        </div>
-      </div>
-
-      <div class="mt-6">
-        <h3 class="text-xl my-2">Tools</h3>
-        <div class="ml-4">
-          <span class="ml-4 inline-block"><i class="fa-solid fa-rectangle-terminal h-5 w-5 mr-1"></i>Bash</span>
-          <span class="ml-4 inline-block"><i class="fa-solid fa-pencil h-5 w-5 mr-1"></i>Jekyll</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-markdown h-5 w-5 mr-1"></i>Hugo</span>
-          <span class="ml-4 inline-block"><i class="fa-regular fa-atom-simple h-5 w-5 mr-1"></i>Electron</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-gulp h-5 w-5 mr-1"></i>Gulp</span>
-          <span class="ml-4 inline-block"><i class="fa-light fa-solar-system h-5 w-5 mr-1"></i>Ionic</span>
-          <span class="ml-4 inline-block"><i class="fa-solid fa-user-ninja h-5 w-5 mr-1"></i>Yeoman</span>
-          <span class="ml-4 inline-block"><i class="fa-duotone fa-user-astronaut h-5 w-5 mr-1"></i>Astro</span>
-          <span class="ml-4 inline-block"><i class="fa-solid fa-rabbit-running h-5 w-5 mr-1"></i>RabbitMQ</span>
-        </div>
-      </div>
-
-      <div class="mt-6">
-        <h3 class="text-xl my-2">Databases</h3>
-        <div class="ml-4">
-          <span class="ml-4 inline-block"><i class="fa-solid fa-elephant h-5 w-5 mr-1"></i>PostgreSQL</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-envira h-5 w-5 mr-1"></i>MongoDB</span>
-          <span class="ml-4 inline-block"><i class="fas fa-database h-5 w-5 mr-1"></i>RethinkDB</span>
-          <span class="ml-4 inline-block"><i class="fa-regular fa-file-binary h-5 w-5 mr-1"></i>Redis</span>
-        </div>
-      </div>
-
-      <div class="mt-6">
-        <h3 class="text-xl my-2">Clouds & Devops</h3>
-        <div class="ml-4">
-          <span class="ml-4 inline-block"><i class="fa-brands fa-aws h-5 w-5 mr-1"></i>AWS</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-docker h-5 w-5 mr-1"></i>Docker</span>
-          <span class="ml-4 inline-block"><i class="fa-light fa-ship h-5 w-5 mr-1"></i>Kubernetes</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-digital-ocean h-5 w-5 mr-1"></i>Digital Ocean</span>
-          <span class="ml-4 inline-block"><i class="fa-brands fa-google h-5 w-5 mr-1"></i>Google Cloud Platform</span>
-          <span class="ml-4 inline-block"><i class="fas fa-project-diagram h-5 w-5 mr-1"></i>CI / CD</span>
-          <span class="ml-4 inline-block"><i class="fas fa-server h-5 w-5 mr-1"></i>Load Balancing</span>
-          <span class="ml-4 inline-block"><i class="fa-solid fa-router h-5 w-5 mr-1"></i>NGINX</span>
-        </div>
-      </div>
-
-      <div class="mt-6">
-        <h3 class="text-xl my-2">Others</h3>
-        <div class="ml-4">
-          <span class="ml-4 inline-block"><i class="fas fa-lock-open-alt h-5 w-5 mr-1"></i>Doing Pen Testing By Night</span>
-          <span class="ml-4 inline-block"><i class="fas fa-coffee h-5 w-5 mr-1"></i>Coffee Drinker</span>
-          <span class="ml-4 inline-block"><i class="fas fa-bug h-5 w-5 mr-1"></i>Open Source Contributer</span>
-          <span class="ml-4 inline-block"><i class="fas fa-laptop h-5 w-5 mr-1"></i>Unix (Linux & Mac) User</span>
-          <span class="ml-4 inline-block"><i class="fad fa-microchip h-5 w-5 mr-1"></i>Love To Play With Arduino & Raspberry Pi</span>
-        </div>
-      </div>
+      {
+        skillsData.map((skill) => (
+          <div class="mt-6">
+            <h3 class="text-xl my-2">{skill.category}</h3>
+            <div class="ml-4">
+              {skill.items.map((item) => (
+                <span class="ml-4 inline-block">
+                  <i class={`${item.code} h-5 w-5 mr-1`} />
+                  {item.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </div>
 
     <!-- Projects -->
@@ -460,71 +204,30 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
       </div>
 
       <div class="mt-4">
-        <div class="flex flex-col md:flex-row">
-          <img src="/about/talks/pipenv-the-future-of-python-dependency-management.webp" alt="Talk Thumbnail" class="my-2" />
-          <div class="p-4">
-            <h3 class="text-2xl">Pipenv: The future of Python dependency management</h3>
-            <p class="pt-2">
-              <time>4/12/17</time> |
-              <span>
-                <a href="https://www.meetup.com/PyWeb-IL/events/245071494" target="_blank" rel="noreferrer" class="text-sky-500 hover:text-sky-400">
-                  Meetpup Page</a
-                > |
-              </span>
-              <span>
-                <a
-                  href="/about/talks/pipenv-the-future-of-python-dependency-management.pptx"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="text-sky-500 hover:text-sky-400"
-                >
-                  Download</a
-                >
-              </span>
-            </p>
-          </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row">
-          <img src="/about/talks/api-star.webp" alt="Talk Thumbnail" class="my-2" />
-          <div class="p-4">
-            <h3 class="text-2xl">API Star - Next generation framework!</h3>
-            <p class="pt-2">
-              <time>6/11/17</time> |
-              <span>
-                <a href="https://www.meetup.com/PyWeb-IL/events/243985794" target="_blank" rel="noreferrer" class="text-sky-500 hover:text-sky-400">
-                  Meetpup Page</a
-                > |
-              </span>
-              <span>
-                <a href="/about/talks/api-star.pptx" target="_blank" rel="noreferrer" class="text-sky-500 hover:text-sky-400"> Download</a>
-              </span>
-            </p>
-          </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row">
-          <img src="/about/talks/404-sql-db-not-found.webp" alt="Talk Thumbnail" class="my-2" />
-          <div class="p-4">
-            <h3 class="text-2xl">404 SQL DB not found. Meet RethinkDB</h3>
-            <p class="pt-2">
-              <time>11/8/16</time> |
-              <span>
-                <a
-                  href="https://www.meetup.com/RethinkDB-Israel-Meetup/events/217336482"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="text-sky-500 hover:text-sky-400"
-                >
-                  Meetpup Page</a
-                > |
-              </span>
-              <span>
-                <a href="/about/talks/404-sql-db-not-found.pptx" target="_blank" rel="noreferrer" class="text-sky-500 hover:text-sky-400"> Download</a>
-              </span>
-            </p>
-          </div>
-        </div>
+        {
+          talksData.map((talk) => (
+            <div class="flex flex-col md:flex-row">
+              <img src={talk.image} alt="Talk Thumbnail" class="my-2" />
+              <div class="p-4">
+                <h3 class="text-2xl">{talk.title}</h3>
+                <p class="pt-2">
+                  <time>{talk.date}</time> |
+                  <span>
+                    <a href={talk.meetupUrl} target="_blank" rel="noreferrer" class="text-sky-500 hover:text-sky-400">
+                      Meetpup Page
+                    </a>{" "}
+                    |
+                  </span>
+                  <span>
+                    <a href={talk.downloadUrl} target="_blank" rel="noreferrer" class="text-sky-500 hover:text-sky-400">
+                      Download
+                    </a>
+                  </span>
+                </p>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["spy", "screen crab", "key croc", "cloud c2", "hacking", "hak5", "white hat", "digital ocean"]
 category: "hacking"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2020/like-a-spy-with-hak5-toys/spy-cover.webp"
 ---
 
@@ -55,24 +52,22 @@ Don't forget to add our droplet in _"Apply to Droplets"_ input, right before the
 
 Now the fun part begins, let's ssh to our server (replace `<DROPLET-IP>` with your droplet ip, in my case it's `165.227.156.17`).
 
-```bash
-$ ssh root@<DROPLET-IP>
+```bash showLineNumbers title=" "
+ssh root@<DROPLET-IP>
 ```
 
 ![SSH into droplet](/posts/2020/like-a-spy-with-hak5-toys/ssh-to-droplet.webp "SSH into droplet")
 
 And install the `unzip` package so we can unzip the `zip` file we'll download with all the edition for Windows, Mac and Linux of C2 from Hak5.
 
-```bash
-$ sudo apt install unzip
+```bash showLineNumbers title=" "
+sudo apt install unzip
 ```
 
 Now let's build a command to download the c2 (you can get the download URL from the email), save the file in the name `c2.zip`, unzip it, and run the relevant binary for our OS with the `hostname` point to our domain, and the `https` flag so [Let's Encrypt](https://letsencrypt.org) will automatically create a certificate for us.
 
-```bash
-$ wget https://c2.hak5.org/download/community -O c2.zip && \
-unzip c2.zip && \
-./c2_community-linux-64 -hostname cloud-c2.dev -https
+```bash showLineNumbers title=" "
+wget https://c2.hak5.org/download/community -O c2.zip && unzip c2.zip && ./c2_community-linux-64 -hostname cloud-c2.dev -https
 ```
 
 The first time C2 runs, a database file is generated (named `c2.db` by default) in the same directory as the C2 binary. In that first run you'll see it print a _"Setup token"_, copy it, we'll need it to continue the setup process.
@@ -108,14 +103,14 @@ Also, create a file named `config.txt` and in it add the wifi configuration. The
 
 For example:
 
-```
+```txt title="config.txt"
 WIFI_SSID This network
 WIFI_PASS The P@$$word!!
 ```
 
 Will be:
 
-```
+```txt title="config.txt"
 WIFI_SSID This\ network
 WIFI_PASS The\ P\@\$\$word\!\!
 ```
@@ -154,7 +149,7 @@ Let's connect our Key Croc to our C2. Go to the C2 dashboard and add a new devic
 
 And let's add our wifi configuration so it would be able to connect to our C2 server. Like with the Screen Crab we need to edit the `config.txt` file (we already have the file in this case, and there're quit a few comments in there), we'll uncomment the `WIFI_SSID` and `WIFI_PASS` lines and add our wifi configuration there, in the same exact way we did with the Screen Crab, but in this case we have a new option to play with, an ssh one, so we can connect to the Key Croc via ssh and program it on the fly!
 
-```
+```txt title="config.txt"
 WIFI_SSID This\ network
 WIFI_PASS The\ P\@\$\$word\!\!
 SSH ENABLE
@@ -180,27 +175,27 @@ Everything is connected and working, but soon as we'll leave our Digital Ocean s
 
 First we're going to move the c2 file to `/usr/local/bin`. Why this directory? Because this is the directory in linux for programs that normal user may run. _"usr"_ - **U**NIX **S**ystem **R**esources, the location that system programs and libraries are stored. _"local"_ - for resources that were not shipped with the standard distribution. _"bin"_ - binary compiled executables.
 
-```bash
-$ sudo mv c2_community-linux-64 /usr/local/bin
+```bash showLineNumbers title=" "
+sudo mv c2_community-linux-64 /usr/local/bin
 ```
 
 and then to create a new directly (in `/var`) for our database (the `c2.db` file that was automatically created). Why in `/var`? Because according to linux it's abbreviation is _"variable"_, and it should contains things that are prone to changes (such as websites, temporary files (`/var/tmp`) and databases).
 
-```bash
-$ sudo mkdir /var/c2
-$ sudo mv c2.db /var/c2
+```bash showLineNumbers title=" "
+sudo mkdir /var/c2
+sudo mv c2.db /var/c2
 ```
 
 Now we need to create a new `systemd` service. This is the "right way" to keep the process alive once we leave the ssh connection, because this way (with `systemd`) if it crash the `systemd` will automatically reboot it and also we can capture the process logs to check what happened.
 
-```bash
-$ sudo touch /etc/systemd/system/c2.service
-$ nano /etc/systemd/system/c2.service
+```bash showLineNumbers title=" "
+sudo touch /etc/systemd/system/c2.service
+nano /etc/systemd/system/c2.service
 ```
 
 And paste the text below (change the `cloud-c2.dev` to your domain name), save and exit nano.
 
-```
+```txt
 [Unit]
 Description=Cloud C2
 After=c2.service
@@ -213,14 +208,14 @@ WantedBy=multi-user.target
 
 All we have left to do is to reload the `systemd` daemon, enable the new service we just created (if it's not enabled the service will start and stop only when you write the commands to start and stop it, if it's enabled it'll automatically start when the server is back up), and finally start it.
 
-```bash
-$ sudo systemctl daemon-reload && systemctl enable c2.service && systemctl start c2.service
+```bash showLineNumbers title=" "
+sudo systemctl daemon-reload && systemctl enable c2.service && systemctl start c2.service
 ```
 
 You can check the status of the service we created with the `status` command of `systemctl`.
 
-```bash
-$ sudo systemctl status c2.service
+```bash showLineNumbers title=" "
+sudo systemctl status c2.service
 ```
 
 ![systemd service runs our c2 successfully](/posts/2020/like-a-spy-with-hak5-toys/systemd-service-running.webp "systemd service runs our c2 successfully")

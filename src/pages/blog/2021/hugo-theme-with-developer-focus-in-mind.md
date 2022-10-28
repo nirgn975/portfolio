@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["hugo", "theme", "contribution", "dark mode", "generate", "optimization", "performance", "accessibility", "best practices", "seo"]
 category: "contribution"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2021/hugo-theme-with-developer-focus-in-mind/hugo-logo-wide.webp"
 ---
 
@@ -51,15 +48,15 @@ There are a lot of other great features that this theme have, like:
 
 If you want to use this theme, it can't get any easier then this. All you need to do is to install [Hugo](https://gohugo.io), create a new website, and clone this theme as a submodule
 
-```bash
-$ brew install hugo
-$ hugo new site myownresume
-$ git submodule add git@github.com:nirgn975/devRes.git themes/devRes
+```bash showLineNumbers title=" "
+brew install hugo
+hugo new site myownresume
+git submodule add git@github.com:nirgn975/devRes.git themes/devRes
 ```
 
-Now all you have left to do is just add it as a theme in your `config.toml`
+Now all you have left to do is just config it as your theme
 
-```toml
+```toml showLineNumbers title="config.toml"
 theme = "devRes"
 ```
 
@@ -79,8 +76,8 @@ Great! All issues and pull requests are welcome.
 
 For local development just start [hugo](https://gohugo.io) with `exampleSite` as the source.
 
-```bash
-$ hugo server --source=exampleSite -v --gc
+```bash showLineNumbers title=" "
+hugo server --source=exampleSite -v --gc
 ```
 
 &nbsp;

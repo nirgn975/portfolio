@@ -9,9 +9,6 @@ authorLink: "/about"
 tags: ["git", "learn", "github", "cli", "command line", "workflow", "linus torvalds"]
 category: "tools"
 
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
 featuredImage: "/posts/2014/learn-git-part-1-introduction/cover.webp"
 ---
 
@@ -41,27 +38,27 @@ You had problems? just shout him a question he probably down the hallway. But wh
 
 Like most of CLI (command line) tools, `git` comes with a `help` command. So, if we ever got stuck we can always use it to find out about some command.
 
-```bash
-$ git help # print all the commands with a simple explanation.
-$ git help config # print all the config command options with a simple explanation.
+```bash showLineNumbers title=" "
+git help # print all the commands with a simple explanation.
+git help config # print all the config command options with a simple explanation.
 ```
 
 ![git help command in the terminal](/posts/2014/learn-git-part-1-introduction/cli-git-help.webp "git help command in the terminal")
 
 To install git I'll use `brew` (on Mac), but it's pretty easy to install on any OS, just use [this guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for you OS. After we installed it, the first thing we want to do is to set our username and email, so every commit (we'll get to what is commit in the future) will be belong to you.
 
-```
-$ brew install git
-$ git config --global user.name "<YourNameHere>"
-$ git config --global user.email "<YourEmailHere>"
+```bash showLineNumbers title=" "
+brew install git
+git config --global user.name "<YourNameHere>"
+git config --global user.email "<YourEmailHere>"
 ```
 
 We're ready to start working on our first repository (repo for short). Let's create a new one (just navigate to your wanted location in your file system with `cd`) and then initiate a new repo (you can do it with an empty directory or with a directory with some files in it already). This will create an invisible directory (directory that start with a dot (`.`)) with the name `git`.
 
-```bash
-$ cd projects
-$ mkdir newProject
-$ git init
+```bash showLineNumbers title=" "
+cd projects
+mkdir newProject
+git init
 ```
 
 Now we have a local repository (not on any server, local to your computer).
@@ -82,8 +79,13 @@ Once we understand the workflow in theory, we need to practice it.
 
 Maybe the most important command in `git` (in my opinion) is `status` - it allow us to check the changes that were made from the last `commit` (snapshot). Let's see what the result of this command will be after we initiate (with `git init`) the repo, and created a `README.md` file (didn't nothing like adding it to the _staging area_ or `commit` it).
 
-```bash
-$ git status
+```bash showLineNumbers title=" "
+git status
+```
+
+output:
+
+```txt title=" "
 On branch master
 
 No commits yet
@@ -97,16 +99,21 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 We can see we got couple of pieces of information back:
 
-- We are on branch `master` (we'll take about branches later)
+- We are on branch `main` (we'll take about branches later)
 - There is no commits yet in this repo.
 - We have a new file (file that `git` doesn't track) in the name of `README.md`
 - Nothing was added to the _staging area_, and `git` knows that there're files that it doesn't track yet (so we have something to give him, to adding to the _staging area_).
 
 So let's give `git` what it wants, let's start tracking this `README.md` file (with the `add` command and right after it the file itself), and then do another `status` command to see the output now.
 
-```bash
-$ git add README.md
-$ git status
+```bash showLineNumbers title=" "
+git add README.md
+git status
+```
+
+output:
+
+```txt title=" "
 On branch master
 
 No commits yet
@@ -120,27 +127,42 @@ We see almost the same pieces of information, but now `git` have a file in his _
 
 When we do the `commit` we basically take a snapshot of our file system in this exact time. Even a space means a change. This commit is added to the repo (project) timeline (it's accepted to draw it and imagine it as a timeline, because every `commit` has a timestamp, so we can place them all on a big timeline from the start of the project until now).
 
-```bash
-$ git commit -m "Created an empty README file"
+```bash showLineNumbers title=" "
+git commit -m "Created an empty README file"
+```
+
+output:
+
+```txt title=" "
 [master (root-commit) de7c8db] Created an empty README file
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 README.md
 ```
 
-if we write the `status` command again, we'll see there is no changes to be added to the _staging area_ or no changes in the _staging area_ to be `commit`ed. We also can see in the first line that we on branch `master`, for now everything you need to know on branches is that we have a timeline (branch) in the name of `master`, and we `commit` things to that branch (timeline).
+if we write the `status` command again, we'll see there is no changes to be added to the _staging area_ or no changes in the _staging area_ to be `commit`ed. We also can see in the first line that we on branch `main`, for now everything you need to know on branches is that we have a timeline (branch) in the name of `main`, and we `commit` things to that branch (timeline).
 
-```bash
-$ git status
+```bash showLineNumbers title=" "
+git status
+```
+
+output:
+
+```txt title=" "
 On branch master
 nothing to commit, working tree clean
 ```
 
 Now let's make some changes in `README.md` and create a new file named `LICENSE` (like we said Alice did in the [workflow section](#3-workflow)), and run the `status` command again.
 
-```bash
-$ echo "first change" > README.md
-$ touch LICENSE
-$ git status
+```bash showLineNumbers title=" "
+echo "first change" > README.md
+touch LICENSE
+git status
+```
+
+output:
+
+```txt title=" "
 On branch master
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -160,9 +182,14 @@ To commit those files we need to add them to the _staging area_ first, we can do
 
 After we add them, we can use the `status` command again to see what have changed. We can see we have two files in the _staging area_, ready to be `commit`ed, one (`LICENSE`) is a new file, and the other (`README.md`) is a tracked file that just changed (modified).
 
-```bash
-$ git add --all
-$ git status
+```bash showLineNumbers title=" "
+git add --all
+git status
+```
+
+output:
+
+```txt title=" "
 On branch master
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
@@ -172,8 +199,13 @@ Changes to be committed:
 
 Now let's do a new `commit` (take a second snapshot) and then explore it a little bit.
 
-```bash
-$ git commit -m "Add a new LICENSE file and finish README"
+```bash showLineNumbers title=" "
+git commit -m "Add a new LICENSE file and finish README"
+```
+
+output:
+
+```txt title=" "
 [master 380c1e1] Add a new LICENSE file and finish README
  2 files changed, 1 insertion(+)
  create mode 100644 LICENSE
@@ -181,13 +213,18 @@ $ git commit -m "Add a new LICENSE file and finish README"
 
 To look at the history, the log, of the current timeline we can use the `log` command. We see there're two `commit`s in the branch (timeline) we're currently at. And also much more information:
 
-- We're in the `master` branch (timeline).
+- We're in the `main` branch (timeline).
 - The `commit`s hash, which is a unique string of number and letters to represent that `commit`. It's basically the name of the `commit`, with it we can reference that `commit`.
 - The author and the exact time and date of the `commit`.
 - The message of the commit (this is why the message is important. It should be understandable, concise and describe exactly what the changes are. It also accepted to write in present time and not history or future).
 
-```bash
-$ git log
+```bash showLineNumbers title=" "
+git log
+```
+
+output:
+
+```txt title=" "
 commit 380c1e1346008245c8268ccb039538df3e314b87 (HEAD -> master)
 Author: Nir Galon <nir@galon.io>
 Date:   Sat Oct 3 12:51:23 2020 +0300
@@ -203,14 +240,7 @@ Date:   Sat Oct 3 02:03:24 2020 +0300
 
 Like the drawing below, we can imagine it as two dots, where each dot is a `commit` (snapshot), and a line (timeline, the `branch`) is connected them. Going from the first (oldest) one at the left, to the newest one at the right. Where the most newest `commit`, the dot to the most right, is our current `commit` (`HEAD`).
 
-{{< mermaid >}}
-gitGraph:
-options
-{ "nodeSpacing": 150, "nodeRadius": 10 }
-end
-commit
-commit
-{{< /mermaid >}}
+<svg viewBox="-126 -19 204 83.39913940429688"  xmlns="http://www.w3.org/2000/svg" width="204px" id="graph-div" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink"><style>@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");'</style><title id="chart-title-graph-div"></title><desc id="chart-desc-graph-div"></desc><style>#graph-div {font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#ccc;}#graph-div .error-icon{fill:#a44141;}#graph-div .error-text{fill:#ddd;stroke:#ddd;}#graph-div .edge-thickness-normal{stroke-width:2px;}#graph-div .edge-thickness-thick{stroke-width:3.5px;}#graph-div .edge-pattern-solid{stroke-dasharray:0;}#graph-div .edge-pattern-dashed{stroke-dasharray:3;}#graph-div .edge-pattern-dotted{stroke-dasharray:2;}#graph-div .marker{fill:lightgrey;stroke:lightgrey;}#graph-div .marker.cross{stroke:lightgrey;}#graph-div svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#graph-div .commit-id,#graph-div .commit-msg,#graph-div .branch-label{fill:lightgrey;color:lightgrey;font-family:'trebuchet ms',verdana,arial,sans-serif;font-family:var(--mermaid-font-family);}#graph-div .branch-label0{fill:undefined;}#graph-div .commit0{stroke:hsl(180, 1.5873015873%, 48.3529411765%);fill:hsl(180, 1.5873015873%, 48.3529411765%);}#graph-div .commit-highlight0{stroke:rgb(133.6571428571, 129.7428571428, 129.7428571428);fill:rgb(133.6571428571, 129.7428571428, 129.7428571428);}#graph-div .label0{fill:hsl(180, 1.5873015873%, 48.3529411765%);}#graph-div .arrow0{stroke:hsl(180, 1.5873015873%, 48.3529411765%);}#graph-div .branch-label1{fill:undefined;}#graph-div .commit1{stroke:hsl(321.6393442623, 65.5913978495%, 38.2352941176%);fill:hsl(321.6393442623, 65.5913978495%, 38.2352941176%);}#graph-div .commit-highlight1{stroke:rgb(93.5483870969, 221.4516129033, 139.677419355);fill:rgb(93.5483870969, 221.4516129033, 139.677419355);}#graph-div .label1{fill:hsl(321.6393442623, 65.5913978495%, 38.2352941176%);}#graph-div .arrow1{stroke:hsl(321.6393442623, 65.5913978495%, 38.2352941176%);}#graph-div .branch-label2{fill:undefined;}#graph-div .commit2{stroke:hsl(194.4, 16.5562913907%, 49.6078431373%);fill:hsl(194.4, 16.5562913907%, 49.6078431373%);}#graph-div .commit-highlight2{stroke:rgb(149.4437086091, 117.6092715231, 107.5562913906);fill:rgb(149.4437086091, 117.6092715231, 107.5562913906);}#graph-div .label2{fill:hsl(194.4, 16.5562913907%, 49.6078431373%);}#graph-div .arrow2{stroke:hsl(194.4, 16.5562913907%, 49.6078431373%);}#graph-div .branch-label3{fill:undefined;}#graph-div .commit3{stroke:hsl(23.0769230769, 49.0566037736%, 40.7843137255%);fill:hsl(23.0769230769, 49.0566037736%, 40.7843137255%);}#graph-div .commit-highlight3{stroke:rgb(99.9811320754, 162.7735849057, 202.0188679245);fill:rgb(99.9811320754, 162.7735849057, 202.0188679245);}#graph-div .label3{fill:hsl(23.0769230769, 49.0566037736%, 40.7843137255%);}#graph-div .arrow3{stroke:hsl(23.0769230769, 49.0566037736%, 40.7843137255%);}#graph-div .branch-label4{fill:undefined;}#graph-div .commit4{stroke:hsl(0, 83.3333333333%, 43.5294117647%);fill:hsl(0, 83.3333333333%, 43.5294117647%);}#graph-div .commit-highlight4{stroke:rgb(51.5000000001, 236.5, 236.5);fill:rgb(51.5000000001, 236.5, 236.5);}#graph-div .label4{fill:hsl(0, 83.3333333333%, 43.5294117647%);}#graph-div .arrow4{stroke:hsl(0, 83.3333333333%, 43.5294117647%);}#graph-div .branch-label5{fill:undefined;}#graph-div .commit5{stroke:hsl(289.1666666667, 100%, 24.1176470588%);fill:hsl(289.1666666667, 100%, 24.1176470588%);}#graph-div .commit-highlight5{stroke:rgb(154.2083333334, 255, 132.0000000001);fill:rgb(154.2083333334, 255, 132.0000000001);}#graph-div .label5{fill:hsl(289.1666666667, 100%, 24.1176470588%);}#graph-div .arrow5{stroke:hsl(289.1666666667, 100%, 24.1176470588%);}#graph-div .branch-label6{fill:undefined;}#graph-div .commit6{stroke:hsl(35.1315789474, 98.7012987013%, 40.1960784314%);fill:hsl(35.1315789474, 98.7012987013%, 40.1960784314%);}#graph-div .commit-highlight6{stroke:rgb(51.331168831, 135.1948051946, 253.6688311688);fill:rgb(51.331168831, 135.1948051946, 253.6688311688);}#graph-div .label6{fill:hsl(35.1315789474, 98.7012987013%, 40.1960784314%);}#graph-div .arrow6{stroke:hsl(35.1315789474, 98.7012987013%, 40.1960784314%);}#graph-div .branch-label7{fill:undefined;}#graph-div .commit7{stroke:hsl(106.1538461538, 84.4155844156%, 35.0980392157%);fill:hsl(106.1538461538, 84.4155844156%, 35.0980392157%);}#graph-div .commit-highlight7{stroke:rgb(206.1818181817, 89.948051948, 241.051948052);fill:rgb(206.1818181817, 89.948051948, 241.051948052);}#graph-div .label7{fill:hsl(106.1538461538, 84.4155844156%, 35.0980392157%);}#graph-div .arrow7{stroke:hsl(106.1538461538, 84.4155844156%, 35.0980392157%);}#graph-div .branch{stroke-width:1;stroke:lightgrey;stroke-dasharray:2;}#graph-div .commit-label{font-size:10px;fill:rgb(183.8476190475, 181.5523809523, 181.5523809523);}#graph-div .commit-label-bkg{font-size:10px;fill:hsl(180, 1.5873015873%, 28.3529411765%);opacity:0.5;}#graph-div .tag-label{font-size:10px;fill:#e0dfdf;}#graph-div .tag-label-bkg{fill:#1f2020;stroke:#cccccc;}#graph-div .tag-hole{fill:#ccc;}#graph-div .commit-merge{stroke:#1f2020;fill:#1f2020;}#graph-div .commit-reverse{stroke:#1f2020;fill:#1f2020;stroke-width:3;}#graph-div .commit-highlight-inner{stroke:#1f2020;fill:#1f2020;}#graph-div .arrow{stroke-width:8;stroke-linecap:round;fill:none;}:root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g></g><g class="commit-bullets"></g><g class="commit-labels"></g><g><line class="branch branch0" y2="0" x2="100" y1="0" x1="0"></line><rect transform="translate(-19, -9.5)" height="23" width="53" y="-1.5" x="-69" ry="4" rx="4" class="branchLabelBkg label0"></rect><g class="branchLabel"><g transform="translate(-79, -10.5)" class="label branch-label0"><text><tspan class="row" x="0" dy="1em" xml:space="preserve">main</tspan></text></g></g></g><g class="commit-arrows"><path class="arrow arrow0" d="M 10 0 L 10 0  10 0 L 60 0"></path></g><g class="commit-bullets"><circle class="commit 0-8db70c3 commit0" r="10" cy="0" cx="10"></circle><circle class="commit 1-af1da26 commit0" r="10" cy="0" cx="60"></circle></g><g class="commit-labels"><g transform="translate(-28.78, 25.64) rotate(-45, 0, 0)"><rect height="15" width="50" y="13.5" x="-15" class="commit-label-bkg"></rect><text class="commit-label" y="25" x="-13">0-8db70c3</text></g><g transform="translate(-28.18625, 25.10875) rotate(-45, 50, 0)"><rect height="15" width="48.4375" y="13.5" x="35.78125" class="commit-label-bkg"></rect><text class="commit-label" y="25" x="37.78125">1-af1da26</text></g></g></svg>
 
 &nbsp;
 
