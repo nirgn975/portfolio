@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/nirgn975/portfolio/compare/v1.4.0...v1.4.1) (2022-10-29)
+
+### Bug Fixes
+
+- add google verification tag ([4e54f23](https://github.com/nirgn975/portfolio/commit/4e54f231f5f0dffdc629e1ccafbe3df4c0de41c4))
+
 # [1.4.0](https://github.com/nirgn975/portfolio/compare/v1.3.2...v1.4.0) (2022-10-28)
 
 ### Features
