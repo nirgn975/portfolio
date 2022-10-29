@@ -1,3 +1,9 @@
+## [1.4.3](https://github.com/nirgn975/portfolio/compare/v1.4.2...v1.4.3) (2022-10-29)
+
+### Bug Fixes
+
+- make algolia chunks smaller ([526d75e](https://github.com/nirgn975/portfolio/commit/526d75e96103da132e3ed7277aa8a525411bd559))
+
 ## [1.4.2](https://github.com/nirgn975/portfolio/compare/v1.4.1...v1.4.2) (2022-10-29)
 
 ### Bug Fixes
