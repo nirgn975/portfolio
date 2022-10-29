@@ -24,10 +24,10 @@ async function main() {
         var splitString = cleanContent.split(" ");
         let numberOfChunks = 1;
         while (splitString.length) {
-          const chunkedContent = splitString.splice(0, 1000).join(" ");
+          const chunkedContent = splitString.splice(0, 500).join(" ");
 
           objects.push({
-            objectID: `/${uri}/:${numberOfChunks * 1000 - 1000}:${numberOfChunks * 1000}`,
+            objectID: `/${uri}/:${numberOfChunks * 500 - 500}:${numberOfChunks * 500}`,
             title: data.title,
             author: data.author,
             tags: data.tags,
