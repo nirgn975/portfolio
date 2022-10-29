@@ -1,3 +1,9 @@
+## [1.4.2](https://github.com/nirgn975/portfolio/compare/v1.4.1...v1.4.2) (2022-10-29)
+
+### Bug Fixes
+
+- remove google verification tag and revert mermaid code ([7381cf2](https://github.com/nirgn975/portfolio/commit/7381cf2d1228a2b18c89d89b71e5ca3051c3e76c))
+
 ## [1.4.1](https://github.com/nirgn975/portfolio/compare/v1.4.0...v1.4.1) (2022-10-29)
 
 ### Bug Fixes
