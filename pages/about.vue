@@ -508,7 +508,7 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
           </time>
           <h3 class="text-xl mt-2 mb-4">
             {{ education.title }} @
-            <a href="{education.school.url}" target="_blank" class="text-sky-500 hover:text-sky-400">{{ education.school.name }}</a>
+            <a :href="education.school.url" target="_blank" class="text-sky-500 hover:text-sky-400">{{ education.school.name }}</a>
           </h3>
           <p>{{ education.body }}</p>
           <ul class="list-disc pl-6">

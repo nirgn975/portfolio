@@ -1,14 +1,9 @@
 ---
-layout: "../../../layouts/BlogPost.astro"
 title: "Make Twitter Public Again!"
 pubDate: 2022-12-01T09:00:00+03:00
-draft: false
-author: "Nir Galon"
-authorLink: "/about"
-
+draft: true
 tags: ["reverse engineering", "frida", "hacking", "white hat", "pentest", "android"]
 category: "reverse engineering"
-
 featuredImage: "/posts/2024/public-twitter/cover.webp"
 ---
 

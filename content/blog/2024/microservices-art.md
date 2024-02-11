@@ -1,14 +1,9 @@
 ---
-layout: "../../../layouts/BlogPost.astro"
 title: "Microservices is more art than science"
 pubDate: 2022-12-01T09:00:00+03:00
 draft: true
-author: "Nir Galon"
-authorLink: "/about"
-
 tags: ["microservices", "pub/sub", "events", "kafka"]
 category: "hacking"
-
 featuredImage: "/posts/2024/getting-to-know-my-neighbors/cover.webp"
 ---
 

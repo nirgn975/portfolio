@@ -476,7 +476,7 @@ Node.js and Express.js don't have any official cli tool to scaffold a basic proj
 
 ### 3.1. Installation & GitHub Preparation
 
-The first thing we need to do is to install couple of tools in our local machine. We already installed Node.js in the [first chapter](/2020/05/chapter-1-simple-twitter/#31-nodejs), so we have that, and `npm`. The next thing is to install typescript, and nodemon in a global mode.
+The first thing we need to do is to install couple of tools in our local machine. We already installed Node.js in the [first chapter](/blog/2020/chapter-1-simple-twitter/#31-nodejs), so we have that, and `npm`. The next thing is to install typescript, and nodemon in a global mode.
 
 ```bash
 $ npm install -g typescript
@@ -1115,7 +1115,7 @@ Now, if we'll run the project (`npm start`) the `config` class should be created
 
 ### 3.4. MongoDB & Dummy Data
 
-In this section we'll connect to the MongoDB database (we installed it already on our local machine in the [first chapter](/2020/05/chapter-1-simple-twitter/#21-mongodb)) and we'll create a `Seed` file to load some dummy data to our database (we'll not load it yet, just create the file).
+In this section we'll connect to the MongoDB database (we installed it already on our local machine in the [first chapter](/blog/2020/chapter-1-simple-twitter/#21-mongodb)) and we'll create a `Seed` file to load some dummy data to our database (we'll not load it yet, just create the file).
 
 So, first let's connect to our Database. To do this let's install [mongoose](https://www.npmjs.com/package/mongoose). Mongoose is an ODM (much like [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) just for NoSQL documents databases) and it helps us doing validation, casting and business logic. With mongoose we don't need to deal with the MongoDB client.
 

@@ -1,14 +1,9 @@
 ---
-layout: "../../../layouts/BlogPost.astro"
 title: "Getting to know my new neighbors"
 pubDate: 2022-11-01T09:00:00+03:00
 draft: true
-author: "Nir Galon"
-authorLink: "/about"
-
 tags: ["wifi pineapple", "man in the middle", "wifi attack", "hacking", "white hat", "pen test", "hak5"]
 category: "hacking"
-
 featuredImage: "/posts/2024/getting-to-know-my-neighbors/cover.webp"
 ---
 

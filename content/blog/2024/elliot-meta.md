@@ -1,14 +1,9 @@
 ---
-layout: "../../../layouts/BlogPost.astro"
 title: "Elliot In The Meta"
 pubDate: 2023-01-01T09:00:00+03:00
 draft: true
-author: "Nir Galon"
-authorLink: "/about"
-
 tags: ["metasploit", "hacking", "white hat", "pentest"]
 category: "metasploit"
-
 featuredImage: "/posts/2024/elliot-meta/cover.webp"
 ---
 

@@ -7,7 +7,7 @@ category: "hacking"
 featuredImage: "/posts/2020/crack-the-hash/crack-passwords.webp"
 ---
 
-In earlier post (at [Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!](/2020/06/open-source-intelligence/#6-pivoting)) I mention we can use [hashcat](https://hashcat.net) to try and crack a password we found, but it wasn't the meaning of the post (and it's a red line for me to do that and put his cleartext password on the web for someone who didn't actually try to hack my service).
+In earlier post (at [Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!](/blog/2020/open-source-intelligence/#6-pivoting)) I mention we can use [hashcat](https://hashcat.net) to try and crack a password we found, but it wasn't the meaning of the post (and it's a red line for me to do that and put his cleartext password on the web for someone who didn't actually try to hack my service).
 
 But in this post we'll learn how to use hashcat to crack passwords, and even do that much faster on the cloud with GCP ([Google Cloud Platform](https://cloud.google.com/)).
 

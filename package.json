@@ -10,9 +10,9 @@
     "url": "http://nir.galons.io"
   },
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxt build --dotenv .env.production",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate --dotenv .env.production",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

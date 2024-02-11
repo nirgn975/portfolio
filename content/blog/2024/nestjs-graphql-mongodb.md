@@ -1,14 +1,9 @@
 ---
-layout: "../../../layouts/BlogPost.astro"
 title: "Getting my feet wet with NestJS and GraphQL - part 1"
 pubDate: 2024-03-01T09:00:00+03:00
 draft: true
-author: "Nir Galon"
-authorLink: "/about"
-
 tags: ["nestjs", "graphql", "mongodb", "expressjs", "node.js", "javascript", "typescript", "mongodb", "mongoose"]
 category: "development"
-
 featuredImage: "/posts/2024/nestjs-graphql-mongodb/nestjs-graphql-mongodb.webp"
 ---
 
