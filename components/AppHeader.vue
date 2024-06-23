@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const mobileMenu = ref(false);
 const colorMode = useColorMode();
 const isDark = computed({
   get() {
@@ -21,13 +22,33 @@ const isDark = computed({
           />
         </svg>
       </a>
-      <!-- <span id="openMenu" onclick="toggleMenu()" class="md:hidden"><i class="fa-regular fa-bars w-8 h-8"></i></span> -->
-      <!-- <span id="closeMenu" onclick="toggleMenu()" class="hidden md:hidden"><i class="fa-regular fa-xmark w-8 h-8"></i></span> -->
+
+      <span @click="mobileMenu = !mobileMenu" class="md:hidden">
+        <svg
+          v-if="!mobileMenu"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="h-8 w-8 fill-zinc-700 dark:fill-zinc-400"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg
+          v-else
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="h-8 w-8 fill-zinc-700 dark:fill-zinc-400"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </span>
     </div>
-    <div
-      id="menu"
-      class="text-center space-y-4 py-2 md:py-0 mt-2 md:mt-2 md:space-y-0 md:ml-10 md:space-x-8 hidden md:block border-t-2 md:border-t-0 border-zinc-800"
-    >
+    <div class="space-y-4 py-2 md:py-0 mt-2 md:mt-2 md:space-y-0 md:ml-10 md:space-x-8 hidden md:flex items-center border-t-2 md:border-t-0 border-zinc-800">
       <div class="md:hidden">
         <div class="relative mt-1 rounded-md shadow-sm">
           <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
