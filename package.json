@@ -21,7 +21,7 @@
     "@nuxthq/studio": "^1.0.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "nuxt": "^3.8.0",
+    "nuxt": "^3.13.2",
     "vue": "^3.3.6",
     "vue-router": "^4.2.5"
   },
