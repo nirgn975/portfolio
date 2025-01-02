@@ -164,7 +164,6 @@ const mightLikePosts = (await queryContent("/").find())
 </template>
 
 <style is:global>
-/* 
 .content img {
   @apply m-4 mx-auto rounded-sm;
 }
@@ -287,5 +286,5 @@ const mightLikePosts = (await queryContent("/").find())
 
 .dark .content blockquote {
   @apply bg-gray-700;
-} */
+}
 </style>
