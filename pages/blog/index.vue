@@ -117,7 +117,7 @@ async function getPosts() {
           v-model="page"
           :page-count="5"
           :total="total"
-          :active-button="{ color: 'gray' }"
+          :active-button="{ color: 'white' }"
           :inactive-button="{ color: 'gray' }"
           :prev-button="{ icon: 'i-heroicons-arrow-small-left-20-solid', label: 'Prev', color: 'gray' }"
           :next-button="{ icon: 'i-heroicons-arrow-small-right-20-solid', trailing: true, label: 'Next', color: 'gray' }"
