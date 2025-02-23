@@ -21,7 +21,9 @@ This is my first product that I’m launching, charging for it, and actively sea
 
 I got back to X and started asking people, joined indie hackers communities, started to follow some solopreneurs and read their posts, and then I realized that distribution is really hard, maybe even harder than building the product.
 
-I started writing replies to posts about related topics and insert my extension if it’s appropriate. I listed my extension on [product hunt](https://www.producthunt.com/products/subwatch-3), [betalist](https://betalist.com/startups/subwatch), [chromehunt](https://www.chromehunt.app/extensions/subwatch), [microlaunch](https://microlaunch.net/p/subwatch-fd4fd5), and [uneed](https://www.uneed.best). And I got a few sales 🥳
+I started writing replies to posts about related topics and insert my extension if it’s appropriate. I listed my extension on [product hunt](https://www.producthunt.com/products/subwatch-3), [betalist](https://betalist.com/startups/subwatch), [chromehunt](https://www.chromehunt.app/extensions/subwatch), [microlaunch](https://microlaunch.net/p/subwatch-fd4fd5), [uneed](https://www.uneed.best), [dealhunt](https://dealhunt.cc), [pitchwall](https://pitchwall.co), [tinylaun.ch](https://www.tinylaun.ch), and [launchingnext](https://www.launchingnext.com) And I got a few sales 🥳
+
+I also added the website to other platform, to get backlinks. Like [land book](https://land-book.com/websites/74241-subwatch-subwatch-website) and [dribbble](https://dribbble.com/shots/25671033-Subwatch-Turn-subscription-chaos-into-financial-harmony).
 
 ![Insights view](/posts/2025/subwatch/demo-2.jpg "Insights View")
 
@@ -39,7 +41,7 @@ Where am I going from here?
 - Will add a 7 days trial.
 - And I have one other big idea for the product that I’m considering implementing but not sure yet.
 
-To all of my readers that want to support and buy it, here is a 10% discount code for the frst 100 users: BLOG10
+To all of my readers that want to support and buy it, here is a 10% discount code for the first 100 users: BLOG10
 
 The link to the product: [https://subwatch.co](https://subwatch.co)
 
