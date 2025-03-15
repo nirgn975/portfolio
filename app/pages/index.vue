@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: page } = await useAsyncData("index", () => queryCollection("index").first());
-const { data: posts } = await useAsyncData("blog", () => queryCollection("posts").order("date", "DESC").where("draft", "<>", true).limit(3).all());
+const { data: posts } = await useAsyncData("posts", () => queryCollection("posts").order("date", "DESC").where("draft", "<>", true).limit(3).all());
 
 useSeoMeta({
   titleTemplate: "",
@@ -31,6 +31,8 @@ useSeoMeta({
         </svg>
         <h2>Recent posts</h2>
       </span>
+
+      <p>{{ posts }}</p>
 
       <UPageBody>
         <UBlogPosts>
