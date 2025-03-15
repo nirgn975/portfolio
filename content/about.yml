@@ -323,17 +323,17 @@ talks:
       image: /about/talks/pipenv-the-future-of-python-dependency-management.webp
       title: "Pipenv: The future of Python dependency management"
       date: 4/12/17
-      meetup_url: "https://www.meetup.com/PyWeb-IL/events/245071494"
-      download_url: /about/talks/pipenv-the-future-of-python-dependency-management.pptx"
+      meetup_url: https://www.meetup.com/PyWeb-IL/events/245071494
+      download_url: /about/talks/pipenv-the-future-of-python-dependency-management.pptx
     - future: false
       image: /about/talks/api-star.webp
       title: API Star - Next generation framework!
       date: 6/11/17
-      meetup_url: "https://www.meetup.com/PyWeb-IL/events/243985794"
+      meetup_url: https://www.meetup.com/PyWeb-IL/events/243985794
       download_url: /about/talks/api-star.pptx
     - future: false
       image: /about/talks/404-sql-db-not-found.webp
       title: 404 SQL DB not found. Meet RethinkDB
       date: 11/8/16
-      meetup_url: "https://www.meetup.com/RethinkDB-Israel-Meetup/events/217336482"
+      meetup_url: https://www.meetup.com/RethinkDB-Israel-Meetup/events/217336482
       download_url: /about/talks/404-sql-db-not-found.pptx

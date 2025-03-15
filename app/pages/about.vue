@@ -8,8 +8,6 @@ useSeoMeta({
   ogDescription: data.value?.description,
 });
 
-// defineOgImageComponent("Saas");
-
 let repos: Array<{ code: string; title: string; name: string; description: string; url: string; stars: string; forks: string }> = [];
 for (const [index, repo] of data.value?.projects.items.entries()) {
   const { data } = await useFetch<Record<string, any>>(`https://api.github.com/repos/nirgn975/${repo.code}`);

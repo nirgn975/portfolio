@@ -10,8 +10,6 @@ useSeoMeta({
   description: page.value?.description,
   ogDescription: page.value?.description,
 });
-
-defineOgImageComponent("Saas");
 </script>
 
 <template>

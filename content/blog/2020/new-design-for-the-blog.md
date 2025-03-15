@@ -31,15 +31,15 @@ The navigation at the upper right side of the website contains all the configura
 
 #### 1.1.1 Posts
 
-The [Posts](/posts) page will have all of the posts of the blog, it'll be ordered by year and will show the title of the post and the date it was published. This is the simplest way to go over old posts and just browse them.
+The **Posts** page will have all of the posts of the blog, it'll be ordered by year and will show the title of the post and the date it was published. This is the simplest way to go over old posts and just browse them.
 
 #### 1.1.2 Tags
 
-Every post will have a list of tags, basically the main topics the post is about. The [Tags](/tags) page will host all of those tags. This way you can glance on all of the topics I write about and click on one of them and get a list of the posts that have that tag. This is really a great and easy way to search for a post topic.
+Every post will have a list of tags, basically the main topics the post is about. The **Tags** page will host all of those tags. This way you can glance on all of the topics I write about and click on one of them and get a list of the posts that have that tag. This is really a great and easy way to search for a post topic.
 
 #### 1.1.3 Categories
 
-In Contrast to the Tags page the [Categories](/categories) page contains a list of all the posts divided by categories that I set in advance, each post can be in only one category so this is me trying to categorize all the posts by topics that I think are related and I want to explore (or maybe even write s series of posts about a single thing).
+In Contrast to the Tags page the **Categories** page contains a list of all the posts divided by categories that I set in advance, each post can be in only one category so this is me trying to categorize all the posts by topics that I think are related and I want to explore (or maybe even write s series of posts about a single thing).
 
 #### 1.1.4 About
 

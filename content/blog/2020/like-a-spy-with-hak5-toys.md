@@ -29,7 +29,7 @@ I chose to do it in [digitalocean.com](https://digitalocean.com) because they're
 
 We'll choose an Ubuntu distribution, a basic plan (shared cpu, the $5/month should do the job), and add a volume (I chose to add 20GB, I think it'll be enough for all the loot). Now you can choose whichever datacenter region you want, and don't forget to add you SSH key.
 
-![My digital ocean droplet configuration](/posts/2020/like-a-spy-with-hak5-toys/digital-ocean-create-droplet.webp){ width="605" height="619.5" .rounded-lg .mx-auto }
+![My digital ocean droplet configuration](/posts/2020/like-a-spy-with-hak5-toys/digital-ocean-create-droplet.webp){ .rounded-lg .mx-auto }
 
 We have two ways to create the C2 instance, use the instance public IP (your droplet will receive one right after it will start) as a `hostname` or use a DNS name. I'll use the DNS name way, so we can add https support with [Let's Encrypt](https://letsencrypt.org). If you choose to do this the way I do it, you'll need a domain. I'll use `cloud-c2.dev`, and I'll create a custom DNS A record, so [https://cloud-c2.dev](https://cloud-c2.dev) will point to the instance public IP.
 
@@ -47,7 +47,7 @@ Lets finish our droplet setup by opening the relevant ports. Click on the _"Netw
 - Port `443` so we can open our C2 dashboard in the browser with SSL/TLS.
 - Port `80` so [Let's Encrypt](https://letsencrypt.org) can validate the the domain and put back the certificate.
 
-![My Digital Ocean firewall configuration](/posts/2020/like-a-spy-with-hak5-toys/digital-ocean-firewall.webp){ width="598.5" height="403" .rounded-lg .mx-auto }
+![My Digital Ocean firewall configuration](/posts/2020/like-a-spy-with-hak5-toys/digital-ocean-firewall.webp){ .rounded-lg .mx-auto }
 
 Don't forget to add our droplet in _"Apply to Droplets"_ input, right before the green _"Create firewall"_ button at the bottom.
 
@@ -89,7 +89,7 @@ The Screen Crab is, by default, save photos every couple of seconds to the SD ca
 
 It quit simple to do this, let's go to the `devices` tab, and then (if you don't have any device enrolled yet), you'll see a big blue button says _"Add Device"_.
 
-![Add a new device](/posts/2020/like-a-spy-with-hak5-toys/c2-add-device.webp){ width="812.8" height="286.4" .rounded-lg .mx-auto }
+![Add a new device](/posts/2020/like-a-spy-with-hak5-toys/c2-add-device.webp){ .rounded-lg .mx-auto }
 
 Then, call the device what ever you want, and choose the type, in our case right now it's _"Screen Carb"_, and click _"Add Device"_. After you did it, you'll see it in the list at the same `devices` page, click on it to configure the device.
 
