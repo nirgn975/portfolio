@@ -1,10 +1,16 @@
 ---
 title: "Supabase functions"
-pubDate: 2024-02-11T09:00:00+03:00
-draft: false
-tags: ["supabase", "postgresql", "function", "trigger"]
-category: "development"
-featuredImage: "/posts/2024/supabase-functions/cover.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2024/supabase-functions/cover.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2024-02-11
+badge:
+  label: development
 ---
 
 Recently I started to work with [Supabase](https://supabase.com), which I must addmit is a joy to use!, but I was stuck on some logic I wanted to do which is to create an organization and a user profile when a new user signup. So naturally I started to read about supabase functions which are [PostgreSQL functions](https://www.postgresql.org/docs/current/functions.html).
@@ -15,7 +21,7 @@ As I said before, I couldn't find anyone that publish something close to it, so 
 
 The signup method is looking like this:
 
-```javascript
+```javascript [AppRegister.vue]
 const { data, error } = await supabase.auth.signUp({
   email: localState.email,
   password: localState.password,
@@ -37,7 +43,7 @@ As you can see, there is the email and password, which is passed to the signUp m
 
 So, first let's create the `profiles` table:
 
-```sql
+```sql [createProfiles.sql]
 create table profiles (
   id uuid references auth.users on delete cascade not null primary key,
   created_at timestamp with time zone,
@@ -51,7 +57,7 @@ create table profiles (
 
 And now let's create the `organizations` table:
 
-```sql
+```sql [createOrganizations.sql]
 create table organizations (
   id uuid not null primary key,
   created_at timestamp with time zone,
@@ -62,7 +68,7 @@ create table organizations (
 
 As you can see the `profiles` table is the one linking between the user from `auth` table and the organization from `organizations` table. And you can head over to the Database tab to see the schema in a graphical representation with Supabase Schema Visualizer:
 
-![Schema Visualizer](/posts/2024/supabase-functions/schema-visualizer.webp "Schema Visualizer")
+![Schema Visualizer](/posts/2024/supabase-functions/schema-visualizer.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 
@@ -70,7 +76,7 @@ As you can see the `profiles` table is the one linking between the user from `au
 
 Now it's time to create the function itself. The function should get the `organization_name` and create a new organization in the `organizations` table. We should save the organization newly created id to then use it when we create a new profile in the `profiles` table, along with the `first_name` and `last_name` from the signUp extrea options.
 
-```sql
+```sql [supabaseTrigger.sql]
 create or replace function handle_new_org_and_profile() returns trigger as $$
 declare
   org_id uuid;
@@ -97,7 +103,7 @@ We `returning` the id from the `insert` command `into` the `org_id` variable we 
 
 Finally, somehow need to call this function automatically every time a new row is created in the `auth.users` table, and we can do that with [triggers](https://supabase.com/docs/guides/database/postgres/triggers). So let's create a trigger to execute the `handle_new_org_and_profile` function we created above for each row in `auth.users` after the database insert the row.
 
-```sql
+```sql [supabseTrigger.sql]
 create trigger on_auth_user_create_org_and_profile
   after insert on auth.users
   for each row execute procedure handle_new_org_and_profile();
@@ -107,4 +113,4 @@ create trigger on_auth_user_create_org_and_profile
 
 ## 4. Summary
 
-You're not all set.
+You're now all set.

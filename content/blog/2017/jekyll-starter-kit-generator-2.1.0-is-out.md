@@ -1,10 +1,16 @@
 ---
 title: "Jekyll Starter Kit generator 2.1.0 is out!"
-pubDate: 2017-08-03T18:19:10+03:00
-draft: false
-tags: ["jekyll", "contribution", "github", "generator", "starter kit", "yeoman", "pwa", "npm"]
-category: "open source contribution"
-featuredImage: "/posts/2017/jekyll-starter-kit-generator-2.1.0-is-out/jekyll-starter-kit.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2017/jekyll-starter-kit-generator/jekyll-starter-kit.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2017-08-03
+badge:
+  label: open source contribution
 ---
 
 Creating Jekyll progressive web apps has never been easier!
@@ -30,7 +36,7 @@ What more cool stuff? Here are couple of examples.
 - Automagically optimizes image before deploy.
 - Deploy the website to gh-pages or firebase with only one command.
 
-![The generator in action](/posts/2017/jekyll-starter-kit-generator-2.1.0-is-out/the-generator-in-action.webp "The generator in action")
+![The generator in action](/posts/2017/jekyll-starter-kit-generator/the-generator-in-action.webp){ width="800" height="546" .rounded-lg .mx-auto }
 
 If you can’t wait and already want to try it, all you need to do is `npm install -g generator-jekyll-starter-kit` and then just `yo jekyll-starter-kit`. And if you want to help improve this project, just head up to the [repo page on GitHub](https://github.com/nirgn975/generator-jekyll-starter-kit).
 

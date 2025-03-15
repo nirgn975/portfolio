@@ -1,10 +1,16 @@
 ---
 title: "Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!"
-pubDate: 2020-06-01T09:00:00+03:00
-draft: false
-tags: ["osint", "reconnaissance", "hacking", "white hat", "intelligence", "open source", "data leaks", "arjun", "hunter.io", "theHarvester", "sublist3r"]
-category: "hacking"
-featuredImage: "/posts/2020/open-source-intelligence/osint-cover.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2020/open-source-intelligence/osint-cover.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2020-06-01
+badge:
+  label: hacking
 ---
 
 Every operation need good intel, and good intel is hard to find. Or is it?
@@ -52,7 +58,7 @@ We notice a bunch of things:
 
 The easiest thing to look up first are the IPs and the domain. The first IP (`84.17.46.157`) is from Netherlands, and the second (`154.127.57.238`) is from the South Africa, here are the full `JSON`s files I got from [ipstack](https://ipstack.com). I got the paid version of their API, but there is a free one and that's enough for our case here.
 
-```json showLineNumbers title=" "
+```json [ipstack-1.json]
 {
   "ip": "84.17.46.157",
   "type": "ipv4",
@@ -105,7 +111,7 @@ The easiest thing to look up first are the IPs and the domain. The first IP (`84
 
 and
 
-```json showLineNumbers title=" "
+```json [ip-stack2.json]
 {
   "ip": "154.127.57.238",
   "type": "ipv4",
@@ -205,7 +211,7 @@ This looks like a dead end for now, let's check the domain. For that I use [Doma
 
 But we can see a lot of other stuff, like it's registered by [NameCheap](https://www.namecheap.com) and protected by [WhoisGuard](http://www.whoisguard.com/). It created on 2018-07-13. The server the domain points to is a [DigitalOcean](https://www.digitalocean.com) one in the United Kingdom and his IP is `188.166.152.221`. They got `200` status code back from an [Apache Web Server](https://www.apache.org), and it tells us there are _257 other sites hosted on this server_! So it's time to do a reverse IP lookup for this server IP.
 
-![DomainTools Whois Report](/posts/2020/open-source-intelligence/domain-tools-whois-report.webp "DomainTools Whois Report")
+![DomainTools Whois Report](/posts/2020/open-source-intelligence/domain-tools-whois-report.webp){ width="767" height="785" .rounded-lg .mx-auto }
 
 DomainTools don't let you do a reverse IP lookup for free, they'll show you couple of results and if you want to see more you need to buy a membership. We're amateurs here, I don't intend to throw away $99 per month for one reverse IP lookup, let's find another service.
 
@@ -469,7 +475,7 @@ Let's check the website itself. It looks like just a blank page. I did a quick c
 
 The next question that pops to my head is _"is it always was a blank page?"_. We have a way to check it, maybe, sort of. We'll use the [WayBack Machine](https://web.archive.org/) and we got some results! We can see it saves 3 snapshots, but all of them are the same blank pages.
 
-![WayBack Machine](/posts/2020/open-source-intelligence/wayback-machine.webp "WayBack Machine")
+![WayBack Machine](/posts/2020/open-source-intelligence/wayback-machine.webp){ .rounded-lg .mx-auto }
 
 So this gives us nothing so far. What comes to mind is that it's someone renting a server on DigitalOcean and use proxies to map some parts of the internet and when he get back `200` from a website he tries to login, maybe it's automated login attempts maybe it isn't, I didn't decided yet (because it's look automated but then I was expecting an increase of a number or the next latter in the alphabet, or to add some latter in the end of the password in the second try, if it was automated). Also, it's probably someone (or a bunch of people) who doing some phishing and / or spam stuff.
 
@@ -479,7 +485,7 @@ So this gives us nothing so far. What comes to mind is that it's someone renting
 
 This is not the end of the line, it's just the start. Let's keep digging! A tool I love to use is [Netcraft Site Report](https://sitereport.netcraft.com), when I run the domain in their service we finally start to see more results.
 
-![Netcraft Report](/posts/2020/open-source-intelligence/netcraft-report.webp "Netcraft Report")
+![Netcraft Report](/posts/2020/open-source-intelligence/netcraft-report.webp){ .rounded-lg .mx-auto }
 
 We can see the domain registered with `donuts.co` (which redirect us to [donuts.domains](https://donuts.domains)) back in 2017! (maybe it was someone else, maybe they forget to renew it and re-buy it with NameCheap, or maybe they transfer it to NameCheap in 2018, who knows? don't really care at this point).
 
@@ -491,19 +497,19 @@ So that's interesting, let's keep our focus on domain / website / server.
 
 More scanning with Netcartf and [build with](https://builtwith.com) find it's probably a Linux server (maybe Ubuntu, based on _"build with"_), and it uses [Apache](https://www.apache.org). It used Apache 2.4, for sometime it also had [Nginx](https://www.nginx.com/) but now we only got "Apache". And this domain is active since the end of 2017 (based on _"build with"_ and _netcarft_).
 
-![Build With](/posts/2020/open-source-intelligence/built-with.webp "Build With")
+![Build With](/posts/2020/open-source-intelligence/built-with.webp){ width="809" height="539" .rounded-lg .mx-auto }
 
-![Netcarft Hosting](/posts/2020/open-source-intelligence/netcraft-hosting.webp "Netcarft Hosting")
+![Netcarft Hosting](/posts/2020/open-source-intelligence/netcraft-hosting.webp){ width="1339" height="162" .rounded-lg .mx-auto }
 
 Another big finding from Netcarft is that it uses [DMARC](https://en.wikipedia.org/wiki/DMARC). DMARC is an email authentication protocol, and Netcarft gives us the raw record which is details the emails they using for reporting aggregate and failure data.
 
-```
+```txt
 v=DMARC1; p=none; pct=100; fo=1; ri=300; rua=mailto:a@bocah.team; ruf=mailto:f@bocah.team
 ```
 
 I'll save those email addresses for later, but now let's keep digging with some other great tool on my list, and one I often use is [spyse](https://spyse.com). It's a cybersecurity search engine to find information about internet assets. When I give it the IP (`188.166.152.221`) of the DigitalOcean server, it find the `tool4spam.com` domain. We already know that domain from our 242 domains list, but this tells me that this domain is probably one of their main ones, and it's an important one.
 
-![Spyse Report](/posts/2020/open-source-intelligence/spyse-report.webp "Spyse Report")
+![Spyse Report](/posts/2020/open-source-intelligence/spyse-report.webp){ width="1449" height="157" .rounded-lg .mx-auto }
 
 &nbsp;
 
@@ -519,7 +525,7 @@ The last thing I want to check with their server (for now) is if maybe there are
 
 Unfortunately, when I did a `GET` and a `POST` requests, Arjun didn't come up with anything.
 
-![Arjun Search](/posts/2020/open-source-intelligence/arjun-search.webp "Arjun Search")
+![Arjun Search](/posts/2020/open-source-intelligence/arjun-search.webp){ width="603" height="569" .rounded-lg .mx-auto }
 
 &nbsp;
 
@@ -527,17 +533,17 @@ Unfortunately, when I did a `GET` and a `POST` requests, Arjun didn't come up wi
 
 It's time to search a little about our new finding `tool4spam.com`. Let's go to [hunter.io](http://hunter.io) and check for `tool4spam.com` - didn't come up with anything, but we have another domain (let's not forget about it), a scan for `bocah.team` comes up with an email address!
 
-![Hunter Result](/posts/2020/open-source-intelligence/hunter-result.webp "Hunter Result")
+![Hunter Result](/posts/2020/open-source-intelligence/hunter-result.webp){ width="777" height="381" .rounded-lg .mx-auto }
 
 In the source website there is also a phone number (and google translate says the website is in Danish).
 
-![Hunter Source](/posts/2020/open-source-intelligence/hunter-source.webp "Hunter Source")
+![Hunter Source](/posts/2020/open-source-intelligence/hunter-source.webp){ width="287" height="354" .rounded-lg .mx-auto }
 
 When we search Google for `johnny_pacocha@bocah.team` we found another site (a part from the one hunter point us to). This website is [ceqoya](https://www.ceqoya.com) which is a "A search engine that helps NGO and ecological projects", in this search engine there are couple of links to Bocah Team (apparently it's a [Sports Team](https://www.facebook.com/Bocah-Team-New-579200705444594/photos)), but we find a new link, to [pastebin](https://pastebin.com): https://pastebin.com/8yDPutJQ. This contain a PHP code that is basically an Apple scam page with couple more email address `empas.apel@bocah.team`, `apel@bocah.team`, `report.apel@bocah.team` with our target domain.
 
 This user have more pastes in his profile (his profile name is `Inboxplis`), but the common thing is that they have a gmail address (`slikeye1711@gmail.com`) in the code with a link to his [Facebook profile page](https://www.facebook.com/Slikeye)!
 
-![Dian Wahyudi Facebook Profile](/posts/2020/open-source-intelligence/dian-wahyudi-facebook-profile.webp "Dian Wahyudi Facebook Profile")
+![Dian Wahyudi Facebook Profile](/posts/2020/open-source-intelligence/dian-wahyudi-facebook-profile.webp){ width="969" height="1270" .rounded-lg .mx-auto }
 
 In his Facebook photos there is [a photo](https://www.facebook.com/photo.php?fbid=718884434960573&set=pb.100005170683150.-2207520000..&type=3) about some Hacking / Script Kiddies book in Indonesian back in April 2017. Also from his photos I can notice he have an Asus laptop with a Windows 10 on it, and that he do a lot of small money transfers.
 
@@ -560,7 +566,7 @@ It looks like our guy, but this is not enough! we need more.
 
 Let's search his gmail (`slikeye1711@gmail.com`) on [Pipl](https://pipl.com), unfortunately we got nothing.
 
-```json showLineNumbers title=" "
+```json [pipl.json]
 {
   "@http_status_code": 200,
   "@visible_sources": 0,
@@ -581,7 +587,7 @@ Let's search his gmail (`slikeye1711@gmail.com`) on [Pipl](https://pipl.com), un
 
 Let's check his email in [have i been pwned](https://haveibeenpwned.com/), and we got a match!
 
-![Have I Been Pwned Search](/posts/2020/open-source-intelligence/haveibeenpwned.webp "Have I Been Pwned Search")
+![Have I Been Pwned Search](/posts/2020/open-source-intelligence/haveibeenpwned.webp){ width="955" height="941" .rounded-lg .mx-auto }
 
 His email is on the Canva database leak, so I started to search this database leak on the internet, and it wasn't that hard to find. I found two types of files, the first is a single file that appears to be the whole info of the users, but it says _"cleaned"_ in the file name, and some fields are not there, for example the `password` is obviously a basic and it's not there.
 
@@ -597,7 +603,7 @@ So let's think of something different, in his profile page there was a new domai
 
 The third result is really interesting, it's from [cutestat website](https://www.cutestat.com), which is a website to provides various statistical reports like website valuation, traffic reports, social engagement, host information, domain WHOIS, etc. and it's perfect because it has a WHOIS record from `2017-06-14T17:05:39Z` with new data (probably before he had privacy protection on the domain).
 
-```txt title=" "
+```txt
 Domain Name: SLIKEYE.COM
 Registry Domain ID: 2132972393_DOMAIN_COM-VRSN
 Registrar WHOIS Server: whois.resellercamp.com
@@ -661,7 +667,7 @@ Before we continue digging with our new findings, let's keep looking in our Goog
 
 It's time to do a _"Forget Password"_ on Facebook with his email. It's got us his last 2 digits in his phone number, and they're the same as the phone number in his Facebook profile and his 2017 WHOIS record for `slikeye.com`, so we know it's probably his real and private phone number (also, a _"Forget Password"_ in Twitter, for the same email, get us the same 2 last digits).
 
-![Facebook Forget Password](/posts/2020/open-source-intelligence/facebook-forget-password.webp "Facebook Forget Password")
+![Facebook Forget Password](/posts/2020/open-source-intelligence/facebook-forget-password.webp){ .rounded-lg .mx-auto }
 
 Unfortunately we didn't get new phone numbers or email addresses, but _"Forget Password"_ is a good method and a lot of times revel different phone numbers and email addresses that are the private ones of the target.
 
@@ -671,7 +677,7 @@ Unfortunately we didn't get new phone numbers or email addresses, but _"Forget P
 
 The new email address and phone number don't get us any result on Pipl, that's a bummer. Pipl is consistently failing us in this recon investigation. On the other hand a TrueCaller search for the phone number confirms the new email address we already found in the 2017 WHOIS record, and tell us his `carrier` and that he is verified by [TrueCaller](https://www.truecaller.com).
 
-```json showLineNumbers title=" "
+```json [truecaller.json]
 {
   "data": [
     {
@@ -735,7 +741,7 @@ I think we need to search for more Social Networks profiles for his usernames. T
 
 If we're already here, let's search for his username in the Canva database leak (`slikeye1711`) with our new tool. This search gives us interesting results - a different [Facebook profile](https://www.facebook.com/slikeye1711), it's looks like someone else, but he's also from _"Bogor, Indonesia"_. He says on his profile he works at Apple (and it takes me straight in to the Pastebin account with the Apple's scam page), but he have an Apple advertisement photo on the cover page. The thing is, when I open it up to see it in full size you can actually see it's a screenshot of apple website!
 
-![Agustinus Rivaldo Facebook Cover Image](/posts/2020/open-source-intelligence/agustinus-rivaldo-facebook-cover.webp "Agustinus Rivaldo Facebook Cover Image")
+![Agustinus Rivaldo Facebook Cover Image](/posts/2020/open-source-intelligence/agustinus-rivaldo-facebook-cover.webp){ .rounded-lg .mx-auto }
 
 Or is it? When you look closer on the URL of the page it's `http://apps-icloudapps.serveirc.com` which is not Apples one. This is a scam / phishing page to login with your apple credentials. Other stuff we see on the screenshot is that the web browser is chrome, it's a Windows 10 OS on a laptop, and he have a bunch of other tabs open (Facebook, a cPanels, and some other stuff I don't recognize), and he have a [sublime text editor](https://www.sublimetext.com) window minimize.
 
@@ -754,13 +760,13 @@ Now, we can go search about `RIZKYIBENG` with his email `ibengrizky01@gmail.com`
 
 But the stuff I started to notice is that all of those scam / phishing pages are look the same. For example here is the slikeye panel of our target, and `ARIDHO` Apple scam panel (rendered with [jsfiddle](https://jsfiddle.net)).
 
-![Silkeye Panel](/posts/2020/open-source-intelligence/silkeye-panel.webp "Silkeye Panel")
+![Silkeye Panel](/posts/2020/open-source-intelligence/silkeye-panel.webp){ .rounded-lg .mx-auto }
 
-![Aridho Panel](/posts/2020/open-source-intelligence/aridho-panel.webp "Aridho Panel")
+![Aridho Panel](/posts/2020/open-source-intelligence/aridho-panel.webp){ .rounded-lg .mx-auto }
 
 I think we got enough of this, this is for sure a scam / phishing operation and our target is one of this group. So, the last thing I want to do is to search for the new email we found (`diansoft1711@gmail.com`) let's see if this email have been in a leak.
 
-![Have I Been Pwned Report](/posts/2020/open-source-intelligence/haveibeenpwned-second-report.webp "Have I Been Pwned Report")
+![Have I Been Pwned Report](/posts/2020/open-source-intelligence/haveibeenpwned-second-report.webp){ .rounded-lg .mx-auto }
 
 It's have been, so it's time to search for Bukalapak leaked database. This one was not so easy like the `Canva`. But I manage to find it. And our new email target is in there.
 
@@ -778,11 +784,11 @@ Before I wrap this up, I just want to quickly mention a couple of tools I use al
 
 So the first one is [sublist3r](https://github.com/aboul3la/Sublist3r), its gave me some subdomains (but DNSscan found more, much more! subdomains (and much faster)).
 
-![sublist3r Results](/posts/2020/open-source-intelligence/sublist3r-results.webp "sublist3r Results")
+![sublist3r Results](/posts/2020/open-source-intelligence/sublist3r-results.webp){ .rounded-lg .mx-auto }
 
 Another tool I always use is [theHarvester](https://github.com/laramies/theHarvester). The Harvester found the `johnny_pacocha` email which led us to his Pastebin and then his Facebook profile page. But to be truthful this is not the first way I found this email, so I include the original way (with [hunter.io](https://hunter.io)). But, if I didn't have an account there, or hunter wasn't able to find it, I probably been able to found it the theHarvester.
 
-![The Harvester Report](/posts/2020/open-source-intelligence/theHarvester-yahoo.webp "The Harvester Report")
+![The Harvester Report](/posts/2020/open-source-intelligence/theHarvester-yahoo.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 

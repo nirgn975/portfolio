@@ -1,10 +1,16 @@
 ---
 title: "A Practical Guide to Design System"
-pubDate: 2022-09-01T09:00:00+03:00
-draft: false
-tags: ["design system", "component library", "vuejs", "storybook", "typescript", "tailwind", "sfc", "composition", "vite"]
-category: "development"
-featuredImage: "/posts/2022/design-system/hero.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2022/design-system/hero.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2022-09-01
+badge:
+  label: development
 ---
 
 It's no secret that design systems are taking over the web development world and that's a good thing IMO. But non the less, it's still a challenge to setup one. I myself encounter it when I created our own design system in the startup I work for, so I thought I'll save others some time and document my proccess.
@@ -21,13 +27,13 @@ But first, what is a "Design System"? It's a little different if you ask a desig
 
 The first thing we need to do is actually create a regular [Vue.js](https://vuejs.org) project
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 npm init vue@latest
 ```
 
 You'll be presented with prompts for a number of optional features, choose whatever you want, it's not importent for the rest of the tutorial. But, if you want to see my choices - they're in the screenshot below.
 
-![Vuejs CLI setup](/posts/2022/design-system/vue-cli-setup.webp "Vuejs CLI setup")
+![Vuejs CLI setup](/posts/2022/design-system/vue-cli-setup.webp){ .rounded-lg .mx-auto }
 
 After we have an empty vue.js project (I called mine `daisy` because Daisy the Design System sounds nice in my head) we can `cd` into it and install all the dependencies (`npm install`).
 
@@ -35,30 +41,30 @@ After we have an empty vue.js project (I called mine `daisy` because Daisy the D
 
 The next setp is to install [Storybook](https://storybook.js.org). The current version is 6.x, but I choose to install the beta (7.x) version because it's close enough to release and there are a lot of changes that integrate well with our setup (like vite and typescript support out of the box).
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 npx sb@next init --builder=vite
 ```
 
 And once the Storybook CLI done running and doing it's thing, we can run it and see our storybook default components and documentation in action
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 npm run storybook
 ```
 
-![Storybook](/posts/2022/design-system/storybook.webp "Storybook")
+![Storybook](/posts/2022/design-system/storybook.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 
 The last thing we need to do is to add [Tailwind CSS](https://tailwindcss.com) support to our Vue.js components and as well as our Storybook UI. Adding it to the vuejs project is really easy
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
 And all you have left to do is to edit your `content` section (in `tailwind.config.js` file) to include the vuejs files
 
-```js showLineNumbers title="tailwind.js" {3}
+```js [tailwind.js] {3}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{vue,js,ts,jsx,tsx}"],
@@ -71,7 +77,7 @@ module.exports = {
 
 Lastly, include the Tailwind directives to our CSS by creating a new `style.css` file inside the `src` directory and add to it the @tailwind directives:
 
-```css showLineNumbers title="style.css"
+```css [style.css]
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -83,13 +89,13 @@ Now if you'll lunch your Vue.js app (`npm run dev`) Tailwind class will work, bu
 
 To fix this we'll use a [Storybook addon](https://storybook.js.org/addons/@storybook/addon-postcss) to run the PostCSS preprocessor against our stories
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 npm install -D @storybook/addon-postcss
 ```
 
 then add it
 
-```js showLineNumbers title=".storybook/main.js" {8-15}
+```js [.storybook/main.js] {8-15}
 const path = require("path");
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -115,7 +121,7 @@ module.exports = {
 
 and also import the `style.css` file
 
-```js showLineNumbers title=".storybook/preview.js" {1}
+```js [.storybook/preview.js] {1}
 import "../src/style.css";
 
 export const parameters = {
@@ -137,14 +143,14 @@ Building our first component is just like building a regular Vue.js component, e
 
 I'll call my component `Foo` and create a directory with that name in the `components` directory (I'll actually call it `DyFoo` because [ESlint require component names to always be multi-word](https://eslint.vuejs.org/rules/multi-word-component-names.html), and `D` is the first letter of our Design System name, and `Y` is the last), and I'll also create a `.vue` and a `.stories.js` files with the same component name.
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 touch src/components/DyFoo/DyFoo.vue
 touch src/components/DyFoo/DyFoo.stories.js
 ```
 
 My `DyFoo.vue` component will be fairly easy, it'll take `variant` prop with `primary` or `secondary` options and give the text `foo` some color based on them.
 
-```vue showLineNumbers title="DyFoo.vue"
+```vue [DyFoo.vue]
 <script setup lang="ts">
 defineProps({
   variant: {
@@ -164,7 +170,7 @@ defineProps({
 
 Now let's create couple of stories to demo those 2 options for the `DyFoo` component
 
-```js showLineNumbers title="DyFoo.stories.js"
+```js [DyFoo.stories.js]
 import DyFoo from "./DyFoo.vue";
 
 export default {
@@ -200,7 +206,7 @@ Secondary.args = {
 
 If you'll fire Storybook now, you'll see your `Foo` component and you can play with the color of the text by selecting the different options
 
-![DyFoo component in Storybook](/posts/2022/design-system/DyFoo.webp "DyFoo component in Storybook")
+![DyFoo component in Storybook](/posts/2022/design-system/DyFoo.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 
@@ -210,7 +216,7 @@ Now that we have a Vue.js project with Storybook and our first component (`DyFoo
 
 To package the vite project as a library we need to change some configuration settings
 
-```ts showLineNumbers title="vite.config.ts" {1,10-28}
+```ts [vite.config.ts] {1,10-28}
 import { resolve } from "path";
 import { fileURLToPath, URL } from "node:url";
 
@@ -249,7 +255,7 @@ export default defineConfig({
 
 The next thing is to set the main entry file to the package (`main.ts` in our case), so add those sections right after the `"script"`
 
-```json title="package.json"
+```json [package.json]
 "files": [
   "dist"
 ],
@@ -267,7 +273,7 @@ The next thing is to set the main entry file to the package (`main.ts` in our ca
 
 And last but not least is to export our `DyFoo` component in our entry file
 
-```ts showLineNumbers title="main.ts"
+```ts [main.ts]
 export { default as DyFoo } from "./components/DyFoo/DyFoo.vue";
 ```
 
@@ -277,13 +283,13 @@ You can now run a build (`npm run build`) and see that a `dist` directory is cre
 
 First, edit the `build-only` npm script to emit types declarations with `vue-tsc --emitDeclarationOnly`, like this
 
-```json title="package.json"
+```json [package.json]
 "build-only": "vite build && vue-tsc --emitDeclarationOnly",
 ```
 
 and then add `compilerOptions` and the files to `include` (right after the `references` array)
 
-```json title="tsconfig.json"
+```json [tsconfig.json]
 "compilerOptions": {
   "lib": ["ESNext", "DOM"],
   "skipLibCheck": true,
@@ -302,7 +308,7 @@ Now that you can build your vite library locally on your machine, it's time to b
 
 So let's create a GitHub action workflow
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 touch .github/workflows/cd.yaml
 ```
 
@@ -312,7 +318,7 @@ And put there 3 steps:
 2. Publish a release to GitHub (using [semantic-release](https://github.com/semantic-release/semantic-release)).
 3. Publish the packge to GitHub registry.
 
-```yaml showLineNumbers title=".github/workflows/cd.yaml"
+```yaml [.github/workflows/cd.yaml]
 name: Continuous Deployment
 
 on:
@@ -384,7 +390,7 @@ jobs:
 
 We also need to change a few things in our `package.json`. First the `"name"` should start with your organization name (or username). Second, you should add a `repository` section
 
-```json title="package.json"
+```json [package.json]
 "repository": {
   "type": "git",
   "url": "git://github.com/nirgn975/daisy.git"
@@ -393,7 +399,7 @@ We also need to change a few things in our `package.json`. First the `"name"` sh
 
 Once you commit all the changes and push your branch to GitHub, a new GitHub workflow will automatically start, and once it finish you'll see the packge in your "packages" section inside the repository.
 
-![GitHub Package](/posts/2022/design-system/github-package.webp "GitHub Package")
+![GitHub Package](/posts/2022/design-system/github-package.webp){ .rounded-lg .mx-auto }
 
 If you want to publish to `npm` or `yarn` instead, you can follow the [github publishing-nodejs-packages guide](https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages).
 
@@ -409,11 +415,11 @@ Now that we understand what is Chromatic and have a good reason to want to use i
 
 If it's your first time on [Chromatic](https://www.chromatic.com), go to **"projects"** and click on **"Choose from GitHub"** and a list of all your GitHub repositories will be opened, choose the repo you have used for this Design System and you'll get a `token` for that project, like in the screenshot below.
 
-![Chromatic API Key](/posts/2022/design-system/chromatic-key.webp "Chromatic API Key")
+![Chromatic API Key](/posts/2022/design-system/chromatic-key.webp){ .rounded-lg .mx-auto }
 
 We can use that `token` to push our Storybook directly to Chromatic (with Chromatic npm package), but it's more convenient to just use [their GitHub action step](https://github.com/chromaui/action) and add it to our workflow at the end of the file
 
-```yaml title=".github/workflows/cd.yaml"
+```yaml [.github/workflows/cd.yaml]
 deploy_chromatic:
   needs: [publish-release]
   name: Deploy Design System to Chromatic
@@ -439,11 +445,11 @@ The token you got from Chromatic should stay a secret that only you know (as wel
 
 So all you need to do is to create a new secret, give it a name (`CHROMATIC_TOKEN`) and insert your token as it's value (`a85f7b330490` in our case)
 
-![GitHub Secrets](/posts/2022/design-system/github-secrets.webp "GitHub Secrets")
+![GitHub Secrets](/posts/2022/design-system/github-secrets.webp){ .rounded-lg .mx-auto }
 
 That's it, we're ready to commit and push our branch to GitHub and our workflow will push our Storybook to [Chromatic](https://www.chromatic.com). Once your GitHub workflow finished running you can see your Chromatic project, in the next commit Chromatic will run and catch visual changes and error, and you also have a free hosting for your Storybook.
 
-![Storybook hosting on Chromatic](/posts/2022/design-system/chromatic-storybook.webp "Storybook hosting on Chromatic")
+![Storybook hosting on Chromatic](/posts/2022/design-system/chromatic-storybook.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 

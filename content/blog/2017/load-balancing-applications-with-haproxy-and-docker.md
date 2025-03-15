@@ -1,10 +1,16 @@
 ---
 title: "Load Balancing Applications with HAProxy and Docker"
-pubDate: 2017-07-11T12:53:47+03:00
-draft: false
-tags: ["development", "contribution", "docker", "haproxy", "load balance", "cloud", "devops", "nginx"]
-category: "tutorials"
-featuredImage: "/posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2017-07-11
+badge:
+  label: tutorials
 ---
 
 A tutorial for a real world docker use case.
@@ -25,7 +31,7 @@ For that reason I decided to write this post and present the way we use. It’s 
 
 Let’s start by creating our simple Node.js application. Create a file named `index.js` with the following code:
 
-```javascript showLineNumbers title="index.js"
+```javascript [index.js]
 var http = require("http");
 var os = require("os");
 http
@@ -38,7 +44,7 @@ http
 
 Now we need to dockerize the app, so we’ll create a file named `Dockerfile` with the following code:
 
-```yaml showLineNumbers title="Dockerfile"
+```yaml [Dockerfile]
 FROM node
 RUN mkdir -p /usr/src/app
 COPY index.js /usr/src/app
@@ -56,7 +62,7 @@ Now we have a docker image of our simple (and awesome) Node.js app, and we can c
 
 For our HTTP server we’ll use [HAProxy](http://www.haproxy.org), that means we need to create a container with HAProxy that will listen to port 80 and load balance the requests to the different Node.js containers on port 8080. To create our containers (Node.js apps and HAProxy) we’ll use [Docker Compose](https://docs.docker.com/compose), let’s write our `docker-compose.yml` file:
 
-```yaml showLineNumbers title="docker-compose.yml"
+```yaml [docker-compose.yml]
 version: "3"
 
 services:
@@ -105,7 +111,7 @@ Let’s explain what the hell is happening here. We create 2 services:
 2. The second service we create is `HAProxy` from the haproxy Docker (the compony) uses in their cloud (we don’t build it and doesn’t create a `Dockerfile` for it, we just specify from where to pull the image). It `depends_on` the `awesome` service, so it won’t boot until the `awesome` service is finished (i.e. all of the container are up and running). It’s also shared the `docker.sock` file (`volumes` field). This is the file the HAProxy container needs to look at to learn about the containers in it’s network (new and existing containers). We expose port 80, and put this container in the `web` network, In the `deploy` setting, we just tell it to always put this container on the manager node (this settings is related to Docker Swarm, when we have couple of node (i.e. servers).
 3. The last thing we do is to create the network (named `web`).
 
-![Our project looks good so far, and we almost at the finish line!](/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.webp "Our project looks good so far, and we almost at the finish line!")
+![Our project looks good so far, and we almost at the finish line!](/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.webp){ .rounded-lg .mx-auto }
 
 ## 3. DockerCloud HAProxy
 
@@ -121,15 +127,15 @@ The network, the services, and all the containers called `stack`. To create our 
 
 When we’ll hit `http://localhost` we’ll get the container id in the response, and we can see it has a different id every request.
 
-![Different container id every request](/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.webp "Different container id evert request")
+![Different container id every request](/posts/2017/load-balancing-applications-with-haproxy-and-docker/different-container-id-evert-request.webp){ .rounded-lg .mx-auto width="171" height="195" }
 
 Now let’s look at our services by writing `docker service ls` and we’ll see all of our services and replicas
 
-![All of our docker services](/posts/2017/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.webp "All of our docker services")
+![All of our docker services](/posts/2017/load-balancing-applications-with-haproxy-and-docker/all-of-our-docker-services.webp){ .rounded-lg .mx-auto width="800" height="81" }
 
 We can also create a second version of our `awesome` app. Let’s change the code a little bit (let’s add some exclamation marks at the end):
 
-```javascript showLineNumbers title="index.js"
+```javascript [index.js]
 var http = require("http");
 var os = require("os");
 http
@@ -144,7 +150,7 @@ So we need to build the image again, but this time it’s the second version of 
 
 We can see our docker slowly (but surly) kill the old containers and create new ones with the second version of our app. And when we hit `http://localhost` we still get a response, there is no downtime.
 
-![Some containers are already use the second version. No Downtime (:](/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.webp "Some containers are already use the second version. No Downtime (:")
+![Some containers are already use the second version. No Downtime (:](/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.webp){ .rounded-lg .mx-auto width="218" height="173" }
 
 Also, if we want to scale the service to more than 20 containers, we can do it with only one command: `docker service scale prod_awesome=50` and docker will start 30 more containers from the `awesome:v2` image.
 

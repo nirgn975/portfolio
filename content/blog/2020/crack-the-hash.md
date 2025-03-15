@@ -1,10 +1,16 @@
 ---
 title: "Crack The Hash"
-pubDate: 2020-11-01T09:00:00+03:00
-draft: false
-tags: ["crack", "password", "hash", "hashcat", "gcp", "google cloud platform", "white hat", "pen test", "hacking"]
-category: "hacking"
-featuredImage: "/posts/2020/crack-the-hash/crack-passwords.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2020/crack-the-hash/crack-passwords.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2020-11-01
+badge:
+  label: hacking
 ---
 
 In earlier post (at [Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!](/blog/2020/open-source-intelligence/#6-pivoting)) I mention we can use [hashcat](https://hashcat.net) to try and crack a password we found, but it wasn't the meaning of the post (and it's a red line for me to do that and put his cleartext password on the web for someone who didn't actually try to hack my service).
@@ -17,7 +23,7 @@ But in this post we'll learn how to use hashcat to crack passwords, and even do 
 
 First thing you need to do it to request a quota, because by default the quota for GPU on GCP is zero. In this post I'll be using _""NVIDIA Tesla K80"_ GPU, so go to [this](https://cloud.google.com/compute/docs/gpus/#introduction) link and make sure they have this kind of GPU on the zone you want to deploy your VM.
 
-![Available GPU Zones](/posts/2020/crack-the-hash/available-gpu-zones.webp "Available GPU Zones")
+![Available GPU Zones](/posts/2020/crack-the-hash/available-gpu-zones.webp){ width="841" height="350" .rounded-lg .mx-auto }
 
 In my case I want to deploy the VM on `europe-west1-b`, so we're clear.
 
@@ -29,7 +35,7 @@ To make the quota request open the left menu and under _"IAM & Admin"_ you'll ha
 
 After Google approved your quota, let's build the VM. Go to _"Compute Engine"_ tab on the left side menu in GCP, and then click on the _"CREATE INSTANCE"_ button.
 
-![GCP Compute Engine](/posts/2020/crack-the-hash/gcp-compute-engine.webp "GCP Compute Engine")
+![GCP Compute Engine](/posts/2020/crack-the-hash/gcp-compute-engine.webp){ width="830" height="317" .rounded-lg .mx-auto }
 
 Now you'll be redirect to a new page where you can configure your VM. I named my VM `crack-the-hash` and then I choose the the region I got the quota at (in my case `Belgium` and the zone `europe-west1-b`).
 
@@ -39,7 +45,7 @@ The GPU is kinda hidden under the `machine configuration` section, you'll see a 
 
 The final step is the boot disk, I choose 30GB SSD and the latest Ubuntu (20.04) LTS - which means we'll install CUDA manually (Google have images with CUDA installed by default, but we're trying to learn here so I choose the longer way).
 
-![GCP Instance Configuration](/posts/2020/crack-the-hash/gcp-instance-configuration.webp "GCP Instance Configuration")
+![GCP Instance Configuration](/posts/2020/crack-the-hash/gcp-instance-configuration.webp){ width="603" height="578" .rounded-lg .mx-auto }
 
 After you're all done, scroll down and click on the _"Create"_ blue button and just wait a couple of minutes until the machine will be created and boot up.
 
@@ -51,11 +57,11 @@ When the machine is up and running the first thing we need to do is to install [
 
 First we need to SSH into the machine, the easiest way to do it is to click on the _"SSH"_ button and just let GCP open a new terminal right in the browser window.
 
-![GCP Connect Via SSH](/posts/2020/crack-the-hash/gcp-connect-via-ssh.webp "GCP Connect Via SSH")
+![GCP Connect Via SSH](/posts/2020/crack-the-hash/gcp-connect-via-ssh.webp){ width="682" height="153" .rounded-lg .mx-auto }
 
 After that the terminal is open, go to the [CUDA Toolkit download page](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=debnetwork) and chose the platform you want to install it to, it'll give you all the commands - just paste them in the terminal. In my case here they are:
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
@@ -66,7 +72,7 @@ sudo apt-get -y install cuda
 
 After everything is installed successfully it's time to install [Hashcat](https://hashcat.net).
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 wget https://hashcat.net/files/hashcat-6.1.1.7z
 sudo apt install p7zip
 p7zip -d hashcat-6.1.1.7z
@@ -79,7 +85,7 @@ sudo cp hashcat-6.1.1/hashcat.hctune /usr/bin/
 
 And now let's test that Hashcat is installed properly and recognize our GPU by running `sudo hashcat --benchmark`.
 
-![Hashcat recognize our GPU](/posts/2020/crack-the-hash/hashcat-benchmark.webp "Hashcat recognize our GPU")
+![Hashcat recognize our GPU](/posts/2020/crack-the-hash/hashcat-benchmark.webp){ width="632" height="305" .rounded-lg .mx-auto }
 
 &nbsp;
 
@@ -89,7 +95,7 @@ The first thing we need is a password list. You can make your own password (word
 
 The best place to get some of it is the [SecList on GitHub](https://github.com/danielmiessler/SecLists/tree/master/Passwords), and one of the most popular list is the [rockyou](https://en.wikipedia.org/wiki/RockYou) one. So let's download it to our VM and use that list to crack some passwords.
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
 ```
 
@@ -97,7 +103,7 @@ To crack a password you first need to know the hash type of that password - whic
 
 For testing I encrypt some text with [Bcrypt hash function](https://en.wikipedia.org/wiki/Bcrypt), here are the result:
 
-```txt title=" "
+```txt
 $2b$04$jysbNjr164hK4E7tqk2B.OJoj4qAg9xHF4gLqain2m9pGb1bcsRf6
 $2b$04$T.E6VXlAlt/K/gfVBBrs8eULxwBTDGVZ1CNsE.yJX5Yt9LjqH5bDO
 $2b$04$XMOmhaV4EM.8fDCVEk3GYOmSbHvVoSx1cDyxhSeebBmCZyGisq7sG
@@ -108,23 +114,23 @@ Now, go to the [documentation of Hashcat](https://hashcat.net/wiki/doku.php?id=e
 
 A basic running is just to use the `m` flag with the mode 3200, the `o` flag to point Hashcat where to put all of the cracked passwords, and then just the file with the hashs (I put them in `test.txt` on the VM) and the file with the cleartext passwords list (the `rockyou.txt` we downloaded earlier).
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 sudo hashcat -m 3200 -o cracked.txt test.txt rockyou.txt
 ```
 
-![Basic Hash Cracking](/posts/2020/crack-the-hash/basic-hash-cracking.webp "Basic Hash Cracking")
+![Basic Hash Cracking](/posts/2020/crack-the-hash/basic-hash-cracking.webp){ width="678" height="922" .rounded-lg .mx-auto }
 
 While Hashcat is running you can write `s` on the terminal to check the status of the process. You'll see how much time it estimate the run will take, how much hash it's already cracked, and what the progress is (how much passwords it already checked from how much there is in the file we choose - `rockyou.txt`).
 
 It'll take a while to go over all the passwords in `rockyou.txt`, because won't be able to crack all of the four hash I gave you. When it'll finish you can see in the `cracked.txt` file that Hashcat only cracked 3 out of 4 hashs. The fourth one is `$2b$04$GIVH57JcU5wZyfwyu0A6Uuq.WrUDFLQfPC5HGHDsdfPfdWvP2jklS` which is the Bcrypt of `aSd12345`, this text is present in the `rockyou.txt` file but as all lowercase letters (`asd12345`, which is also the third hash). This is where the rules of Hashcat come into play.
 
-![Basic Cracking Results](/posts/2020/crack-the-hash/basic-cracking-results.webp "Basic Cracking Results")
+![Basic Cracking Results](/posts/2020/crack-the-hash/basic-cracking-results.webp){ width="614" height="331" .rounded-lg .mx-auto }
 
 Using a ruleset we can change our wordlist to contain more variations of the existing text. And again, we don't need to invent the wheel here, there are a lot of rules that people already write for Hashcat and one of them is [Hob0rules](https://github.com/praetorian-inc/Hob0Rules) which will help us do all the variations of lowercase and uppercase letters in our wordlist.
 
 So let's use those rules, first download the repo, next we need to `unzip` the zip file, and finally change the directory name.
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 wget https://github.com/praetorian-inc/Hob0Rules/archive/master.zip
 unzip master.zip
 mv Hob0Rules-master/ Hob0Rules
@@ -132,7 +138,7 @@ mv Hob0Rules-master/ Hob0Rules
 
 To run Hashcat again, but now with the rules we downloaded all we need to do is to use the `r` flag and point it to the path of the rule file.
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 sudo hashcat -m 3200 -o cracked.txt -r Hob0Rules/hob064.rule test.txt rockyou.txt
 ```
 

@@ -1,10 +1,16 @@
 ---
 title: "New design for the blog!"
-pubDate: 2020-04-25T09:00:00+03:00
-draft: false
-tags: ["hugo", "design", "blog", "github", "commento.io", "plausible analytics"]
-category: ""
-featuredImage: "/blog-hero.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2020/new-design-blog/blog-hero.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2020-04-25
+badge:
+  label: solopreneur
 ---
 
 I'm really excited for this! Don't ask me why because I can't explain it. This is not the first time I make a new design for this blog, it's actually the fifth time! and yet, I feel this is the best one yet. It have everything I ever wanted in my blog.
@@ -21,7 +27,7 @@ Let's break it down
 
 The navigation at the upper right side of the website contains all the configuration and links of the website.
 
-![Navigation](/posts/2020/new-design-for-the-blog/navigation.webp "Navigation")
+![Navigation](/posts/2020/new-design-blog/navigation.webp){ width="423" height="44" .rounded-lg .mx-auto }
 
 #### 1.1.1 Posts
 
@@ -73,7 +79,7 @@ So after a while I implement [disqus](https://disqus.com/) but it was out of nec
 
 A new design make a new opportunity to change all of that! I searched for days for the best commenting system for static websites that will keep the user privacy, let the user make an anonymous comment, and will be beautiful and easy to use. And I think i found it! [commento](https://www.commento.io) is (in my research) the best there is out there right now, it fulfills all my requirements and more.
 
-![commento.io platform](/posts/2020/new-design-for-the-blog/commento-io-platform.webp "commento.io platform")
+![commento.io platform](/posts/2020/new-design-blog/commento-io-platform.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 
@@ -89,11 +95,11 @@ English is not my native language (Hebrew is) so don't expect perfect. But I thi
 
 One of the things I highly value is the user privacy, as I said before. But I need to know some stats about blog (from where my readers are, views count, stats over time, etc). So, naturally I goes to Google Analytics, but Google add ad tracks to their script to keep tab on my readers across the web, and that's something I can't accept. So, I search for an alternative.
 
-![Plausible Analytics elevator pitch](/posts/2020/new-design-for-the-blog/plausible-analytics-elevator-pitch.webp "Plausible Analytics elevator pitch")
+![Plausible Analytics elevator pitch](/posts/2020/new-design-blog/plausible-analytics-elevator-pitch.webp){ .rounded-lg .mx-auto }
 
 And I found it, [Plausible Analytics](https://plausible.io) is simple and privacy focus, exactly what I was searching for. And to check they're true to their words I use [blacklight](https://themarkup.org/blacklight/?url=lifelongstudent.io) - A real-time website privacy inspector.
 
-![Blacklight search results](/posts/2020/new-design-for-the-blog/blacklight-search-results.webp "Blacklight search results")
+![Blacklight search results](/posts/2020/new-design-blog/blacklight-search-results.webp){ width="646" height="1225" .rounded-lg .mx-auto }
 
 &nbsp;
 

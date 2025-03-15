@@ -1,10 +1,16 @@
 ---
 title: "Jekyll Starter Kit generator 3.x.x"
-pubDate: 2020-09-01T09:00:00+03:00
-draft: false
-tags: ["jekyll", "contribution", "github", "generator", "starter kit", "yeoman", "pwa", "npm"]
-category: "open source contribution"
-featuredImage: "/posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2020/jekyll-starter-kit-generator-3.x.x/github-social-coding.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2020-09-01
+badge:
+  label: open source contribution
 ---
 
 First thing first, I want to send virtual thanks, gratitudes and hugs to all the people that star, download, use, and contribute the project! This is huge for me, you don't know how much it's affect and keep me going. Thank you!!
@@ -19,7 +25,7 @@ I want to call all of you who have an idea for a new feature, who have the gener
 
 If you're new to GitHub, contribution, or even JavaScript, I would be happy to help you get started!
 
-![Social Coding](/posts/2020/jekyll-starter-kit-generator-3.x.x/hello-world.webp "Social Coding")
+![Social Coding](/posts/2020/jekyll-starter-kit-generator-3.x.x/hello-world.webp){ width="732" height="138" .rounded-lg .mx-auto }
 
 ## 2. Jekyll Starter Kit 3.x.x
 

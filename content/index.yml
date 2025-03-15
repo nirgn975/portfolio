@@ -1,0 +1,27 @@
+title: Nir Galon's website
+description: Nir Galon's portfolio and blog.
+hero:
+  title: Nir Galon's website
+  description: Nuxt UI Pro is a collection of premium Vue components built on top of Nuxt UI to create beautiful & responsive Nuxt applications in minutes. It includes all primitives to build landing pages, documentations, blogs, dashboards or entire SaaS products.
+projects:
+  - title: Subwatch
+    description: A chrome extension + desktop app to monitor all your subscriptions in one place. Get notified before renewals, automatically keeps track on your usages to maximize savings, and add subscriptions with only one click right from your Gmail to minimize hassles.
+    to: https://subwatch.co
+    target: _blank
+    icon: i-heroicons-arrow-path-rounded-square
+    img: /projects/subwatch.jpeg
+    class: "lg:col-span-3"
+  - title: Convertedge
+    description: Simple, no-code installation to automatically shorten and enrich any form, and by that to boost conversion rate of any form on any page.
+    to: https://convertedge.co
+    target: _blank
+    icon: i-heroicons-cube-transparent
+    img: /projects/convertedge.png
+    class: "lg:col-span-3"
+  - title: LearnGit
+    description: "An interactive course to understand and leverage two of the most indispensable tools in modern software development: git and GitHub."
+    to: https://learngit.dev
+    target: _blank
+    icon: i-simple-icons-git
+    img: /social-card.png
+    class: "lg:col-span-3"

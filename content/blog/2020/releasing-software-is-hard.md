@@ -1,10 +1,16 @@
 ---
 title: "Releasing Software Is Hard! Is it?"
-pubDate: 2020-12-01T09:00:00+03:00
-draft: false
-tags: ["semver", "conventional commits", "github actions", "commitizen", "releases", "automation"]
-category: "tutorials"
-featuredImage: "/posts/2020/releasing-software-is-hard/software-development.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2020/releasing-software-is-hard/software-development.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2020-12-01
+badge:
+  label: tutorials
 ---
 
 One of the things I always got frustrated with is software releases and versioning.
@@ -27,7 +33,7 @@ If that's not convince you maybe the fact that the Semantic Versioning specifica
 
 So, if you're still reading this post I assume you're somewhat interested in semver. So go read the specification, it's short, concise, and translated to a lot of languages. I'll just mention the basics: A version format is `X.Y.Z` (`Major.Minor.Patch` respectively). The `Major` is incremented if the API additions/changes are **backwards incompatible** (i.e. breaking changes). The `Minor` is incremented if the API additions/changes are **backwards compatible**. And the `Patch` is incremented if a bug fix **not affecting** the API at all.
 
-![Semantic Versioning Summary](/posts/2020/releasing-software-is-hard/semver-summary.webp "Semantic Versioning Summary")
+![Semantic Versioning Summary](/posts/2020/releasing-software-is-hard/semver-summary.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 
@@ -39,7 +45,7 @@ Until I found [semantic-release](https://github.com/semantic-release/semantic-re
 
 To make our life even more simple we can use the [Release me!](https://github.com/marketplace/actions/release-me#create-a-release) GitHub action which use [semantic-release](https://github.com/semantic-release/semantic-release) under the hood.
 
-![Automate All The Things](/posts/2020/releasing-software-is-hard/automate-all-the-things.webp "Automate All The Things")
+![Automate All The Things](/posts/2020/releasing-software-is-hard/automate-all-the-things.webp){ .rounded-lg .mx-auto }
 
 But how semantic-release knows what part of the version it should bump? It uses the commit messages to determine the type of changes in the codebase. So that means we need to adhere to a specific commit message format. By default the semantic-release follows the [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines), but you can change it with a `config` file. We'll not change it for this post because this format is widely used by the open source community.
 
@@ -53,7 +59,7 @@ You're sort of right. Our problem is still present, but those other problems wer
 
 Again, fear not my young padawan. [commitizen](https://github.com/commitizen/cz-cli) - a command line utility will help us `commit` and will guide us through every commit.
 
-![Commitizen In Action](/posts/2020/releasing-software-is-hard/commitizen-in-action.webp "Commitizen In Action")
+![Commitizen In Action](/posts/2020/releasing-software-is-hard/commitizen-in-action.webp){ .rounded-lg .mx-auto }
 
 So, let's recap all the tools so far. If we'll use [commitizen](https://github.com/commitizen/cz-cli) for `commit`s, our commits messages will be in a format compatible with [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) and [Conventional Commits](https://www.conventionalcommits.org). If our commits are compatible with those formats [semantic-release](https://github.com/semantic-release/semantic-release) will determining the next version number, generating the release notes, and publishing the package by the [Semantic Versioning](https://semver.org) specification. Perfect!
 
@@ -63,7 +69,7 @@ So, let's recap all the tools so far. If we'll use [commitizen](https://github.c
 
 Let's start by creating a simple `package.json` file with npm in our project directory (let's call it `deweb` because that's what the [namelix](https://namelix.com) generator generate for us).
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 mkdir deweb
 cd deweb
 git init
@@ -73,22 +79,22 @@ echo node_modules >> .gitignore
 
 Here are my configurations.
 
-![Init The Project](/posts/2020/releasing-software-is-hard/init-the-project.webp "Init The Project")
+![Init The Project](/posts/2020/releasing-software-is-hard/init-the-project.webp){ .rounded-lg .mx-auto }
 
 Now we need to install [commitizen](https://github.com/commitizen/cz-cli) and make our repo **commitizen friendly**
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 npm install commitizen -g
 commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
 
 This just tells commitizen which adapter we actually want our contributors to use when they try to commit to this repo. And now you can use `git cz` command instead of `git commit` and the commitizen prompt will guide your through the commit message and `commit` all the files.
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 git cz
 ```
 
-![Commit With Commitizen](/posts/2020/releasing-software-is-hard/commit-with-commitizen.webp "Commit With Commitizen")
+![Commit With Commitizen](/posts/2020/releasing-software-is-hard/commit-with-commitizen.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 
@@ -98,14 +104,14 @@ Now, we can use [semantic-release](https://github.com/semantic-release/semantic-
 
 So, let's create a GitHub action that uses the [Release me!](https://github.com/marketplace/actions/release-me#create-a-release) action and run every time there is a milestones event on GitHub.
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 mkdir -p .github/workflows
 touch .github/workflows/cd.yml
 ```
 
 In this file you should copy the default template of a [GitHub action](https://docs.github.com/en/free-pro-team@latest/actions), and use the [release-me-action](https://github.com/marketplace/actions/release-me#create-a-release). Then you need to change the `on` key on the top of the file `milestone` and just when a milestone closed.
 
-```yaml showLineNumbers title=".github/workflows/cd.yml"
+```yaml [.github/workflows/cd.yml]
 name: Continuous Deployment
 
 on:
@@ -128,7 +134,7 @@ jobs:
 
 Now let's commit the new file and push it to GitHub.
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 git add .
 git cz
 git push origin main
@@ -136,15 +142,15 @@ git push origin main
 
 The last thing we need to do is to create a milestone in GitHub, then look at the **Actions** section and see our workflow, but we notice it doesn't run yet.
 
-![GitHub Actions When Milestone Is Open](/posts/2020/releasing-software-is-hard/github-actions-when-milestone-is-open.webp "GitHub Actions When Milestone Is Open")
+![GitHub Actions When Milestone Is Open](/posts/2020/releasing-software-is-hard/github-actions-when-milestone-is-open.webp){ .rounded-lg .mx-auto }
 
 Then let's close the milestone (just hit the `close` button), and refresh the **Action** tab.
 
-![GitHub Actions After Milestone Closed](/posts/2020/releasing-software-is-hard/github-actions-after-milestone-closed.webp "GitHub Actions After Milestone Closed")
+![GitHub Actions After Milestone Closed](/posts/2020/releasing-software-is-hard/github-actions-after-milestone-closed.webp){ .rounded-lg .mx-auto }
 
 And when the workflow finish to run, let's open the releases page and see our new release (you can notice the action also created a `changelog.md` file with all the changes, and it'll update this file with every release).
 
-![GitHub Releases After Action Completed](/posts/2020/releasing-software-is-hard/github-releases-after-action-completed.webp "GitHub Releases After Action Completed")
+![GitHub Releases After Action Completed](/posts/2020/releasing-software-is-hard/github-releases-after-action-completed.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 

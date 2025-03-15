@@ -1,10 +1,16 @@
 ---
 title: "Change your email in GitHub"
-pubDate: 2022-10-01T09:00:00+03:00
-draft: false
-tags: ["github", "private email", "domain"]
-category: "tutorials"
-featuredImage: "/posts/2022/github-email/google-email.webp"
+description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+image:
+  src: /posts/2022/github-email/google-email.webp
+author:
+  name: Nir Galon
+  to: https://x.com/nirgn975
+  avatar:
+    src: /avatar.webp
+date: 2022-10-01
+badge:
+  label: tutorials
 ---
 
 Once in a lifetime a man changes his email address. Maybe you didn't changed your email even once, I completely understand you, but I did. And let me tell you - it's not an easy process!
@@ -31,7 +37,7 @@ The first thing I did is to go over my [1Password](https://1password.com) login 
 
 Everything was going according to plan, but little did I know that when you change your email on GitHub you loss all your commits that were made with the old email - they no longer been counted in your contributions heat map!
 
-![GitHub Contributions Graph](/posts/2022/github-email/github-contributions-graph.webp "GitHub Contributions Graph")
+![GitHub Contributions Graph](/posts/2022/github-email/github-contributions-graph.webp){ .rounded-lg .mx-auto }
 
 So I wrote a command line script to change the commits author email. But before we continue I do have to warn you about a few things
 
@@ -39,7 +45,7 @@ So I wrote a command line script to change the commits author email. But before 
 2. Note that you'll need to have full access to the `main` branch to run this script.
 3. Be aware that the commits that do change will change their sha, so if you have tags that links to that sha's - they'll no longer link to the right commit (you can change the tag sha by create it again, and you can set the same date when you create it).
 
-```bash showLineNumbers title=" "
+```bash [terminal]
 git filter-branch -f --commit-filter 'if [ "$GIT_AUTHOR_EMAIL" = "<OLD_EMAIL_ADDRESS>" ]; then GIT_AUTHOR_EMAIL="<NEW_EMAIL_ADDRESS>"; git commit-tree "$@"; fi' HEAD
 ```
 
@@ -53,7 +59,7 @@ There is one thing I'll recommand GitHub users do to not relay on their email ad
 
 So, GitHub have a feature called _"Keep my email address private"_ where they let you use a noreply email address from GitHub as your commit email address. To use your noreply email address for commits you push from the command line, use that email address when you set your commit email address in Git. To use your noreply address for web-based Git operations just set your commit email address on GitHub and choose _"Keep my email address private"_ in the settings (screenshot below).
 
-![GitHub Private Email Settings](/posts/2022/github-email/github-private-email.webp "GitHub Private Email Settings")
+![GitHub Private Email Settings](/posts/2022/github-email/github-private-email.webp){ .rounded-lg .mx-auto }
 
 &nbsp;
 

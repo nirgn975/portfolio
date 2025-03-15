@@ -1,24 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: true,
-  modules: ["@nuxthq/studio", "@nuxt/content", "@nuxt/ui"],
-  compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
-  runtimeConfig: {
-    public: {
-      posthogPublicKey: "phc_qBbm15wGFBf8pJ42gkKA8snzOuHBrDY6JjeTfIFApKK",
-      posthogHost: "https://us.i.posthog.com",
+  modules: ["@nuxt/ui-pro", "@nuxt/content", "@nuxt/eslint", "@nuxt/image", "@vueuse/nuxt", "nuxt-og-image"],
+  devtools: {
+    enabled: true,
+  },
+  css: ["~/assets/css/main.css"],
+  future: {
+    compatibilityVersion: 4,
+  },
+  compatibilityDate: "2024-07-11",
+  nitro: {
+    prerender: {
+      routes: ["/", "/blog"],
+      crawlLinks: true,
     },
   },
-  content: {
-    highlight: {
-      theme: {
-        default: "github-light", // Default theme
-        dark: "github-dark", // Theme used if `html.dark`
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: "never",
+        braceStyle: "1tbs",
       },
-    },
-    markdown: {
-      remarkPlugins: ["remark-reading-time"],
     },
   },
 });
