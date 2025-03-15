@@ -25,7 +25,7 @@ repos = repos.sort((a, b) => Number(b.stars) - Number(a.stars));
 </script>
 
 <template>
-  <section class="divide-y divide-gray-300 dark:divide-gray-700 max-w-7xl mx-auto">
+  <section class="divide-y divide-gray-300 dark:divide-gray-700 max-w-7xl mx-auto px-4 xl:px-0">
     <!-- About Me -->
     <div class="py-6">
       <div class="flex items-center gap-2 my-2">
