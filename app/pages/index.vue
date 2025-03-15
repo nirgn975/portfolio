@@ -32,8 +32,6 @@ useSeoMeta({
         <h2>Recent posts</h2>
       </span>
 
-      <p>{{ posts }}</p>
-
       <UPageBody>
         <UBlogPosts>
           <UBlogPost
