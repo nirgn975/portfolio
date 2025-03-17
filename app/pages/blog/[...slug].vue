@@ -16,10 +16,19 @@ const title = post.value.title;
 const description = post.value.description;
 
 useSeoMeta({
-  title,
+  title: title,
   ogTitle: title,
-  description,
+  twitterTitle: title,
+  description: description,
   ogDescription: description,
+  twitterDescription: description,
+  ogImage: "https://nir.galons.io/social-card.png",
+  twitterImage: "https://nir.galons.io/social-card.png",
+  twitterCard: "summary_large_image",
+  ogImageType: "image/png",
+  ogUrl: "https://nir.galons.io",
+  twitterCreator: "@nirgn975",
+  twitterSite: "@nirgn975",
 });
 
 if (post.value.image?.src) {

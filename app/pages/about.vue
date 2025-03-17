@@ -2,10 +2,20 @@
 const { data } = await useAsyncData("about", () => queryCollection("about").first());
 
 useSeoMeta({
-  title: data.value?.title,
-  ogTitle: data.value?.title,
-  description: data.value?.description,
-  ogDescription: data.value?.description,
+  ogSiteName: page.value?.title,
+  title: page.value?.title,
+  ogTitle: page.value?.title,
+  twitterTitle: page.value?.title,
+  description: page.value?.description,
+  ogDescription: page.value?.description,
+  twitterDescription: page.value?.description,
+  ogImage: "https://nir.galons.io/social-card.png",
+  twitterImage: "https://nir.galons.io/social-card.png",
+  twitterCard: "summary_large_image",
+  ogImageType: "image/png",
+  ogUrl: "https://nir.galons.io",
+  twitterCreator: "@nirgn975",
+  twitterSite: "@nirgn975",
 });
 
 let repos: Array<{ code: string; title: string; name: string; description: string; url: string; stars: string; forks: string }> = [];

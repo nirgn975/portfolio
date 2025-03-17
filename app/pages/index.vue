@@ -3,11 +3,20 @@ const { data: page } = await useAsyncData("index", () => queryCollection("index"
 const { data: posts } = await useAsyncData("posts", () => queryCollection("posts").order("date", "DESC").where("draft", "<>", true).limit(3).all());
 
 useSeoMeta({
-  titleTemplate: "",
+  ogSiteName: page.value?.title,
   title: page.value?.title,
   ogTitle: page.value?.title,
+  twitterTitle: page.value?.title,
   description: page.value?.description,
   ogDescription: page.value?.description,
+  twitterDescription: page.value?.description,
+  ogImage: "https://nir.galons.io/social-card.png",
+  twitterImage: "https://nir.galons.io/social-card.png",
+  twitterCard: "summary_large_image",
+  ogImageType: "image/png",
+  ogUrl: "https://nir.galons.io",
+  twitterCreator: "@nirgn975",
+  twitterSite: "@nirgn975",
 });
 </script>
 
