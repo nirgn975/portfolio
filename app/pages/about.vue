@@ -2,13 +2,13 @@
 const { data } = await useAsyncData("about", () => queryCollection("about").first());
 
 useSeoMeta({
-  ogSiteName: page.value?.title,
-  title: page.value?.title,
-  ogTitle: page.value?.title,
-  twitterTitle: page.value?.title,
-  description: page.value?.description,
-  ogDescription: page.value?.description,
-  twitterDescription: page.value?.description,
+  ogSiteName: data.value?.title,
+  title: data.value?.title,
+  ogTitle: data.value?.title,
+  twitterTitle: data.value?.title,
+  description: data.value?.description,
+  ogDescription: data.value?.description,
+  twitterDescription: data.value?.description,
   ogImage: "https://nir.galons.io/social-card.png",
   twitterImage: "https://nir.galons.io/social-card.png",
   twitterCard: "summary_large_image",
