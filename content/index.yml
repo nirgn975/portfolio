@@ -23,5 +23,5 @@ projects:
     to: https://learngit.dev
     target: _blank
     icon: i-simple-icons-git
-    img: /social-card.png
+    img: /projects/learngit.png
     class: "lg:col-span-3"
