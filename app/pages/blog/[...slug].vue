@@ -32,9 +32,7 @@ useSeoMeta({
 });
 
 if (post.value.image?.src) {
-  defineOgImage({
-    url: post.value.image.src,
-  });
+  defineOgImage(undefined, {}, { url: post.value.image.src });
 } else {
   defineOgImageComponent("Saas", {
     headline: "Blog",
