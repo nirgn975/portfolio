@@ -15,6 +15,7 @@ export default defineNuxtConfig({
         // Match the existing Worker name so deploys update it instead of
         // creating a new one under the auto-generated git-remote-based name.
         name: "portfolio",
+        routes: [{ pattern: "nir.galons.org", custom_domain: true }],
       },
     },
     prerender: {
