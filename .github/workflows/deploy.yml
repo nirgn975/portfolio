@@ -39,3 +39,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           packageManager: pnpm
           wranglerVersion: "4"
+          workingDirectory: .output/server
+          command: deploy
