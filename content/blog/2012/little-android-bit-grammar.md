@@ -10,7 +10,7 @@ author:
     src: /avatar.webp
 date: 2012-09-16
 badge:
-  label: Android
+  label: android
 ---
 
 In this post I'll survey and explain some of the more advanced concepts (or Grammar) of the Android operating system.

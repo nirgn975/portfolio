@@ -11,6 +11,7 @@ author:
 date: 2027-01-01
 badge:
   label: development
+draft: true
 ---
 
 I'm a web developer for many years now, and my stack has changed a lot over the years. But I'm in the same sort of stack for the last two years and I think I found my happiness. As an entrepreneur I'm extremely senstive to price and especially price to value ratio, so bear it in mind when you read about the decision I made.

@@ -10,7 +10,7 @@ author:
     src: /avatar.webp
 date: 2012-11-18
 badge:
-  label: Android
+  label: android
 ---
 
 One of the useful (and cool) things about Android is knowing how to open and sign Apk files, and of course, as a result, being able to edit them.

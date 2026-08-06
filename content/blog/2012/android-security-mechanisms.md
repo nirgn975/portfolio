@@ -10,7 +10,8 @@ author:
     src: /avatar.webp
 date: 2012-10-21
 badge:
-  label: Android
+  label: android
+draft: true
 ---
 
 This post is an article I wrote for Digital Whisper magazine. The article appears in issue 31 (this month, May).  

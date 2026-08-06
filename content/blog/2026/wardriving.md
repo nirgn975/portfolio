@@ -11,6 +11,7 @@ author:
 date: 2026-08-02
 badge:
   label: hacking
+draft: true
 ---
 
 I remember as a teenager I did a little wardriving that was actually a warwalking because I didn't have a car or even a license yet. It was fun, to pinpoint wifi signals and crack them (it was all wpa2), other signals weren't popular yet so it was basically all wifi. Fast forward a lot of years and the environment is now packed with signals, a lot of them! But I was kinda over it, I moved forward to other stuff (sometimes still with signals, but not doing wardriving just for wardriving sake).

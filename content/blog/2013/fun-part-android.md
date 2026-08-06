@@ -10,7 +10,8 @@ author:
     src: /avatar.webp
 date: 2013-10-01
 badge:
-  label: Android
+  label: android
+draft: true
 ---
 
 The following article was written for issue 45 of DW and can be downloaded [from here](http://www.digitalwhisper.co.il/files/Zines/0x2D/DigitalWhisper45.pdf).

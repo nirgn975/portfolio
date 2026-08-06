@@ -10,7 +10,7 @@ author:
     src: /avatar.webp
 date: 2012-12-16
 badge:
-  label: Android
+  label: android
 ---
 
 I assume the most common and lighthearted example is the battery mod. For some reason in Android (don't ask me why, I don't know) the battery doesn't have percentages, only a drawing that gives us a (pretty rough) estimate of the battery's state (even though the system knows exactly how many percent it has, they're just not shown in the top bar). That's why the most popular file people flash is the "battery with percentages" mod (and sometimes a different battery drawing too).
