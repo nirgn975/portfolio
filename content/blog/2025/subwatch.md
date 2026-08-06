@@ -1,6 +1,6 @@
 ---
 title: "I built a thing"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "Building and launching Subwatch, a pay-once Chrome extension for subscriptions."
 image:
   src: /posts/2025/subwatch/cover.jpeg
 author:
@@ -17,7 +17,7 @@ I was minding my own business and scrolling X (formally Twitter) when I encounte
 
 Right then and there I decided to do a thing - build it. I limit myself to 1 month to release an MVP and see if people are liking it and decided that the pricing model should be a “pay once own it for life”, because it’s kinda funny to pay subscription to monitor other subscriptions.
 
-The technology I chose to do it is a Chrome Extension, because I can store your data locally and don’t need a server (help me with the pricing model of paying once) and I can inject a button to your Gmail and get the subscriptions data from the receipt email (it also good timing).
+The technology I chose to do it is a Chrome Extension, because I can store your data locally and don’t need a server (helps me with the pricing model of paying once) and I can inject a button to your Gmail and get the subscriptions data from the receipt email (it's also good timing).
 
 I was off to the races, and it’ll not be an understatement to say that I underestimated the amount of work I thought would be required. Nonetheless I finished the Extension and the website a few days before my deadline and I was thrilled!
 
@@ -29,13 +29,13 @@ I got back to X and started asking people, joined indie hackers communities, sta
 
 I started writing replies to posts about related topics and insert my extension if it’s appropriate. I listed my extension on [product hunt](https://www.producthunt.com/products/subwatch-3), [betalist](https://betalist.com/startups/subwatch), [chromehunt](https://www.chromehunt.app/extensions/subwatch), [microlaunch](https://microlaunch.net/p/subwatch-fd4fd5), [uneed](https://www.uneed.best), [dealhunt](https://dealhunt.cc), [pitchwall](https://pitchwall.co), [tinylaun.ch](https://www.tinylaun.ch), [launchingnext](https://www.launchingnext.com), and [saashub](https://www.saashub.com/subwatch-co-alternatives) And I got a few sales 🥳
 
-I also added the website to other platform, to get backlinks. Like [land book](https://land-book.com/websites/74241-subwatch-subwatch-website) and [dribbble](https://dribbble.com/shots/25671033-Subwatch-Turn-subscription-chaos-into-financial-harmony).
+I also added the website to other platforms, to get backlinks. Like [land book](https://land-book.com/websites/74241-subwatch-subwatch-website) and [dribbble](https://dribbble.com/shots/25671033-Subwatch-Turn-subscription-chaos-into-financial-harmony).
 
 ![Insights view](/posts/2025/subwatch/demo-2.jpg){ .rounded-lg .mx-auto }
 
 The sales were the fuel to keep me going. Every email notification about a new sale was a celebration. I can’t describe the feeling of someone paying for my product. But there was one thing that bugged me: I was out of ideas about features and updates. Sure, I caught a few bugs and fixed them, but what’s next?
 
-And then the ideas start to come to me, from paying users, in the form of feature requests. I was so happy I got to work immediately and hammered most of them in a week! Even updated the website to reflect some of the new features.
+And then the ideas started to come to me, from paying users, in the form of feature requests. I was so happy I got to work immediately and hammered most of them in a week! Even updated the website to reflect some of the new features.
 
 ![Alerts](/posts/2025/subwatch/demo-3.jpg){ .rounded-lg .mx-auto }
 

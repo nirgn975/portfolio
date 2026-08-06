@@ -1,38 +1,38 @@
 ---
 title: "Getting to know my new neighbors"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "Using a Hak5 WiFi Pineapple to plan an attack on a neighbor's wifi (draft)."
 image:
-  src: /posts/2025/getting-to-know-my-neighbors/cover.webp
+  src: /posts/2026/getting-to-know-my-neighbors/cover.webp
 author:
   name: Nir Galon
   to: https://x.com/nirgn975
   avatar:
     src: /avatar.webp
-date: 2025-02-21
+date: 2026-02-21
 badge:
   label: hacking
 draft: true
 ---
 
-Recently, new neighbors moved in to the next door at the apartment building I live in. So I thought to myself that a good neighbor will take the time to know them a little bit, and it's just happened to be that I get my new Wifi Pineapple (mark vii) in the mail couple of week ago, so let's clear the dust from my Wifi Pineapple skills and play like a kid with a new toy.
+Recently, new neighbors moved in next door at the apartment building I live in. So I thought to myself that a good neighbor will take the time to get to know them a little bit, and it just so happened that I got my new WiFi Pineapple (mark vii) in the mail a couple of weeks ago, so let's clear the dust off my WiFi Pineapple skills and play like a kid with a new toy.
 
 &nbsp;
 
 ## 1. Setup
 
-Let's set it up. First thing we need to do is to connect it to a power source, I choose to connect it to my computer usb-c port. Then we need to wait for the top (and single) LED to be a solid blue - that's mean it's ready (from blinking blue when it's starting up).
+Let's set it up. First thing we need to do is to connect it to a power source, I choose to connect it to my computer's usb-c port. Then we need to wait for the top (and single) LED to be a solid blue - that means it's ready (from blinking blue when it's starting up).
 
 ![The WiFi Pineapple is ready](/posts/2025/getting-to-know-my-neighbors/wifi-pineapple-ready-to-go.webp){ .rounded-lg .mx-auto }
 
-Now, according to the [setup guide from Hak5](https://docs.hak5.org/wifi-pineapple), if you connected it to the usb-c port, you can connect to the WiFi Pineapple via the usb instead of connecting into the WiFi Pineapple wifi. Which is more secure, so I let's do it that way.
+Now, according to the [setup guide from Hak5](https://docs.hak5.org/wifi-pineapple), if you connected it to the usb-c port, you can connect to the WiFi Pineapple via the usb instead of connecting into the WiFi Pineapple wifi. This is more secure, so let's do it that way.
 
 In Linux and Windows the driver will be automatically downloaded, but if you're on MacOS Catalina and later you need to do this manually (thanks Apple!), so let's download the [ASIX driver for the AX88772C](https://www.asix.com.tw/en/support/download), and install it (you'll need to restart your computer for it to take effect. For more information about their MacOS support [click here](https://docs.hak5.org/wifi-pineapple/faq/macos-support)).
 
 After your computer is started again, connect the WiFi Pineapple via the usb-c port and it will enumerate as a USB Ethernet adapter and that interface should receive an IP address from the WiFi Pineapple via DHCP in the 172.16.42.0/24 range. The WiFi Pineapple uses the 1471 port, so let's just open the browser at [http://172.16.42.1:1471](http://172.16.42.1:1471) and follow the on-screen instructions.
 
-The first thing it tells us to do is to click on the physical button on the device, this is a security mechanism to see you're the owner of the device and it's near your (in the physical world, in case someone see it's wifi and try to connect to it and "steal" it).
+The first thing it tells us to do is to click on the physical button on the device, this is a security mechanism to verify you're the owner of the device and it's near you (in the physical world, in case someone sees its wifi and tries to connect to it and "steal" it).
 
-The second thing is to checks for updates, in my case it needed to download one. I gave it my wifi SSID and password to connect to it. It download the new firmware, installed it, and restart itself, all alone - sweet (when it flashing a new firmware the LED blinks with blue/red lights, do not unplug the device until it finished and you see a solid blue light again).
+The second thing is it checks for updates, in my case it needed to download one. I gave it my wifi SSID and password to connect to it. It downloaded the new firmware, installed it, and restarted itself, all alone - sweet (when it's flashing new firmware the LED blinks with blue/red lights, do not unplug the device until it's finished and you see a solid blue light again).
 
 Now we can start the _"General Setup"_ of the device. Let's give it a password, confirm it again, and choose our timezone. Next let's do the _"Networking Setup"_ (you can see in the screenshot below what I choose). At the _"Filters Setups"_ screen I choose _"Allow connections for only the listed devices..."_ and _"Allow associations for only the listed SSIDs..."_ so not everyone will be able to connect to the WiFi Pineapple, just the ones I'll target. And at the last screen, the _"Look and Feel"_, I choose the dark theme (did you expect anything else from me?).
 
@@ -72,13 +72,13 @@ After the WiFi Pineapple become a man in the middle,
 
 ## 3. Always start with reconnaissance
 
-If you don't know your way around the WiFi Pineapple UI, read the [Hak5 docs](https://docs.hak5.org/wifi-pineapple), we'll not go over it, but I'll explain the things we do as we go. The first thing I always do is reconnaissance, just to understand and get a feeling of the area I'm working in. So go over to the **Recon** tab and start a scanning for a few minutes.
+If you don't know your way around the WiFi Pineapple UI, read the [Hak5 docs](https://docs.hak5.org/wifi-pineapple), we'll not go over it, but I'll explain the things we do as we go. The first thing I always do is reconnaissance, just to understand and get a feeling of the area I'm working in. So go over to the **Recon** tab and start scanning for a few minutes.
 
 ![Recon tab](/posts/2025/getting-to-know-my-neighbors/recon-tab.webp){ .rounded-lg .mx-auto }
 
-When you get the results, they will look something like the screenshot below. Now which one is my next door neighbors? We can eliminate my SSID, and the low signal ones, but still we have left with a bunch of them to choose from.
+When you get the results, they will look something like the screenshot below. Now which one is my next door neighbors'? We can eliminate my SSID, and the low signal ones, but we're still left with a bunch of them to choose from.
 
-Now it's the time to do a bit of OSINT about your target. Chances are they use their own first or last name as the SSID, their phone number, their children's name, etc. In my case it was pretty easy, we have a WhatsApp group of all the tenants in the building so I know their first and last names, and by accident I overheard their child name in the lobby of the building the other day, and it's somewhat a unique name (e.g. not john), and in the list of SSID I saw that name with a strong signal.
+Now it's time to do a bit of OSINT about your target. Chances are they use their own first or last name as the SSID, their phone number, their children's name, etc. In my case it was pretty easy, we have a WhatsApp group of all the tenants in the building so I know their first and last names, and by accident I overheard their child's name in the lobby of the building the other day, and it's somewhat a unique name (e.g. not john), and in the list of SSIDs I saw that name with a strong signal.
 
 ![Recon results](/posts/2025/getting-to-know-my-neighbors/recon-results.webp){ .rounded-lg .mx-auto }
 
@@ -86,7 +86,7 @@ So I clicked on their SSID and add it to the **PinAP pool**.
 
 ![SSID menu](/posts/2025/getting-to-know-my-neighbors/ssid-menu.webp){ .rounded-lg .mx-auto }
 
-On this scan, I actually didn't see any clients connected to this SSID, and I also double chcked and saw their car isn't in their parking spot, so I'm sure they're not home right now. So the Karma attack will have to wait a little and we'll pivot and try a [Pixie Dust attack (or Offline brute-force attack)](https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup).
+On this scan, I actually didn't see any clients connected to this SSID, and I also double checked and saw their car isn't in their parking spot, so I'm sure they're not home right now. So the Karma attack will have to wait a little and we'll pivot and try a [Pixie Dust attack (or Offline brute-force attack)](https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup).
 
 &nbsp;
 
@@ -94,13 +94,13 @@ On this scan, I actually didn't see any clients connected to this SSID, and I al
 
 **What is a Pixie Dust attack?**
 
-On the bottom of some routers there are an 8 digit number (called WPS setup pin) that allows you to access the router in case you forget your credentials. During the login process you get this 8 digit number (in 2 seperate requests, each contains half the number, and they're [PSK](https://en.wikipedia.org/wiki/Pre-shared_key) encrypted).
+On the bottom of some routers there is an 8 digit number (called WPS setup pin) that allows you to access the router in case you forget your credentials. During the login process you get this 8 digit number (in 2 separate requests, each containing half the number, and they're [PSK](https://en.wikipedia.org/wiki/Pre-shared_key) encrypted).
 
 Now if you go and read the small paragraph on Wikipedia about PSK you'll see
 
 > Choosing keys used by cryptographic algorithms is somewhat different in that any pattern whatsoever should be avoided, as any such pattern may provide an attacker with a lower effort attack than brute force search. This implies random key choice to force attackers to spend as much effort as possible; this is very difficult in principle and in practice as well.
 
-The crazy thing is, most of the implementations of the semiconductor companies are bad (they don't use a random key), they use zeroes (0) or the timestamp at the beginging of the WPS transaction. Because of their weak random numbers implementation we can guess it very quickly! (Note: This attack will not work on any router, just the ones with a poor random numbers implementation).
+The crazy thing is, most of the implementations of the semiconductor companies are bad (they don't use a random key), they use zeroes (0) or the timestamp at the beginning of the WPS transaction. Because of their weak random numbers implementation we can guess it very quickly! (Note: This attack will not work on any router, just the ones with a poor random numbers implementation).
 
 &nbsp;
 

@@ -1,6 +1,6 @@
 ---
 title: "Passive.. Passive Recon.. Passive Reconnaissance.. OSINT!"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "A hands-on walkthrough of passive reconnaissance and OSINT techniques."
 image:
   src: /posts/2020/open-source-intelligence/osint-cover.webp
 author:
@@ -29,11 +29,11 @@ In this post I want you to tag a long with me when I'm doing a reconnaissance. M
 
 ## 1. Story Time
 
-At work I am responsible for a service that is mostly a backend service, but we have a small client (web interface) to help us manage things and see some analytics about our compony product. This interface have a login page where you need to enter a username and a password to get in, and you can't register to it, I need to give you access to it. This is an internal tool for the company.
+At work I am responsible for a service that is mostly a backend service, but we have a small client (web interface) to help us manage things and see some analytics about our company's product. This interface have a login page where you need to enter a username and a password to get in, and you can't register to it, I need to give you access to it. This is an internal tool for the company.
 
 So, naturally, I put some more security on that service. One of them was to log all logins to the system, and especially false attempts to login and an email notification to myself when that happens.
 
-Everything was quiet for a long time, but we know it's not going to be like that forever. Lo and behold about a month ago it happened for the first time! Someone tried to penetrate the system with a non existent username and password. I got 4 attempts, because I don't even let you have a third strike - I put your IP in a blacklist. So as you see in the table below we basically have 2 real attempts (2 IPs) with 4 different credentials.
+Everything was quiet for a long time, but we know it's not going to be like that forever. Lo and behold about a month ago it happened for the first time! Someone tried to penetrate the system with a non-existent username and password. I got 4 attempts, because I don't even let you have a third strike - I put your IP in a blacklist. So as you see in the table below we basically have 2 real attempts (2 IPs) with 4 different credentials.
 
 | Email                    | Password   | IP             | Time                     | Accept Language | User Agent                                                                                                         |
 | ------------------------ | ---------- | -------------- | ------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -47,7 +47,7 @@ Everything was quiet for a long time, but we know it's not going to be like that
 We notice a bunch of things:
 
 - We have only 2 IPs.
-- The email address don't change in every attempt, only the password is changing in each attempt.
+- The email address doesn't change in every attempt, only the password is changing in each attempt.
 - The two emails are with the same domain.
 - The language is always `en-US` which says nothing - this is by far the popular `accept-language` header on the internet.
 - The `user agent` is from Windows 10 with a Chrome web browser version 67 (the same exact version for all four attempts), which is pretty old version (and remember that chrome is automatically updated).
@@ -207,17 +207,17 @@ and
 }
 ```
 
-This looks like a dead end for now, let's check the domain. For that I use [DomainTools](http://domaintools.com), they have a pretty nice and free service for Whois lookup. So when I searched `bocah.team` I didn't get much, it looks like the domain have a privacy protection, this means we cannot see who bought it.
+This looks like a dead end for now, let's check the domain. For that I use [DomainTools](http://domaintools.com), they have a pretty nice and free service for Whois lookup. So when I searched `bocah.team` I didn't get much, it looks like the domain has privacy protection, this means we cannot see who bought it.
 
-But we can see a lot of other stuff, like it's registered by [NameCheap](https://www.namecheap.com) and protected by [WhoisGuard](http://www.whoisguard.com/). It created on 2018-07-13. The server the domain points to is a [DigitalOcean](https://www.digitalocean.com) one in the United Kingdom and his IP is `188.166.152.221`. They got `200` status code back from an [Apache Web Server](https://www.apache.org), and it tells us there are _257 other sites hosted on this server_! So it's time to do a reverse IP lookup for this server IP.
+But we can see a lot of other stuff, like it's registered by [NameCheap](https://www.namecheap.com) and protected by [WhoisGuard](http://www.whoisguard.com/). It was created on 2018-07-13. The server the domain points to is a [DigitalOcean](https://www.digitalocean.com) one in the United Kingdom and his IP is `188.166.152.221`. They got `200` status code back from an [Apache Web Server](https://www.apache.org), and it tells us there are _257 other sites hosted on this server_! So it's time to do a reverse IP lookup for this server IP.
 
 ![DomainTools Whois Report](/posts/2020/open-source-intelligence/domain-tools-whois-report.webp){ width="767" height="785" .rounded-lg .mx-auto }
 
 DomainTools don't let you do a reverse IP lookup for free, they'll show you couple of results and if you want to see more you need to buy a membership. We're amateurs here, I don't intend to throw away $99 per month for one reverse IP lookup, let's find another service.
 
-Actually there are quite a few that does that for free, like [Hacker Target](https://hackertarget.com), and [ViewDNS](https://viewdns.info/). I especially love ViewDNS because it's give you the dates of _Last Resolved_ for every domain, and give you a total number at the top (so you can match his findings with other services).
+Actually there are quite a few that does that for free, like [Hacker Target](https://hackertarget.com), and [ViewDNS](https://viewdns.info/). I especially love ViewDNS because it gives you the dates of _Last Resolved_ for every domain, and gives you a total number at the top (so you can match its findings with other services).
 
-ViewDNS found 242 domains, almost everyone that DomainsTools said there are, and it's quite the list.
+ViewDNS found 242 domains, almost everything that DomainTools said there are, and it's quite the list.
 
 <details>
   <summary>Click here to see the 242 domains table.</summary>
@@ -469,15 +469,15 @@ ViewDNS found 242 domains, almost everyone that DomainsTools said there are, and
 
 </details>
 
-When we go over it, we can see there are a lot of them who probably use to create websites for phishing attacks (domains that are close to other big service domain / name), and others for spam and a likes. So that gives us a lot of leads to check, we can Google them all and see what comes up, but I don't have the patience to go over results for 242 searches right now. So let's keep it for later, if we'll need to.
+When we go over it, we can see there are a lot of them that are probably used to create websites for phishing attacks (domains that are close to other big service domains / names), and others for spam and the like. So that gives us a lot of leads to check, we can Google them all and see what comes up, but I don't have the patience to go over results for 242 searches right now. So let's keep it for later, if we need to.
 
-Let's check the website itself. It looks like just a blank page. I did a quick check for the body / headers that return for the request (as well as for other requests that the web browser did) and I didn't see anything suspicious (like a header on the response that not supposed to be there, I got there by thinking it'll probably will be a [C2](https://en.wikipedia.org/wiki/Command_and_control)).
+Let's check the website itself. It looks like just a blank page. I did a quick check for the body / headers that returned for the request (as well as for other requests that the web browser did) and I didn't see anything suspicious (like a header on the response that's not supposed to be there, I got there by thinking it'll probably be a [C2](https://en.wikipedia.org/wiki/Command_and_control)).
 
-The next question that pops to my head is _"is it always was a blank page?"_. We have a way to check it, maybe, sort of. We'll use the [WayBack Machine](https://web.archive.org/) and we got some results! We can see it saves 3 snapshots, but all of them are the same blank pages.
+The next question that pops into my head is _"was it always a blank page?"_. We have a way to check it, maybe, sort of. We'll use the [WayBack Machine](https://web.archive.org/) and we got some results! We can see it saves 3 snapshots, but all of them are the same blank pages.
 
 ![WayBack Machine](/posts/2020/open-source-intelligence/wayback-machine.webp){ .rounded-lg .mx-auto }
 
-So this gives us nothing so far. What comes to mind is that it's someone renting a server on DigitalOcean and use proxies to map some parts of the internet and when he get back `200` from a website he tries to login, maybe it's automated login attempts maybe it isn't, I didn't decided yet (because it's look automated but then I was expecting an increase of a number or the next latter in the alphabet, or to add some latter in the end of the password in the second try, if it was automated). Also, it's probably someone (or a bunch of people) who doing some phishing and / or spam stuff.
+So this gives us nothing so far. What comes to mind is that it's someone renting a server on DigitalOcean and using proxies to map some parts of the internet and when he gets back `200` from a website he tries to login, maybe it's automated login attempts maybe it isn't, I haven't decided yet (because it looks automated but then I was expecting an increase of a number or the next letter in the alphabet, or to add some letter at the end of the password in the second try, if it was automated). Also, it's probably someone (or a bunch of people) who's doing some phishing and / or spam stuff.
 
 &nbsp;
 
@@ -487,41 +487,41 @@ This is not the end of the line, it's just the start. Let's keep digging! A tool
 
 ![Netcraft Report](/posts/2020/open-source-intelligence/netcraft-report.webp){ .rounded-lg .mx-auto }
 
-We can see the domain registered with `donuts.co` (which redirect us to [donuts.domains](https://donuts.domains)) back in 2017! (maybe it was someone else, maybe they forget to renew it and re-buy it with NameCheap, or maybe they transfer it to NameCheap in 2018, who knows? don't really care at this point).
+We can see the domain registered with `donuts.co` (which redirects us to [donuts.domains](https://donuts.domains)) back in 2017! (maybe it was someone else, maybe they forgot to renew it and rebought it with NameCheap, or maybe they transferred it to NameCheap in 2018, who knows? don't really care at this point).
 
-The nice thing we find is the organisation that was purchased the domain back in 2017 (they didn't have a domain privacy protection). It's `Jalanin aja dulu mhanxx, hax0r, 50701, United States`. First thing that pops up is the word `hax0r`, this is [1337 speak (or leet)](https://simple.wikipedia.org/wiki/Leet) and it is used on the internet in forums, chat rooms, online games, etc. The `0` in the word is equivalent to `o` so it's the word `haxor` and it's an [alternative spelling of hacker or script kiddie](https://en.wiktionary.org/wiki/haxor).
+The nice thing we find is the organization that purchased the domain back in 2017 (they didn't have a domain privacy protection). It's `Jalanin aja dulu mhanxx, hax0r, 50701, United States`. First thing that pops up is the word `hax0r`, this is [1337 speak (or leet)](https://simple.wikipedia.org/wiki/Leet) and it is used on the internet in forums, chat rooms, online games, etc. The `0` in the word is equivalent to `o` so it's the word `haxor` and it's an [alternative spelling of hacker or script kiddie](https://en.wiktionary.org/wiki/haxor).
 
 &nbsp;
 
 So that's interesting, let's keep our focus on domain / website / server.
 
-More scanning with Netcartf and [build with](https://builtwith.com) find it's probably a Linux server (maybe Ubuntu, based on _"build with"_), and it uses [Apache](https://www.apache.org). It used Apache 2.4, for sometime it also had [Nginx](https://www.nginx.com/) but now we only got "Apache". And this domain is active since the end of 2017 (based on _"build with"_ and _netcarft_).
+More scanning with Netcraft and [build with](https://builtwith.com) finds it's probably a Linux server (maybe Ubuntu, based on _"build with"_), and it uses [Apache](https://www.apache.org). It used Apache 2.4, for sometime it also had [Nginx](https://www.nginx.com/) but now we only got "Apache". And this domain is active since the end of 2017 (based on _"build with"_ and _Netcraft_).
 
 ![Build With](/posts/2020/open-source-intelligence/built-with.webp){ width="809" height="539" .rounded-lg .mx-auto }
 
 ![Netcarft Hosting](/posts/2020/open-source-intelligence/netcraft-hosting.webp){ width="1339" height="162" .rounded-lg .mx-auto }
 
-Another big finding from Netcarft is that it uses [DMARC](https://en.wikipedia.org/wiki/DMARC). DMARC is an email authentication protocol, and Netcarft gives us the raw record which is details the emails they using for reporting aggregate and failure data.
+Another big finding from Netcraft is that it uses [DMARC](https://en.wikipedia.org/wiki/DMARC). DMARC is an email authentication protocol, and Netcraft gives us the raw record which details the emails they use for reporting aggregate and failure data.
 
 ```txt
 v=DMARC1; p=none; pct=100; fo=1; ri=300; rua=mailto:a@bocah.team; ruf=mailto:f@bocah.team
 ```
 
-I'll save those email addresses for later, but now let's keep digging with some other great tool on my list, and one I often use is [spyse](https://spyse.com). It's a cybersecurity search engine to find information about internet assets. When I give it the IP (`188.166.152.221`) of the DigitalOcean server, it find the `tool4spam.com` domain. We already know that domain from our 242 domains list, but this tells me that this domain is probably one of their main ones, and it's an important one.
+I'll save those email addresses for later, but now let's keep digging with some other great tool on my list, and one I often use is [spyse](https://spyse.com). It's a cybersecurity search engine to find information about internet assets. When I give it the IP (`188.166.152.221`) of the DigitalOcean server, it finds the `tool4spam.com` domain. We already know that domain from our 242 domains list, but this tells me that this domain is probably one of their main ones, and it's an important one.
 
 ![Spyse Report](/posts/2020/open-source-intelligence/spyse-report.webp){ width="1449" height="157" .rounded-lg .mx-auto }
 
 &nbsp;
 
-Most of times everyone will say that scanning is not passive, I can agree with that, but I don't really care. To scan our main target (`bocah.team`) I'll use [nmmapper](https://www.nmmapper.com), and specifically [DNSscan](https://github.com/rbsec/dnscan) tool, it's extremely fast, and it catches so much subdomains!
+Most of the time everyone will say that scanning is not passive, I can agree with that, but I don't really care. To scan our main target (`bocah.team`) I'll use [nmmapper](https://www.nmmapper.com), and specifically [DNSscan](https://github.com/rbsec/dnscan) tool, it's extremely fast, and it catches so many subdomains!
 
-So after I run the tool I was a little bit in shock, there was so much subdomains it hurts to scroll through them. My current initial assumption is that he must be part of an operation that do those stuff for years. You can download the `txt` file with the 780 subdomain it's founds for `bocah.team` [here](/posts/2020/open-source-intelligence/bocah-team-subdomains-list.txt).
+So after I ran the tool I was a little bit in shock, there were so many subdomains it hurts to scroll through them. My current initial assumption is that he must be part of an operation that's done this stuff for years. You can download the `txt` file with the 780 subdomains it found for `bocah.team` [here](/posts/2020/open-source-intelligence/bocah-team-subdomains-list.txt).
 
-And let's not forget that this is only one domain that points to that server. We found out that there are 242 domains that points to that server, we can only imagine the subdomains that they also have (I don't intend to run them, it's not interesting me).
+And let's not forget that this is only one domain that points to that server. We found out that there are 242 domains that point to that server, we can only imagine the subdomains that they also have (I don't intend to run them, it doesn't interest me).
 
 &nbsp;
 
-The last thing I want to check with their server (for now) is if maybe there are some query parameters their server get and we don't know about, because we just doing a `GET` request with no parameters to their domain (`bocah.team`). Luckily there is a tool to help us do it, [Arjun](https://github.com/s0md3v/Arjun) for the rescue. Arjun send `GET` and `POST` requests with a different query parameters (from a huge list of 25,980 parameters).
+The last thing I want to check with their server (for now) is if maybe there are some query parameters their server gets and we don't know about, because we're just doing a `GET` request with no parameters to their domain (`bocah.team`). Luckily there is a tool to help us do it, [Arjun](https://github.com/s0md3v/Arjun) for the rescue. Arjun sends `GET` and `POST` requests with different query parameters (from a huge list of 25,980 parameters).
 
 Unfortunately, when I did a `GET` and a `POST` requests, Arjun didn't come up with anything.
 
@@ -539,26 +539,26 @@ In the source website there is also a phone number (and google translate says th
 
 ![Hunter Source](/posts/2020/open-source-intelligence/hunter-source.webp){ width="287" height="354" .rounded-lg .mx-auto }
 
-When we search Google for `johnny_pacocha@bocah.team` we found another site (a part from the one hunter point us to). This website is [ceqoya](https://www.ceqoya.com) which is a "A search engine that helps NGO and ecological projects", in this search engine there are couple of links to Bocah Team (apparently it's a [Sports Team](https://www.facebook.com/Bocah-Team-New-579200705444594/photos)), but we find a new link, to [pastebin](https://pastebin.com): https://pastebin.com/8yDPutJQ. This contain a PHP code that is basically an Apple scam page with couple more email address `empas.apel@bocah.team`, `apel@bocah.team`, `report.apel@bocah.team` with our target domain.
+When we search Google for `johnny_pacocha@bocah.team` we found another site (apart from the one hunter points us to). This website is [ceqoya](https://www.ceqoya.com) which is a "A search engine that helps NGO and ecological projects", in this search engine there are a couple of links to Bocah Team (apparently it's a [Sports Team](https://www.facebook.com/Bocah-Team-New-579200705444594/photos)), but we find a new link, to [pastebin](https://pastebin.com): https://pastebin.com/8yDPutJQ. This contains PHP code that is basically an Apple scam page with a couple more email addresses `empas.apel@bocah.team`, `apel@bocah.team`, `report.apel@bocah.team` with our target domain.
 
-This user have more pastes in his profile (his profile name is `Inboxplis`), but the common thing is that they have a gmail address (`slikeye1711@gmail.com`) in the code with a link to his [Facebook profile page](https://www.facebook.com/Slikeye)!
+This user has more pastes in his profile (his profile name is `Inboxplis`), but the common thing is that they have a gmail address (`slikeye1711@gmail.com`) in the code with a link to his [Facebook profile page](https://www.facebook.com/Slikeye)!
 
 ![Dian Wahyudi Facebook Profile](/posts/2020/open-source-intelligence/dian-wahyudi-facebook-profile.webp){ width="969" height="1270" .rounded-lg .mx-auto }
 
-In his Facebook photos there is [a photo](https://www.facebook.com/photo.php?fbid=718884434960573&set=pb.100005170683150.-2207520000..&type=3) about some Hacking / Script Kiddies book in Indonesian back in April 2017. Also from his photos I can notice he have an Asus laptop with a Windows 10 on it, and that he do a lot of small money transfers.
+In his Facebook photos there is [a photo](https://www.facebook.com/photo.php?fbid=718884434960573&set=pb.100005170683150.-2207520000..&type=3) about some Hacking / Script Kiddies book in Indonesian back in April 2017. Also from his photos I can notice he has an Asus laptop with a Windows 10 on it, and that he does a lot of small money transfers.
 
-When I go back to the organisation I found earlier, the report from Netcarft when they registered `bocah.team` in 2017, the one we found earlier (`Jalanin aja dulu mhanxx, hax0r, 50701, United States`) and put the part "Jalanin aja dulu mhanxx" in Google Translate (on _detect language_) it comes as Indonesian and it's means "Just do it first mhanxx".
+When I go back to the organization I found earlier, the report from Netcraft when they registered `bocah.team` in 2017, the one we found earlier (`Jalanin aja dulu mhanxx, hax0r, 50701, United States`) and put the part "Jalanin aja dulu mhanxx" in Google Translate (on _detect language_) it comes up as Indonesian and it means "Just do it first mhanxx".
 
 The guy on the Facebook profile page I found is from Indonesia (he wrote it there and the language he write in his posts is Indonesian). So this is a big clue that it's probably our guy. Or is it? The big question now is: **Is this our person?** I think we need to find more evidence.
 
 Quick Recap:
 
 1. He is from Indonesia (posts language and from his profile) and the domain registration details have Indonesian words in it.
-2. He have a hacking book and the domain registered details have the `hax0r` word in it, which is another word for hacker or script kiddie.
+2. He has a hacking book and the domain registered details have the `hax0r` word in it, which is another word for hacker or script kiddie.
 3. There are a lot of phishing / spam domains (like `tool4spam.com`) that points to the same server and he seems like a spammer (a lot of small money transactions, and a script kiddie / spammer book).
 4. The Pastebin paste with the `bocah.team` domain and `tool4spam.com` domain in it have also his email and Facebook profile page.
 
-It looks like our guy, but this is not enough! we need more.
+It looks like our guy, but this is not enough! We need more.
 
 &nbsp;
 
@@ -599,9 +599,9 @@ The second type of files that I found is couple of small files with a list of `e
 
 &nbsp;
 
-So let's think of something different, in his profile page there was a new domain I didn't saw before, `slikeye.com`. I checked it with DomainTools Whois, and it was also protected. So I searched it in Google and we have couple of hits. The first and second results are his [Instagram profile](https://www.instagram.com/dianwhyd), but it private.
+So let's think of something different, in his profile page there was a new domain I hadn't seen before, `slikeye.com`. I checked it with DomainTools Whois, and it was also protected. So I searched it in Google and we have a couple of hits. The first and second results are his [Instagram profile](https://www.instagram.com/dianwhyd), but it's private.
 
-The third result is really interesting, it's from [cutestat website](https://www.cutestat.com), which is a website to provides various statistical reports like website valuation, traffic reports, social engagement, host information, domain WHOIS, etc. and it's perfect because it has a WHOIS record from `2017-06-14T17:05:39Z` with new data (probably before he had privacy protection on the domain).
+The third result is really interesting, it's from [cutestat website](https://www.cutestat.com), which is a website that provides various statistical reports like website valuation, traffic reports, social engagement, host information, domain WHOIS, etc. and it's perfect because it has a WHOIS record from `2017-06-14T17:05:39Z` with new data (probably before he had privacy protection on the domain).
 
 ```txt
 Domain Name: SLIKEYE.COM
@@ -663,19 +663,19 @@ URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
 
 We can see words in Indonesian, his name (Dian Wahyudi), and his phone number that also in his Facebook profile, so the domain was his in this date. We can see a physical address (street: `Kutajaya no.15 Rt.03 Rw.01`, city: `bogor`, state: `Jawa Barat`, zip: `16131`), and a new email (`diansoft1711@gmail.com`).
 
-Before we continue digging with our new findings, let's keep looking in our Google search for `slikeye.com`. There was nothing more in there expect from the fourth result, it was his [Twitter profile](https://twitter.com/dianwhyd). It doesn't look like much, he upload more photos and talk more in his Facebook profile (he also abandoned Twitter in 2017). But a quick scroll through his tweets with pictures shows a tweet from 2014 with a Facebook login that says "fb maintenance", and the start of his email is the `input` field. It says `slikeye` so it's probably `slikeye1711@gmail.com`.
+Before we continue digging with our new findings, let's keep looking in our Google search for `slikeye.com`. There was nothing more in there except for the fourth result, it was his [Twitter profile](https://twitter.com/dianwhyd). It doesn't look like much, he uploads more photos and talks more in his Facebook profile (he also abandoned Twitter in 2017). But a quick scroll through his tweets with pictures shows a tweet from 2014 with a Facebook login that says "fb maintenance", and the start of his email is the `input` field. It says `slikeye` so it's probably `slikeye1711@gmail.com`.
 
-It's time to do a _"Forget Password"_ on Facebook with his email. It's got us his last 2 digits in his phone number, and they're the same as the phone number in his Facebook profile and his 2017 WHOIS record for `slikeye.com`, so we know it's probably his real and private phone number (also, a _"Forget Password"_ in Twitter, for the same email, get us the same 2 last digits).
+It's time to do a _"Forget Password"_ on Facebook with his email. It got us his last 2 digits in his phone number, and they're the same as the phone number in his Facebook profile and his 2017 WHOIS record for `slikeye.com`, so we know it's probably his real and private phone number (also, a _"Forget Password"_ in Twitter, for the same email, gets us the same 2 last digits).
 
 ![Facebook Forget Password](/posts/2020/open-source-intelligence/facebook-forget-password.webp){ .rounded-lg .mx-auto }
 
-Unfortunately we didn't get new phone numbers or email addresses, but _"Forget Password"_ is a good method and a lot of times revel different phone numbers and email addresses that are the private ones of the target.
+Unfortunately we didn't get new phone numbers or email addresses, but _"Forget Password"_ is a good method and a lot of times reveals different phone numbers and email addresses that are the private ones of the target.
 
 &nbsp;
 
 ## 6. Pivoting
 
-The new email address and phone number don't get us any result on Pipl, that's a bummer. Pipl is consistently failing us in this recon investigation. On the other hand a TrueCaller search for the phone number confirms the new email address we already found in the 2017 WHOIS record, and tell us his `carrier` and that he is verified by [TrueCaller](https://www.truecaller.com).
+The new email address and phone number don't get us any result on Pipl, that's a bummer. Pipl is consistently failing us in this recon investigation. On the other hand a TrueCaller search for the phone number confirms the new email address we already found in the 2017 WHOIS record, and tells us his `carrier` and that he is verified by [TrueCaller](https://www.truecaller.com).
 
 ```json [truecaller.json]
 {
@@ -731,19 +731,19 @@ The new email address and phone number don't get us any result on Pipl, that's a
 }
 ```
 
-A [Spokeo](https://www.spokeo.com) search for his email (`diansoft1711@gmail.com`) provide us his [Pinterest profile](https://www.pinterest.com/diansoft1711), but that is not much because his profile is empty. We can notice another pattern here, his profile name on Pinterest is `diansoft1711`, on Facebook it's `Slikeye`, and on Twitter and Instagram is `dianwhyd`.
+A [Spokeo](https://www.spokeo.com) search for his email (`diansoft1711@gmail.com`) provides us his [Pinterest profile](https://www.pinterest.com/diansoft1711), but that is not much because his profile is empty. We can notice another pattern here, his profile name on Pinterest is `diansoft1711`, on Facebook it's `Slikeye`, and on Twitter and Instagram is `dianwhyd`.
 
 I think we need to search for more Social Networks profiles for his usernames. There're tools to help us do it, like [userrecon](https://github.com/thelinuxchoice/userrecon).
 
-- `diansoft1711` username it didn't found any new profiles (it found only Pinterest).
-- `Slikeye` username got us [BitBucket profile](https://bitbucket.org/Slikeye) (without any repos, or all of them are private).
-- `dianwhyd` username provide us with a different [Pinterest profile](https://www.pinterest.com/dianwhyd), a [Flipboard profile](https://flipboard.com/@DianWhy), and a [Tripadvisor profile](https://www.tripadvisor.com/Profile/Dianwhyd).
+- `diansoft1711` username didn't find any new profiles (it found only Pinterest).
+- `Slikeye` username got us a [BitBucket profile](https://bitbucket.org/Slikeye) (without any repos, or all of them are private).
+- `dianwhyd` username provides us with a different [Pinterest profile](https://www.pinterest.com/dianwhyd), a [Flipboard profile](https://flipboard.com/@DianWhy), and a [Tripadvisor profile](https://www.tripadvisor.com/Profile/Dianwhyd).
 
-If we're already here, let's search for his username in the Canva database leak (`slikeye1711`) with our new tool. This search gives us interesting results - a different [Facebook profile](https://www.facebook.com/slikeye1711), it's looks like someone else, but he's also from _"Bogor, Indonesia"_. He says on his profile he works at Apple (and it takes me straight in to the Pastebin account with the Apple's scam page), but he have an Apple advertisement photo on the cover page. The thing is, when I open it up to see it in full size you can actually see it's a screenshot of apple website!
+If we're already here, let's search for his username in the Canva database leak (`slikeye1711`) with our new tool. This search gives us interesting results - a different [Facebook profile](https://www.facebook.com/slikeye1711), it looks like someone else, but he's also from _"Bogor, Indonesia"_. He says on his profile he works at Apple (and it takes me straight into the Pastebin account with the Apple scam page), but he has an Apple advertisement photo on the cover page. The thing is, when I open it up to see it in full size you can actually see it's a screenshot of apple website!
 
 ![Agustinus Rivaldo Facebook Cover Image](/posts/2020/open-source-intelligence/agustinus-rivaldo-facebook-cover.webp){ .rounded-lg .mx-auto }
 
-Or is it? When you look closer on the URL of the page it's `http://apps-icloudapps.serveirc.com` which is not Apples one. This is a scam / phishing page to login with your apple credentials. Other stuff we see on the screenshot is that the web browser is chrome, it's a Windows 10 OS on a laptop, and he have a bunch of other tabs open (Facebook, a cPanels, and some other stuff I don't recognize), and he have a [sublime text editor](https://www.sublimetext.com) window minimize.
+Or is it? When you look closer on the URL of the page it's `http://apps-icloudapps.serveirc.com` which is not Apples one. This is a scam / phishing page to login with your apple credentials. Other stuff we see on the screenshot is that the web browser is Chrome, it's a Windows 10 OS on a laptop, and he has a bunch of other tabs open (Facebook, a cPanels, and some other stuff I don't recognize), and he has a [sublime text editor](https://www.sublimetext.com) window minimized.
 
 This doesn't look good for our guy, this is probably a fake account for an apple scam / phishing. When I search for `http://apps-icloudapps.serveirc.com` in Google all the results are about scam stuff (news articles, forums, etc). This is probably our guy or some other man in the phishing operation he belongs to.
 
@@ -752,23 +752,23 @@ This doesn't look good for our guy, this is probably a fake account for an apple
 The next step is to search for more information about those phishing sites. The search for `*.bocah.team` on Google results in couple of new emails and websites, but we have enough of that, let's search specific for Pastebin, because that's where we find the apple scam page with his email and Facebook profile URL. So when I searched `*.bocah.team site:pastebin.com` I found 4 different pastes:
 
 - The [first](https://pastebin.com/T6bnuqze) from profile named [ARIDHO](https://pastebin.com/u/aridho), that have a lot of phishing pastes in his profile.
-- The [second](https://pastebin.com/XmEBg6vF) from a profile named [RIZKYIBENG](https://pastebin.com/u/rizkyibeng) and all of his pastes are Apple scam page, except of one, when he has a gmail address `ibengrizky01@gmail.com`.
+- The [second](https://pastebin.com/XmEBg6vF) from a profile named [RIZKYIBENG](https://pastebin.com/u/rizkyibeng) and all of his pastes are Apple scam page, except for one, where he has a gmail address `ibengrizky01@gmail.com`.
 - The [third](https://pastebin.com/3MZySMy1) is a guest, and there is nothing interesting in the paste.
 - The [fourth](https://pastebin.com/C11evf9P) is also a guest, and there is also nothing interesting in his paste.
 
 Now, we can go search about `RIZKYIBENG` with his email `ibengrizky01@gmail.com`, but it is out of scope right now. He can be a member of this phishing operation and maybe he isn't, and just doing those stuff alone, either way it's not an interest for me right now.
 
-But the stuff I started to notice is that all of those scam / phishing pages are look the same. For example here is the slikeye panel of our target, and `ARIDHO` Apple scam panel (rendered with [jsfiddle](https://jsfiddle.net)).
+But the stuff I started to notice is that all of those scam / phishing pages look the same. For example here is the slikeye panel of our target, and `ARIDHO` Apple scam panel (rendered with [jsfiddle](https://jsfiddle.net)).
 
 ![Silkeye Panel](/posts/2020/open-source-intelligence/silkeye-panel.webp){ .rounded-lg .mx-auto }
 
 ![Aridho Panel](/posts/2020/open-source-intelligence/aridho-panel.webp){ .rounded-lg .mx-auto }
 
-I think we got enough of this, this is for sure a scam / phishing operation and our target is one of this group. So, the last thing I want to do is to search for the new email we found (`diansoft1711@gmail.com`) let's see if this email have been in a leak.
+I think we got enough of this, this is for sure a scam / phishing operation and our target is one of this group. So, the last thing I want to do is to search for the new email we found (`diansoft1711@gmail.com`) let's see if this email has been in a leak.
 
 ![Have I Been Pwned Report](/posts/2020/open-source-intelligence/haveibeenpwned-second-report.webp){ .rounded-lg .mx-auto }
 
-It's have been, so it's time to search for Bukalapak leaked database. This one was not so easy like the `Canva`. But I manage to find it. And our new email target is in there.
+It has, so it's time to search for the Bukalapak leaked database. This one wasn't as easy as the `Canva` one. But I managed to find it. And our new email target is in there.
 
 | Uid      | Email                  | Full Name | Password                                                     | Salt                 | Username     | Birthday |
 | -------- | ---------------------- | --------- | ------------------------------------------------------------ | -------------------- | ------------ | -------- |
@@ -782,11 +782,11 @@ We can see he have a different `fullname` here (`Andi`). And we manage to get hi
 
 Before I wrap this up, I just want to quickly mention a couple of tools I use all the time, but in this case wasn't any help (or other tools get more data), and I just didn't mention them in the write up.
 
-So the first one is [sublist3r](https://github.com/aboul3la/Sublist3r), its gave me some subdomains (but DNSscan found more, much more! subdomains (and much faster)).
+So the first one is [sublist3r](https://github.com/aboul3la/Sublist3r), it gave me some subdomains (but DNSscan found more, much more! subdomains (and much faster)).
 
 ![sublist3r Results](/posts/2020/open-source-intelligence/sublist3r-results.webp){ .rounded-lg .mx-auto }
 
-Another tool I always use is [theHarvester](https://github.com/laramies/theHarvester). The Harvester found the `johnny_pacocha` email which led us to his Pastebin and then his Facebook profile page. But to be truthful this is not the first way I found this email, so I include the original way (with [hunter.io](https://hunter.io)). But, if I didn't have an account there, or hunter wasn't able to find it, I probably been able to found it the theHarvester.
+Another tool I always use is [theHarvester](https://github.com/laramies/theHarvester). The Harvester found the `johnny_pacocha` email which led us to his Pastebin and then his Facebook profile page. But to be truthful this is not the first way I found this email, so I include the original way (with [hunter.io](https://hunter.io)). But, if I didn't have an account there, or hunter wasn't able to find it, I probably would've been able to find it with theHarvester.
 
 ![The Harvester Report](/posts/2020/open-source-intelligence/theHarvester-yahoo.webp){ .rounded-lg .mx-auto }
 
@@ -794,6 +794,6 @@ Another tool I always use is [theHarvester](https://github.com/laramies/theHarve
 
 ## 8. Summary
 
-So, to recap our trip, we started with just 2 email address from the same domain and 2 IPs. We manage to probably find our guy and determine he is a member in a scam / phishing operation. We found more people from this operation but didn't continue to investigate them. But the most important thing, the final verdict is that no one was trying to hack my service at work. He is probably did some scanning and encountered my client app, he tried to enter but quickly noticed the security protections or just simply gave up because he didn't think there is anything important there and it's not worth the trouble and time (he also stopped trying after the 4 attempts).
+So, to recap our trip, we started with just 2 email addresses from the same domain and 2 IPs. We managed to probably find our guy and determine he is a member in a scam / phishing operation. We found more people from this operation but didn't continue to investigate them. But the most important thing, the final verdict is that no one was trying to hack my service at work. He probably did some scanning and encountered my client app, he tried to enter but quickly noticed the security protections or just simply gave up because he didn't think there is anything important there and it's not worth the trouble and time (he also stopped trying after the 4 attempts).
 
-The other thing we gain in this reconnaissance (a part from the final verdict), is a lot of fun time and some brushing of old rust. I hope you learned something new or that I just pick your interest. This world is really big, there are a lot of tools that I didn't use here and there are a lot of cool people that do cool stuff and find really inventive ways to investigate.
+The other thing we gain in this reconnaissance (apart from the final verdict), is a lot of fun time and some brushing off of old rust. I hope you learned something new or that I just piqued your interest. This world is really big, there are a lot of tools that I didn't use here and there are a lot of cool people that do cool stuff and find really inventive ways to investigate.

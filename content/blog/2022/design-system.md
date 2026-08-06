@@ -1,6 +1,6 @@
 ---
 title: "A Practical Guide to Design System"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "A practical guide to building a Vue.js component library with Storybook."
 image:
   src: /posts/2022/design-system/hero.webp
 author:
@@ -13,13 +13,13 @@ badge:
   label: development
 ---
 
-It's no secret that design systems are taking over the web development world and that's a good thing IMO. But non the less, it's still a challenge to setup one. I myself encounter it when I created our own design system in the startup I work for, so I thought I'll save others some time and document my proccess.
+It's no secret that design systems are taking over the web development world and that's a good thing IMO. But nonetheless, it's still a challenge to set up one. I myself encountered it when I created our own design system in the startup I work for, so I thought I'll save others some time and document my process.
 
-In my startup we use [Vue.js](https://vuejs.org) (version 3, with `composition` api and `sfc` style), so naturally we also use [Vite](https://vitejs.dev), and we use [Tailwind CSS](https://tailwindcss.com) so I'll go over it also in the setup process. The UI we choose to build the components with is [Storybook](https://storybook.js.org), it's support all the frameworks and have the biggest community adoption so it was an easy choice.
+In my startup we use [Vue.js](https://vuejs.org) (version 3, with `composition` api and `sfc` style), so naturally we also use [Vite](https://vitejs.dev), and we use [Tailwind CSS](https://tailwindcss.com) so I'll go over it also in the setup process. The UI we choose to build the components with is [Storybook](https://storybook.js.org), it supports all the frameworks and has the biggest community adoption so it was an easy choice.
 
 &nbsp;
 
-But first, what is a "Design System"? It's a little different if you ask a designer or a developer, but for us devlopers it's just a component library. It help us standardize design language, maintain consistency across multiple different products or platforms, document our components, etc. If you want to read more about the architecture and methodology of design systems I recommand reading [Atomic Design Methodology by Brad Frost](https://atomicdesign.bradfrost.com/chapter-2).
+But first, what is a "Design System"? It's a little different if you ask a designer or a developer, but for us developers it's just a component library. It helps us standardize design language, maintain consistency across multiple different products or platforms, document our components, etc. If you want to read more about the architecture and methodology of design systems I recommend reading [Atomic Design Methodology by Brad Frost](https://atomicdesign.bradfrost.com/chapter-2).
 
 &nbsp;
 
@@ -31,7 +31,7 @@ The first thing we need to do is actually create a regular [Vue.js](https://vuej
 npm init vue@latest
 ```
 
-You'll be presented with prompts for a number of optional features, choose whatever you want, it's not importent for the rest of the tutorial. But, if you want to see my choices - they're in the screenshot below.
+You'll be presented with prompts for a number of optional features, choose whatever you want, it's not important for the rest of the tutorial. But, if you want to see my choices - they're in the screenshot below.
 
 ![Vuejs CLI setup](/posts/2022/design-system/vue-cli-setup.webp){ .rounded-lg .mx-auto }
 
@@ -39,13 +39,13 @@ After we have an empty vue.js project (I called mine `daisy` because Daisy the D
 
 &nbsp;
 
-The next setp is to install [Storybook](https://storybook.js.org). The current version is 6.x, but I choose to install the beta (7.x) version because it's close enough to release and there are a lot of changes that integrate well with our setup (like vite and typescript support out of the box).
+The next step is to install [Storybook](https://storybook.js.org). The current version is 6.x, but I choose to install the beta (7.x) version because it's close enough to release and there are a lot of changes that integrate well with our setup (like vite and typescript support out of the box).
 
 ```bash [terminal]
 npx sb@next init --builder=vite
 ```
 
-And once the Storybook CLI done running and doing it's thing, we can run it and see our storybook default components and documentation in action
+And once the Storybook CLI is done running and doing its thing, we can run it and see our storybook default components and documentation in action
 
 ```bash [terminal]
 npm run storybook
@@ -85,7 +85,7 @@ Lastly, include the Tailwind directives to our CSS by creating a new `style.css`
 
 &nbsp;
 
-Now if you'll lunch your Vue.js app (`npm run dev`) Tailwind class will work, but if you lunch your Storybook (`npm run storybook`) they'll not. That's because Storybook uses it's own Vite config to run the Vue.js app (as you can see, you don't run the `index.html` and `App.vue` files, so you can actually delete them - that's what I did).
+Now if you launch your Vue.js app (`npm run dev`) Tailwind class will work, but if you launch your Storybook (`npm run storybook`) they'll not. That's because Storybook uses its own Vite config to run the Vue.js app (as you can see, you don't run the `index.html` and `App.vue` files, so you can actually delete them - that's what I did).
 
 To fix this we'll use a [Storybook addon](https://storybook.js.org/addons/@storybook/addon-postcss) to run the PostCSS preprocessor against our stories
 
@@ -139,9 +139,9 @@ export const parameters = {
 
 ## 2. Build our first component
 
-Building our first component is just like building a regular Vue.js component, expect we'll add it a stories file.
+Building our first component is just like building a regular Vue.js component, except we'll add it a stories file.
 
-I'll call my component `Foo` and create a directory with that name in the `components` directory (I'll actually call it `DyFoo` because [ESlint require component names to always be multi-word](https://eslint.vuejs.org/rules/multi-word-component-names.html), and `D` is the first letter of our Design System name, and `Y` is the last), and I'll also create a `.vue` and a `.stories.js` files with the same component name.
+I'll call my component `Foo` and create a directory with that name in the `components` directory (I'll actually call it `DyFoo` because [ESlint requires component names to always be multi-word](https://eslint.vuejs.org/rules/multi-word-component-names.html), and `D` is the first letter of our Design System name, and `Y` is the last), and I'll also create a `.vue` and a `.stories.js` files with the same component name.
 
 ```bash [terminal]
 touch src/components/DyFoo/DyFoo.vue
@@ -212,7 +212,7 @@ If you'll fire Storybook now, you'll see your `Foo` component and you can play w
 
 ## 3. Bundle our library for distribution
 
-Now that we have a Vue.js project with Storybook and our first component (`DyFoo`), we want to distribute it. So the first thing we need to do is to tell [Vite](https://vitejs.dev) to build a **component library** and not a **project**. And we can do so by set it up to [library mode](https://vitejs.dev/guide/build.html#library-mode).
+Now that we have a Vue.js project with Storybook and our first component (`DyFoo`), we want to distribute it. So the first thing we need to do is to tell [Vite](https://vitejs.dev) to build a **component library** and not a **project**. And we can do so by setting it up to [library mode](https://vitejs.dev/guide/build.html#library-mode).
 
 To package the vite project as a library we need to change some configuration settings
 
@@ -314,9 +314,9 @@ touch .github/workflows/cd.yaml
 
 And put there 3 steps:
 
-1. Test our components (currntly just linting).
+1. Test our components (currently just linting).
 2. Publish a release to GitHub (using [semantic-release](https://github.com/semantic-release/semantic-release)).
-3. Publish the packge to GitHub registry.
+3. Publish the package to GitHub registry.
 
 ```yaml [.github/workflows/cd.yaml]
 name: Continuous Deployment
@@ -397,7 +397,7 @@ We also need to change a few things in our `package.json`. First the `"name"` sh
 },
 ```
 
-Once you commit all the changes and push your branch to GitHub, a new GitHub workflow will automatically start, and once it finish you'll see the packge in your "packages" section inside the repository.
+Once you commit all the changes and push your branch to GitHub, a new GitHub workflow will automatically start, and once it finishes you'll see the package in your "packages" section inside the repository.
 
 ![GitHub Package](/posts/2022/design-system/github-package.webp){ .rounded-lg .mx-auto }
 
@@ -441,9 +441,9 @@ deploy_chromatic:
         projectToken: ${{ secrets.CHROMATIC_TOKEN }}
 ```
 
-The token you got from Chromatic should stay a secret that only you know (as well as any other API or access tokens), or else everyone with that token will have the power to push to your Chromatic project and change things, that's way we use `${{ secrets.CHROMATIC_TOKEN }}` as our Chromatic `projectToken`, that's mean we can hide the actual token from the source code, and we'll control it via the **"Secret"** section in the repository **"Settings"**.
+The token you got from Chromatic should stay a secret that only you know (as well as any other API or access tokens), or else everyone with that token will have the power to push to your Chromatic project and change things, that's why we use `${{ secrets.CHROMATIC_TOKEN }}` as our Chromatic `projectToken`, that means we can hide the actual token from the source code, and we'll control it via the **"Secret"** section in the repository **"Settings"**.
 
-So all you need to do is to create a new secret, give it a name (`CHROMATIC_TOKEN`) and insert your token as it's value (`a85f7b330490` in our case)
+So all you need to do is to create a new secret, give it a name (`CHROMATIC_TOKEN`) and insert your token as its value (`a85f7b330490` in our case)
 
 ![GitHub Secrets](/posts/2022/design-system/github-secrets.webp){ .rounded-lg .mx-auto }
 
@@ -455,6 +455,6 @@ That's it, we're ready to commit and push our branch to GitHub and our workflow 
 
 ## 6. Summary
 
-Wow! we have done a lot and we're ready to create some new components for our component library, and everything will just work automagically (bump version, release and publish package, etc).
+Wow! We have done a lot and we're ready to create some new components for our component library, and everything will just work automagically (bump version, release and publish package, etc).
 
 We can now use our Vue.js component library in other frontend projects at our startup, develop new components in isolation with Storybook, and test for visual regression with Chromatic.

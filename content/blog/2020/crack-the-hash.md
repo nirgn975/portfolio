@@ -1,6 +1,6 @@
 ---
 title: "Crack The Hash"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "Cracking password hashes with Hashcat on a GPU-equipped GCP instance."
 image:
   src: /posts/2020/crack-the-hash/crack-passwords.webp
 author:
@@ -21,7 +21,7 @@ But in this post we'll learn how to use hashcat to crack passwords, and even do 
 
 ## 1. Request a Quota
 
-First thing you need to do it to request a quota, because by default the quota for GPU on GCP is zero. In this post I'll be using _""NVIDIA Tesla K80"_ GPU, so go to [this](https://cloud.google.com/compute/docs/gpus/#introduction) link and make sure they have this kind of GPU on the zone you want to deploy your VM.
+First thing you need to do is to request a quota, because by default the quota for GPU on GCP is zero. In this post I'll be using _""NVIDIA Tesla K80"_ GPU, so go to [this](https://cloud.google.com/compute/docs/gpus/#introduction) link and make sure they have this kind of GPU on the zone you want to deploy your VM.
 
 ![Available GPU Zones](/posts/2020/crack-the-hash/available-gpu-zones.webp){ width="841" height="350" .rounded-lg .mx-auto }
 
@@ -37,13 +37,13 @@ After Google approved your quota, let's build the VM. Go to _"Compute Engine"_ t
 
 ![GCP Compute Engine](/posts/2020/crack-the-hash/gcp-compute-engine.webp){ width="830" height="317" .rounded-lg .mx-auto }
 
-Now you'll be redirect to a new page where you can configure your VM. I named my VM `crack-the-hash` and then I choose the the region I got the quota at (in my case `Belgium` and the zone `europe-west1-b`).
+Now you'll be redirected to a new page where you can configure your VM. I named my VM `crack-the-hash` and then I choose the region I got the quota at (in my case `Belgium` and the zone `europe-west1-b`).
 
-The next step is to choose the machine type. In our case we need to choose the _"old"_ series, `N1`, because this is the only one that have the option for GPU. After that, choose the machine type itself (I choose the `n1-standard-4` which has 4 vCPU and 15Gb memory, but you can choose which ever you want. Just keep in mind it'll affect the speed a bit).
+The next step is to choose the machine type. In our case we need to choose the _"old"_ series, `N1`, because this is the only one that has the option for GPU. After that, choose the machine type itself (I choose the `n1-standard-4` which has 4 vCPU and 15Gb memory, but you can choose which ever you want. Just keep in mind it'll affect the speed a bit).
 
 The GPU is kinda hidden under the `machine configuration` section, you'll see a `CPU platform and GPU` button, click it and an option to choose a GPU will open up. I choose Nvidia Tesla K80, because we're just learning here and I want to keep the costs down
 
-The final step is the boot disk, I choose 30GB SSD and the latest Ubuntu (20.04) LTS - which means we'll install CUDA manually (Google have images with CUDA installed by default, but we're trying to learn here so I choose the longer way).
+The final step is the boot disk, I choose 30GB SSD and the latest Ubuntu (20.04) LTS - which means we'll install CUDA manually (Google has images with CUDA installed by default, but we're trying to learn here so I choose the longer way).
 
 ![GCP Instance Configuration](/posts/2020/crack-the-hash/gcp-instance-configuration.webp){ width="603" height="578" .rounded-lg .mx-auto }
 
@@ -59,7 +59,7 @@ First we need to SSH into the machine, the easiest way to do it is to click on t
 
 ![GCP Connect Via SSH](/posts/2020/crack-the-hash/gcp-connect-via-ssh.webp){ width="682" height="153" .rounded-lg .mx-auto }
 
-After that the terminal is open, go to the [CUDA Toolkit download page](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=debnetwork) and chose the platform you want to install it to, it'll give you all the commands - just paste them in the terminal. In my case here they are:
+After that the terminal is open, go to the [CUDA Toolkit download page](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=debnetwork) and choose the platform you want to install it to, it'll give you all the commands - just paste them in the terminal. In my case here they are:
 
 ```bash [terminal]
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
@@ -101,7 +101,7 @@ wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rocky
 
 To crack a password you first need to know the hash type of that password - which hashing algorithm they use to encrypt the password (there are multiple ways to discover it, and also a lot of projects that are trying to do that automatically, but this is not the purpose of this post, so Google it).
 
-For testing I encrypt some text with [Bcrypt hash function](https://en.wikipedia.org/wiki/Bcrypt), here are the result:
+For testing I encrypt some text with [Bcrypt hash function](https://en.wikipedia.org/wiki/Bcrypt), here are the results:
 
 ```txt
 $2b$04$jysbNjr164hK4E7tqk2B.OJoj4qAg9xHF4gLqain2m9pGb1bcsRf6
@@ -112,7 +112,7 @@ $2b$04$GIVH57JcU5wZyfwyu0A6Uuq.WrUDFLQfPC5HGHDsdfPfdWvP2jklS
 
 Now, go to the [documentation of Hashcat](https://hashcat.net/wiki/doku.php?id=example_hashes) and check what `Hash-Mode` number is the hash algorithm that I used (in our case it's `3200`).
 
-A basic running is just to use the `m` flag with the mode 3200, the `o` flag to point Hashcat where to put all of the cracked passwords, and then just the file with the hashs (I put them in `test.txt` on the VM) and the file with the cleartext passwords list (the `rockyou.txt` we downloaded earlier).
+A basic running is just to use the `m` flag with the mode 3200, the `o` flag to point Hashcat where to put all of the cracked passwords, and then just the file with the hashes (I put them in `test.txt` on the VM) and the file with the cleartext passwords list (the `rockyou.txt` we downloaded earlier).
 
 ```bash [terminal]
 sudo hashcat -m 3200 -o cracked.txt test.txt rockyou.txt
@@ -120,9 +120,9 @@ sudo hashcat -m 3200 -o cracked.txt test.txt rockyou.txt
 
 ![Basic Hash Cracking](/posts/2020/crack-the-hash/basic-hash-cracking.webp){ width="678" height="922" .rounded-lg .mx-auto }
 
-While Hashcat is running you can write `s` on the terminal to check the status of the process. You'll see how much time it estimate the run will take, how much hash it's already cracked, and what the progress is (how much passwords it already checked from how much there is in the file we choose - `rockyou.txt`).
+While Hashcat is running you can write `s` on the terminal to check the status of the process. You'll see how much time it estimates the run will take, how many hashes it's already cracked, and what the progress is (how many passwords it already checked from how many there are in the file we choose - `rockyou.txt`).
 
-It'll take a while to go over all the passwords in `rockyou.txt`, because won't be able to crack all of the four hash I gave you. When it'll finish you can see in the `cracked.txt` file that Hashcat only cracked 3 out of 4 hashs. The fourth one is `$2b$04$GIVH57JcU5wZyfwyu0A6Uuq.WrUDFLQfPC5HGHDsdfPfdWvP2jklS` which is the Bcrypt of `aSd12345`, this text is present in the `rockyou.txt` file but as all lowercase letters (`asd12345`, which is also the third hash). This is where the rules of Hashcat come into play.
+It'll take a while to go over all the passwords in `rockyou.txt`, because it won't be able to crack all four hashes I gave you. When it'll finish you can see in the `cracked.txt` file that Hashcat only cracked 3 out of 4 hashes. The fourth one is `$2b$04$GIVH57JcU5wZyfwyu0A6Uuq.WrUDFLQfPC5HGHDsdfPfdWvP2jklS` which is the Bcrypt of `aSd12345`, this text is present in the `rockyou.txt` file but as all lowercase letters (`asd12345`, which is also the third hash). This is where the rules of Hashcat come into play.
 
 ![Basic Cracking Results](/posts/2020/crack-the-hash/basic-cracking-results.webp){ width="614" height="331" .rounded-lg .mx-auto }
 
@@ -148,4 +148,4 @@ Now if you write `s` in the terminal to check the status progress of the crackin
 
 ## 5. Summary
 
-That's it we cracked the hash! And we leverage the cloud to do it faster and cheaper. If you want to continue, you can rent couple of GPUs in Google (in the same VM) and leverage them to crack your hashs much faster! Also, you can read the Hashcat documentation and try to use other methods to speed up your cracking.
+That's it, we cracked the hash! And we leverage the cloud to do it faster and cheaper. If you want to continue, you can rent a couple of GPUs in Google (in the same VM) and leverage them to crack your hashes much faster! Also, you can read the Hashcat documentation and try to use other methods to speed up your cracking.

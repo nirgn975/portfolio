@@ -11,12 +11,12 @@ projects:
     icon: i-heroicons-arrow-path-rounded-square
     img: /projects/subwatch.jpeg
     class: "lg:col-span-3"
-  - title: Convertedge
-    description: Simple, no-code installation to automatically shorten and enrich any form, and by that to boost conversion rate of any form on any page.
-    to: https://convertedge.co
+  - title: Convertics
+    description: Radically new analytics. Radically better decisions.
+    to: https://convertics.ai
     target: _blank
-    icon: i-heroicons-cube-transparent
-    img: /projects/convertedge.png
+    icon: i-heroicons-square-3-stack-3d
+    img: /projects/convertics.png
     class: "lg:col-span-3"
   - title: LearnGit
     description: "An interactive course to understand and leverage two of the most indispensable tools in modern software development: git and GitHub."

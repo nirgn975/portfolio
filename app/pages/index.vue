@@ -1,23 +1,23 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData("index", () => queryCollection("index").first());
-const { data: posts } = await useAsyncData("posts", () => queryCollection("posts").order("date", "DESC").where("draft", "<>", true).limit(3).all());
+  const { data: page } = await useAsyncData("index", () => queryCollection("index").first());
+  const { data: posts } = await useAsyncData("posts", () => queryCollection("posts").order("date", "DESC").where("draft", "<>", true).limit(3).all());
 
-useSeoMeta({
-  ogSiteName: page.value?.title,
-  title: page.value?.title,
-  ogTitle: page.value?.title,
-  twitterTitle: page.value?.title,
-  description: page.value?.description,
-  ogDescription: page.value?.description,
-  twitterDescription: page.value?.description,
-  ogImage: "https://nir.galons.io/social-card.png",
-  twitterImage: "https://nir.galons.io/social-card.png",
-  twitterCard: "summary_large_image",
-  ogImageType: "image/png",
-  ogUrl: "https://nir.galons.io",
-  twitterCreator: "@nirgn975",
-  twitterSite: "@nirgn975",
-});
+  useSeoMeta({
+    ogSiteName: page.value?.title,
+    title: page.value?.title,
+    ogTitle: page.value?.title,
+    twitterTitle: page.value?.title,
+    description: page.value?.description,
+    ogDescription: page.value?.description,
+    twitterDescription: page.value?.description,
+    ogImage: "https://nir.galons.io/social-card.png",
+    twitterImage: "https://nir.galons.io/social-card.png",
+    twitterCard: "summary_large_image",
+    ogImageType: "image/png",
+    ogUrl: "https://nir.galons.io",
+    twitterCreator: "@nirgn975",
+    twitterSite: "@nirgn975",
+  });
 </script>
 
 <template>
@@ -92,7 +92,8 @@ useSeoMeta({
           spotlight
           spotlight-color="primary"
         >
-          <img :src="card.img" :alt="card.title" class="w-full rounded-lg" />
+          <h2 v-if="card.title == 'Convertics'">Coming soon</h2>
+          <img v-else :src="card.img" :alt="card.title" class="w-full rounded-lg" />
         </UPageCard>
       </UPageGrid>
     </UContainer>

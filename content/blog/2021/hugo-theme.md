@@ -1,6 +1,6 @@
 ---
 title: "Hugo Theme With Developer Focus In Mind"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "Introducing devRes, a developer-focused Hugo resume theme."
 image:
   src: /posts/2021/hugo-theme/hugo-logo-wide.webp
 author:
@@ -13,17 +13,17 @@ badge:
   label: open source contribution
 ---
 
-Lately I was redesign [my own resume website](http://nir.galon.io). I consider it version 4 of the website, because it's the fourth major change I did to it. This website is running for quite a few years now, and every now and then I want to change the underline technology that I use or redesign it, so I spend a weekend and do it.
+Lately I was redesigning [my own resume website](http://nir.galon.io). I consider it version 4 of the website, because it's the fourth major change I did to it. This website has been running for quite a few years now, and every now and then I want to change the underlying technology that I use or redesign it, so I spend a weekend and do it.
 
-This time I also wanted to change the design, but not that drastically. The main things wanted to change are the underline template generator (from [Jekyll](https://jekyllrb.com) to [Hugo](https://gohugo.io)), because I already use Hugo in my blog and I just love it. But I also wanted to add 2 sections that I never saw in any template (and I searched a lot because at first I didn't want to put the time and develop it myself): first is GitHub repos (projects) I want to highlight in my resume. The second section is for the blog, automatically get the latest posts in there.
+This time I also wanted to change the design, but not that drastically. The main thing I wanted to change is the underlying template generator (from [Jekyll](https://jekyllrb.com) to [Hugo](https://gohugo.io)), because I already use Hugo in my blog and I just love it. But I also wanted to add 2 sections that I never saw in any template (and I searched a lot because at first I didn't want to put the time and develop it myself): first is GitHub repos (projects) I want to highlight in my resume. The second section is for the blog, automatically get the latest posts in there.
 
-So, I spent the weekend and did it. I was very pleased wit the results. So much pleased that I thought other people will also want this design and features in their own resume website.
+So, I spent the weekend and did it. I was very pleased with the results. So pleased that I thought other people will also want this design and features in their own resume website.
 
 &nbsp;
 
 ## 1. Hugo Theme
 
-It took me some time to really sit down and do it, but I finally did it. I convert my own resume website to a Hugo theme and I [eating me own dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) - My own resume website uses it, you can check the [source code](https://github.com/nirgn975/resume).
+It took me some time to really sit down and do it, but I finally did it. I converted my own resume website to a Hugo theme and I'm [eating my own dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) - my own resume website uses it, you can check the [source code](https://github.com/nirgn975/resume).
 
 I call the theme **[devRes](https://github.com/nirgn975/devRes)**.
 
@@ -31,7 +31,7 @@ I call the theme **[devRes](https://github.com/nirgn975/devRes)**.
 
 To see this theme in action (without my own content), here is a [live demo](https://nirgn975.github.io/devRes) site which is rendered with this theme and some content for documentation.
 
-There are a lot of other great features that this theme have, like:
+There are a lot of other great features that this theme has, like:
 
 - Responsive layout.
 - Light / Dark mode.
@@ -47,7 +47,7 @@ There are a lot of other great features that this theme have, like:
 
 ## 2. Getting started
 
-If you want to use this theme, it can't get any easier then this. All you need to do is to install [Hugo](https://gohugo.io), create a new website, and clone this theme as a submodule
+If you want to use this theme, it can't get any easier than this. All you need to do is to install [Hugo](https://gohugo.io), create a new website, and clone this theme as a submodule
 
 ```bash [terminal]
 brew install hugo

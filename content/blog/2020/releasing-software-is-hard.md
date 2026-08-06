@@ -1,6 +1,6 @@
 ---
 title: "Releasing Software Is Hard! Is it?"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "Automating versioning and releases with Semantic Versioning and semantic-release."
 image:
   src: /posts/2020/releasing-software-is-hard/software-development.webp
 author:
@@ -15,9 +15,9 @@ badge:
 
 One of the things I always got frustrated with is software releases and versioning.
 
-In the old days, back when I started to work at my first job as a software engineer my team leader was handle all of the project management. It means he knew on what issue you're working at the moment, and when (in what version of the software) it should be merged and be released. To this day I think the versioning was just a random thing there - doesn't mean anything except for all of us to be on the same page when we talked about it or reference it.
+In the old days, back when I started to work at my first job as a software engineer my team leader handled all of the project management. It means he knew what issue you're working on at the moment, and when (in what version of the software) it should be merged and be released. To this day I think the versioning was just a random thing there - doesn't mean anything except for all of us to be on the same page when we talked about it or reference it.
 
-Bugs and features were pushed forward to next versions without any real systematic reasoning about it, and I knew something about it was off. That's when I opened up my browser and just start googling about the topic. I search and read a lot, and finally I ran into [Semantic Versioning](https://semver.org).
+Bugs and features were pushed forward to next versions without any real systematic reasoning about it, and I knew something about it was off. That's when I opened up my browser and just started googling about the topic. I searched and read a lot, and finally I ran into [Semantic Versioning](https://semver.org).
 
 <!--more-->
 
@@ -27,9 +27,9 @@ Bugs and features were pushed forward to next versions without any real systemat
 
 Semantic Versioning (or [semver](https://github.com/semver/semver)) is basically a simple set of rules and requirements that dictate how version numbers are assigned and incremented. In practice SemVer is probably similar to what you're already doing right now, but similar is worthless. Because without compliance to some sort of formal specification, version numbers are essentially useless for dependency management.
 
-Semantic Versioning authored back in 2011 and it's already widely used by the open source community. All the major open source projects embraced it, so it's at least worth reading the specification. Once you follow the semver specification your version numbers and the way they change convey meaning about the underlying code and what has been modified from one version to the next.
+Semantic Versioning was authored back in 2011 and it's already widely used by the open source community. All the major open source projects embraced it, so it's at least worth reading the specification. Once you follow the semver specification your version numbers and the way they change convey meaning about the underlying code and what has been modified from one version to the next.
 
-If that's not convince you maybe the fact that the Semantic Versioning specification was originally authored by [Tom Preston-Werner](https://github.com/mojombo) (cofounder of GitHub) will.
+If that's not convincing you maybe the fact that the Semantic Versioning specification was originally authored by [Tom Preston-Werner](https://github.com/mojombo) (cofounder of GitHub) will.
 
 So, if you're still reading this post I assume you're somewhat interested in semver. So go read the specification, it's short, concise, and translated to a lot of languages. I'll just mention the basics: A version format is `X.Y.Z` (`Major.Minor.Patch` respectively). The `Major` is incremented if the API additions/changes are **backwards incompatible** (i.e. breaking changes). The `Minor` is incremented if the API additions/changes are **backwards compatible**. And the `Patch` is incremented if a bug fix **not affecting** the API at all.
 
@@ -39,17 +39,17 @@ So, if you're still reading this post I assume you're somewhat interested in sem
 
 ## 2. Sounds Great, but..
 
-Semantic Versioning sounds great, but it present a new problem. Every release someone has to sit down, read the issues/pull requests and write a `changelog` for that version, from that `changelog` he should bump the version of the software accordingly. This sounds like a really tedious manual job. This alone kept me from really using SemVer for a long time.
+Semantic Versioning sounds great, but it presents a new problem. Every release someone has to sit down, read the issues/pull requests and write a `changelog` for that version, from that `changelog` he should bump the version of the software accordingly. This sounds like a really tedious manual job. This alone kept me from really using SemVer for a long time.
 
-Until I found [semantic-release](https://github.com/semantic-release/semantic-release)! Which is a tool to automates the whole package release workflow (determining the next version number, generating the release notes - `changelog`, and publishing the package). This removes the immediate connection between human emotions and version numbers, strictly following the [Semantic Versioning](http://semver.org) specification.
+Until I found [semantic-release](https://github.com/semantic-release/semantic-release)! Which is a tool to automate the whole package release workflow (determining the next version number, generating the release notes - `changelog`, and publishing the package). This removes the immediate connection between human emotions and version numbers, strictly following the [Semantic Versioning](http://semver.org) specification.
 
-To make our life even more simple we can use the [Release me!](https://github.com/marketplace/actions/release-me#create-a-release) GitHub action which use [semantic-release](https://github.com/semantic-release/semantic-release) under the hood.
+To make our life even simpler we can use the [Release me!](https://github.com/marketplace/actions/release-me#create-a-release) GitHub action which uses [semantic-release](https://github.com/semantic-release/semantic-release) under the hood.
 
 ![Automate All The Things](/posts/2020/releasing-software-is-hard/automate-all-the-things.webp){ .rounded-lg .mx-auto }
 
 But how semantic-release knows what part of the version it should bump? It uses the commit messages to determine the type of changes in the codebase. So that means we need to adhere to a specific commit message format. By default the semantic-release follows the [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines), but you can change it with a `config` file. We'll not change it for this post because this format is widely used by the open source community.
 
-I starting to get a feeling here we just kicking the ball to different places and not really have a solution to the problem. Because now we need to learn and manually write our commit messages in a specific format.
+I'm starting to get a feeling here we're just kicking the ball to different places and don't really have a solution to the problem. Because now we need to learn and manually write our commit messages in a specific format.
 
 &nbsp;
 
@@ -61,13 +61,13 @@ Again, fear not my young padawan. [commitizen](https://github.com/commitizen/cz-
 
 ![Commitizen In Action](/posts/2020/releasing-software-is-hard/commitizen-in-action.webp){ .rounded-lg .mx-auto }
 
-So, let's recap all the tools so far. If we'll use [commitizen](https://github.com/commitizen/cz-cli) for `commit`s, our commits messages will be in a format compatible with [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) and [Conventional Commits](https://www.conventionalcommits.org). If our commits are compatible with those formats [semantic-release](https://github.com/semantic-release/semantic-release) will determining the next version number, generating the release notes, and publishing the package by the [Semantic Versioning](https://semver.org) specification. Perfect!
+So, let's recap all the tools so far. If we use [commitizen](https://github.com/commitizen/cz-cli) for `commit`s, our commit messages will be in a format compatible with [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) and [Conventional Commits](https://www.conventionalcommits.org). If our commits are compatible with those formats [semantic-release](https://github.com/semantic-release/semantic-release) will determine the next version number, generate the release notes, and publish the package by the [Semantic Versioning](https://semver.org) specification. Perfect!
 
 &nbsp;
 
 ## 4. Time to get our hands dirty
 
-Let's start by creating a simple `package.json` file with npm in our project directory (let's call it `deweb` because that's what the [namelix](https://namelix.com) generator generate for us).
+Let's start by creating a simple `package.json` file with npm in our project directory (let's call it `deweb` because that's what the [namelix](https://namelix.com) generator generated for us).
 
 ```bash [terminal]
 mkdir deweb
@@ -88,7 +88,7 @@ npm install commitizen -g
 commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
 
-This just tells commitizen which adapter we actually want our contributors to use when they try to commit to this repo. And now you can use `git cz` command instead of `git commit` and the commitizen prompt will guide your through the commit message and `commit` all the files.
+This just tells commitizen which adapter we actually want our contributors to use when they try to commit to this repo. And now you can use `git cz` command instead of `git commit` and the commitizen prompt will guide you through the commit message and `commit` all the files.
 
 ```bash [terminal]
 git cz
@@ -100,16 +100,16 @@ git cz
 
 ## 5. Release the damn thing
 
-Now, we can use [semantic-release](https://github.com/semantic-release/semantic-release) manually to automatically generate the release (I mean to write the command by hands every time we want to create a new release). But we can do it even better! We not do it automagically in GitHub actions? and even tie it up to GitHub milestones.
+Now, we can use [semantic-release](https://github.com/semantic-release/semantic-release) manually to automatically generate the release (I mean to write the command by hand every time we want to create a new release). But we can do it even better! Why not do it automagically in GitHub actions, and even tie it up to GitHub milestones.
 
-So, let's create a GitHub action that uses the [Release me!](https://github.com/marketplace/actions/release-me#create-a-release) action and run every time there is a milestones event on GitHub.
+So, let's create a GitHub action that uses the [Release me!](https://github.com/marketplace/actions/release-me#create-a-release) action and runs every time there is a milestone event on GitHub.
 
 ```bash [terminal]
 mkdir -p .github/workflows
 touch .github/workflows/cd.yml
 ```
 
-In this file you should copy the default template of a [GitHub action](https://docs.github.com/en/free-pro-team@latest/actions), and use the [release-me-action](https://github.com/marketplace/actions/release-me#create-a-release). Then you need to change the `on` key on the top of the file `milestone` and just when a milestone closed.
+In this file you should copy the default template of a [GitHub action](https://docs.github.com/en/free-pro-team@latest/actions), and use the [release-me-action](https://github.com/marketplace/actions/release-me#create-a-release). Then you need to change the `on` key on the top of the file to `milestone` and only trigger when a milestone is closed.
 
 ```yaml [.github/workflows/cd.yml]
 name: Continuous Deployment
@@ -148,7 +148,7 @@ Then let's close the milestone (just hit the `close` button), and refresh the **
 
 ![GitHub Actions After Milestone Closed](/posts/2020/releasing-software-is-hard/github-actions-after-milestone-closed.webp){ .rounded-lg .mx-auto }
 
-And when the workflow finish to run, let's open the releases page and see our new release (you can notice the action also created a `changelog.md` file with all the changes, and it'll update this file with every release).
+And when the workflow finishes running, let's open the releases page and see our new release (you can notice the action also created a `changelog.md` file with all the changes, and it'll update this file with every release).
 
 ![GitHub Releases After Action Completed](/posts/2020/releasing-software-is-hard/github-releases-after-action-completed.webp){ .rounded-lg .mx-auto }
 
@@ -156,6 +156,6 @@ And when the workflow finish to run, let's open the releases page and see our ne
 
 ## 6. Summary
 
-To recap, we now release our software automatically without any human intervention except to `close` the milestone (we can easily change it on the GitHub workflow). Our commit messages are nicely organized with [commitizen](https://github.com/commitizen/cz-cli) by the [Conventional Commits](https://www.conventionalcommits.org) specification. Our release happen automatically with GitHub actions. And the release itself is generated with [semantic-release](https://github.com/semantic-release/semantic-release) -the next version number, the release notes and the publishing itself to GitHub releases.
+To recap, we now release our software automatically without any human intervention except to `close` the milestone (we can easily change it on the GitHub workflow). Our commit messages are nicely organized with [commitizen](https://github.com/commitizen/cz-cli) by the [Conventional Commits](https://www.conventionalcommits.org) specification. Our release happens automatically with GitHub actions. And the release itself is generated with [semantic-release](https://github.com/semantic-release/semantic-release) - the next version number, the release notes and the publishing itself to GitHub releases.
 
-If you want to see it all happen or maybe got stuck a long the way, just go over to the [deweb](https://github.com/nirgn975/deweb) repo on GitHub and check out the code.
+If you want to see it all happen or maybe got stuck along the way, just go over to the [deweb](https://github.com/nirgn975/deweb) repo on GitHub and check out the code.

@@ -1,6 +1,6 @@
 ---
 title: "Load Balancing Applications with HAProxy and Docker"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "Load balancing containerized apps with Docker Compose, Docker Swarm, and HAProxy."
 image:
   src: /posts/2017/load-balancing-applications-with-haproxy-and-docker/lets-start.webp
 author:
@@ -17,10 +17,10 @@ A tutorial for a real world docker use case.
 
 Recently I read a lot of articles about load balancing applications with [Docker](https://www.docker.com), Docker Compose, and Docker Swarm for my work. We have a couple of hundreds of instances and we need to manage them and do load balancing between them.
 
-There are a lot of articles about this topic, but sadly the use case they present is quit simple and because of that they really don’t help. Here is a couple of examples to what I mean:
+There are a lot of articles about this topic, but sadly the use case they present is quite simple and because of that they really don’t help. Here is a couple of examples to what I mean:
 
 1. Manually create hundreds of containers is not practical.
-2. Create hundred of containers each one on a different port is not practical.
+2. Creating hundreds of containers each one on a different port is not practical.
 3. Write the containers ip and port manually in nginx conf file is not practical.
 
 For that reason I decided to write this post and present the way we use. It’s not by any mean the “right” way or the only way, but it’s the way that works for us right now. Also, I’m assuming you know Docker, Docker Compose, and Docker Swarm.
@@ -108,14 +108,14 @@ networks:
 Let’s explain what the hell is happening here. We create 2 services:
 
 1. The first service is our Node.js app (that call `awesome`). It builds that service from an image that call `awesome` (that we previously built). We expose port 8080, and add an environment variable named `SERVICE_PORTS` with the port we exposed (we do it for the HAProxy, I’ll explain why later on). We also create 20 replicas from that image (20 containers) and have some update and restart settings for them. The important thing to notice is that we put all those containers in a network called `web` (we create the network later, in the end of the file).
-2. The second service we create is `HAProxy` from the haproxy Docker (the compony) uses in their cloud (we don’t build it and doesn’t create a `Dockerfile` for it, we just specify from where to pull the image). It `depends_on` the `awesome` service, so it won’t boot until the `awesome` service is finished (i.e. all of the container are up and running). It’s also shared the `docker.sock` file (`volumes` field). This is the file the HAProxy container needs to look at to learn about the containers in it’s network (new and existing containers). We expose port 80, and put this container in the `web` network, In the `deploy` setting, we just tell it to always put this container on the manager node (this settings is related to Docker Swarm, when we have couple of node (i.e. servers).
+2. The second service we create is `HAProxy` from the haproxy Docker (the company) uses in their cloud (we don’t build it and doesn’t create a `Dockerfile` for it, we just specify from where to pull the image). It `depends_on` the `awesome` service, so it won’t boot until the `awesome` service is finished (i.e. all of the container are up and running). It’s also shared the `docker.sock` file (`volumes` field). This is the file the HAProxy container needs to look at to learn about the containers in its network (new and existing containers). We expose port 80, and put this container in the `web` network, In the `deploy` setting, we just tell it to always put this container on the manager node (these settings are related to Docker Swarm, when we have a couple of nodes (i.e. servers).
 3. The last thing we do is to create the network (named `web`).
 
 ![Our project looks good so far, and we almost at the finish line!](/posts/2017/load-balancing-applications-with-haproxy-and-docker/our-project-looks-good-so-far.webp){ .rounded-lg .mx-auto }
 
 ## 3. DockerCloud HAProxy
 
-For our HTTP Server we use HAProxy, but not the regular version of HAProxy, we use the version [docker uses in their cloud](https://github.com/docker/dockercloud-haproxy). That’s why we set an environment variable named `SERVICE_PORTS` in our `awesome` service, because this is the ports that will be exposed to HAProxy (we can put multiple ports there by separating them with comma). We also set an environment variable named `BALANCE` to set the load balancing algorithm to be `leastconn` and not `roundrobin` (which is what set in default).
+For our HTTP Server we use HAProxy, but not the regular version of HAProxy, we use the version [docker uses in their cloud](https://github.com/docker/dockercloud-haproxy). That’s why we set an environment variable named `SERVICE_PORTS` in our `awesome` service, because this is the ports that will be exposed to HAProxy (we can put multiple ports there by separating them with a comma). We also set an environment variable named `BALANCE` to set the load balancing algorithm to be `leastconn` and not `roundrobin` (which is what's set by default).
 
 ### 3.1 Docker Swarm
 
@@ -146,9 +146,9 @@ http
   .listen(8080);
 ```
 
-So we need to build the image again, but this time it’s the second version of the app so we’ll write `docker build -t awesome:v2 .` and we’ll create an image called `awesome` but with a `v2` tag. To update our containers in the `awesome` service to use the `v2` version of our app (without stop the service) we’ll write `docker service update --image awesome:v2 prod_awesome` and our service called `awesome`, in `prod` stack, will update it’s containers five by five to use the second version of our app (why 5 containers at a time? because we wrote `parallelism: 5` in our `docker-compose.yml` file.
+So we need to build the image again, but this time it’s the second version of the app so we’ll write `docker build -t awesome:v2 .` and we’ll create an image called `awesome` but with a `v2` tag. To update our containers in the `awesome` service to use the `v2` version of our app (without stop the service) we’ll write `docker service update --image awesome:v2 prod_awesome` and our service called `awesome`, in `prod` stack, will update its containers five by five to use the second version of our app (why 5 containers at a time? because we wrote `parallelism: 5` in our `docker-compose.yml` file.
 
-We can see our docker slowly (but surly) kill the old containers and create new ones with the second version of our app. And when we hit `http://localhost` we still get a response, there is no downtime.
+We can see our docker slowly (but surely) kill the old containers and create new ones with the second version of our app. And when we hit `http://localhost` we still get a response, there is no downtime.
 
 ![Some containers are already use the second version. No Downtime (:](/posts/2017/load-balancing-applications-with-haproxy-and-docker/some-containers-are-already-use-the-second-version.webp){ .rounded-lg .mx-auto width="218" height="173" }
 
@@ -156,8 +156,8 @@ Also, if we want to scale the service to more than 20 containers, we can do it w
 
 &nbsp;
 
-## 4. Summery
+## 4. Summary
 
-So, we don’t need to create hundreds of containers manually. We don’t need to place every container of our app in a different port. We don’t need to manually write our containers ip and port in ngninx/haproxy `conf` file. And we can do it with multiple servers (with docker swarm), with multiple services (with docker compose), update our application without downtime, and scale it up (or down) without downtime.
+So, we don’t need to create hundreds of containers manually. We don’t need to place every container of our app in a different port. We don’t need to manually write our containers ip and port in nginx/haproxy `conf` file. And we can do it with multiple servers (with docker swarm), with multiple services (with docker compose), update our application without downtime, and scale it up (or down) without downtime.
 
-Hope it’s been practical, and I would love to hear how you do it in your compony!
+Hope it’s been practical, and I would love to hear how you do it in your company!

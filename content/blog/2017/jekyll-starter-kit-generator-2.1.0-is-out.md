@@ -1,6 +1,6 @@
 ---
 title: "Jekyll Starter Kit generator 2.1.0 is out!"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "What's new in version 2.1.0 of the Jekyll Starter Kit generator."
 image:
   src: /posts/2017/jekyll-starter-kit-generator/jekyll-starter-kit.webp
 author:
@@ -44,7 +44,7 @@ If you can’t wait and already want to try it, all you need to do is `npm insta
 
 ## 2. What’s new in version 2.1.0?
 
-Not much actually. The project is pretty stable with more then 1k uses (through [npm](https://www.npmjs.com/) statistics). But some of the things we do for version 2.1 (from 2.0) is update dependencies, fix a small bug when the website output directory wont be removed before building the project, fix a small bug when deploy to gh-pages, switch from coverall to codecov (by the way the project has 100% coverage!), edit output `README.md` file with more clear instructions, and add a default favicons.
+Not much actually. The project is pretty stable with more than 1k uses (through [npm](https://www.npmjs.com/) statistics). But some of the things we do for version 2.1 (from 2.0) is update dependencies, fix a small bug when the website output directory won't be removed before building the project, fix a small bug when deploy to gh-pages, switch from coverall to codecov (by the way the project has 100% coverage!), edit output `README.md` file with more clear instructions, and add default favicons.
 
 &nbsp;
 

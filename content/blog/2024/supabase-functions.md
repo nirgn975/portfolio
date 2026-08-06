@@ -1,6 +1,6 @@
 ---
 title: "Supabase functions"
-description: "Embark on a tantalizing expedition through the diverse and enchanting flavors of Asia "
+description: "Using a Supabase Postgres trigger to auto-create a profile on signup."
 image:
   src: /posts/2024/supabase-functions/cover.webp
 author:
@@ -13,13 +13,13 @@ badge:
   label: development
 ---
 
-Recently I started to work with [Supabase](https://supabase.com), which I must addmit is a joy to use!, but I was stuck on some logic I wanted to do which is to create an organization and a user profile when a new user signup. So naturally I started to read about supabase functions which are [PostgreSQL functions](https://www.postgresql.org/docs/current/functions.html).
+Recently I started to work with [Supabase](https://supabase.com), which I must admit is a joy to use!, but I was stuck on some logic I wanted to do which is to create an organization and a user profile when a new user signs up. So naturally I started to read about supabase functions which are [PostgreSQL functions](https://www.postgresql.org/docs/current/functions.html).
 
-It wasn't very easy thing to do, since I didn't use [PostgreSQL](https://www.postgresql.org) since version 9 and I didn't know about all the latest and greatest, but that didn't stopped me from Google Search it, ask ChatGPT about it, watching some YouTube tutorials, and read some blog posts on it - I couldn't find anything close to what I needed to achieve. So I put some old school music and got to work - play with it for hours while reading the PostgreSQL documentation, and finally I succeeded!
+It wasn't a very easy thing to do, since I hadn't used [PostgreSQL](https://www.postgresql.org) since version 9 and I didn't know about all the latest and greatest, but that didn't stop me from Google searching it, asking ChatGPT about it, watching some YouTube tutorials, and reading some blog posts on it - I couldn't find anything close to what I needed to achieve. So I put on some old school music and got to work - played with it for hours while reading the PostgreSQL documentation, and finally I succeeded!
 
-As I said before, I couldn't find anyone that publish something close to it, so I figure I have to.
+As I said before, I couldn't find anyone that published something close to it, so I figured I have to.
 
-The signup method is looking like this:
+The signup method looks like this:
 
 ```javascript [AppRegister.vue]
 const { data, error } = await supabase.auth.signUp({
@@ -35,7 +35,7 @@ const { data, error } = await supabase.auth.signUp({
 });
 ```
 
-As you can see, there is the email and password, which is passed to the signUp method, but the extrea information is `first_name` and `last_name` which I wanted to put in the `profiles` table, and the `organization_name` which I wanted to put in the `organizations` table. And, of course, linked them all together with some old school foreign keys.
+As you can see, there is the email and password, which is passed to the signUp method, but the extra information is `first_name` and `last_name` which I wanted to put in the `profiles` table, and the `organization_name` which I wanted to put in the `organizations` table. And, of course, linked them all together with some old school foreign keys.
 
 &nbsp;
 
@@ -74,7 +74,7 @@ As you can see the `profiles` table is the one linking between the user from `au
 
 ## 2. Function
 
-Now it's time to create the function itself. The function should get the `organization_name` and create a new organization in the `organizations` table. We should save the organization newly created id to then use it when we create a new profile in the `profiles` table, along with the `first_name` and `last_name` from the signUp extrea options.
+Now it's time to create the function itself. The function should get the `organization_name` and create a new organization in the `organizations` table. We should save the organization's newly created id to then use it when we create a new profile in the `profiles` table, along with the `first_name` and `last_name` from the signUp extra options.
 
 ```sql [supabaseTrigger.sql]
 create or replace function handle_new_org_and_profile() returns trigger as $$
@@ -93,7 +93,7 @@ end;
 $$ language plpgsql security definer;
 ```
 
-The object from the signUp call is hosted in this `new` variable, and the extrea options are in the `raw_user_meta_data` field. The two separated insert statment don't share a state, but we need to take the newly created organization id somehow. To do that we `declare` an id at the top of the function which every statement in the function and access too.
+The object from the signUp call is hosted in this `new` variable, and the extra options are in the `raw_user_meta_data` field. The two separate insert statements don't share a state, but we need to take the newly created organization id somehow. To do that we `declare` an id at the top of the function which every statement in the function can access too.
 
 We `returning` the id from the `insert` command `into` the `org_id` variable we declared. Then we can use it in the next `insert` statement for our `organization_id` column.
 
@@ -101,7 +101,7 @@ We `returning` the id from the `insert` command `into` the `org_id` variable we 
 
 ## 3. Trigger
 
-Finally, somehow need to call this function automatically every time a new row is created in the `auth.users` table, and we can do that with [triggers](https://supabase.com/docs/guides/database/postgres/triggers). So let's create a trigger to execute the `handle_new_org_and_profile` function we created above for each row in `auth.users` after the database insert the row.
+Finally, we somehow need to call this function automatically every time a new row is created in the `auth.users` table, and we can do that with [triggers](https://supabase.com/docs/guides/database/postgres/triggers). So let's create a trigger to execute the `handle_new_org_and_profile` function we created above for each row in `auth.users` after the database inserts the row.
 
 ```sql [supabseTrigger.sql]
 create trigger on_auth_user_create_org_and_profile
